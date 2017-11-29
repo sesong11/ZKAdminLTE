@@ -1,0 +1,519 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+        <n:h1>
+            Dashboard
+            <n:small>Control panel</n:small>
+        </n:h1>
+        <n:ol class="breadcrumb">
+            <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+            <n:li class="active">Dashboard</n:li>
+        </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+        <!-- Small boxes (Stat box) -->
+        <n:div class="row">
+            <n:div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <n:div class="small-box bg-aqua">
+                    <n:div class="inner">
+                        <n:h3>150</n:h3>
+
+                        <n:p>New Orders</n:p>
+                    </n:div>
+                    <n:div class="icon">
+                        <n:i class="ion ion-bag"></n:i>
+                    </n:div>
+                    <n:a href="#" class="small-box-footer">More info <n:i class="fa fa-arrow-circle-right"></n:i></n:a>
+                </n:div>
+            </n:div>
+            <!-- ./col -->
+            <n:div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <n:div class="small-box bg-green">
+                    <n:div class="inner">
+                        <n:h3>53<n:sup style="font-size: 20px">%</n:sup></n:h3>
+
+                        <n:p>Bounce Rate</n:p>
+                    </n:div>
+                    <n:div class="icon">
+                        <n:i class="ion ion-stats-bars"></n:i>
+                    </n:div>
+                    <n:a href="#" class="small-box-footer">More info <n:i class="fa fa-arrow-circle-right"></n:i></n:a>
+                </n:div>
+            </n:div>
+            <!-- ./col -->
+            <n:div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <n:div class="small-box bg-yellow">
+                    <n:div class="inner">
+                        <n:h3>44</n:h3>
+
+                        <n:p>User Registrations</n:p>
+                    </n:div>
+                    <n:div class="icon">
+                        <n:i class="ion ion-person-add"></n:i>
+                    </n:div>
+                    <n:a href="#" class="small-box-footer">More info <n:i class="fa fa-arrow-circle-right"></n:i></n:a>
+                </n:div>
+            </n:div>
+            <!-- ./col -->
+            <n:div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <n:div class="small-box bg-red">
+                    <n:div class="inner">
+                        <n:h3>65</n:h3>
+
+                        <n:p>Unique Visitors</n:p>
+                    </n:div>
+                    <n:div class="icon">
+                        <n:i class="ion ion-pie-graph"></n:i>
+                    </n:div>
+                    <n:a href="#" class="small-box-footer">More info <n:i class="fa fa-arrow-circle-right"></n:i></n:a>
+                </n:div>
+            </n:div>
+            <!-- ./col -->
+        </n:div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <n:div class="row">
+            <!-- Left col -->
+            <n:section class="col-lg-7 connectedSortable">
+                <!-- Custom tabs (Charts with tabs)-->
+                <n:div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <n:ul class="nav nav-tabs pull-right">
+                        <n:li class="active"><n:a href="#revenue-chart" data-toggle="tab">Area</n:a></n:li>
+                        <n:li><n:a href="#sales-chart" data-toggle="tab">Donut</n:a></n:li>
+                        <n:li class="pull-left header"><n:i class="fa fa-inbox"></n:i> Sales</n:li>
+                    </n:ul>
+                    <n:div class="tab-content no-padding">
+                        <!-- Morris chart - Sales -->
+                        <n:div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></n:div>
+                        <n:div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></n:div>
+                    </n:div>
+                </n:div>
+                <!-- /.nav-tabs-custom -->
+
+                <!-- Chat box -->
+                <n:div class="box box-success">
+                    <n:div class="box-header">
+                        <n:i class="fa fa-comments-o"></n:i>
+
+                        <n:h3 class="box-title">Chat</n:h3>
+
+                        <n:div class="box-tools pull-right" data-toggle="tooltip" title="Status">
+                            <n:div class="btn-group" data-toggle="btn-toggle">
+                                <n:button type="button" class="btn btn-default btn-sm active"><n:i class="fa fa-square text-green"></n:i>
+                                </n:button>
+                                <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-square text-red"></n:i></n:button>
+                            </n:div>
+                        </n:div>
+                    </n:div>
+                    <n:div class="box-body chat" id="chat-box">
+                        <!-- chat item -->
+                        <n:div class="item">
+                            <n:img src="adminlte/dist/img/user4-128x128.jpg" alt="user image" class="online" />
+
+                            <n:p class="message">
+                                <n:a href="#" class="name">
+                                    <n:small class="text-muted pull-right"><n:i class="fa fa-clock-o"></n:i> 2:15</n:small>
+                                    Mike Doe
+                                </n:a>
+                                I would like to meet you to discuss the latest news about
+                                the arrival of the new theme. They say it is going to be one the
+                                best themes on the market
+                            </n:p>
+                            <n:div class="attachment">
+                                <n:h4>Attachments:</n:h4>
+
+                                <n:p class="filename">
+                                    Theme-thumbnail-image.jpg
+                                </n:p>
+
+                                <n:div class="pull-right">
+                                    <n:button type="button" class="btn btn-primary btn-sm btn-flat">Open</n:button>
+                                </n:div>
+                            </n:div>
+                            <!-- /.attachment -->
+                        </n:div>
+                        <!-- /.item -->
+                        <!-- chat item -->
+                        <n:div class="item">
+                            <n:img src="adminlte/dist/img/user3-128x128.jpg" alt="user image" class="offline" />
+
+                            <n:p class="message">
+                                <n:a href="#" class="name">
+                                    <n:small class="text-muted pull-right"><n:i class="fa fa-clock-o"></n:i> 5:15</n:small>
+                                    Alexander Pierce
+                                </n:a>
+                                I would like to meet you to discuss the latest news about
+                                the arrival of the new theme. They say it is going to be one the
+                                best themes on the market
+                            </n:p>
+                        </n:div>
+                        <!-- /.item -->
+                        <!-- chat item -->
+                        <n:div class="item">
+                            <n:img src="adminlte/dist/img/user2-160x160.jpg" alt="user image" class="offline" />
+
+                            <n:p class="message">
+                                <n:a href="#" class="name">
+                                    <n:small class="text-muted pull-right"><n:i class="fa fa-clock-o"></n:i> 5:30</n:small>
+                                    Susan Doe
+                                </n:a>
+                                I would like to meet you to discuss the latest news about
+                                the arrival of the new theme. They say it is going to be one the
+                                best themes on the market
+                            </n:p>
+                        </n:div>
+                        <!-- /.item -->
+                    </n:div>
+                    <!-- /.chat -->
+                    <n:div class="box-footer">
+                        <n:div class="input-group">
+                            <n:input class="form-control" placeholder="Type message..." />
+
+                            <n:div class="input-group-btn">
+                                <n:button type="button" class="btn btn-success"><n:i class="fa fa-plus"></n:i></n:button>
+                            </n:div>
+                        </n:div>
+                    </n:div>
+                </n:div>
+                <!-- /.box (chat box) -->
+
+                <!-- TO DO List -->
+                <n:div class="box box-primary">
+                    <n:div class="box-header">
+                        <n:i class="ion ion-clipboard"></n:i>
+                        <n:h3 class="box-title">To Do List</n:h3>
+                        <n:div class="box-tools pull-right">
+                            <n:ul class="pagination pagination-sm inline">
+                                <n:li><n:a href="#"> </n:a></n:li>
+                                <n:li><n:a href="#">1</n:a></n:li>
+                                <n:li><n:a href="#">2</n:a></n:li>
+                                <n:li><n:a href="#">3</n:a></n:li>
+                                <n:li><n:a href="#"> </n:a></n:li>
+                            </n:ul>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+                        <n:ul class="todo-list">
+                            <n:li>
+                                <!-- drag handle -->
+                                <n:span class="handle">
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                </n:span>
+                                <!-- checkbox -->
+                                <n:input type="checkbox" value="" />
+                                <!-- todo text -->
+                                <n:span class="text">Design a nice theme</n:span>
+                                <!-- Emphasis label -->
+                                <n:small class="label label-danger"><n:i class="fa fa-clock-o"></n:i> 2 mins</n:small>
+                                <!-- General tools such as edit or delete-->
+                                <n:div class="tools">
+                                    <n:i class="fa fa-edit"></n:i>
+                                    <n:i class="fa fa-trash-o"></n:i>
+                                </n:div>
+                            </n:li>
+                            <n:li>
+                                <n:span class="handle">
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                </n:span>
+                                <n:input type="checkbox" value="" />
+                                <n:span class="text">Make the theme responsive</n:span>
+                                <n:small class="label label-info"><n:i class="fa fa-clock-o"></n:i> 4 hours</n:small>
+                                <n:div class="tools">
+                                    <n:i class="fa fa-edit"></n:i>
+                                    <n:i class="fa fa-trash-o"></n:i>
+                                </n:div>
+                            </n:li>
+                            <n:li>
+                                <n:span class="handle">
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                </n:span>
+                                <n:input type="checkbox" value="" />
+                                <n:span class="text">Let theme shine like a star</n:span>
+                                <n:small class="label label-warning"><n:i class="fa fa-clock-o"></n:i> 1 day</n:small>
+                                <n:div class="tools">
+                                    <n:i class="fa fa-edit"></n:i>
+                                    <n:i class="fa fa-trash-o"></n:i>
+                                </n:div>
+                            </n:li>
+                            <n:li>
+                                <n:span class="handle">
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                </n:span>
+                                <n:input type="checkbox" value="" />
+                                <n:span class="text">Let theme shine like a star</n:span>
+                                <n:small class="label label-success"><n:i class="fa fa-clock-o"></n:i> 3 days</n:small>
+                                <n:div class="tools">
+                                    <n:i class="fa fa-edit"></n:i>
+                                    <n:i class="fa fa-trash-o"></n:i>
+                                </n:div>
+                            </n:li>
+                            <n:li>
+                                <n:span class="handle">
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                </n:span>
+                                <n:input type="checkbox" value="" />
+                                <n:span class="text">Check your messages and notifications</n:span>
+                                <n:small class="label label-primary"><n:i class="fa fa-clock-o"></n:i> 1 week</n:small>
+                                <n:div class="tools">
+                                    <n:i class="fa fa-edit"></n:i>
+                                    <n:i class="fa fa-trash-o"></n:i>
+                                </n:div>
+                            </n:li>
+                            <n:li>
+                                <n:span class="handle">
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                    <n:i class="fa fa-ellipsis-v"></n:i>
+                                </n:span>
+                                <n:input type="checkbox" value="" />
+                                <n:span class="text">Let theme shine like a star</n:span>
+                                <n:small class="label label-default"><n:i class="fa fa-clock-o"></n:i> 1 month</n:small>
+                                <n:div class="tools">
+                                    <n:i class="fa fa-edit"></n:i>
+                                    <n:i class="fa fa-trash-o"></n:i>
+                                </n:div>
+                            </n:li>
+                        </n:ul>
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer clearfix no-border">
+                        <n:button type="button" class="btn btn-default pull-right"><n:i class="fa fa-plus"></n:i> Add item</n:button>
+                    </n:div>
+                </n:div>
+                <!-- /.box -->
+
+                <!-- quick email widget -->
+                <n:div class="box box-info">
+                    <n:div class="box-header">
+                        <n:i class="fa fa-envelope"></n:i>
+
+                        <n:h3 class="box-title">Quick Email</n:h3>
+                        <!-- tools box -->
+                        <n:div class="pull-right box-tools">
+                            <n:button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
+                                    title="Remove">
+                                <n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                        <!-- /. tools -->
+                    </n:div>
+                    <n:div class="box-body">
+                        <n:form action="#" method="post">
+                            <n:div class="form-group">
+                                <n:input type="email" class="form-control" name="emailto" placeholder="Email to:" />
+                            </n:div>
+                            <n:div class="form-group">
+                                <n:input type="text" class="form-control" name="subject" placeholder="Subject" />
+                            </n:div>
+                            <n:div>
+                                <n:textarea class="textarea" placeholder="Message"
+                                          style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></n:textarea>
+                            </n:div>
+                        </n:form>
+                    </n:div>
+                    <n:div class="box-footer clearfix">
+                        <n:button type="button" class="pull-right btn btn-default" id="sendEmail">Send
+                            <n:i class="fa fa-arrow-circle-right"></n:i></n:button>
+                    </n:div>
+                </n:div>
+
+            </n:section>
+            <!-- /.Left col -->
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <n:section class="col-lg-5 connectedSortable">
+
+                <!-- Map box -->
+                <n:div class="box box-solid bg-light-blue-gradient">
+                    <n:div class="box-header">
+                        <!-- tools box -->
+                        <n:div class="pull-right box-tools">
+                            <n:button type="button" class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip"
+                                    title="Date range">
+                                <n:i class="fa fa-calendar"></n:i></n:button>
+                            <n:button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse"
+                                    data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+                                <n:i class="fa fa-minus"></n:i></n:button>
+                        </n:div>
+                        <!-- /. tools -->
+
+                        <n:i class="fa fa-map-marker"></n:i>
+
+                        <n:h3 class="box-title">
+                            Visitors
+                        </n:h3>
+                    </n:div>
+                    <n:div class="box-body">
+                        <n:div id="world-map" style="height: 250px; width: 100%;"></n:div>
+                    </n:div>
+                    <!-- /.box-body-->
+                    <n:div class="box-footer no-border">
+                        <n:div class="row">
+                            <n:div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                <n:div id="sparkline-1"></n:div>
+                                <n:div class="knob-label">Visitors</n:div>
+                            </n:div>
+                            <!-- ./col -->
+                            <n:div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                <n:div id="sparkline-2"></n:div>
+                                <n:div class="knob-label">Online</n:div>
+                            </n:div>
+                            <!-- ./col -->
+                            <n:div class="col-xs-4 text-center">
+                                <n:div id="sparkline-3"></n:div>
+                                <n:div class="knob-label">Exists</n:div>
+                            </n:div>
+                            <!-- ./col -->
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                </n:div>
+                <!-- /.box -->
+
+                <!-- solid sales graph -->
+                <n:div class="box box-solid bg-teal-gradient">
+                    <n:div class="box-header">
+                        <n:i class="fa fa-th"></n:i>
+
+                        <n:h3 class="box-title">Sales Graph</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn bg-teal btn-sm" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn bg-teal btn-sm" data-widget="remove"><n:i class="fa fa-times"></n:i>
+                            </n:button>
+                        </n:div>
+                    </n:div>
+                    <n:div class="box-body border-radius-none">
+                        <n:div class="chart" id="line-chart" style="height: 250px;"></n:div>
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer no-border">
+                        <n:div class="row">
+                            <n:div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                <n:input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
+                                       data-fgColor="#39CCCC"/>
+
+                                <n:div class="knob-label">Mail-Orders</n:div>
+                            </n:div>
+                            <!-- ./col -->
+                            <n:div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                <n:input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
+                                       data-fgColor="#39CCCC" />
+
+                                <n:div class="knob-label">Online</n:div>
+                            </n:div>
+                            <!-- ./col -->
+                            <n:div class="col-xs-4 text-center">
+                                <n:input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
+                                       data-fgColor="#39CCCC" />
+
+                                <n:div class="knob-label">In-Store</n:div>
+                            </n:div>
+                            <!-- ./col -->
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                    <!-- /.box-footer -->
+                </n:div>
+                <!-- /.box -->
+
+                <!-- Calendar -->
+                <n:div class="box box-solid bg-green-gradient">
+                    <n:div class="box-header">
+                        <n:i class="fa fa-calendar"></n:i>
+
+                        <n:h3 class="box-title">Calendar</n:h3>
+                        <!-- tools box -->
+                        <n:div class="pull-right box-tools">
+                            <!-- button with a dropdown -->
+                            <n:div class="btn-group">
+                                <n:button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+                                    <n:i class="fa fa-bars"></n:i></n:button>
+                                <n:ul class="dropdown-menu pull-right" role="menu">
+                                    <n:li><n:a href="#">Add new event</n:a></n:li>
+                                    <n:li><n:a href="#">Clear events</n:a></n:li>
+                                    <n:li class="divider"></n:li>
+                                    <n:li><n:a href="#">View calendar</n:a></n:li>
+                                </n:ul>
+                            </n:div>
+                            <n:button type="button" class="btn btn-success btn-sm" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-success btn-sm" data-widget="remove"><n:i class="fa fa-times"></n:i>
+                            </n:button>
+                        </n:div>
+                        <!-- /. tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body no-padding">
+                        <!--The calendar -->
+                        <n:div id="calendar" style="width: 100%"></n:div>
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer text-black">
+                        <n:div class="row">
+                            <n:div class="col-sm-6">
+                                <!-- Progress bars -->
+                                <n:div class="clearfix">
+                                    <n:span class="pull-left">Task #1</n:span>
+                                    <n:small class="pull-right">90%</n:small>
+                                </n:div>
+                                <n:div class="progress xs">
+                                    <n:div class="progress-bar progress-bar-green" style="width: 90%;"></n:div>
+                                </n:div>
+
+                                <n:div class="clearfix">
+                                    <n:span class="pull-left">Task #2</n:span>
+                                    <n:small class="pull-right">70%</n:small>
+                                </n:div>
+                                <n:div class="progress xs">
+                                    <n:div class="progress-bar progress-bar-green" style="width: 70%;"></n:div>
+                                </n:div>
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-6">
+                                <n:div class="clearfix">
+                                    <n:span class="pull-left">Task #3</n:span>
+                                    <n:small class="pull-right">60%</n:small>
+                                </n:div>
+                                <n:div class="progress xs">
+                                    <n:div class="progress-bar progress-bar-green" style="width: 60%;"></n:div>
+                                </n:div>
+
+                                <n:div class="clearfix">
+                                    <n:span class="pull-left">Task #4</n:span>
+                                    <n:small class="pull-right">40%</n:small>
+                                </n:div>
+                                <n:div class="progress xs">
+                                    <n:div class="progress-bar progress-bar-green" style="width: 40%;"></n:div>
+                                </n:div>
+                            </n:div>
+                            <!-- /.col -->
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                </n:div>
+                <!-- /.box -->
+
+            </n:section>
+            <!-- right col -->
+        </n:div>
+        <!-- /.row (main row) -->
+
+    </n:section>
+    <!-- /.content -->
+    <n:script>
+        dashboard();
+    </n:script>
+</zk>

@@ -1,0 +1,410 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+        <n:h1>
+            Advanced Form Elements
+            <n:small>Preview</n:small>
+        </n:h1>
+        <n:ol class="breadcrumb">
+            <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+            <n:li><n:a href="?p=forms/general">Forms</n:a></n:li>
+            <n:li class="active">Advanced Elements</n:li>
+        </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+
+        <!-- SELECT2 EXAMPLE -->
+        <n:div class="box box-default">
+            <n:div class="box-header with-border">
+                <n:h3 class="box-title">Select2</n:h3>
+
+                <n:div class="box-tools pull-right">
+                    <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i></n:button>
+                    <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-remove"></n:i></n:button>
+                </n:div>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+                <n:div class="row">
+                    <n:div class="col-md-6">
+                        <n:div class="form-group">
+                            <n:label>Minimal</n:label>
+                            <n:select class="form-control select2" style="width: 100%;">
+                                <n:option selected="selected">Alabama</n:option>
+                                <n:option>Alaska</n:option>
+                                <n:option>California</n:option>
+                                <n:option>Delaware</n:option>
+                                <n:option>Tennessee</n:option>
+                                <n:option>Texas</n:option>
+                                <n:option>Washington</n:option>
+                            </n:select>
+                        </n:div>
+                        <!-- /.form-group -->
+                        <n:div class="form-group">
+                            <n:label>Disabled</n:label>
+                            <n:select class="form-control select2" disabled="disabled" style="width: 100%;">
+                                <n:option selected="selected">Alabama</n:option>
+                                <n:option>Alaska</n:option>
+                                <n:option>California</n:option>
+                                <n:option>Delaware</n:option>
+                                <n:option>Tennessee</n:option>
+                                <n:option>Texas</n:option>
+                                <n:option>Washington</n:option>
+                            </n:select>
+                        </n:div>
+                        <!-- /.form-group -->
+                    </n:div>
+                    <!-- /.col -->
+                    <n:div class="col-md-6">
+                        <n:div class="form-group">
+                            <n:label>Multiple</n:label>
+                            <n:select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                    style="width: 100%;">
+                                <n:option>Alabama</n:option>
+                                <n:option>Alaska</n:option>
+                                <n:option>California</n:option>
+                                <n:option>Delaware</n:option>
+                                <n:option>Tennessee</n:option>
+                                <n:option>Texas</n:option>
+                                <n:option>Washington</n:option>
+                            </n:select>
+                        </n:div>
+                        <!-- /.form-group -->
+                        <n:div class="form-group">
+                            <n:label>Disabled Result</n:label>
+                            <n:select class="form-control select2" style="width: 100%;">
+                                <n:option selected="selected">Alabama</n:option>
+                                <n:option>Alaska</n:option>
+                                <n:option disabled="disabled">California (disabled)</n:option>
+                                <n:option>Delaware</n:option>
+                                <n:option>Tennessee</n:option>
+                                <n:option>Texas</n:option>
+                                <n:option>Washington</n:option>
+                            </n:select>
+                        </n:div>
+                        <!-- /.form-group -->
+                    </n:div>
+                    <!-- /.col -->
+                </n:div>
+                <!-- /.row -->
+            </n:div>
+            <!-- /.box-body -->
+            <n:div class="box-footer">
+                Visit <n:a href="https://select2.github.io/">Select2 documentation</n:a> for more examples and information about
+                the plugin.
+            </n:div>
+        </n:div>
+        <!-- /.box -->
+
+        <n:div class="row">
+            <n:div class="col-md-6">
+
+                <n:div class="box box-danger">
+                    <n:div class="box-header">
+                        <n:h3 class="box-title">Input masks</n:h3>
+                    </n:div>
+                    <n:div class="box-body">
+                        <!-- Date dd/mm/yyyy -->
+                        <n:div class="form-group">
+                            <n:label>Date masks:</n:label>
+
+                            <n:div class="input-group">
+                                <n:div class="input-group-addon">
+                                    <n:i class="fa fa-calendar"></n:i>
+                                </n:div>
+                                <n:input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="data-mask" />
+                            </n:div>
+                            <!-- /.input group -->
+                        </n:div>
+                        <!-- /.form group -->
+
+                        <!-- Date mm/dd/yyyy -->
+                        <n:div class="form-group">
+                            <n:div class="input-group">
+                                <n:div class="input-group-addon">
+                                    <n:i class="fa fa-calendar"></n:i>
+                                </n:div>
+                                <n:input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="data-mask" />
+                            </n:div>
+                            <!-- /.input group -->
+                        </n:div>
+                        <!-- /.form group -->
+
+                        <!-- phone mask -->
+                        <n:div class="form-group">
+                            <n:label>US phone mask:</n:label>
+
+                            <n:div class="input-group">
+                                <n:div class="input-group-addon">
+                                    <n:i class="fa fa-phone"></n:i>
+                                </n:div>
+                                <n:input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask="data-mask" />
+                            </n:div>
+                            <!-- /.input group -->
+                        </n:div>
+                        <!-- /.form group -->
+
+                        <!-- phone mask -->
+                        <n:div class="form-group">
+                            <n:label>Intl US phone mask:</n:label>
+
+                            <n:div class="input-group">
+                                <n:div class="input-group-addon">
+                                    <n:i class="fa fa-phone"></n:i>
+                                </n:div>
+                                <n:input type="text" class="form-control"
+                                       data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask="data-mask" />
+                            </n:div>
+                            <!-- /.input group -->
+                        </n:div>
+                        <!-- /.form group -->
+
+                        <!-- IP mask -->
+                        <n:div class="form-group">
+                            <n:label>IP mask:</n:label>
+
+                            <n:div class="input-group">
+                                <n:div class="input-group-addon">
+                                    <n:i class="fa fa-laptop"></n:i>
+                                </n:div>
+                                <n:input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask="data-mask" />
+                            </n:div>
+                            <!-- /.input group -->
+                        </n:div>
+                        <!-- /.form group -->
+
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+
+                <n:div class="box box-info">
+                    <n:div class="box-header">
+                        <n:h3 class="box-title">Color Time Picker</n:h3>
+                    </n:div>
+                    <n:div class="box-body">
+                        <!-- Color Picker -->
+                        <n:div class="form-group">
+                            <n:label>Color picker:</n:label>
+                            <n:input type="text" class="form-control my-colorpicker1" />
+                        </n:div>
+                        <!-- /.form group -->
+
+                        <!-- Color Picker -->
+                        <n:div class="form-group">
+                            <n:label>Color picker with addon:</n:label>
+
+                            <n:div class="input-group my-colorpicker2">
+                                <n:input type="text" class="form-control" />
+
+                                <n:div class="input-group-addon">
+                                    <n:i></n:i>
+                                </n:div>
+                            </n:div>
+                            <!-- /.input group -->
+                        </n:div>
+                        <!-- /.form group -->
+
+                        <!-- time Picker -->
+                        <n:div class="bootstrap-timepicker">
+                            <n:div class="form-group">
+                                <n:label>Time picker:</n:label>
+
+                                <n:div class="input-group">
+                                    <n:input type="text" class="form-control timepicker" />
+
+                                    <n:div class="input-group-addon">
+                                        <n:i class="fa fa-clock-o"></n:i>
+                                    </n:div>
+                                </n:div>
+                                <!-- /.input group -->
+                            </n:div>
+                            <!-- /.form group -->
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+
+            </n:div>
+            <!-- /.col (left) -->
+            <n:div class="col-md-6">
+                <n:div class="box box-primary">
+                    <n:div class="box-header">
+                        <n:h3 class="box-title">Date picker</n:h3>
+                    </n:div>
+                    <n:div class="box-body">
+                        <!-- Date -->
+                        <n:div class="form-group">
+                            <n:label>Date:</n:label>
+
+                            <n:div class="input-group date">
+                                <n:div class="input-group-addon">
+                                    <n:i class="fa fa-calendar"></n:i>
+                                </n:div>
+                                <n:input type="text" class="form-control pull-right" id="datepicker" />
+                            </n:div>
+                            <!-- /.input group -->
+                        </n:div>
+                        <!-- /.form group -->
+
+                        <!-- Date range -->
+                        <n:div class="form-group">
+                            <n:label>Date range:</n:label>
+
+                            <n:div class="input-group">
+                                <n:div class="input-group-addon">
+                                    <n:i class="fa fa-calendar"></n:i>
+                                </n:div>
+                                <n:input type="text" class="form-control pull-right" id="reservation" />
+                            </n:div>
+                            <!-- /.input group -->
+                        </n:div>
+                        <!-- /.form group -->
+
+                        <!-- Date and time range -->
+                        <n:div class="form-group">
+                            <n:label>Date and time range:</n:label>
+
+                            <n:div class="input-group">
+                                <n:div class="input-group-addon">
+                                    <n:i class="fa fa-clock-o"></n:i>
+                                </n:div>
+                                <n:input type="text" class="form-control pull-right" id="reservationtime" />
+                            </n:div>
+                            <!-- /.input group -->
+                        </n:div>
+                        <!-- /.form group -->
+
+                        <!-- Date and time range -->
+                        <n:div class="form-group">
+                            <n:label>Date range button:</n:label>
+
+                            <n:div class="input-group">
+                                <n:button type="button" class="btn btn-default pull-right" id="daterange-btn">
+                                    <n:span>
+                                        <n:i class="fa fa-calendar"></n:i> Date range picker
+                                    </n:span>
+                                    <n:i class="fa fa-caret-down"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.form group -->
+
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+
+                <!-- iCheck -->
+                <n:div class="box box-success">
+                    <n:div class="box-header">
+                        <n:h3 class="box-title">iCheck - Checkbox &amp; Radio Inputs</n:h3>
+                    </n:div>
+                    <n:div class="box-body">
+                        <!-- Minimal style -->
+
+                        <!-- checkbox -->
+                        <n:div class="form-group">
+                            <n:label>
+                                <n:input type="checkbox" class="minimal" checked="checked" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="checkbox" class="minimal" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="checkbox" class="minimal" disabled="disabled" />
+                                Minimal skin checkbox
+                            </n:label>
+                        </n:div>
+
+                        <!-- radio -->
+                        <n:div class="form-group">
+                            <n:label>
+                                <n:input type="radio" name="r1" class="minimal" checked="checked" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="radio" name="r1" class="minimal" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="radio" name="r1" class="minimal" disabled="disabled" />
+                                Minimal skin radio
+                            </n:label>
+                        </n:div>
+
+                        <!-- Minimal red style -->
+
+                        <!-- checkbox -->
+                        <n:div class="form-group">
+                            <n:label>
+                                <n:input type="checkbox" class="minimal-red" checked="checked" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="checkbox" class="minimal-red" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="checkbox" class="minimal-red" disabled="disabled" />
+                                Minimal red skin checkbox
+                            </n:label>
+                        </n:div>
+
+                        <!-- radio -->
+                        <n:div class="form-group">
+                            <n:label>
+                                <n:input type="radio" name="r2" class="minimal-red" checked="checked" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="radio" name="r2" class="minimal-red" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="radio" name="r2" class="minimal-red" disabled="disabled" />
+                                Minimal red skin radio
+                            </n:label>
+                        </n:div>
+
+                        <!-- Minimal red style -->
+
+                        <!-- checkbox -->
+                        <n:div class="form-group">
+                            <n:label>
+                                <n:input type="checkbox" class="flat-red" checked="checked" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="checkbox" class="flat-red" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="checkbox" class="flat-red" disabled="checked" />
+                                Flat green skin checkbox
+                            </n:label>
+                        </n:div>
+
+                        <!-- radio -->
+                        <n:div class="form-group">
+                            <n:label>
+                                <n:input type="radio" name="r3" class="flat-red" checked="checked" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="radio" name="r3" class="flat-red" />
+                            </n:label>
+                            <n:label>
+                                <n:input type="radio" name="r3" class="flat-red" disabled="disabled" />
+                                Flat green skin radio
+                            </n:label>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer">
+                        Many more skins available. <n:a href="http://fronteed.com/iCheck/">Documentation</n:a>
+                    </n:div>
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col (right) -->
+        </n:div>
+        <!-- /.row -->
+
+    </n:section>
+    <!-- /.content -->
+</zk>

@@ -1,0 +1,89 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+        <n:h1>
+            Text Editors
+            <n:small>Advanced form element</n:small>
+        </n:h1>
+        <n:ol class="breadcrumb">
+            <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+            <n:li><n:a href="?p=forms/general">Forms</n:a></n:li>
+            <n:li class="active">Advanced Elements</n:li>
+        </n:ol>
+    </n:section>
+    <!-- Main content -->
+    <n:section class="content">
+        <n:div class="row">
+            <n:div class="col-md-12">
+                <n:div class="box box-info">
+                    <n:div class="box-header">
+                        <n:h3 class="box-title">CK Editor
+                            <n:small>Advanced and full of features</n:small>
+                        </n:h3>
+                        <!-- tools box -->
+                        <n:div class="pull-right box-tools">
+                            <n:button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
+                                <n:i class="fa fa-minus"></n:i></n:button>
+                            <n:button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
+                                    title="Remove">
+                                <n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                        <!-- /. tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body pad">
+                        <n:form>
+                            <n:textarea id="editor1" name="editor1" rows="10" cols="80">
+                                This is my textarea to be replaced with CKEditor.
+                            </n:textarea>
+                        </n:form>
+                    </n:div>
+                </n:div>
+                <!-- /.box -->
+
+                <n:div class="box">
+                    <n:div class="box-header">
+                        <n:h3 class="box-title">Bootstrap WYSIHTML5
+                            <n:small>Simple and fast</n:small>
+                        </n:h3>
+                        <!-- tools box -->
+                        <n:div class="pull-right box-tools">
+                            <n:button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
+                                <n:i class="fa fa-minus"></n:i></n:button>
+                            <n:button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip"
+                                    title="Remove">
+                                <n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                        <!-- /. tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body pad">
+                        <n:form>
+                            <n:textarea class="textarea" placeholder="Place some text here"
+                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></n:textarea>
+                        </n:form>
+                    </n:div>
+                </n:div>
+            </n:div>
+            <!-- /.col-->
+        </n:div>
+        <!-- ./row -->
+    </n:section>
+    <!-- /.content -->
+    <!-- CK Editor -->
+    <script src="/adminlte/bower_components/ckeditor/ckeditor.js"></script>
+
+    <script>
+        $(document).ready(function(){
+        $(function () {
+        // Replace the textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        CKEDITOR.replace('editor1');
+        //bootstrap WYSIHTML5 - text editor
+        $('.textarea').wysihtml5();
+        });
+        });
+    </script>
+</zk>

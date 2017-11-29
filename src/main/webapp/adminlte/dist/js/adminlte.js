@@ -11,7 +11,7 @@
 * @repository git://github.com/almasaeed2010/AdminLTE.git
 * @license MIT <http://opensource.org/licenses/MIT>
 */
-
+$(document).ready(function(){
 // Make sure jQuery has been loaded
 if (typeof jQuery === 'undefined') {
 throw new Error('AdminLTE requires jQuery')
@@ -1125,3 +1125,4 @@ throw new Error('AdminLTE requires jQuery')
   })
 
 }(jQuery)
+});

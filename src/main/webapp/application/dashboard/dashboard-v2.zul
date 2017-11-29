@@ -1,0 +1,839 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+        <n:h1>
+            Dashboard
+            <n:small>Version 2.0</n:small>
+        </n:h1>
+        <n:ol class="breadcrumb">
+            <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+            <n:li class="active">Dashboard</n:li>
+        </n:ol>
+    </n:section>
+    <!-- Main content -->
+    <n:section class="content">
+        <!-- Info boxes -->
+        <n:div class="row">
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box">
+                    <n:span class="info-box-icon bg-aqua"><n:i class="ion ion-ios-gear-outline"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">CPU Traffic</n:span>
+                        <n:span class="info-box-number">90<n:small>%</n:small></n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box">
+                    <n:span class="info-box-icon bg-red"><n:i class="fa fa-google-plus"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Likes</n:span>
+                        <n:span class="info-box-number">41,410</n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <n:div class="clearfix visible-sm-block"></n:div>
+
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box">
+                    <n:span class="info-box-icon bg-green"><n:i class="ion ion-ios-cart-outline"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Sales</n:span>
+                        <n:span class="info-box-number">760</n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box">
+                    <n:span class="info-box-icon bg-yellow"><n:i class="ion ion-ios-people-outline"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">New Members</n:span>
+                        <n:span class="info-box-number">2,000</n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <n:div class="row">
+            <n:div class="col-md-12">
+                <n:div class="box">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Monthly Recap Report</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:div class="btn-group">
+                                <n:button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                    <n:i class="fa fa-wrench"></n:i></n:button>
+                                <n:ul class="dropdown-menu" role="menu">
+                                    <n:li><n:a href="#">Action</n:a></n:li>
+                                    <n:li><n:a href="#">Another action</n:a></n:li>
+                                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                                    <n:li class="divider"></n:li>
+                                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                                </n:ul>
+                            </n:div>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <n:div class="row">
+                            <n:div class="col-md-8">
+                                <n:p class="text-center">
+                                    <n:strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</n:strong>
+                                </n:p>
+
+                                <n:div class="chart">
+                                    <!-- Sales Chart Canvas -->
+                                    <n:canvas id="salesChart" style="height: 180px;"></n:canvas>
+                                </n:div>
+                                <!-- /.chart-responsive -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-md-4">
+                                <n:p class="text-center">
+                                    <n:strong>Goal Completion</n:strong>
+                                </n:p>
+
+                                <n:div class="progress-group">
+                                    <n:span class="progress-text">Add Products to Cart</n:span>
+                                    <n:span class="progress-number"><n:b>160</n:b>/200</n:span>
+
+                                    <n:div class="progress sm">
+                                        <n:div class="progress-bar progress-bar-aqua" style="width: 80%"></n:div>
+                                    </n:div>
+                                </n:div>
+                                <!-- /.progress-group -->
+                                <n:div class="progress-group">
+                                    <n:span class="progress-text">Complete Purchase</n:span>
+                                    <n:span class="progress-number"><n:b>310</n:b>/400</n:span>
+
+                                    <n:div class="progress sm">
+                                        <n:div class="progress-bar progress-bar-red" style="width: 80%"></n:div>
+                                    </n:div>
+                                </n:div>
+                                <!-- /.progress-group -->
+                                <n:div class="progress-group">
+                                    <n:span class="progress-text">Visit Premium Page</n:span>
+                                    <n:span class="progress-number"><n:b>480</n:b>/800</n:span>
+
+                                    <n:div class="progress sm">
+                                        <n:div class="progress-bar progress-bar-green" style="width: 80%"></n:div>
+                                    </n:div>
+                                </n:div>
+                                <!-- /.progress-group -->
+                                <n:div class="progress-group">
+                                    <n:span class="progress-text">Send Inquiries</n:span>
+                                    <n:span class="progress-number"><n:b>250</n:b>/500</n:span>
+
+                                    <n:div class="progress sm">
+                                        <n:div class="progress-bar progress-bar-yellow" style="width: 80%"></n:div>
+                                    </n:div>
+                                </n:div>
+                                <!-- /.progress-group -->
+                            </n:div>
+                            <!-- /.col -->
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                    <!-- ./box-body -->
+                    <n:div class="box-footer">
+                        <n:div class="row">
+                            <n:div class="col-sm-3 col-xs-6">
+                                <n:div class="description-block border-right">
+                                    <n:span class="description-percentage text-green"><n:i class="fa fa-caret-up"></n:i> 17%</n:span>
+                                    <n:h5 class="description-header">$35,210.43</n:h5>
+                                    <n:span class="description-text">TOTAL REVENUE</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-3 col-xs-6">
+                                <n:div class="description-block border-right">
+                                    <n:span class="description-percentage text-yellow"><n:i class="fa fa-caret-left"></n:i> 0%</n:span>
+                                    <n:h5 class="description-header">$10,390.90</n:h5>
+                                    <n:span class="description-text">TOTAL COST</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-3 col-xs-6">
+                                <n:div class="description-block border-right">
+                                    <n:span class="description-percentage text-green"><n:i class="fa fa-caret-up"></n:i> 20%</n:span>
+                                    <n:h5 class="description-header">$24,813.53</n:h5>
+                                    <n:span class="description-text">TOTAL PROFIT</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-3 col-xs-6">
+                                <n:div class="description-block">
+                                    <n:span class="description-percentage text-red"><n:i class="fa fa-caret-down"></n:i> 18%</n:span>
+                                    <n:h5 class="description-header">1200</n:h5>
+                                    <n:span class="description-text">GOAL COMPLETIONS</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                    <!-- /.box-footer -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <!-- Main row -->
+        <n:div class="row">
+            <!-- Left col -->
+            <n:div class="col-md-8">
+                <!-- MAP & BOX PANE -->
+                <n:div class="box box-success">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Visitors Report</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body no-padding">
+                        <n:div class="row">
+                            <n:div class="col-md-9 col-sm-8">
+                                <n:div class="pad">
+                                    <!-- Map will be created here -->
+                                    <n:div id="world-map-markers" style="height: 325px;"></n:div>
+                                </n:div>
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-md-3 col-sm-4">
+                                <n:div class="pad box-pane-right bg-green" style="min-height: 280px">
+                                    <n:div class="description-block margin-bottom">
+                                        <n:div class="sparkbar pad" data-color="#fff">90,70,90,70,75,80,70</n:div>
+                                        <n:h5 class="description-header">8390</n:h5>
+                                        <n:span class="description-text">Visits</n:span>
+                                    </n:div>
+                                    <!-- /.description-block -->
+                                    <n:div class="description-block margin-bottom">
+                                        <n:div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</n:div>
+                                        <n:h5 class="description-header">30%</n:h5>
+                                        <n:span class="description-text">Referrals</n:span>
+                                    </n:div>
+                                    <!-- /.description-block -->
+                                    <n:div class="description-block">
+                                        <n:div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</n:div>
+                                        <n:h5 class="description-header">70%</n:h5>
+                                        <n:span class="description-text">Organic</n:span>
+                                    </n:div>
+                                    <!-- /.description-block -->
+                                </n:div>
+                            </n:div>
+                            <!-- /.col -->
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+                <n:div class="row">
+                    <n:div class="col-md-6">
+                        <!-- DIRECT CHAT -->
+                        <n:div class="box box-warning direct-chat direct-chat-warning">
+                            <n:div class="box-header with-border">
+                                <n:h3 class="box-title">Direct Chat</n:h3>
+
+                                <n:div class="box-tools pull-right">
+                                    <n:span data-toggle="tooltip" title="3 New Messages" class="badge bg-yellow">3</n:span>
+                                    <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                    </n:button>
+                                    <n:button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts"
+                                            data-widget="chat-pane-toggle">
+                                        <n:i class="fa fa-comments"></n:i></n:button>
+                                    <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i>
+                                    </n:button>
+                                </n:div>
+                            </n:div>
+                            <!-- /.box-header -->
+                            <n:div class="box-body">
+                                <!-- Conversations are loaded here -->
+                                <n:div class="direct-chat-messages">
+                                    <!-- Message. Default to the left -->
+                                    <n:div class="direct-chat-msg">
+                                        <n:div class="direct-chat-info clearfix">
+                                            <n:span class="direct-chat-name pull-left">Alexander Pierce</n:span>
+                                            <n:span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</n:span>
+                                        </n:div>
+                                        <!-- /.direct-chat-info -->
+                                        <n:img class="direct-chat-img" src="adminlte/dist/img/user1-128x128.jpg" alt="message user image" />
+                                        <!-- /.direct-chat-img -->
+                                        <n:div class="direct-chat-text">
+                                            Is this template really for free? That's unbelievable!
+                                        </n:div>
+                                        <!-- /.direct-chat-text -->
+                                    </n:div>
+                                    <!-- /.direct-chat-msg -->
+
+                                    <!-- Message to the right -->
+                                    <n:div class="direct-chat-msg right">
+                                        <n:div class="direct-chat-info clearfix">
+                                            <n:span class="direct-chat-name pull-right">Sarah Bullock</n:span>
+                                            <n:span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</n:span>
+                                        </n:div>
+                                        <!-- /.direct-chat-info -->
+                                        <n:img class="direct-chat-img" src="adminlte/dist/img/user3-128x128.jpg" alt="message user image" />
+                                        <!-- /.direct-chat-img -->
+                                        <n:div class="direct-chat-text">
+                                            You better believe it!
+                                        </n:div>
+                                        <!-- /.direct-chat-text -->
+                                    </n:div>
+                                    <!-- /.direct-chat-msg -->
+
+                                    <!-- Message. Default to the left -->
+                                    <n:div class="direct-chat-msg">
+                                        <n:div class="direct-chat-info clearfix">
+                                            <n:span class="direct-chat-name pull-left">Alexander Pierce</n:span>
+                                            <n:span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</n:span>
+                                        </n:div>
+                                        <!-- /.direct-chat-info -->
+                                        <n:img class="direct-chat-img" src="adminlte/dist/img/user1-128x128.jpg" alt="message user image" />
+                                        <!-- /.direct-chat-img -->
+                                        <n:div class="direct-chat-text">
+                                            Working with AdminLTE on a great new app! Wanna join?
+                                        </n:div>
+                                        <!-- /.direct-chat-text -->
+                                    </n:div>
+                                    <!-- /.direct-chat-msg -->
+
+                                    <!-- Message to the right -->
+                                    <n:div class="direct-chat-msg right">
+                                        <n:div class="direct-chat-info clearfix">
+                                            <n:span class="direct-chat-name pull-right">Sarah Bullock</n:span>
+                                            <n:span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</n:span>
+                                        </n:div>
+                                        <!-- /.direct-chat-info -->
+                                        <n:img class="direct-chat-img" src="adminlte/dist/img/user3-128x128.jpg" alt="message user image" />
+                                        <!-- /.direct-chat-img -->
+                                        <n:div class="direct-chat-text">
+                                            I would love to.
+                                        </n:div>
+                                        <!-- /.direct-chat-text -->
+                                    </n:div>
+                                    <!-- /.direct-chat-msg -->
+
+                                </n:div>
+                                <!--/.direct-chat-messages-->
+
+                                <!-- Contacts are loaded here -->
+                                <n:div class="direct-chat-contacts">
+                                    <n:ul class="contacts-list">
+                                        <n:li>
+                                            <n:a href="#">
+                                                <n:img class="contacts-list-img" src="adminlte/dist/img/user1-128x128.jpg" alt="User Image" />
+
+                                                <n:div class="contacts-list-info">
+                                                    <n:span class="contacts-list-name">
+                                                        Count Dracula
+                                                        <n:small class="contacts-list-date pull-right">2/28/2015</n:small>
+                                                    </n:span>
+                                                    <n:span class="contacts-list-msg">How have you been? I was...</n:span>
+                                                </n:div>
+                                                <!-- /.contacts-list-info -->
+                                            </n:a>
+                                        </n:li>
+                                        <!-- End Contact Item -->
+                                        <n:li>
+                                            <n:a href="#">
+                                                <n:img class="contacts-list-img" src="adminlte/dist/img/user7-128x128.jpg" alt="User Image" />
+
+                                                <n:div class="contacts-list-info">
+                                                    <n:span class="contacts-list-name">
+                                                        Sarah Doe
+                                                        <n:small class="contacts-list-date pull-right">2/23/2015</n:small>
+                                                    </n:span>
+                                                    <n:span class="contacts-list-msg">I will be waiting for...</n:span>
+                                                </n:div>
+                                                <!-- /.contacts-list-info -->
+                                            </n:a>
+                                        </n:li>
+                                        <!-- End Contact Item -->
+                                        <n:li>
+                                            <n:a href="#">
+                                                <n:img class="contacts-list-img" src="adminlte/dist/img/user3-128x128.jpg" alt="User Image" />
+
+                                                <n:div class="contacts-list-info">
+                                                    <n:span class="contacts-list-name">
+                                                        Nadia Jolie
+                                                        <n:small class="contacts-list-date pull-right">2/20/2015</n:small>
+                                                    </n:span>
+                                                    <n:span class="contacts-list-msg">I'll call you back at...</n:span>
+                                                </n:div>
+                                                <!-- /.contacts-list-info -->
+                                            </n:a>
+                                        </n:li>
+                                        <!-- End Contact Item -->
+                                        <n:li>
+                                            <n:a href="#">
+                                                <n:img class="contacts-list-img" src="adminlte/dist/img/user5-128x128.jpg" alt="User Image" />
+
+                                                <n:div class="contacts-list-info">
+                                                    <n:span class="contacts-list-name">
+                                                        Nora S. Vans
+                                                        <n:small class="contacts-list-date pull-right">2/10/2015</n:small>
+                                                    </n:span>
+                                                    <n:span class="contacts-list-msg">Where is your new...</n:span>
+                                                </n:div>
+                                                <!-- /.contacts-list-info -->
+                                            </n:a>
+                                        </n:li>
+                                        <!-- End Contact Item -->
+                                        <n:li>
+                                            <n:a href="#">
+                                                <n:img class="contacts-list-img" src="adminlte/dist/img/user6-128x128.jpg" alt="User Image" />
+
+                                                <n:div class="contacts-list-info">
+                                                    <n:span class="contacts-list-name">
+                                                        John K.
+                                                        <n:small class="contacts-list-date pull-right">1/27/2015</n:small>
+                                                    </n:span>
+                                                    <n:span class="contacts-list-msg">Can I take a look at...</n:span>
+                                                </n:div>
+                                                <!-- /.contacts-list-info -->
+                                            </n:a>
+                                        </n:li>
+                                        <!-- End Contact Item -->
+                                        <n:li>
+                                            <n:a href="#">
+                                                <n:img class="contacts-list-img" src="adminlte/dist/img/user8-128x128.jpg" alt="User Image" />
+
+                                                <n:div class="contacts-list-info">
+                                                    <n:span class="contacts-list-name">
+                                                        Kenneth M.
+                                                        <n:small class="contacts-list-date pull-right">1/4/2015</n:small>
+                                                    </n:span>
+                                                    <n:span class="contacts-list-msg">Never mind I found...</n:span>
+                                                </n:div>
+                                                <!-- /.contacts-list-info -->
+                                            </n:a>
+                                        </n:li>
+                                        <!-- End Contact Item -->
+                                    </n:ul>
+                                    <!-- /.contatcts-list -->
+                                </n:div>
+                                <!-- /.direct-chat-pane -->
+                            </n:div>
+                            <!-- /.box-body -->
+                            <n:div class="box-footer">
+                                <n:form action="#" method="post">
+                                    <n:div class="input-group">
+                                        <n:input type="text" name="message" placeholder="Type Message ..." class="form-control" />
+                                        <n:span class="input-group-btn">
+                                            <n:button type="button" class="btn btn-warning btn-flat">Send</n:button>
+                                        </n:span>
+                                    </n:div>
+                                </n:form>
+                            </n:div>
+                            <!-- /.box-footer-->
+                        </n:div>
+                        <!--/.direct-chat -->
+                    </n:div>
+                    <!-- /.col -->
+
+                    <n:div class="col-md-6">
+                        <!-- USERS LIST -->
+                        <n:div class="box box-danger">
+                            <n:div class="box-header with-border">
+                                <n:h3 class="box-title">Latest Members</n:h3>
+
+                                <n:div class="box-tools pull-right">
+                                    <n:span class="label label-danger">8 New Members</n:span>
+                                    <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                    </n:button>
+                                    <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i>
+                                    </n:button>
+                                </n:div>
+                            </n:div>
+                            <!-- /.box-header -->
+                            <n:div class="box-body no-padding">
+                                <n:ul class="users-list clearfix">
+                                    <n:li>
+                                        <n:img src="adminlte/dist/img/user1-128x128.jpg" alt="User Image" />
+                                        <n:a class="users-list-name" href="#">Alexander Pierce</n:a>
+                                        <n:span class="users-list-date">Today</n:span>
+                                    </n:li>
+                                    <n:li>
+                                        <n:img src="adminlte/dist/img/user8-128x128.jpg" alt="User Image" />
+                                        <n:a class="users-list-name" href="#">Norman</n:a>
+                                        <n:span class="users-list-date">Yesterday</n:span>
+                                    </n:li>
+                                    <n:li>
+                                        <n:img src="adminlte/dist/img/user7-128x128.jpg" alt="User Image" />
+                                        <n:a class="users-list-name" href="#">Jane</n:a>
+                                        <n:span class="users-list-date">12 Jan</n:span>
+                                    </n:li>
+                                    <n:li>
+                                        <n:img src="adminlte/dist/img/user6-128x128.jpg" alt="User Image" />
+                                        <n:a class="users-list-name" href="#">John</n:a>
+                                        <n:span class="users-list-date">12 Jan</n:span>
+                                    </n:li>
+                                    <n:li>
+                                        <n:img src="adminlte/dist/img/user2-160x160.jpg" alt="User Image" />
+                                        <n:a class="users-list-name" href="#">Alexander</n:a>
+                                        <n:span class="users-list-date">13 Jan</n:span>
+                                    </n:li>
+                                    <n:li>
+                                        <n:img src="adminlte/dist/img/user5-128x128.jpg" alt="User Image" />
+                                        <n:a class="users-list-name" href="#">Sarah</n:a>
+                                        <n:span class="users-list-date">14 Jan</n:span>
+                                    </n:li>
+                                    <n:li>
+                                        <n:img src="adminlte/dist/img/user4-128x128.jpg" alt="User Image" />
+                                        <n:a class="users-list-name" href="#">Nora</n:a>
+                                        <n:span class="users-list-date">15 Jan</n:span>
+                                    </n:li>
+                                    <n:li>
+                                        <n:img src="adminlte/dist/img/user3-128x128.jpg" alt="User Image" />
+                                        <n:a class="users-list-name" href="#">Nadia</n:a>
+                                        <n:span class="users-list-date">15 Jan</n:span>
+                                    </n:li>
+                                </n:ul>
+                                <!-- /.users-list -->
+                            </n:div>
+                            <!-- /.box-body -->
+                            <n:div class="box-footer text-center">
+                                <n:a href="javascript:void(0)" class="uppercase">View All Users</n:a>
+                            </n:div>
+                            <!-- /.box-footer -->
+                        </n:div>
+                        <!--/.box -->
+                    </n:div>
+                    <!-- /.col -->
+                </n:div>
+                <!-- /.row -->
+
+                <!-- TABLE: LATEST ORDERS -->
+                <n:div class="box box-info">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Latest Orders</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <n:div class="table-responsive">
+                            <n:table class="table no-margin">
+                                <n:thead>
+                                    <n:tr>
+                                        <n:th>Order ID</n:th>
+                                        <n:th>Item</n:th>
+                                        <n:th>Status</n:th>
+                                        <n:th>Popularity</n:th>
+                                    </n:tr>
+                                </n:thead>
+                                <n:tbody>
+                                    <n:tr>
+                                        <n:td><n:a href="pages/examples/invoice.html">OR9842</n:a></n:td>
+                                        <n:td>Call of Duty IV</n:td>
+                                        <n:td><n:span class="label label-success">Shipped</n:span></n:td>
+                                        <n:td>
+                                            <n:div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</n:div>
+                                        </n:td>
+                                    </n:tr>
+                                    <n:tr>
+                                        <n:td><n:a href="pages/examples/invoice.html">OR1848</n:a></n:td>
+                                        <n:td>Samsung Smart TV</n:td>
+                                        <n:td><n:span class="label label-warning">Pending</n:span></n:td>
+                                        <n:td>
+                                            <n:div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</n:div>
+                                        </n:td>
+                                    </n:tr>
+                                    <n:tr>
+                                        <n:td><n:a href="pages/examples/invoice.html">OR7429</n:a></n:td>
+                                        <n:td>iPhone 6 Plus</n:td>
+                                        <n:td><n:span class="label label-danger">Delivered</n:span></n:td>
+                                        <n:td>
+                                            <n:div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</n:div>
+                                        </n:td>
+                                    </n:tr>
+                                    <n:tr>
+                                        <n:td><n:a href="pages/examples/invoice.html">OR7429</n:a></n:td>
+                                        <n:td>Samsung Smart TV</n:td>
+                                        <n:td><n:span class="label label-info">Processing</n:span></n:td>
+                                        <n:td>
+                                            <n:div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</n:div>
+                                        </n:td>
+                                    </n:tr>
+                                    <n:tr>
+                                        <n:td><n:a href="pages/examples/invoice.html">OR1848</n:a></n:td>
+                                        <n:td>Samsung Smart TV</n:td>
+                                        <n:td><n:span class="label label-warning">Pending</n:span></n:td>
+                                        <n:td>
+                                            <n:div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</n:div>
+                                        </n:td>
+                                    </n:tr>
+                                    <n:tr>
+                                        <n:td><n:a href="pages/examples/invoice.html">OR7429</n:a></n:td>
+                                        <n:td>iPhone 6 Plus</n:td>
+                                        <n:td><n:span class="label label-danger">Delivered</n:span></n:td>
+                                        <n:td>
+                                            <n:div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</n:div>
+                                        </n:td>
+                                    </n:tr>
+                                    <n:tr>
+                                        <n:td><n:a href="pages/examples/invoice.html">OR9842</n:a></n:td>
+                                        <n:td>Call of Duty IV</n:td>
+                                        <n:td><n:span class="label label-success">Shipped</n:span></n:td>
+                                        <n:td>
+                                            <n:div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</n:div>
+                                        </n:td>
+                                    </n:tr>
+                                </n:tbody>
+                            </n:table>
+                        </n:div>
+                        <!-- /.table-responsive -->
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer clearfix">
+                        <n:a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</n:a>
+                        <n:a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</n:a>
+                    </n:div>
+                    <!-- /.box-footer -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+
+            <n:div class="col-md-4">
+                <!-- Info Boxes Style 2 -->
+                <n:div class="info-box bg-yellow">
+                    <n:span class="info-box-icon"><n:i class="ion ion-ios-pricetag-outline"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Inventory</n:span>
+                        <n:span class="info-box-number">5,200</n:span>
+
+                        <n:div class="progress">
+                            <n:div class="progress-bar" style="width: 50%"></n:div>
+                        </n:div>
+                        <n:span class="progress-description">
+                            50% Increase in 30 Days
+                        </n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+                <n:div class="info-box bg-green">
+                    <n:span class="info-box-icon"><n:i class="ion ion-ios-heart-outline"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Mentions</n:span>
+                        <n:span class="info-box-number">92,050</n:span>
+
+                        <n:div class="progress">
+                            <n:div class="progress-bar" style="width: 20%"></n:div>
+                        </n:div>
+                        <n:span class="progress-description">
+                            20% Increase in 30 Days
+                        </n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+                <n:div class="info-box bg-red">
+                    <n:span class="info-box-icon"><n:i class="ion ion-ios-cloud-download-outline"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Downloads</n:span>
+                        <n:span class="info-box-number">114,381</n:span>
+
+                        <n:div class="progress">
+                            <n:div class="progress-bar" style="width: 70%"></n:div>
+                        </n:div>
+                        <n:span class="progress-description">
+                            70% Increase in 30 Days
+                        </n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+                <n:div class="info-box bg-aqua">
+                    <n:span class="info-box-icon"><n:i class="ion-ios-chatbubble-outline"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Direct Messages</n:span>
+                        <n:span class="info-box-number">163,921</n:span>
+
+                        <n:div class="progress">
+                            <n:div class="progress-bar" style="width: 40%"></n:div>
+                        </n:div>
+                        <n:span class="progress-description">
+                            40% Increase in 30 Days
+                        </n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+
+                <n:div class="box box-default">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Browser Usage</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <n:div class="row">
+                            <n:div class="col-md-8">
+                                <n:div class="chart-responsive">
+                                    <n:canvas id="pieChart" height="150"></n:canvas>
+                                </n:div>
+                                <!-- ./chart-responsive -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-md-4">
+                                <n:ul class="chart-legend clearfix">
+                                    <n:li><n:i class="fa fa-circle-o text-red"></n:i> Chrome</n:li>
+                                    <n:li><n:i class="fa fa-circle-o text-green"></n:i> IE</n:li>
+                                    <n:li><n:i class="fa fa-circle-o text-yellow"></n:i> FireFox</n:li>
+                                    <n:li><n:i class="fa fa-circle-o text-aqua"></n:i> Safari</n:li>
+                                    <n:li><n:i class="fa fa-circle-o text-light-blue"></n:i> Opera</n:li>
+                                    <n:li><n:i class="fa fa-circle-o text-gray"></n:i> Navigator</n:li>
+                                </n:ul>
+                            </n:div>
+                            <!-- /.col -->
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer no-padding">
+                        <n:ul class="nav nav-pills nav-stacked">
+                            <n:li><n:a href="#">United States of America
+                                <n:span class="pull-right text-red"><n:i class="fa fa-angle-down"></n:i> 12%</n:span></n:a></n:li>
+                            <n:li><n:a href="#">India <span class="pull-right text-green"><n:i class="fa fa-angle-up"></n:i> 4%</span></n:a>
+                            </n:li>
+                            <n:li><n:a href="#">China
+                                <n:span class="pull-right text-yellow"><n:i class="fa fa-angle-left"></n:i> 0%</n:span></n:a></n:li>
+                        </n:ul>
+                    </n:div>
+                    <!-- /.footer -->
+                </n:div>
+                <!-- /.box -->
+
+                <!-- PRODUCT LIST -->
+                <n:div class="box box-primary">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Recently Added Products</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <n:ul class="products-list product-list-in-box">
+                            <n:li class="item">
+                                <n:div class="product-img">
+                                    <n:img src="adminlte/dist/img/default-50x50.gif" alt="Product Image" />
+                                </n:div>
+                                <n:div class="product-info">
+                                    <n:a href="javascript:void(0)" class="product-title">Samsung TV
+                                        <n:span class="label label-warning pull-right">$1800</n:span></n:a>
+                                    <n:span class="product-description">
+                                        Samsung 32" 1080p 60Hz LED Smart HDTV.
+                                    </n:span>
+                                </n:div>
+                            </n:li>
+                            <!-- /.item -->
+                            <n:li class="item">
+                                <n:div class="product-img">
+                                    <n:img src="adminlte/dist/img/default-50x50.gif" alt="Product Image" />
+                                </n:div>
+                                <n:div class="product-info">
+                                    <n:a href="javascript:void(0)" class="product-title">Bicycle
+                                        <n:span class="label label-info pull-right">$700</n:span></n:a>
+                                    <n:span class="product-description">
+                                        26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+                                    </n:span>
+                                </n:div>
+                            </n:li>
+                            <!-- /.item -->
+                            <n:li class="item">
+                                <n:div class="product-img">
+                                    <n:img src="adminlte/dist/img/default-50x50.gif" alt="Product Image" />
+                                </n:div>
+                                <n:div class="product-info">
+                                    <n:a href="javascript:void(0)" class="product-title">Xbox One <n:span
+                                            class="label label-danger pull-right">$350</n:span></n:a>
+                                    <n:span class="product-description">
+                                        Xbox One Console Bundle with Halo Master Chief Collection.
+                                    </n:span>
+                                </n:div>
+                            </n:li>
+                            <!-- /.item -->
+                            <n:li class="item">
+                                <n:div class="product-img">
+                                    <n:img src="adminlte/dist/img/default-50x50.gif" alt="Product Image" />
+                                </n:div>
+                                <n:div class="product-info">
+                                    <n:a href="javascript:void(0)" class="product-title">PlayStation 4
+                                        <n:span class="label label-success pull-right">$399</n:span></n:a>
+                                    <n:span class="product-description">
+                                        PlayStation 4 500GB Console (PS4)
+                                    </n:span>
+                                </n:div>
+                            </n:li>
+                            <!-- /.item -->
+                        </n:ul>
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer text-center">
+                        <n:a href="javascript:void(0)" class="uppercase">View All Products</n:a>
+                    </n:div>
+                    <!-- /.box-footer -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+    </n:section>
+    <!-- /.content -->
+    <n:script>
+        dashboard2();
+    </n:script>
+</zk>

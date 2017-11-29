@@ -1,34 +1,50 @@
 <zk xmlns:n="native">
-    <n:div class="box">
-        <n:div class="box-header with-border">
-            <n:h3 class="box-title">Bordered Table</n:h3>
-        </n:div>
-        <n:div class="box-body table-responsive">
-            <n:div class="form-group">
-                <n:label for="exampleInput">Email address</n:label>
-                <textbox id="exampleInput" value="@save(vm.message)" onOK="@command('addLog')" hflex="1" placeholder="What happened?"
-                    sclass="form-control"/>
-                <button zclass="none" label="add" onClick="@command('addLog')" sclass="btn btn-info" />
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+        <n:h1>
+            Dashboard
+            <n:small>Control panel</n:small>
+        </n:h1>
+        <n:ol class="breadcrumb">
+            <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+            <n:li><n:a href="?p=main">dashboard</n:a></n:li>
+        </n:ol>
+    </n:section>
+    <!-- Content Wrapper. Contains page content -->
+
+    <n:section class="content">
+        <n:div class="box">
+            <n:div class="box-header with-border">
+                <n:h3 class="box-title">Bordered Table</n:h3>
             </n:div>
-            <grid zclass="none" height="350px" model="@load(vm.logListModel)" sclass="table table-bordered"
-                  emptyMessage="Nothing in Inbox.">
-                <columns>
-                    <column label="Name" />
-                    <!--<column label="Gender" width="150px" />-->
-                    <!--<column label="BOD" width="80px" />-->
-                    <column label="Notes" width="80px" />
-                    <column label="Ctrl" width="100px" />
-                </columns>
-                <template name="model">
-                    <row>
-                        <label value="@load(each.message)" />
-                        <label value="@load(each.date)" />
-                        <!--<label value="@load(each.bod)" />-->
-                        <!--<label value="@load(each.notes)" />-->
-                        <button label="Delete" onClick="@command('deleteLog', log=each)" sclass="btn btn-danger pull-right" />
-                    </row>
-                </template>
-            </grid>
+            <n:div class="box-body table-responsive">
+                <n:div class="form-group">
+                    <n:label for="exampleInput">Email address</n:label>
+                    <textbox id="exampleInput" value="@save(vm.message)" onOK="@command('addLog')" hflex="1" placeholder="What happened?"
+                             sclass="form-control"/>
+                    <button zclass="none" label="add" onClick="@command('addLog')" sclass="btn btn-info" />
+                </n:div>
+                <grid zclass="none" height="350px" model="@load(vm.logListModel)" sclass="table table-bordered"
+                      emptyMessage="Nothing in Inbox.">
+                    <columns>
+                        <column label="Message" width="100px" />
+                        <!--<column label="Gender" width="150px" />-->
+                        <!--<column label="BOD" width="80px" />-->
+                        <column label="Date" />
+                        <column label="Ctrl" width="100px" />
+                    </columns>
+                    <template name="model">
+                        <row>
+                            <label value="@load(each.message)" />
+                            <label value="@load(each.date)" />
+                            <!--<label value="@load(each.bod)" />-->
+                            <!--<label value="@load(each.notes)" />-->
+                            <button label="Delete" onClick="@command('deleteLog', log=each)" sclass="btn btn-danger pull-right" />
+                        </row>
+                    </template>
+                </grid>
+            </n:div>
         </n:div>
-    </n:div>
+    </n:section>
+
 </zk>

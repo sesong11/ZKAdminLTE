@@ -3,10 +3,15 @@ package com.sample.ZKSpringJPA;
 import com.sample.ZKSpringJPA.entity.Log;
 import com.sample.ZKSpringJPA.services.MyService;
 import java.util.List;
+
+import lombok.Getter;
+import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.lang.Strings;
+import org.zkoss.zk.ui.Execution;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModel;
@@ -21,10 +26,17 @@ public class MyViewModel {
 	private ListModelList<Log> logListModel;
 	private String message;
 
+	@Getter	@Setter
+	private String urlParam = "/application/dashboard/dashboard-v1.zul";
+
 	@Init
 	public void init() {
 		List<Log> logList = myService.getLogs();
 		logListModel = new ListModelList<Log>(logList);
+		String param = Executions.getCurrent().getParameter("p");
+		if(param!=null){
+			urlParam = "/application/"+param+".zul";
+		}
 	}
 
 	public ListModel<Log> getLogListModel() {
