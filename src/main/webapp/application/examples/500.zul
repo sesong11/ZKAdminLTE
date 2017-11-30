@@ -1,0 +1,44 @@
+<zk xmlns:n="native">
+    <n:section class="content-header">
+      <n:h1>
+        500 Error Page
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li><n:a href="#">Examples</n:a></n:li>
+        <n:li class="active">500 error</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+
+      <n:div class="error-page">
+        <n:h2 class="headline text-red">500</n:h2>
+
+        <n:div class="error-content">
+          <n:h3><n:i class="fa fa-warning text-red"></n:i> Oops! Something went wrong.</n:h3>
+
+          <n:p>
+            We will work on fixing that right away.
+            Meanwhile, you may <n:a href="../../index.html">return to dashboard</n:a> or try using the search form.
+          </n:p>
+
+          <n:form class="search-form">
+            <n:div class="input-group">
+              <n:input type="text" name="search" class="form-control" placeholder="Search" />
+
+              <n:div class="input-group-btn">
+                <n:button type="submit" name="submit" class="btn btn-danger btn-flat"><n:i class="fa fa-search"></n:i>
+                </n:button>
+              </n:div>
+            </n:div>
+            <!-- /.input-group -->
+          </n:form>
+        </n:div>
+      </n:div>
+      <!-- /.error-page -->
+
+    </n:section>
+    <!-- /.content -->
+</zk>

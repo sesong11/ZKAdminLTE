@@ -447,7 +447,7 @@ folder instead of downloading all of them to reduce the load. -->
                                 </n:span>
                             </n:a>
                         </n:li>
-                        <n:li class="treeview">
+                        <n:li class="${vm.urlParam.contains('examples/') ? 'active' : ''} treeview">
                             <n:a href="#">
                                 <n:i class="fa fa-folder"></n:i> <span>Examples</span>
                                 <n:span class="pull-right-container">
@@ -455,15 +455,15 @@ folder instead of downloading all of them to reduce the load. -->
                                 </n:span>
                             </n:a>
                             <n:ul class="treeview-menu">
-                                <n:li><n:a href="pages/examples/invoice.html"><n:i class="fa fa-circle-o"></n:i> Invoice</n:a></n:li>
-                                <n:li><n:a href="pages/examples/profile.html"><n:i class="fa fa-circle-o"></n:i> Profile</n:a></n:li>
-                                <n:li><n:a href="pages/examples/login.html"><n:i class="fa fa-circle-o"></n:i> Login</n:a></n:li>
-                                <n:li><n:a href="pages/examples/register.html"><n:i class="fa fa-circle-o"></n:i> Register</n:a></n:li>
-                                <n:li><n:a href="pages/examples/lockscreen.html"><n:i class="fa fa-circle-o"></n:i> Lockscreen</n:a></n:li>
-                                <n:li><n:a href="pages/examples/404.html"><n:i class="fa fa-circle-o"></n:i> 404 Error</n:a></n:li>
-                                <n:li><n:a href="pages/examples/500.html"><n:i class="fa fa-circle-o"></n:i> 500 Error</n:a></n:li>
-                                <n:li><n:a href="pages/examples/blank.html"><n:i class="fa fa-circle-o"></n:i> Blank Page</n:a></n:li>
-                                <n:li><n:a href="pages/examples/pace.html"><n:i class="fa fa-circle-o"></n:i> Pace Page</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('examples/invoice') ? 'active' : ''}"><n:a href="?p=examples/invoice"><n:i class="fa fa-circle-o"></n:i> Invoice</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('examples/profile') ? 'active' : ''}"><n:a href="?p=examples/profile"><n:i class="fa fa-circle-o"></n:i> Profile</n:a></n:li>
+                                <n:li><n:a href="login"><n:i class="fa fa-circle-o"></n:i> Login</n:a></n:li>
+                                <n:li><n:a href="register"><n:i class="fa fa-circle-o"></n:i> Register</n:a></n:li>
+                                <n:li><n:a href="lockscreen"><n:i class="fa fa-circle-o"></n:i> Lockscreen</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('examples/404') ? 'active' : ''}"><n:a href="?p=examples/404"><n:i class="fa fa-circle-o"></n:i> 404 Error</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('examples/500') ? 'active' : ''}"><n:a href="?p=examples/500"><n:i class="fa fa-circle-o"></n:i> 500 Error</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('examples/blank') ? 'active' : ''}"><n:a href="?p=examples/blank"><n:i class="fa fa-circle-o"></n:i> Blank Page</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('examples/pace') ? 'active' : ''}"><n:a href="?p=examples/pace"><n:i class="fa fa-circle-o"></n:i> Pace Page</n:a></n:li>
                             </n:ul>
                         </n:li>
                         <n:li class="treeview">

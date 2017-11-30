@@ -1,0 +1,373 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+        <n:h1>
+            User Profile
+        </n:h1>
+        <n:ol class="breadcrumb">
+            <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+            <n:li><n:a href="#">Examples</n:a></n:li>
+            <n:li class="active">User profile</n:li>
+        </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+
+        <n:div class="row">
+            <n:div class="col-md-3">
+
+                <!-- Profile Image -->
+                <n:div class="box box-primary">
+                    <n:div class="box-body box-profile">
+                        <n:img class="profile-user-img img-responsive img-circle" src="adminlte/dist/img/user4-128x128.jpg" alt="User profile picture" />
+
+                        <n:h3 class="profile-username text-center">Nina Mcintire</n:h3>
+
+                        <n:p class="text-muted text-center">Software Engineer</n:p>
+
+                        <n:ul class="list-group list-group-unbordered">
+                            <n:li class="list-group-item">
+                                <n:b>Followers</n:b> <n:a class="pull-right">1,322</n:a>
+                            </n:li>
+                            <n:li class="list-group-item">
+                                <n:b>Following</n:b> <n:a class="pull-right">543</n:a>
+                            </n:li>
+                            <n:li class="list-group-item">
+                                <n:b>Friends</n:b> <n:a class="pull-right">13,287</n:a>
+                            </n:li>
+                        </n:ul>
+
+                        <n:a href="#" class="btn btn-primary btn-block"><n:b>Follow</n:b></n:a>
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+
+                <!-- About Me Box -->
+                <n:div class="box box-primary">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">About Me</n:h3>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <n:strong><n:i class="fa fa-book margin-r-5"></n:i> Education</n:strong>
+
+                        <n:p class="text-muted">
+                            B.S. in Computer Science from the University of Tennessee at Knoxville
+                        </n:p>
+
+                        <n:hr />
+
+                        <n:strong><n:i class="fa fa-map-marker margin-r-5"></n:i> Location</n:strong>
+
+                        <n:p class="text-muted">Malibu, California</n:p>
+
+                        <n:hr />
+
+                        <n:strong><n:i class="fa fa-pencil margin-r-5"></n:i> Skills</n:strong>
+
+                        <n:p>
+                            <n:span class="label label-danger">UI Design</n:span>
+                            <n:span class="label label-success">Coding</n:span>
+                            <n:span class="label label-info">Javascript</n:span>
+                            <n:span class="label label-warning">PHP</n:span>
+                            <n:span class="label label-primary">Node.js</n:span>
+                        </n:p>
+
+                        <n:hr />
+
+                        <n:strong><n:i class="fa fa-file-text-o margin-r-5"></n:i> Notes</n:strong>
+
+                        <n:p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</n:p>
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-9">
+                <n:div class="nav-tabs-custom">
+                    <n:ul class="nav nav-tabs">
+                        <n:li class="active"><n:a href="#activity" data-toggle="tab">Activity</n:a></n:li>
+                        <n:li><n:a href="#timeline" data-toggle="tab">Timeline</n:a></n:li>
+                        <n:li><n:a href="#settings" data-toggle="tab">Settings</n:a></n:li>
+                    </n:ul>
+                    <n:div class="tab-content">
+                        <n:div class="active tab-pane" id="activity">
+                            <!-- Post -->
+                            <n:div class="post">
+                                <n:div class="user-block">
+                                    <n:img class="img-circle img-bordered-sm" src="adminlte/dist/img/user1-128x128.jpg" alt="user image" />
+                                    <n:span class="username">
+                                        <n:a href="#">Jonathan Burke Jr.</n:a>
+                                        <n:a href="#" class="pull-right btn-box-tool"><n:i class="fa fa-times"></n:i></n:a>
+                                    </n:span>
+                                    <n:span class="description">Shared publicly - 7:30 PM today</n:span>
+                                </n:div>
+                                <!-- /.user-block -->
+                                <n:p>
+                                    Lorem ipsum represents a long-held tradition for designers,
+                                    typographers and the like. Some people hate it and argue for
+                                    its demise, but others ignore the hate as they create awesome
+                                    tools to help create filler text for everyone from bacon lovers
+                                    to Charlie Sheen fans.
+                                </n:p>
+                                <n:ul class="list-inline">
+                                    <n:li><n:a href="#" class="link-black text-sm"><n:i class="fa fa-share margin-r-5"></n:i> Share</n:a></n:li>
+                                    <n:li><n:a href="#" class="link-black text-sm"><n:i class="fa fa-thumbs-o-up margin-r-5"></n:i> Like</n:a>
+                                    </n:li>
+                                    <n:li class="pull-right">
+                                        <n:a href="#" class="link-black text-sm"><n:i class="fa fa-comments-o margin-r-5"></n:i> Comments
+                                            (5)</n:a></n:li>
+                                </n:ul>
+
+                                <n:input class="form-control input-sm" type="text" placeholder="Type a comment" />
+                            </n:div>
+                            <!-- /.post -->
+
+                            <!-- Post -->
+                            <n:div class="post clearfix">
+                                <n:div class="user-block">
+                                    <n:img class="img-circle img-bordered-sm" src="adminlte/dist/img/user7-128x128.jpg" alt="User Image" />
+                                    <n:span class="username">
+                                        <n:a href="#">Sarah Ross</n:a>
+                                        <n:a href="#" class="pull-right btn-box-tool"><n:i class="fa fa-times"></n:i></n:a>
+                                    </n:span>
+                                    <n:span class="description">Sent you a message - 3 days ago</n:span>
+                                </n:div>
+                                <!-- /.user-block -->
+                                <n:p>
+                                    Lorem ipsum represents a long-held tradition for designers,
+                                    typographers and the like. Some people hate it and argue for
+                                    its demise, but others ignore the hate as they create awesome
+                                    tools to help create filler text for everyone from bacon lovers
+                                    to Charlie Sheen fans.
+                                </n:p>
+
+                                <n:form class="form-horizontal">
+                                    <n:div class="form-group margin-bottom-none">
+                                        <n:div class="col-sm-9">
+                                            <n:input class="form-control input-sm" placeholder="Response" />
+                                        </n:div>
+                                        <n:div class="col-sm-3">
+                                            <n:button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Send</n:button>
+                                        </n:div>
+                                    </n:div>
+                                </n:form>
+                            </n:div>
+                            <!-- /.post -->
+
+                            <!-- Post -->
+                            <n:div class="post">
+                                <n:div class="user-block">
+                                    <n:img class="img-circle img-bordered-sm" src="adminlte/dist/img/user6-128x128.jpg" alt="User Image" />
+                                    <n:span class="username">
+                                        <n:a href="#">Adam Jones</n:a>
+                                        <n:a href="#" class="pull-right btn-box-tool"><n:i class="fa fa-times"></n:i></n:a>
+                                    </n:span>
+                                    <n:span class="description">Posted 5 photos - 5 days ago</n:span>
+                                </n:div>
+                                <!-- /.user-block -->
+                                <n:div class="row margin-bottom">
+                                    <n:div class="col-sm-6">
+                                        <n:img class="img-responsive" src="adminlte/dist/img/photo1.png" alt="Photo" />
+                                    </n:div>
+                                    <!-- /.col -->
+                                    <n:div class="col-sm-6">
+                                        <n:div class="row">
+                                            <n:div class="col-sm-6">
+                                                <n:img class="img-responsive" src="adminlte/dist/img/photo2.png" alt="Photo" />
+                                                <n:br />
+                                                <n:img class="img-responsive" src="adminlte/dist/img/photo3.jpg" alt="Photo" />
+                                            </n:div>
+                                            <!-- /.col -->
+                                            <n:div class="col-sm-6">
+                                                <n:img class="img-responsive" src="adminlte/dist/img/photo4.jpg" alt="Photo" />
+                                                <n:br />
+                                                <n:img class="img-responsive" src="adminlte/dist/img/photo1.png" alt="Photo" />
+                                            </n:div>
+                                            <!-- /.col -->
+                                        </n:div>
+                                        <!-- /.row -->
+                                    </n:div>
+                                    <!-- /.col -->
+                                </n:div>
+                                <!-- /.row -->
+
+                                <n:ul class="list-inline">
+                                    <n:li><n:a href="#" class="link-black text-sm"><n:i class="fa fa-share margin-r-5"></n:i> Share</n:a></n:li>
+                                    <n:li><n:a href="#" class="link-black text-sm"><n:i class="fa fa-thumbs-o-up margin-r-5"></n:i> Like</n:a>
+                                    </n:li>
+                                    <n:li class="pull-right">
+                                        <n:a href="#" class="link-black text-sm"><n:i class="fa fa-comments-o margin-r-5"></n:i> Comments
+                                            (5)</n:a></n:li>
+                                </n:ul>
+
+                                <n:input class="form-control input-sm" type="text" placeholder="Type a comment" />
+                            </n:div>
+                            <!-- /.post -->
+                        </n:div>
+                        <!-- /.tab-pane -->
+                        <n:div class="tab-pane" id="timeline">
+                            <!-- The timeline -->
+                            <n:ul class="timeline timeline-inverse">
+                                <!-- timeline time label -->
+                                <n:li class="time-label">
+                                    <n:span class="bg-red">
+                                        10 Feb. 2014
+                                    </n:span>
+                                </n:li>
+                                <!-- /.timeline-label -->
+                                <!-- timeline item -->
+                                <n:li>
+                                    <n:i class="fa fa-envelope bg-blue"></n:i>
+
+                                    <n:div class="timeline-item">
+                                        <n:span class="time"><n:i class="fa fa-clock-o"></n:i> 12:05</n:span>
+
+                                        <n:h3 class="timeline-header"><n:a href="#">Support Team</n:a> sent you an email</n:h3>
+
+                                        <n:div class="timeline-body">
+                                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                            quora plaxo ideeli hulu weebly balihoo...
+                                        </n:div>
+                                        <n:div class="timeline-footer">
+                                            <n:a class="btn btn-primary btn-xs">Read more</n:a>
+                                            <n:a class="btn btn-danger btn-xs">Delete</n:a>
+                                        </n:div>
+                                    </n:div>
+                                </n:li>
+                                <!-- END timeline item -->
+                                <!-- timeline item -->
+                                <n:li>
+                                    <n:i class="fa fa-user bg-aqua"></n:i>
+
+                                    <n:div class="timeline-item">
+                                        <n:span class="time"><n:i class="fa fa-clock-o"></n:i> 5 mins ago</n:span>
+
+                                        <n:h3 class="timeline-header no-border"><n:a href="#">Sarah Young</n:a> accepted your friend request
+                                        </n:h3>
+                                    </n:div>
+                                </n:li>
+                                <!-- END timeline item -->
+                                <!-- timeline item -->
+                                <n:li>
+                                    <n:i class="fa fa-comments bg-yellow"></n:i>
+
+                                    <n:div class="timeline-item">
+                                        <n:span class="time"><n:i class="fa fa-clock-o"></n:i> 27 mins ago</n:span>
+
+                                        <n:h3 class="timeline-header"><n:a href="#">Jay White</n:a> commented on your post</n:h3>
+
+                                        <n:div class="timeline-body">
+                                            Take me to your leader!
+                                            Switzerland is small and neutral!
+                                            We are more like Germany, ambitious and misunderstood!
+                                        </n:div>
+                                        <n:div class="timeline-footer">
+                                            <n:a class="btn btn-warning btn-flat btn-xs">View comment</n:a>
+                                        </n:div>
+                                    </n:div>
+                                </n:li>
+                                <!-- END timeline item -->
+                                <!-- timeline time label -->
+                                <n:li class="time-label">
+                                    <n:span class="bg-green">
+                                        3 Jan. 2014
+                                    </n:span>
+                                </n:li>
+                                <!-- /.timeline-label -->
+                                <!-- timeline item -->
+                                <n:li>
+                                    <n:i class="fa fa-camera bg-purple"></n:i>
+
+                                    <n:div class="timeline-item">
+                                        <n:span class="time"><n:i class="fa fa-clock-o"></n:i> 2 days ago</n:span>
+
+                                        <n:h3 class="timeline-header"><n:a href="#">Mina Lee</n:a> uploaded new photos</n:h3>
+
+                                        <n:div class="timeline-body">
+                                            <n:img src="http://placehold.it/150x100" alt="..." class="margin" />
+                                            <n:img src="http://placehold.it/150x100" alt="..." class="margin" />
+                                            <n:img src="http://placehold.it/150x100" alt="..." class="margin" />
+                                            <n:img src="http://placehold.it/150x100" alt="..." class="margin" />
+                                        </n:div>
+                                    </n:div>
+                                </n:li>
+                                <!-- END timeline item -->
+                                <n:li>
+                                    <n:i class="fa fa-clock-o bg-gray"></n:i>
+                                </n:li>
+                            </n:ul>
+                        </n:div>
+                        <!-- /.tab-pane -->
+
+                        <n:div class="tab-pane" id="settings">
+                            <n:form class="form-horizontal">
+                                <n:div class="form-group">
+                                    <n:label for="inputName" class="col-sm-2 control-label">Name</n:label>
+
+                                    <n:div class="col-sm-10">
+                                        <n:input type="email" class="form-control" id="inputName" placeholder="Name" />
+                                    </n:div>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label for="inputEmail" class="col-sm-2 control-label">Email</n:label>
+
+                                    <n:div class="col-sm-10">
+                                        <n:input type="email" class="form-control" id="inputEmail" placeholder="Email" />
+                                    </n:div>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label for="inputName" class="col-sm-2 control-label">Name</n:label>
+
+                                    <n:div class="col-sm-10">
+                                        <n:input type="text" class="form-control" id="inputName" placeholder="Name" />
+                                    </n:div>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label for="inputExperience" class="col-sm-2 control-label">Experience</n:label>
+
+                                    <n:div class="col-sm-10">
+                                        <n:textarea class="form-control" id="inputExperience" placeholder="Experience"></n:textarea>
+                                    </n:div>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label for="inputSkills" class="col-sm-2 control-label">Skills</n:label>
+
+                                    <n:div class="col-sm-10">
+                                        <n:input type="text" class="form-control" id="inputSkills" placeholder="Skills" />
+                                    </n:div>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:div class="col-sm-offset-2 col-sm-10">
+                                        <n:div class="checkbox">
+                                            <n:label>
+                                                <n:input type="checkbox" />I agree to the <n:a href="#">terms and conditions</n:a>
+                                            </n:label>
+                                        </n:div>
+                                    </n:div>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:div class="col-sm-offset-2 col-sm-10">
+                                        <n:button type="submit" class="btn btn-danger">Submit</n:button>
+                                    </n:div>
+                                </n:div>
+                            </n:form>
+                        </n:div>
+                        <!-- /.tab-pane -->
+                    </n:div>
+                    <!-- /.tab-content -->
+                </n:div>
+                <!-- /.nav-tabs-custom -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+    </n:section>
+    <!-- /.content -->
+</zk>

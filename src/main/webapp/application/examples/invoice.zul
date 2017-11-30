@@ -1,0 +1,175 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+        <n:h1>
+            Invoice
+            <n:small>#007612</n:small>
+        </n:h1>
+        <n:ol class="breadcrumb">
+            <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+            <n:li><n:a href="#">Examples</n:a></n:li>
+            <n:li class="active">Invoice</n:li>
+        </n:ol>
+    </n:section>
+
+    <n:div class="pad margin no-print">
+        <n:div class="callout callout-info" style="margin-bottom: 0!important;">
+            <n:h4><n:i class="fa fa-info"></n:i> Note:</n:h4>
+            This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+        </n:div>
+    </n:div>
+
+    <!-- Main content -->
+    <n:section class="invoice">
+        <!-- title row -->
+        <n:div class="row">
+            <n:div class="col-xs-12">
+                <n:h2 class="page-header">
+                    <n:i class="fa fa-globe"></n:i> AdminLTE, Inc.
+                    <n:small class="pull-right">Date: 2/10/2014</n:small>
+                </n:h2>
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- info row -->
+        <n:div class="row invoice-info">
+            <n:div class="col-sm-4 invoice-col">
+                From
+                <n:address>
+                    <n:strong>Admin, Inc.</n:strong><n:br />
+                    795 Folsom Ave, Suite 600<n:br />
+                    San Francisco, CA 94107<n:br />
+                    Phone: (804) 123-5432<n:br />
+                    Email: info@almasaeedstudio.com
+                </n:address>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 invoice-col">
+                To
+                <n:address>
+                    <n:strong>John Doe</n:strong><n:br />
+                    795 Folsom Ave, Suite 600<n:br />
+                    San Francisco, CA 94107<n:br />
+                    Phone: (555) 539-1037<n:br />
+                    Email: john.doe@example.com
+                </n:address>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 invoice-col">
+                <n:b>Invoice #007612</n:b><n:br />
+                <n:br />
+                <n:b>Order ID:</n:b> 4F3S8J<n:br />
+                <n:b>Payment Due:</n:b> 2/22/2014<n:br />
+                <n:b>Account:</n:b> 968-34567
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <!-- Table row -->
+        <n:div class="row">
+            <n:div class="col-xs-12 table-responsive">
+                <n:table class="table table-striped">
+                    <n:thead>
+                        <n:tr>
+                            <n:th>Qty</n:th>
+                            <n:th>Product</n:th>
+                            <n:th>Serial #</n:th>
+                            <n:th>Description</n:th>
+                            <n:th>Subtotal</n:th>
+                        </n:tr>
+                    </n:thead>
+                    <n:tbody>
+                        <n:tr>
+                            <n:td>1</n:td>
+                            <n:td>Call of Duty</n:td>
+                            <n:td>455-981-221</n:td>
+                            <n:td>El snort testosterone trophy driving gloves handsome</n:td>
+                            <n:td>$64.50</n:td>
+                        </n:tr>
+                        <n:tr>
+                            <n:td>1</n:td>
+                            <n:td>Need for Speed IV</n:td>
+                            <n:td>247-925-726</n:td>
+                            <n:td>Wes Anderson umami biodiesel</n:td>
+                            <n:td>$50.00</n:td>
+                        </n:tr>
+                        <n:tr>
+                            <n:td>1</n:td>
+                            <n:td>Monsters DVD</n:td>
+                            <n:td>735-845-642</n:td>
+                            <n:td>Terry Richardson helvetica tousled street art master</n:td>
+                            <n:td>$10.70</n:td>
+                        </n:tr>
+                        <n:tr>
+                            <n:td>1</n:td>
+                            <n:td>Grown Ups Blue Ray</n:td>
+                            <n:td>422-568-642</n:td>
+                            <n:td>Tousled lomo letterpress</n:td>
+                            <n:td>$25.99</n:td>
+                        </n:tr>
+                    </n:tbody>
+                </n:table>
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <n:div class="row">
+            <!-- accepted payments column -->
+            <n:div class="col-xs-6">
+                <n:p class="lead">Payment Methods:</n:p>
+                <n:img src="../../dist/img/credit/visa.png" alt="Visa" />
+                <n:img src="../../dist/img/credit/mastercard.png" alt="Mastercard" />
+                <n:img src="../../dist/img/credit/american-express.png" alt="American Express" />
+                <n:img src="../../dist/img/credit/paypal2.png" alt="Paypal" />
+
+                <n:p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg
+                    dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+                </n:p>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-xs-6">
+                <n:p class="lead">Amount Due 2/22/2014</n:p>
+
+                <n:div class="table-responsive">
+                    <n:table class="table">
+                        <n:tr>
+                            <n:th style="width:50%">Subtotal:</n:th>
+                            <n:td>$250.30</n:td>
+                        </n:tr>
+                        <n:tr>
+                            <n:th>Tax (9.3%)</n:th>
+                            <n:td>$10.34</n:td>
+                        </n:tr>
+                        <n:tr>
+                            <n:th>Shipping:</n:th>
+                            <n:td>$5.80</n:td>
+                        </n:tr>
+                        <n:tr>
+                            <n:th>Total:</n:th>
+                            <n:td>$265.24</n:td>
+                        </n:tr>
+                    </n:table>
+                </n:div>
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <!-- this row will not appear when printing -->
+        <n:div class="row no-print">
+            <n:div class="col-xs-12">
+                <n:a href="invoice-print.html" target="_blank" class="btn btn-default"><n:i class="fa fa-print"></n:i> Print</n:a>
+                <n:button type="button" class="btn btn-success pull-right"><n:i class="fa fa-credit-card"></n:i> Submit Payment
+                </n:button>
+                <n:button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                    <n:i class="fa fa-download"></n:i> Generate PDF
+                </n:button>
+            </n:div>
+        </n:div>
+    </n:section>
+    <!-- /.content -->
+    <n:div class="clearfix"></n:div>
+</zk>

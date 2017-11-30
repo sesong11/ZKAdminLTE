@@ -1,0 +1,76 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+      <n:h1>
+        Pace page
+        <n:small>Loading example</n:small>
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li><n:a href="#">Examples</n:a></n:li>
+        <n:li class="active">Pace page</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+
+      <!-- Default box -->
+      <n:div class="box">
+        <n:div class="box-header with-border">
+          <n:h3 class="box-title">Title</n:h3>
+
+          <n:div class="box-tools pull-right">
+            <n:button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                    title="Collapse">
+              <n:i class="fa fa-minus"></n:i></n:button>
+            <n:button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <n:i class="fa fa-times"></n:i></n:button>
+          </n:div>
+        </n:div>
+        <n:div class="box-body">
+          Pace loading works automatically on page. You can still implement it with ajax requests by adding this js:
+          <n:br/><n:code>$(document).ajaxStart(function() { Pace.restart(); });</n:code>
+          <n:br/>
+          <n:div class="row">
+            <n:div class="col-xs-12 text-center">
+              <n:button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
+                <n:i class="fa fa-spin fa-refresh"></n:i> Get External Content
+              </n:button>
+            </n:div>
+          </n:div>
+          <n:div class="ajax-content">
+          </n:div>
+        </n:div>
+        <!-- /.box-body -->
+        <n:div class="box-footer">
+          Footer
+        </n:div>
+        <!-- /.box-footer-->
+      </n:div>
+      <!-- /.box -->
+
+    </n:section>
+    <!-- /.content -->
+
+  <!-- PACE -->
+  <script src="adminlte/bower_components/PACE/pace.min.js"></script>
+
+  <!-- page script -->
+  <n:script type="text/javascript">
+
+  // To make Pace works on Ajax calls
+  $(document).ready(function() {
+    $(document).ajaxStart(function () {
+      Pace.restart()
+    })
+    $('.ajax').click(function () {
+      $.ajax({
+        url: '#', success: function (result) {
+          $('.ajax-content').html('Ajax Request Completed !')
+        }
+      })
+    })
+    });
+  </n:script>
+</zk>
