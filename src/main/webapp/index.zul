@@ -24,6 +24,9 @@ folder instead of downloading all of them to reduce the load. -->
 <?link rel="stylesheet" href="/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.css"?>
 <!-- bootstrap wysihtml5 - text editor -->
 <?link rel="stylesheet" href="/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"?>
+<!-- fullCalendar -->
+<?link rel="stylesheet" href="adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css"?>
+<?link rel="stylesheet" href="adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print"?>
 
 <?link rel="stylesheet" href="/css/application.css"?>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -426,7 +429,7 @@ folder instead of downloading all of them to reduce the load. -->
                             </n:ul>
                         </n:li>
                         <n:li>
-                            <n:a href="pages/calendar.html">
+                            <n:a href="?p=calendar">
                                 <n:i class="fa fa-calendar"></n:i> <n:span>Calendar</n:span>
                                 <n:span class="pull-right-container">
                                     <n:small class="label pull-right bg-red">3</n:small>
@@ -749,6 +752,9 @@ folder instead of downloading all of them to reduce the load. -->
         <script src="adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <!-- ChartJS -->
         <script src="adminlte/bower_components/chart.js/Chart.js"></script>
+        <!-- fullCalendar -->
+        <script src="adminlte/bower_components/moment/moment.js"></script>
+        <script src="adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="adminlte/dist/js/pages/dashboard.js"></script>
         <!-- AdminLTE for demo purposes -->
