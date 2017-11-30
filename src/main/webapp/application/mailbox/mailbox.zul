@@ -1,0 +1,326 @@
+<zk xmlns:n="native">
+
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+      <n:h1>
+        Mailbox
+        <n:small>13 new messages</n:small>
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li class="active">Mailbox</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+      <n:div class="row">
+        <n:div class="col-md-3">
+          <n:a href="compose.html" class="btn btn-primary btn-block margin-bottom">Compose</n:a>
+
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Folders</n:h3>
+
+              <n:div class="box-tools">
+                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                </n:button>
+              </n:div>
+            </n:div>
+            <n:div class="box-body no-padding">
+              <n:ul class="nav nav-pills nav-stacked">
+                <n:li class="active"><n:a href="#"><n:i class="fa fa-inbox"></n:i> Inbox
+                  <n:span class="label label-primary pull-right">12</n:span></n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-envelope-o"></n:i> Sent</n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-file-text-o"></n:i> Drafts</n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-filter"></n:i> Junk <n:span class="label label-warning pull-right">65</n:span></n:a>
+                </n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-trash-o"></n:i> Trash</n:a></n:li>
+              </n:ul>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /. box -->
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Labels</n:h3>
+
+              <n:div class="box-tools">
+                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                </n:button>
+              </n:div>
+            </n:div>
+            <n:div class="box-body no-padding">
+              <n:ul class="nav nav-pills nav-stacked">
+                <n:li><n:a href="#"><n:i class="fa fa-circle-o text-red"></n:i> Important</n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-circle-o text-yellow"></n:i> Promotions</n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-circle-o text-light-blue"></n:i> Social</n:a></n:li>
+              </n:ul>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+        <n:div class="col-md-9">
+          <n:div class="box box-primary">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Inbox</n:h3>
+
+              <n:div class="box-tools pull-right">
+                <n:div class="has-feedback">
+                  <n:input type="text" class="form-control input-sm" placeholder="Search Mail"/>
+                  <n:span class="glyphicon glyphicon-search form-control-feedback"></n:span>
+                </n:div>
+              </n:div>
+              <!-- /.box-tools -->
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body no-padding">
+              <n:div class="mailbox-controls">
+                <!-- Check all button -->
+                <n:button type="button" class="btn btn-default btn-sm checkbox-toggle"><n:i class="fa fa-square-o"></n:i>
+                </n:button>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-trash-o"></n:i></n:button>
+                  <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-reply"></n:i></n:button>
+                  <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-share"></n:i></n:button>
+                </n:div>
+                <!-- /.btn-group -->
+                <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-refresh"></n:i></n:button>
+                <n:div class="pull-right">
+                  1-50/200
+                  <n:div class="btn-group">
+                    <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-chevron-left"></n:i></n:button>
+                    <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-chevron-right"></n:i></n:button>
+                  </n:div>
+                  <!-- /.btn-group -->
+                </n:div>
+                <!-- /.pull-right -->
+              </n:div>
+              <n:div class="table-responsive mailbox-messages">
+                <n:table class="table table-hover table-striped">
+                  <n:tbody>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"></n:td>
+                    <n:td class="mailbox-date">5 mins ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star-o text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"><n:i class="fa fa-paperclip"></n:i></n:td>
+                    <n:td class="mailbox-date">28 mins ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star-o text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"><n:i class="fa fa-paperclip"></n:i></n:td>
+                    <n:td class="mailbox-date">11 hours ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"></n:td>
+                    <n:td class="mailbox-date">15 hours ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"><n:i class="fa fa-paperclip"></n:i></n:td>
+                    <n:td class="mailbox-date">Yesterday</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star-o text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"><n:i class="fa fa-paperclip"></n:i></n:td>
+                    <n:td class="mailbox-date">2 days ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star-o text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"><n:i class="fa fa-paperclip"></n:i></n:td>
+                    <n:td class="mailbox-date">2 days ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"></n:td>
+                    <n:td class="mailbox-date">2 days ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"></n:td>
+                    <n:td class="mailbox-date">2 days ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star-o text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"></n:td>
+                    <n:td class="mailbox-date">2 days ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star-o text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"><n:i class="fa fa-paperclip"></n:i></n:td>
+                    <n:td class="mailbox-date">4 days ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"></n:td>
+                    <n:td class="mailbox-date">12 days ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star-o text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"><n:i class="fa fa-paperclip"></n:i></n:td>
+                    <n:td class="mailbox-date">12 days ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"><n:i class="fa fa-paperclip"></n:i></n:td>
+                    <n:td class="mailbox-date">14 days ago</n:td>
+                  </n:tr>
+                  <n:tr>
+                    <n:td><n:input type="checkbox" /></n:td>
+                    <n:td class="mailbox-star"><n:a href="#"><n:i class="fa fa-star text-yellow"></n:i></n:a></n:td>
+                    <n:td class="mailbox-name"><n:a href="?p=mailbox/read-mail">Alexander Pierce</n:a></n:td>
+                    <n:td class="mailbox-subject"><n:b>AdminLTE 2.0 Issue</n:b> - Trying to find a solution to this problem...
+                    </n:td>
+                    <n:td class="mailbox-attachment"><n:i class="fa fa-paperclip"></n:i></n:td>
+                    <n:td class="mailbox-date">15 days ago</n:td>
+                  </n:tr>
+                  </n:tbody>
+                </n:table>
+                <!-- /.table -->
+              </n:div>
+              <!-- /.mail-box-messages -->
+            </n:div>
+            <!-- /.box-body -->
+            <n:div class="box-footer no-padding">
+              <n:div class="mailbox-controls">
+                <!-- Check all button -->
+                <n:button type="button" class="btn btn-default btn-sm checkbox-toggle"><n:i class="fa fa-square-o"></n:i>
+                </n:button>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-trash-o"></n:i></n:button>
+                  <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-reply"></n:i></n:button>
+                  <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-share"></n:i></n:button>
+                </n:div>
+                <!-- /.btn-group -->
+                <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-refresh"></n:i></n:button>
+                <n:div class="pull-right">
+                  1-50/200
+                  <n:div class="btn-group">
+                    <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-chevron-left"></n:i></n:button>
+                    <n:button type="button" class="btn btn-default btn-sm"><n:i class="fa fa-chevron-right"></n:i></n:button>
+                  </n:div>
+                  <!-- /.btn-group -->
+                </n:div>
+                <!-- /.pull-right -->
+              </n:div>
+            </n:div>
+          </n:div>
+          <!-- /. box -->
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /.row -->
+    </n:section>
+    <!-- /.content -->
+
+<!-- Page Script -->
+<n:script>
+$(document).ready(function () {
+  $(function () {
+    //Enable iCheck plugin for checkboxes
+    //iCheck for checkbox and radio inputs
+    $('.mailbox-messages input[type="checkbox"]').iCheck({
+      checkboxClass: 'icheckbox_flat-blue',
+      radioClass: 'iradio_flat-blue'
+    });
+
+    //Enable check and uncheck all functionality
+    $(".checkbox-toggle").click(function () {
+      var clicks = $(this).data('clicks');
+      if (clicks) {
+        //Uncheck all checkboxes
+        $(".mailbox-messages input[type='checkbox']").iCheck("uncheck");
+        $(".fa", this).removeClass("fa-check-square-o").addClass('fa-square-o');
+      } else {
+        //Check all checkboxes
+        $(".mailbox-messages input[type='checkbox']").iCheck("check");
+        $(".fa", this).removeClass("fa-square-o").addClass('fa-check-square-o');
+      }
+      $(this).data("clicks", !clicks);
+    });
+
+    //Handle starring for glyphicon and font awesome
+    $(".mailbox-star").click(function (e) {
+      e.preventDefault();
+      //detect type
+      var $this = $(this).find("a > i");
+      var glyph = $this.hasClass("glyphicon");
+      var fa = $this.hasClass("fa");
+
+      //Switch states
+      if (glyph) {
+        $this.toggleClass("glyphicon-star");
+        $this.toggleClass("glyphicon-star-empty");
+      }
+
+      if (fa) {
+        $this.toggleClass("fa-star");
+        $this.toggleClass("fa-star-o");
+      }
+    });
+  });});
+</n:script>
+
+</zk>

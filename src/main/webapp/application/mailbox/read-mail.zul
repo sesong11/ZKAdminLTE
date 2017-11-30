@@ -1,0 +1,200 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+      <n:h1>
+        Read Mail
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li class="active">Mailbox</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+      <n:div class="row">
+        <n:div class="col-md-3">
+          <n:a href="compose.html" class="btn btn-primary btn-block margin-bottom">Compose</n:a>
+
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Folders</n:h3>
+
+              <n:div class="box-tools">
+                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                </n:button>
+              </n:div>
+            </n:div>
+            <n:div class="box-body no-padding">
+              <n:ul class="nav nav-pills nav-stacked">
+                <n:li><n:a href="?p=mailbox/mailbox"><n:i class="fa fa-inbox"></n:i> Inbox
+                  <n:span class="label label-primary pull-right">12</n:span></n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-envelope-o"></n:i> Sent</n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-file-text-o"></n:i> Drafts</n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-filter"></n:i> Junk <n:span class="label label-warning pull-right">65</n:span></n:a>
+                </n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-trash-o"></n:i> Trash</n:a></n:li>
+              </n:ul>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /. box -->
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Labels</n:h3>
+
+              <n:div class="box-tools">
+                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                </n:button>
+              </n:div>
+            </n:div>
+            <n:div class="box-body no-padding">
+              <n:ul class="nav nav-pills nav-stacked">
+                <n:li><n:a href="#"><n:i class="fa fa-circle-o text-red"></n:i> Important</n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-circle-o text-yellow"></n:i> Promotions</n:a></n:li>
+                <n:li><n:a href="#"><n:i class="fa fa-circle-o text-light-blue"></n:i> Social</n:a></n:li>
+              </n:ul>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+        <n:div class="col-md-9">
+          <n:div class="box box-primary">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Read Mail</n:h3>
+
+              <n:div class="box-tools pull-right">
+                <n:a href="#" class="btn btn-box-tool" data-toggle="tooltip" title="Previous"><n:i class="fa fa-chevron-left"></n:i></n:a>
+                <n:a href="#" class="btn btn-box-tool" data-toggle="tooltip" title="Next"><n:i class="fa fa-chevron-right"></n:i></n:a>
+              </n:div>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body no-padding">
+              <n:div class="mailbox-read-info">
+                <n:h3>Message Subject Is Placed Here</n:h3>
+                <n:h5>From: help@example.com
+                  <n:span class="mailbox-read-time pull-right">15 Feb. 2016 11:03 PM</n:span></n:h5>
+              </n:div>
+              <!-- /.mailbox-read-info -->
+              <n:div class="mailbox-controls with-border text-center">
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
+                    <n:i class="fa fa-trash-o"></n:i></n:button>
+                  <n:button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
+                    <n:i class="fa fa-reply"></n:i></n:button>
+                  <n:button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
+                    <n:i class="fa fa-share"></n:i></n:button>
+                </n:div>
+                <!-- /.btn-group -->
+                <n:button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
+                  <n:i class="fa fa-print"></n:i></n:button>
+              </n:div>
+              <!-- /.mailbox-controls -->
+              <n:div class="mailbox-read-message">
+                <n:p>Hello John,</n:p>
+
+                <n:p>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird
+                  on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical
+                  master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack
+                  gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon
+                  asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu
+                  blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American
+                  Apparel.</n:p>
+
+                <n:p>Raw denim McSweeney's bicycle rights, iPhone trust fund quinoa Neutra VHS kale chips vegan PBR&amp;B
+                  literally Thundercats +1. Forage tilde four dollar toast, banjo health goth paleo butcher. Four dollar
+                  toast Brooklyn pour-over American Apparel sustainable, lumbersexual listicle gluten-free health goth
+                  umami hoodie. Synth Echo Park bicycle rights DIY farm-to-table, retro kogi sriracha dreamcatcher PBR&amp;B
+                  flannel hashtag irony Wes Anderson. Lumbersexual Williamsburg Helvetica next level. Cold-pressed
+                  slow-carb pop-up normcore Thundercats Portland, cardigan literally meditation lumbersexual crucifix.
+                  Wayfarers raw denim paleo Bushwick, keytar Helvetica scenester keffiyeh 8-bit irony mumblecore
+                  whatever viral Truffaut.</n:p>
+
+                <n:p>Post-ironic shabby chic VHS, Marfa keytar flannel lomo try-hard keffiyeh cray. Actually fap fanny
+                  pack yr artisan trust fund. High Life dreamcatcher church-key gentrify. Tumblr stumptown four dollar
+                  toast vinyl, cold-pressed try-hard blog authentic keffiyeh Helvetica lo-fi tilde Intelligentsia. Lomo
+                  locavore salvia bespoke, twee fixie paleo cliche brunch Schlitz blog McSweeney's messenger bag swag
+                  slow-carb. Odd Future photo booth pork belly, you probably haven't heard of them actually tofu ennui
+                  keffiyeh lo-fi Truffaut health goth. Narwhal sustainable retro disrupt.</n:p>
+
+                <n:p>Skateboard artisan letterpress before they sold out High Life messenger bag. Bitters chambray
+                  leggings listicle, drinking vinegar chillwave synth. Fanny pack hoodie American Apparel twee. American
+                  Apparel PBR listicle, salvia aesthetic occupy sustainable Neutra kogi. Organic synth Tumblr viral
+                  plaid, shabby chic single-origin coffee Etsy 3 wolf moon slow-carb Schlitz roof party tousled squid
+                  vinyl. Readymade next level literally trust fund. Distillery master cleanse migas, Vice sriracha
+                  flannel chambray chia cronut.</n:p>
+
+                <n:p>Thanks,<n:br/>Jane</n:p>
+              </n:div>
+              <!-- /.mailbox-read-message -->
+            </n:div>
+            <!-- /.box-body -->
+            <n:div class="box-footer">
+              <n:ul class="mailbox-attachments clearfix">
+                <n:li>
+                  <n:span class="mailbox-attachment-icon"><n:i class="fa fa-file-pdf-o"></n:i></n:span>
+
+                  <n:div class="mailbox-attachment-info">
+                    <n:a href="#" class="mailbox-attachment-name"><n:i class="fa fa-paperclip"></n:i> Sep2014-report.pdf</n:a>
+                        <n:span class="mailbox-attachment-size">
+                          1,245 KB
+                          <n:a href="#" class="btn btn-default btn-xs pull-right"><n:i class="fa fa-cloud-download"></n:i></n:a>
+                        </n:span>
+                  </n:div>
+                </n:li>
+                <n:li>
+                  <n:span class="mailbox-attachment-icon"><n:i class="fa fa-file-word-o"></n:i></n:span>
+
+                  <n:div class="mailbox-attachment-info">
+                    <n:a href="#" class="mailbox-attachment-name"><n:i class="fa fa-paperclip"></n:i> App Description.docx</n:a>
+                        <n:span class="mailbox-attachment-size">
+                          1,245 KB
+                          <n:a href="#" class="btn btn-default btn-xs pull-right"><n:i class="fa fa-cloud-download"></n:i></n:a>
+                        </n:span>
+                  </n:div>
+                </n:li>
+                <n:li>
+                  <n:span class="mailbox-attachment-icon has-img"><n:img src="adminlte/dist/img/photo1.png" alt="Attachment" /></n:span>
+
+                  <n:div class="mailbox-attachment-info">
+                    <n:a href="#" class="mailbox-attachment-name"><n:i class="fa fa-camera"></n:i> photo1.png</n:a>
+                        <n:span class="mailbox-attachment-size">
+                          2.67 MB
+                          <n:a href="#" class="btn btn-default btn-xs pull-right"><n:i class="fa fa-cloud-download"></n:i></n:a>
+                        </n:span>
+                  </n:div>
+                </n:li>
+                <n:li>
+                  <n:span class="mailbox-attachment-icon has-img"><n:img src="adminlte/dist/img/photo2.png" alt="Attachment" /></n:span>
+
+                  <n:div class="mailbox-attachment-info">
+                    <n:a href="#" class="mailbox-attachment-name"><n:i class="fa fa-camera"></n:i> photo2.png</n:a>
+                        <n:span class="mailbox-attachment-size">
+                          1.9 MB
+                          <n:a href="#" class="btn btn-default btn-xs pull-right"><n:i class="fa fa-cloud-download"></n:i></n:a>
+                        </n:span>
+                  </n:div>
+                </n:li>
+              </n:ul>
+            </n:div>
+            <!-- /.box-footer -->
+            <n:div class="box-footer">
+              <n:div class="pull-right">
+                <n:button type="button" class="btn btn-default"><n:i class="fa fa-reply"></n:i> Reply</n:button>
+                <n:button type="button" class="btn btn-default"><n:i class="fa fa-share"></n:i> Forward</n:button>
+              </n:div>
+              <n:button type="button" class="btn btn-default"><n:i class="fa fa-trash-o"></n:i> Delete</n:button>
+              <n:button type="button" class="btn btn-default"><n:i class="fa fa-print"></n:i> Print</n:button>
+            </n:div>
+            <!-- /.box-footer -->
+          </n:div>
+          <!-- /. box -->
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /.row -->
+    </n:section>
+    <!-- /.content -->
+</zk>
