@@ -361,7 +361,7 @@ folder instead of downloading all of them to reduce the load. -->
                             </n:ul>
                         </n:li>
                         <n:li>
-                            <n:a href="pages/widgets.html">
+                            <n:a href="?p=widgets">
                                 <n:i class="fa fa-th"></n:i> <n:span>Widgets</n:span>
                                 <n:span class="pull-right-container">
                                     <n:small class="label pull-right bg-green">new</n:small>

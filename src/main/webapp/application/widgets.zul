@@ -1,0 +1,1071 @@
+<zk xmlns:n="native">
+    <n:section class="content-header">
+        <n:h1>
+            Widgets
+            <n:small>Preview page</n:small>
+        </n:h1>
+        <n:ol class="breadcrumb">
+            <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+            <n:li class="active">Widgets</n:li>
+        </n:ol>
+    </n:section>
+    <!-- Main content -->
+    <n:section class="content">
+
+        <n:div class="row">
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box">
+                    <n:span class="info-box-icon bg-aqua"><n:i class="fa fa-envelope-o"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Messages</n:span>
+                        <n:span class="info-box-number">1,410</n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box">
+                    <n:span class="info-box-icon bg-green"><n:i class="fa fa-flag-o"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Bookmarks</n:span>
+                        <n:span class="info-box-number">410</n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box">
+                    <n:span class="info-box-icon bg-yellow"><n:i class="fa fa-files-o"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Uploads</n:span>
+                        <n:span class="info-box-number">13,648</n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box">
+                    <span class="info-box-icon bg-red"><n:i class="fa fa-star-o"></n:i></span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Likes</n:span>
+                        <n:span class="info-box-number">93,139</n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+
+        <n:div class="row">
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box bg-aqua">
+                    <n:span class="info-box-icon"><n:i class="fa fa-bookmark-o"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Bookmarks</n:span>
+                        <n:span class="info-box-number">41,410</n:span>
+
+                        <n:div class="progress">
+                            <n:div class="progress-bar" style="width: 70%"></n:div>
+                        </n:div>
+                        <n:span class="progress-description">
+                            70% Increase in 30 Days
+                        </n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box bg-green">
+                    <n:span class="info-box-icon"><n:i class="fa fa-thumbs-o-up"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Likes</n:span>
+                        <n:span class="info-box-number">41,410</n:span>
+
+                        <n:div class="progress">
+                            <n:div class="progress-bar" style="width: 70%"></n:div>
+                        </n:div>
+                        <n:span class="progress-description">
+                            70% Increase in 30 Days
+                        </n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box bg-yellow">
+                    <n:span class="info-box-icon"><n:i class="fa fa-calendar"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Events</n:span>
+                        <n:span class="info-box-number">41,410</n:span>
+
+                        <n:div class="progress">
+                            <n:div class="progress-bar" style="width: 70%"></n:div>
+                        </n:div>
+                        <n:span class="progress-description">
+                            70% Increase in 30 Days
+                        </n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3 col-sm-6 col-xs-12">
+                <n:div class="info-box bg-red">
+                    <n:span class="info-box-icon"><n:i class="fa fa-comments-o"></n:i></n:span>
+
+                    <n:div class="info-box-content">
+                        <n:span class="info-box-text">Comments</n:span>
+                        <n:span class="info-box-number">41,410</n:span>
+
+                        <n:div class="progress">
+                            <n:div class="progress-bar" style="width: 70%"></n:div>
+                        </n:div>
+                        <n:span class="progress-description">
+                            70% Increase in 30 Days
+                        </n:span>
+                    </n:div>
+                    <!-- /.info-box-content -->
+                </n:div>
+                <!-- /.info-box -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+
+        <!-- Small boxes (Stat box) -->
+        <n:div class="row">
+            <n:div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <n:div class="small-box bg-aqua">
+                    <n:div class="inner">
+                        <n:h3>150</n:h3>
+
+                        <n:p>New Orders</n:p>
+                    </n:div>
+                    <n:div class="icon">
+                        <n:i class="fa fa-shopping-cart"></n:i>
+                    </n:div>
+                    <n:a href="#" class="small-box-footer">
+                        More info <n:i class="fa fa-arrow-circle-right"></n:i>
+                    </n:a>
+                </n:div>
+            </n:div>
+            <!-- ./col -->
+            <n:div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <n:div class="small-box bg-green">
+                    <n:div class="inner">
+                        <n:h3>53<n:sup style="font-size: 20px">%</n:sup></n:h3>
+
+                        <n:p>Bounce Rate</n:p>
+                    </n:div>
+                    <n:div class="icon">
+                        <n:i class="ion ion-stats-bars"></n:i>
+                    </n:div>
+                    <n:a href="#" class="small-box-footer">
+                        More info <n:i class="fa fa-arrow-circle-right"></n:i>
+                    </n:a>
+                </n:div>
+            </n:div>
+            <!-- ./col -->
+            <n:div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <n:div class="small-box bg-yellow">
+                    <n:div class="inner">
+                        <n:h3>44</n:h3>
+
+                        <n:p>User Registrations</n:p>
+                    </n:div>
+                    <n:div class="icon">
+                        <n:i class="ion ion-person-add"></n:i>
+                    </n:div>
+                    <n:a href="#" class="small-box-footer">
+                        More info <n:i class="fa fa-arrow-circle-right"></n:i>
+                    </n:a>
+                </n:div>
+            </n:div>
+            <!-- ./col -->
+            <n:div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <n:div class="small-box bg-red">
+                    <n:div class="inner">
+                        <n:h3>65</n:h3>
+
+                        <n:p>Unique Visitors</n:p>
+                    </n:div>
+                    <n:div class="icon">
+                        <n:i class="ion ion-pie-graph"></n:i>
+                    </n:div>
+                    <n:a href="#" class="small-box-footer">
+                        More info <n:i class="fa fa-arrow-circle-right"></n:i>
+                    </n:a>
+                </n:div>
+            </n:div>
+            <!-- ./col -->
+        </n:div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+
+        <n:div class="row">
+            <n:div class="col-md-3">
+                <n:div class="box box-default collapsed-box">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Expandable</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-plus"></n:i>
+                            </n:button>
+                        </n:div>
+                        <!-- /.box-tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        The body of the box
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3">
+                <n:div class="box box-success">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Removable</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                        <!-- /.box-tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        The body of the box
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3">
+                <n:div class="box box-warning">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Collapsable</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                        </n:div>
+                        <!-- /.box-tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        The body of the box
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3">
+                <n:div class="box box-danger">
+                    <n:div class="box-header">
+                        <n:h3 class="box-title">Loading state</n:h3>
+                    </n:div>
+                    <n:div class="box-body">
+                        The body of the box
+                    </n:div>
+                    <!-- /.box-body -->
+                    <!-- Loading (remove the following to stop the loading)-->
+                    <n:div class="overlay">
+                        <n:i class="fa fa-refresh fa-spin"></n:i>
+                    </n:div>
+                    <!-- end loading -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+
+        <n:div class="row">
+            <n:div class="col-md-3">
+                <n:div class="box box-default collapsed-box box-solid">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Expandable</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-plus"></n:i>
+                            </n:button>
+                        </n:div>
+                        <!-- /.box-tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        The body of the box
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3">
+                <n:div class="box box-success box-solid">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Removable</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                        <!-- /.box-tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        The body of the box
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3">
+                <n:div class="box box-warning box-solid">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Collapsable</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                        </n:div>
+                        <!-- /.box-tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        The body of the box
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-3">
+                <n:div class="box box-danger box-solid">
+                    <n:div class="box-header">
+                        <n:h3 class="box-title">Loading state</n:h3>
+                    </n:div>
+                    <n:div class="box-body">
+                        The body of the box
+                    </n:div>
+                    <!-- /.box-body -->
+                    <!-- Loading (remove the following to stop the loading)-->
+                    <n:div class="overlay">
+                        <n:i class="fa fa-refresh fa-spin"></n:i>
+                    </n:div>
+                    <!-- end loading -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+
+        <!-- Direct Chat -->
+        <n:div class="row">
+            <n:div class="col-md-3">
+                <!-- DIRECT CHAT PRIMARY -->
+                <n:div class="box box-primary direct-chat direct-chat-primary">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Direct Chat</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:span data-toggle="tooltip" title="3 New Messages" class="badge bg-light-blue">3</n:span>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                                <n:i class="fa fa-comments"></n:i></n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <!-- Conversations are loaded here -->
+                        <n:div class="direct-chat-messages">
+                            <!-- Message. Default to the left -->
+                            <n:div class="direct-chat-msg">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-left">Alexander Pierce</n:span>
+                                    <n:span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text">
+                                    Is this template really for free? That's unbelievable!
+                                </n:div>
+                                <!-- /.direct-chat-text -->
+                            </n:div>
+                            <!-- /.direct-chat-msg -->
+
+                            <!-- Message to the right -->
+                            <n:div class="direct-chat-msg right">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-right">Sarah Bullock</n:span>
+                                    <n:span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text">
+                                    You better believe it!
+                                </n:div>
+                                <!-- /.direct-chat-text -->
+                            </n:div>
+                            <!-- /.direct-chat-msg -->
+                        </n:div>
+                        <!--/.direct-chat-messages-->
+
+                        <!-- Contacts are loaded here -->
+                        <n:div class="direct-chat-contacts">
+                            <n:ul class="contacts-list">
+                                <n:li>
+                                    <n:a href="#">
+                                        <n:img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+
+                                        <n:div class="contacts-list-info">
+                                            <n:span class="contacts-list-name">
+                                                Count Dracula
+                                                <n:small class="contacts-list-date pull-right">2/28/2015</n:small>
+                                            </n:span>
+                                            <n:span class="contacts-list-msg">How have you been? I was...</n:span>
+                                        </n:div>
+                                        <!-- /.contacts-list-info -->
+                                    </n:a>
+                                </n:li>
+                                <!-- End Contact Item -->
+                            </n:ul>
+                            <!-- /.contatcts-list -->
+                        </n:div>
+                        <!-- /.direct-chat-pane -->
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer">
+                        <n:form action="#" method="post">
+                            <n:div class="input-group">
+                                <n:input type="text" name="message" placeholder="Type Message ..." class="form-control" />
+                                <n:span class="input-group-btn">
+                                    <n:button type="submit" class="btn btn-primary btn-flat">Send</n:button>
+                                </n:span>
+                            </n:div>
+                        </n:form>
+                    </n:div>
+                    <!-- /.box-footer-->
+                </n:div>
+                <!--/.direct-chat -->
+            </n:div>
+            <!-- /.col -->
+
+            <n:div class="col-md-3">
+                <!-- DIRECT CHAT SUCCESS -->
+                <n:div class="box box-success direct-chat direct-chat-success">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Direct Chat</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:span data-toggle="tooltip" title="3 New Messages" class="badge bg-green">3</n:span>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                                <n:i class="fa fa-comments"></n:i></n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <!-- Conversations are loaded here -->
+                        <n:div class="direct-chat-messages">
+                            <!-- Message. Default to the left -->
+                            <n:div class="direct-chat-msg">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-left">Alexander Pierce</n:span>
+                                    <n:span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text">
+                                    Is this template really for free? That's unbelievable!
+                                </n:div>
+                                <!-- /.direct-chat-text -->
+                            </n:div>
+                            <!-- /.direct-chat-msg -->
+
+                            <!-- Message to the right -->
+                            <n:div class="direct-chat-msg right">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-right">Sarah Bullock</n:span>
+                                    <n:span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text">
+                                    You better believe it!
+                                </n:div>
+                                <!-- /.direct-chat-text -->
+                            </n:div>
+                            <!-- /.direct-chat-msg -->
+                        </n:div>
+                        <!--/.direct-chat-messages-->
+
+                        <!-- Contacts are loaded here -->
+                        <n:div class="direct-chat-contacts">
+                            <n:ul class="contacts-list">
+                                <n:li>
+                                    <n:a href="#">
+                                        <n:img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+
+                                        <n:div class="contacts-list-info">
+                                            <n:span class="contacts-list-name">
+                                                Count Dracula
+                                                <n:small class="contacts-list-date pull-right">2/28/2015</n:small>
+                                            </n:span>
+                                            <n:span class="contacts-list-msg">How have you been? I was...</n:span>
+                                        </n:div>
+                                        <!-- /.contacts-list-info -->
+                                    </n:a>
+                                </n:li>
+                                <!-- End Contact Item -->
+                            </n:ul>
+                            <!-- /.contatcts-list -->
+                        </n:div>
+                        <!-- /.direct-chat-pane -->
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer">
+                        <n:form action="#" method="post">
+                            <n:div class="input-group">
+                                <n:input type="text" name="message" placeholder="Type Message ..." class="form-control" />
+                                <n:span class="input-group-btn">
+                                    <n:button type="submit" class="btn btn-success btn-flat">Send</n:button>
+                                </n:span>
+                            </n:div>
+                        </n:form>
+                    </n:div>
+                    <!-- /.box-footer-->
+                </n:div>
+                <!--/.direct-chat -->
+            </n:div>
+            <!-- /.col -->
+
+            <n:div class="col-md-3">
+                <!-- DIRECT CHAT WARNING -->
+                <n:div class="box box-warning direct-chat direct-chat-warning">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Direct Chat</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:span data-toggle="tooltip" title="3 New Messages" class="badge bg-yellow">3</n:span>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                                <n:i class="fa fa-comments"></n:i></n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <!-- Conversations are loaded here -->
+                        <n:div class="direct-chat-messages">
+                            <!-- Message. Default to the left -->
+                            <n:div class="direct-chat-msg">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-left">Alexander Pierce</n:span>
+                                    <n:span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text">
+                                    Is this template really for free? That's unbelievable!
+                                </n:div>
+                                <!-- /.direct-chat-text -->
+                            </n:div>
+                            <!-- /.direct-chat-msg -->
+
+                            <!-- Message to the right -->
+                            <n:div class="direct-chat-msg right">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-right">Sarah Bullock</n:span>
+                                    <n:span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text">
+                                    You better believe it!
+                                </n:div>
+                                <!-- /.direct-chat-text -->
+                            </n:div>
+                            <!-- /.direct-chat-msg -->
+                        </n:div>
+                        <!--/.direct-chat-messages-->
+
+                        <!-- Contacts are loaded here -->
+                        <n:div class="direct-chat-contacts">
+                            <n:ul class="contacts-list">
+                                <n:li>
+                                    <n:a href="#">
+                                        <n:img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+
+                                        <n:div class="contacts-list-info">
+                                            <n:span class="contacts-list-name">
+                                                Count Dracula
+                                                <n:small class="contacts-list-date pull-right">2/28/2015</n:small>
+                                            </n:span>
+                                            <n:span class="contacts-list-msg">How have you been? I was...</n:span>
+                                        </n:div>
+                                        <!-- /.contacts-list-info -->
+                                    </n:a>
+                                </n:li>
+                                <!-- End Contact Item -->
+                            </n:ul>
+                            <!-- /.contatcts-list -->
+                        </n:div>
+                        <!-- /.direct-chat-pane -->
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer">
+                        <n:form action="#" method="post">
+                            <n:div class="input-group">
+                                <n:input type="text" name="message" placeholder="Type Message ..." class="form-control" />
+                                <n:span class="input-group-btn">
+                                    <n:button type="submit" class="btn btn-warning btn-flat">Send</n:button>
+                                </n:span>
+                            </n:div>
+                        </n:form>
+                    </n:div>
+                    <!-- /.box-footer-->
+                </n:div>
+                <!--/.direct-chat -->
+            </n:div>
+            <!-- /.col -->
+
+            <n:div class="col-md-3">
+                <!-- DIRECT CHAT DANGER -->
+                <n:div class="box box-danger direct-chat direct-chat-danger">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">Direct Chat</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:span data-toggle="tooltip" title="3 New Messages" class="badge bg-red">3</n:span>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                                <n:i class="fa fa-comments"></n:i></n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <!-- Conversations are loaded here -->
+                        <n:div class="direct-chat-messages">
+                            <!-- Message. Default to the left -->
+                            <n:div class="direct-chat-msg">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-left">Alexander Pierce</n:span>
+                                    <n:span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text">
+                                    Is this template really for free? That's unbelievable!
+                                </n:div>
+                                <!-- /.direct-chat-text -->
+                            </n:div>
+                            <!-- /.direct-chat-msg -->
+
+                            <!-- Message to the right -->
+                            <n:div class="direct-chat-msg right">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-right">Sarah Bullock</n:span>
+                                    <n:span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text">
+                                    You better believe it!
+                                </n:div>
+                                <!-- /.direct-chat-text -->
+                            </n:div>
+                            <!-- /.direct-chat-msg -->
+                        </n:div>
+                        <!--/.direct-chat-messages-->
+
+                        <!-- Contacts are loaded here -->
+                        <n:div class="direct-chat-contacts">
+                            <n:ul class="contacts-list">
+                                <n:li>
+                                    <n:a href="#">
+                                        <n:img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+
+                                        <n:div class="contacts-list-info">
+                                            <n:span class="contacts-list-name">
+                                                Count Dracula
+                                                <n:small class="contacts-list-date pull-right">2/28/2015</n:small>
+                                            </n:span>
+                                            <n:span class="contacts-list-msg">How have you been? I was...</n:span>
+                                        </n:div>
+                                        <!-- /.contacts-list-info -->
+                                    </n:a>
+                                </n:li>
+                                <!-- End Contact Item -->
+                            </n:ul>
+                            <!-- /.contatcts-list -->
+                        </n:div>
+                        <!-- /.direct-chat-pane -->
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer">
+                        <n:form action="#" method="post">
+                            <n:div class="input-group">
+                                <n:input type="text" name="message" placeholder="Type Message ..." class="form-control" />
+                                <n:span class="input-group-btn">
+                                    <n:button type="submit" class="btn btn-danger btn-flat">Send</n:button>
+                                </n:span>
+                            </n:div>
+                        </n:form>
+                    </n:div>
+                    <!-- /.box-footer-->
+                </n:div>
+                <!--/.direct-chat -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <n:h2 class="page-header">Social Widgets</n:h2>
+
+        <n:div class="row">
+            <n:div class="col-md-4">
+                <!-- Widget: user widget style 1 -->
+                <n:div class="box box-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <n:div class="widget-user-header bg-yellow">
+                        <n:div class="widget-user-image">
+                            <n:img class="img-circle" src="../dist/img/user7-128x128.jpg" alt="User Avatar" />
+                        </n:div>
+                        <!-- /.widget-user-image -->
+                        <n:h3 class="widget-user-username">Nadia Carmichael</n:h3>
+                        <n:h5 class="widget-user-desc">Lead Developer</n:h5>
+                    </n:div>
+                    <n:div class="box-footer no-padding">
+                        <n:ul class="nav nav-stacked">
+                            <n:li><n:a href="#">Projects <n:span class="pull-right badge bg-blue">31</n:span></n:a></n:li>
+                            <n:li><n:a href="#">Tasks <n:span class="pull-right badge bg-aqua">5</n:span></n:a></n:li>
+                            <n:li><n:a href="#">Completed Projects <n:span class="pull-right badge bg-green">12</n:span></n:a></n:li>
+                            <n:li><n:a href="#">Followers <n:span class="pull-right badge bg-red">842</n:span></n:a></n:li>
+                        </n:ul>
+                    </n:div>
+                </n:div>
+                <!-- /.widget-user -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-4">
+                <!-- Widget: user widget style 1 -->
+                <n:div class="box box-widget widget-user">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <n:div class="widget-user-header bg-aqua-active">
+                        <n:h3 class="widget-user-username">Alexander Pierce</n:h3>
+                        <n:h5 class="widget-user-desc">Founder &amp; CEO</n:h5>
+                    </n:div>
+                    <n:div class="widget-user-image">
+                        <n:img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Avatar" />
+                    </n:div>
+                    <n:div class="box-footer">
+                        <n:div class="row">
+                            <n:div class="col-sm-4 border-right">
+                                <n:div class="description-block">
+                                    <n:h5 class="description-header">3,200</n:h5>
+                                    <n:span class="description-text">SALES</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-4 border-right">
+                                <n:div class="description-block">
+                                    <n:h5 class="description-header">13,000</n:h5>
+                                    <n:span class="description-text">FOLLOWERS</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-4">
+                                <n:div class="description-block">
+                                    <n:h5 class="description-header">35</n:h5>
+                                    <n:span class="description-text">PRODUCTS</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                </n:div>
+                <!-- /.widget-user -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-4">
+                <!-- Widget: user widget style 1 -->
+                <n:div class="box box-widget widget-user">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <n:div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
+                        <n:h3 class="widget-user-username">Elizabeth Pierce</n:h3>
+                        <n:h5 class="widget-user-desc">Web Designer</n:h5>
+                    </n:div>
+                    <n:div class="widget-user-image">
+                        <n:img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar" />
+                    </n:div>
+                    <n:div class="box-footer">
+                        <n:div class="row">
+                            <n:div class="col-sm-4 border-right">
+                                <n:div class="description-block">
+                                    <n:h5 class="description-header">3,200</n:h5>
+                                    <n:span class="description-text">SALES</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-4 border-right">
+                                <n:div class="description-block">
+                                    <n:h5 class="description-header">13,000</n:h5>
+                                    <n:span class="description-text">FOLLOWERS</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-4">
+                                <n:div class="description-block">
+                                    <n:h5 class="description-header">35</n:h5>
+                                    <n:span class="description-text">PRODUCTS</n:span>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                </n:div>
+                <!-- /.widget-user -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+        <n:div class="row">
+            <n:div class="col-md-6">
+                <!-- Box Comment -->
+                <n:div class="box box-widget">
+                    <n:div class="box-header with-border">
+                        <n:div class="user-block">
+                            <n:img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+                            <n:span class="username"><n:a href="#">Jonathan Burke Jr.</n:a></n:span>
+                            <n:span class="description">Shared publicly - 7:30 PM Today</n:span>
+                        </n:div>
+                        <!-- /.user-block -->
+                        <n:div class="box-tools">
+                            <n:button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Mark as read">
+                                <n:i class="fa fa-circle-o"></n:i></n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                        <!-- /.box-tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <n:img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo" />
+
+                        <n:p>I took this photo this morning. What do you guys think?</n:p>
+                        <n:button type="button" class="btn btn-default btn-xs"><n:i class="fa fa-share"></n:i> Share</n:button>
+                        <n:button type="button" class="btn btn-default btn-xs"><n:i class="fa fa-thumbs-o-up"></n:i> Like</n:button>
+                        <n:span class="pull-right text-muted">127 likes - 3 comments</n:span>
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer box-comments">
+                        <n:div class="box-comment">
+                            <!-- User image -->
+                            <n:img class="img-circle img-sm" src="../dist/img/user3-128x128.jpg" alt="User Image" />
+
+                            <n:div class="comment-text">
+                                <n:span class="username">
+                                    Maria Gonzales
+                                    <n:span class="text-muted pull-right">8:03 PM Today</n:span>
+                                </n:span><!-- /.username -->
+                                It is a long established fact that a reader will be distracted
+                                by the readable content of a page when looking at its layout.
+                            </n:div>
+                            <!-- /.comment-text -->
+                        </n:div>
+                        <!-- /.box-comment -->
+                        <n:div class="box-comment">
+                            <!-- User image -->
+                            <n:img class="img-circle img-sm" src="../dist/img/user4-128x128.jpg" alt="User Image" />
+
+                            <n:div class="comment-text">
+                                <n:span class="username">
+                                    Luna Stark
+                                    <n:span class="text-muted pull-right">8:03 PM Today</n:span>
+                                </n:span><!-- /.username -->
+                                It is a long established fact that a reader will be distracted
+                                by the readable content of a page when looking at its layout.
+                            </n:div>
+                            <!-- /.comment-text -->
+                        </n:div>
+                        <!-- /.box-comment -->
+                    </n:div>
+                    <!-- /.box-footer -->
+                    <n:div class="box-footer">
+                        <n:form action="#" method="post">
+                            <n:img class="img-responsive img-circle img-sm" src="../dist/img/user4-128x128.jpg" alt="Alt Text" />
+                            <!-- .img-push is used to add margin to elements next to floating images -->
+                            <n:div class="img-push">
+                                <n:input type="text" class="form-control input-sm" placeholder="Press enter to post comment" />
+                            </n:div>
+                        </n:form>
+                    </n:div>
+                    <!-- /.box-footer -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-md-6">
+                <!-- Box Comment -->
+                <n:div class="box box-widget">
+                    <n:div class="box-header with-border">
+                        <n:div class="user-block">
+                            <n:img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+                            <n:span class="username"><n:a href="#">Jonathan Burke Jr.</n:a></n:span>
+                            <n:span class="description">Shared publicly - 7:30 PM Today</n:span>
+                        </n:div>
+                        <!-- /.user-block -->
+                        <n:div class="box-tools">
+                            <n:button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Mark as read">
+                                <n:i class="fa fa-circle-o"></n:i></n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                        <!-- /.box-tools -->
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+                        <!-- post text -->
+                        <n:p>Far far away, behind the word mountains, far from the
+                            countries Vokalia and Consonantia, there live the blind
+                            texts. Separated they live in Bookmarksgrove right at</n:p>
+
+                        <n:p>the coast of the Semantics, a large language ocean.
+                            A small river named Duden flows by their place and supplies
+                            it with the necessary regelialia. It is a paradisematic
+                            country, in which roasted parts of sentences fly into
+                            your mouth.</n:p>
+
+                        <!-- Attachment -->
+                        <n:div class="attachment-block clearfix">
+                            <n:img class="attachment-img" src="../dist/img/photo1.png" alt="Attachment Image" />
+
+                            <n:div class="attachment-pushed">
+                                <n:h4 class="attachment-heading"><n:a href="http://www.lipsum.com/">Lorem ipsum text generator</n:a></n:h4>
+
+                                <n:div class="attachment-text">
+                                    Description about the attachment can be placed here.
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">more</a>
+                                </n:div>
+                                <!-- /.attachment-text -->
+                            </n:div>
+                            <!-- /.attachment-pushed -->
+                        </n:div>
+                        <!-- /.attachment-block -->
+
+                        <!-- Social sharing buttons -->
+                        <n:button type="button" class="btn btn-default btn-xs"><n:i class="fa fa-share"></n:i> Share</n:button>
+                        <n:button type="button" class="btn btn-default btn-xs"><n:i class="fa fa-thumbs-o-up"></n:i> Like</n:button>
+                        <n:span class="pull-right text-muted">45 likes - 2 comments</n:span>
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer box-comments">
+                        <n:div class="box-comment">
+                            <!-- User image -->
+                            <n:img class="img-circle img-sm" src="../dist/img/user3-128x128.jpg" alt="User Image" />
+
+                            <n:div class="comment-text">
+                                <n:span class="username">
+                                    Maria Gonzales
+                                    <n:span class="text-muted pull-right">8:03 PM Today</n:span>
+                                </n:span><!-- /.username -->
+                                It is a long established fact that a reader will be distracted
+                                by the readable content of a page when looking at its layout.
+                            </n:div>
+                            <!-- /.comment-text -->
+                        </n:div>
+                        <!-- /.box-comment -->
+                        <n:div class="box-comment">
+                            <!-- User image -->
+                            <n:img class="img-circle img-sm" src="../dist/img/user5-128x128.jpg" alt="User Image" />
+
+                            <n:div class="comment-text">
+                                <n:span class="username">
+                                    Nora Havisham
+                                    <n:span class="text-muted pull-right">8:03 PM Today</n:span>
+                                </n:span><!-- /.username -->
+                                The point of using Lorem Ipsum is that it has a more-or-less
+                                normal distribution of letters, as opposed to using
+                                'Content here, content here', making it look like readable English.
+                            </n:div>
+                            <!-- /.comment-text -->
+                        </n:div>
+                        <!-- /.box-comment -->
+                    </n:div>
+                    <!-- /.box-footer -->
+                    <n:div class="box-footer">
+                        <n:form action="#" method="post">
+                            <n:img class="img-responsive img-circle img-sm" src="../dist/img/user4-128x128.jpg" alt="Alt Text" />
+                            <!-- .img-push is used to add margin to elements next to floating images -->
+                            <n:div class="img-push">
+                                <n:input type="text" class="form-control input-sm" placeholder="Press enter to post comment" />
+                            </n:div>
+                        </n:form>
+                    </n:div>
+                    <!-- /.box-footer -->
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+            <!-- /.col -->
+        </n:div>
+        <!-- /.row -->
+
+    </n:section>
+    <!-- /.content -->
+</zk>
