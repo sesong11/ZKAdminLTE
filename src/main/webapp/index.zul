@@ -27,7 +27,11 @@ folder instead of downloading all of them to reduce the load. -->
 <!-- fullCalendar -->
 <?link rel="stylesheet" href="adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css"?>
 <?link rel="stylesheet" href="adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print"?>
-
+<!-- DataTables -->
+<?link rel="stylesheet" href="adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"?>
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+<?link rel="stylesheet" href="adminlte/dist/css/skins/_all-skins.min.css"?>
 <?link rel="stylesheet" href="/css/application.css"?>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -416,7 +420,7 @@ folder instead of downloading all of them to reduce the load. -->
                                 <n:li class="${vm.urlParam.contains('forms/editors') ? 'active' : ''}"><n:a href="?p=forms/editors"><n:i class="fa fa-circle-o"></n:i> Editors</n:a></n:li>
                             </n:ul>
                         </n:li>
-                        <n:li class="treeview">
+                        <n:li class="${vm.urlParam.contains('tables/') ? 'active' : ''} treeview">
                             <n:a href="#">
                                 <n:i class="fa fa-table"></n:i> <n:span>Tables</n:span>
                                 <n:span class="pull-right-container">
@@ -424,8 +428,8 @@ folder instead of downloading all of them to reduce the load. -->
                                 </n:span>
                             </n:a>
                             <n:ul class="treeview-menu">
-                                <n:li><n:a href="pages/tables/simple.html"><n:i class="fa fa-circle-o"></n:i> Simple tables</n:a></n:li>
-                                <n:li><n:a href="pages/tables/data.html"><n:i class="fa fa-circle-o"></n:i> Data tables</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('tables/simple') ? 'active' : ''}"><n:a href="?p=tables/simple"><n:i class="fa fa-circle-o"></n:i> Simple tables</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('tables/data') ? 'active' : ''}"><n:a href="?p=tables/data"><n:i class="fa fa-circle-o"></n:i> Data tables</n:a></n:li>
                             </n:ul>
                         </n:li>
                         <n:li>
@@ -720,9 +724,9 @@ folder instead of downloading all of them to reduce the load. -->
         <!-- jQuery UI 1.11.4 -->
         <script src="adminlte/bower_components/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <script>
+        <n:script>
             $.widget.bridge('uibutton', $.ui.button);
-        </script>
+        </n:script>
         <!-- Bootstrap 3.3.7 -->
         <script src="adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- Sparkline -->
@@ -746,6 +750,9 @@ folder instead of downloading all of them to reduce the load. -->
         <!-- Morris.js charts -->
         <script src="adminlte/bower_components/raphael/raphael.min.js"></script>
         <script src="adminlte/bower_components/morris.js/morris.min.js"></script>
+        <!-- DataTables -->
+        <script src="adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
         <!-- AdminLTE App -->
         <script src="adminlte/dist/js/adminlte.min.js"></script>
         <!-- SlimScroll -->

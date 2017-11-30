@@ -1,0 +1,341 @@
+<zk xmlns:n="native">
+    <n:section class="content-header">
+      <n:h1>
+        Simple Tables
+        <n:small>preview of simple tables</n:small>
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li><n:a href="#">Tables</n:a></n:li>
+        <n:li class="active">Simple</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <n:div class="box">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Bordered Table</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:table class="table table-bordered">
+                <n:tr>
+                  <n:th style="width: 10px">#</n:th>
+                  <n:th>Task</n:th>
+                  <n:th>Progress</n:th>
+                  <n:th style="width: 40px">Label</n:th>
+                </n:tr>
+                <n:tr>
+                  <n:td>1.</n:td>
+                  <n:td>Update software</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs">
+                      <n:div class="progress-bar progress-bar-danger" style="width: 55%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-red">55%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>2.</n:td>
+                  <n:td>Clean database</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs">
+                      <n:div class="progress-bar progress-bar-yellow" style="width: 70%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-yellow">70%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>3.</n:td>
+                  <n:td>Cron job running</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs progress-striped active">
+                      <n:div class="progress-bar progress-bar-primary" style="width: 30%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-light-blue">30%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>4.</n:td>
+                  <n:td>Fix and squish bugs</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs progress-striped active">
+                      <n:div class="progress-bar progress-bar-success" style="width: 90%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-green">90%</n:span></n:td>
+                </n:tr>
+              </n:table>
+            </n:div>
+            <!-- /.box-body -->
+            <n:div class="box-footer clearfix">
+              <n:ul class="pagination pagination-sm no-margin pull-right">
+                <n:li><n:a href="#"></n:a></n:li>
+                <n:li><n:a href="#">1</n:a></n:li>
+                <n:li><n:a href="#">2</n:a></n:li>
+                <n:li><n:a href="#">3</n:a></n:li>
+                <n:li><n:a href="#"></n:a></n:li>
+              </n:ul>
+            </n:div>
+          </n:div>
+          <!-- /.box -->
+
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Condensed Full Width Table</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body no-padding">
+              <n:table class="table table-condensed">
+                <n:tr>
+                  <n:th style="width: 10px">#</n:th>
+                  <n:th>Task</n:th>
+                  <n:th>Progress</n:th>
+                  <n:th style="width: 40px">Label</n:th>
+                </n:tr>
+                <n:tr>
+                  <n:td>1.</n:td>
+                  <n:td>Update software</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs">
+                      <n:div class="progress-bar progress-bar-danger" style="width: 55%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-red">55%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>2.</n:td>
+                  <n:td>Clean database</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs">
+                      <n:div class="progress-bar progress-bar-yellow" style="width: 70%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-yellow">70%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>3.</n:td>
+                  <n:td>Cron job running</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs progress-striped active">
+                      <n:div class="progress-bar progress-bar-primary" style="width: 30%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-light-blue">30%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>4.</n:td>
+                  <n:td>Fix and squish bugs</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs progress-striped active">
+                      <n:div class="progress-bar progress-bar-success" style="width: 90%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-green">90%</n:span></n:td>
+                </n:tr>
+              </n:table>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+        <n:div class="col-md-6">
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Simple Full Width Table</n:h3>
+
+              <n:div class="box-tools">
+                <n:ul class="pagination pagination-sm no-margin pull-right">
+                  <n:li><n:a href="#"><html><![CDATA[&laquo;]]></html></n:a></n:li>
+                  <n:li><n:a href="#">1</n:a></n:li>
+                  <n:li><n:a href="#">2</n:a></n:li>
+                  <n:li><n:a href="#">3</n:a></n:li>
+                  <n:li><n:a href="#"><![CDATA[&laquo;]]></n:a></n:li>
+                </n:ul>
+              </n:div>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body no-padding">
+              <n:table class="table">
+                <n:tr>
+                  <n:th style="width: 10px">#</n:th>
+                  <n:th>Task</n:th>
+                  <n:th>Progress</n:th>
+                  <n:th style="width: 40px">Label</n:th>
+                </n:tr>
+                <n:tr>
+                  <n:td>1.</n:td>
+                  <n:td>Update software</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs">
+                      <n:div class="progress-bar progress-bar-danger" style="width: 55%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-red">55%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>2.</n:td>
+                  <n:td>Clean database</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs">
+                      <n:div class="progress-bar progress-bar-yellow" style="width: 70%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-yellow">70%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>3.</n:td>
+                  <n:td>Cron job running</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs progress-striped active">
+                      <n:div class="progress-bar progress-bar-primary" style="width: 30%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-light-blue">30%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>4.</n:td>
+                  <n:td>Fix and squish bugs</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs progress-striped active">
+                      <n:div class="progress-bar progress-bar-success" style="width: 90%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-green">90%</n:span></n:td>
+                </n:tr>
+              </n:table>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Striped Full Width Table</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body no-padding">
+              <n:table class="table table-striped">
+                <n:tr>
+                  <n:th style="width: 10px">#</n:th>
+                  <n:th>Task</n:th>
+                  <n:th>Progress</n:th>
+                  <n:th style="width: 40px">Label</n:th>
+                </n:tr>
+                <n:tr>
+                  <n:td>1.</n:td>
+                  <n:td>Update software</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs">
+                      <n:div class="progress-bar progress-bar-danger" style="width: 55%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-red">55%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>2.</n:td>
+                  <n:td>Clean database</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs">
+                      <n:div class="progress-bar progress-bar-yellow" style="width: 70%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-yellow">70%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>3.</n:td>
+                  <n:td>Cron job running</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs progress-striped active">
+                      <n:div class="progress-bar progress-bar-primary" style="width: 30%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-light-blue">30%</n:span></n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>4.</n:td>
+                  <n:td>Fix and squish bugs</n:td>
+                  <n:td>
+                    <n:div class="progress progress-xs progress-striped active">
+                      <n:div class="progress-bar progress-bar-success" style="width: 90%"></n:div>
+                    </n:div>
+                  </n:td>
+                  <n:td><n:span class="badge bg-green">90%</n:span></n:td>
+                </n:tr>
+              </n:table>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /.row -->
+      <n:div class="row">
+        <n:div class="col-xs-12">
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Responsive Hover Table</n:h3>
+
+              <n:div class="box-tools">
+                <n:div class="input-group input-group-sm" style="width: 150px;">
+                  <n:input type="text" name="table_search" class="form-control pull-right" placeholder="Search" />
+
+                  <n:div class="input-group-btn">
+                    <n:button type="submit" class="btn btn-default"><n:i class="fa fa-search"></n:i></n:button>
+                  </n:div>
+                </n:div>
+              </n:div>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body table-responsive no-padding">
+              <n:table class="table table-hover">
+                <n:tr>
+                  <n:th>ID</n:th>
+                  <n:th>User</n:th>
+                  <n:th>Date</n:th>
+                  <n:th>Status</n:th>
+                  <n:th>Reason</n:th>
+                </n:tr>
+                <n:tr>
+                  <n:td>183</n:td>
+                  <n:td>John Doe</n:td>
+                  <n:td>11-7-2014</n:td>
+                  <n:td><n:span class="label label-success">Approved</n:span></n:td>
+                  <n:td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>219</n:td>
+                  <n:td>Alexander Pierce</n:td>
+                  <n:td>11-7-2014</n:td>
+                  <n:td><n:span class="label label-warning">Pending</n:span></n:td>
+                  <n:td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>657</n:td>
+                  <n:td>Bob Doe</n:td>
+                  <n:td>11-7-2014</n:td>
+                  <n:td><n:span class="label label-primary">Approved</n:span></n:td>
+                  <n:td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>175</n:td>
+                  <n:td>Mike Doe</n:td>
+                  <n:td>11-7-2014</n:td>
+                  <n:td><n:span class="label label-danger">Denied</n:span></n:td>
+                  <n:td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</n:td>
+                </n:tr>
+              </n:table>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+      </n:div>
+    </n:section>
+    <!-- /.content -->
+</zk>
