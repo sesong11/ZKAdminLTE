@@ -1,0 +1,198 @@
+<zk xmlns:n="native">
+<style>
+    .example-modal .modal {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;
+    }
+
+    .example-modal .modal {
+      background: transparent !important;
+    }
+  </style>
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+      <n:h1>
+        Modals
+        <n:small>new</n:small>
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li><n:a href="#">UI</n:a></n:li>
+        <n:li class="active">Modals</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+      <n:div class="callout callout-info">
+        <n:h4>Reminder!</n:h4>
+        Instructions for how to use modals are available on the
+        <n:a href="http://getbootstrap.com/javascript/#modals">Bootstrap documentation</n:a>
+      </n:div>
+
+      <n:div class="row">
+        <n:div class="col-xs-12">
+          <n:div class="box box-default">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Modal Examples</n:h3>
+            </n:div>
+            <n:div class="box-body">
+              <n:button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                Launch Default Modal
+              </n:button>
+              <n:button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-info">
+                Launch Info Modal
+              </n:button>
+              <n:button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
+                Launch Danger Modal
+              </n:button>
+              <n:button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-warning">
+                Launch Warning Modal
+              </n:button>
+              <n:button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
+                Launch Success Modal
+              </n:button>
+            </n:div>
+          </n:div>
+        </n:div>
+      </n:div>
+
+        <n:div class="modal fade" id="modal-default">
+          <n:div class="modal-dialog">
+            <n:div class="modal-content">
+              <n:div class="modal-header">
+                <n:button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <n:span aria-hidden="true"><![CDATA[&times;]]></n:span></n:button>
+                <n:h4 class="modal-title">Default Modal</n:h4>
+              </n:div>
+              <n:div class="modal-body">
+                <n:p>One fine body<![CDATA[&hellip;]]></n:p>
+              </n:div>
+              <n:div class="modal-footer">
+                <n:button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</n:button>
+                <n:button type="button" class="btn btn-primary">Save changes</n:button>
+              </n:div>
+            </n:div>
+            <!-- /.modal-content -->
+          </n:div>
+          <!-- /.modal-dialog -->
+        </n:div>
+        <!-- /.modal -->
+
+        <n:div class="modal modal-primary fade" id="modal-primary">
+          <n:div class="modal-dialog">
+            <n:div class="modal-content">
+              <n:div class="modal-header">
+                <n:button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <n:span aria-hidden="true"><![CDATA[&times;]]></n:span></n:button>
+                <n:h4 class="modal-title">Primary Modal</n:h4>
+              </n:div>
+              <n:div class="modal-body">
+                <n:p>One fine body<![CDATA[&hellip;]]></n:p>
+              </n:div>
+              <n:div class="modal-footer">
+                <n:button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</n:button>
+                <n:button type="button" class="btn btn-outline">Save changes</n:button>
+              </n:div>
+            </n:div>
+            <!-- /.modal-content -->
+          </n:div>
+          <!-- /.modal-dialog -->
+        </n:div>
+        <!-- /.modal -->
+
+        <n:div class="modal modal-info fade" id="modal-info">
+          <n:div class="modal-dialog">
+            <n:div class="modal-content">
+              <n:div class="modal-header">
+                <n:button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <n:span aria-hidden="true"><![CDATA[&times;]]></n:span></n:button>
+                <n:h4 class="modal-title">Info Modal</n:h4>
+              </n:div>
+              <n:div class="modal-body">
+                <n:p>One fine body<![CDATA[&hellip;]]></n:p>
+              </n:div>
+              <n:div class="modal-footer">
+                <n:button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</n:button>
+                <n:button type="button" class="btn btn-outline">Save changes</n:button>
+              </n:div>
+            </n:div>
+            <!-- /.modal-content -->
+          </n:div>
+          <!-- /.modal-dialog -->
+        </n:div>
+        <!-- /.modal -->
+
+        <n:div class="modal modal-warning fade" id="modal-warning">
+          <n:div class="modal-dialog">
+            <n:div class="modal-content">
+              <n:div class="modal-header">
+                <n:button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <n:span aria-hidden="true"><![CDATA[&times;]]></n:span></n:button>
+                <n:h4 class="modal-title">Warning Modal</n:h4>
+              </n:div>
+              <n:div class="modal-body">
+                <n:p>One fine body<![CDATA[&hellip;]]></n:p>
+              </n:div>
+              <n:div class="modal-footer">
+                <n:button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</n:button>
+                <n:button type="button" class="btn btn-outline">Save changes</n:button>
+              </n:div>
+            </n:div>
+            <!-- /.modal-content -->
+          </n:div>
+          <!-- /.modal-dialog -->
+        </n:div>
+        <!-- /.modal -->
+
+        <n:div class="modal modal-success fade" id="modal-success">
+          <n:div class="modal-dialog">
+            <n:div class="modal-content">
+              <n:div class="modal-header">
+                <n:button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <n:span aria-hidden="true"><![CDATA[&times;]]></n:span></n:button>
+                <n:h4 class="modal-title">Success Modal</n:h4>
+              </n:div>
+              <n:div class="modal-body">
+                <n:p>One fine body<![CDATA[&hellip;]]></n:p>
+              </n:div>
+              <n:div class="modal-footer">
+                <n:button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</n:button>
+                <n:button type="button" class="btn btn-outline">Save changes</n:button>
+              </n:div>
+            </n:div>
+            <!-- /.modal-content -->
+          </n:div>
+          <!-- /.modal-dialog -->
+        </n:div>
+        <!-- /.modal -->
+
+        <n:div class="modal modal-danger fade" id="modal-danger">
+          <n:div class="modal-dialog">
+            <n:div class="modal-content">
+              <n:div class="modal-header">
+                <n:button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <n:span aria-hidden="true"><![CDATA[&times;]]></n:span></n:button>
+                <n:h4 class="modal-title">Danger Modal</n:h4>
+              </n:div>
+              <n:div class="modal-body">
+                <n:p>One fine body<![CDATA[&hellip;]]></n:p>
+              </n:div>
+              <n:div class="modal-footer">
+                <n:button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</n:button>
+                <n:button type="button" class="btn btn-outline">Save changes</n:button>
+              </n:div>
+            </n:div>
+            <!-- /.modal-content -->
+          </n:div>
+          <!-- /.modal-dialog -->
+        </n:div>
+        <!-- /.modal -->
+    </n:section>
+    <!-- /.content -->
+</zk>

@@ -1,0 +1,100 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+      <n:h1>
+        Sliders
+        <n:small>range sliders</n:small>
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li><n:a href="#">UI</n:a></n:li>
+        <n:li class="active">Sliders</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+      <n:div class="row">
+        <n:div class="col-xs-12">
+          <n:div class="box box-primary">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Bootstrap Slider</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:div class="row margin">
+                <n:div class="col-sm-6">
+                  <n:input id="slider1" type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="horizontal"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="red" />
+
+                  <n:p>data-slider-id="red"</n:p>
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="horizontal"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue" />
+
+                  <n:p>data-slider-id="blue"</n:p>
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="horizontal"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="green" />
+
+                  <n:p>data-slider-id="green"</n:p>
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="horizontal"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="yellow" />
+
+                  <n:p>data-slider-id="yellow"</n:p>
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="horizontal"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="aqua" />
+
+                  <n:p>data-slider-id="aqua"</n:p>
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="horizontal"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="purple" />
+
+                  <n:p style="margin-top: 10px">data-slider-id="purple"</n:p>
+                </n:div>
+                <n:div class="col-sm-6 text-center">
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="vertical"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="red" />
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="vertical"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="blue" />
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="vertical"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="green" />
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="vertical"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="yellow" />
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="vertical"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="aqua" />
+                  <n:input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200"
+                         data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="vertical"
+                         data-slider-selection="before" data-slider-tooltip="show" data-slider-id="purple" />
+                </n:div>
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /.row -->
+    </n:section>
+    <!-- /.content -->
+<script>
+  zk.afterLoad(function () {
+  setTimeout(function(){
+  $('.slider').slider().on('slide', function(ev){
+    alert("slided");
+  });
+
+
+  }, 5000);
+  });
+</script>
+</zk>

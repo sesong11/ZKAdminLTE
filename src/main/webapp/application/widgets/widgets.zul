@@ -425,7 +425,7 @@
                                     <n:span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</n:span>
                                 </n:div>
                                 <!-- /.direct-chat-info -->
-                                <n:img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:img class="direct-chat-img" src="adminlte/dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
                                 <n:div class="direct-chat-text">
                                     Is this template really for free? That's unbelievable!
                                 </n:div>
@@ -440,7 +440,7 @@
                                     <n:span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</n:span>
                                 </n:div>
                                 <!-- /.direct-chat-info -->
-                                <n:img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:img class="direct-chat-img" src="adminlte/dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
                                 <n:div class="direct-chat-text">
                                     You better believe it!
                                 </n:div>
@@ -455,7 +455,7 @@
                             <n:ul class="contacts-list">
                                 <n:li>
                                     <n:a href="#">
-                                        <n:img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+                                        <n:img class="contacts-list-img" src="adminlte/dist/img/user1-128x128.jpg" alt="User Image" />
 
                                         <n:div class="contacts-list-info">
                                             <n:span class="contacts-list-name">
@@ -516,7 +516,7 @@
                                     <n:span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</n:span>
                                 </n:div>
                                 <!-- /.direct-chat-info -->
-                                <n:img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:img class="direct-chat-img" src="adminlte/dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
                                 <n:div class="direct-chat-text">
                                     Is this template really for free? That's unbelievable!
                                 </n:div>
@@ -531,7 +531,7 @@
                                     <n:span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</n:span>
                                 </n:div>
                                 <!-- /.direct-chat-info -->
-                                <n:img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:img class="direct-chat-img" src="adminlte/dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
                                 <n:div class="direct-chat-text">
                                     You better believe it!
                                 </n:div>
@@ -546,7 +546,7 @@
                             <n:ul class="contacts-list">
                                 <n:li>
                                     <n:a href="#">
-                                        <n:img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+                                        <n:img class="contacts-list-img" src="adminlte/dist/img/user1-128x128.jpg" alt="User Image" />
 
                                         <n:div class="contacts-list-info">
                                             <n:span class="contacts-list-name">
@@ -607,7 +607,7 @@
                                     <n:span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</n:span>
                                 </n:div>
                                 <!-- /.direct-chat-info -->
-                                <n:img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:img class="direct-chat-img" src="adminlte/dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
                                 <n:div class="direct-chat-text">
                                     Is this template really for free? That's unbelievable!
                                 </n:div>
@@ -622,7 +622,7 @@
                                     <n:span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</n:span>
                                 </n:div>
                                 <!-- /.direct-chat-info -->
-                                <n:img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:img class="direct-chat-img" src="adminlte/dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
                                 <n:div class="direct-chat-text">
                                     You better believe it!
                                 </n:div>
@@ -637,7 +637,7 @@
                             <n:ul class="contacts-list">
                                 <n:li>
                                     <n:a href="#">
-                                        <n:img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+                                        <n:img class="contacts-list-img" src="adminlte/dist/img/user1-128x128.jpg" alt="User Image" />
 
                                         <n:div class="contacts-list-info">
                                             <n:span class="contacts-list-name">
@@ -698,7 +698,7 @@
                                     <n:span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</n:span>
                                 </n:div>
                                 <!-- /.direct-chat-info -->
-                                <n:img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:img class="direct-chat-img" src="adminlte/dist/img/user1-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
                                 <n:div class="direct-chat-text">
                                     Is this template really for free? That's unbelievable!
                                 </n:div>
@@ -713,7 +713,7 @@
                                     <n:span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</n:span>
                                 </n:div>
                                 <!-- /.direct-chat-info -->
-                                <n:img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
+                                <n:img class="direct-chat-img" src="adminlte/dist/img/user3-128x128.jpg" alt="Message User Image" /><!-- /.direct-chat-img -->
                                 <n:div class="direct-chat-text">
                                     You better believe it!
                                 </n:div>
@@ -728,7 +728,7 @@
                             <n:ul class="contacts-list">
                                 <n:li>
                                     <n:a href="#">
-                                        <n:img class="contacts-list-img" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+                                        <n:img class="contacts-list-img" src="adminlte/dist/img/user1-128x128.jpg" alt="User Image" />
 
                                         <n:div class="contacts-list-info">
                                             <n:span class="contacts-list-name">
@@ -774,7 +774,7 @@
                     <!-- Add the bg color to the header using any of the bg-* classes -->
                     <n:div class="widget-user-header bg-yellow">
                         <n:div class="widget-user-image">
-                            <n:img class="img-circle" src="../dist/img/user7-128x128.jpg" alt="User Avatar" />
+                            <n:img class="img-circle" src="adminlte/dist/img/user7-128x128.jpg" alt="User Avatar" />
                         </n:div>
                         <!-- /.widget-user-image -->
                         <n:h3 class="widget-user-username">Nadia Carmichael</n:h3>
@@ -801,7 +801,7 @@
                         <n:h5 class="widget-user-desc">Founder &amp; CEO</n:h5>
                     </n:div>
                     <n:div class="widget-user-image">
-                        <n:img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Avatar" />
+                        <n:img class="img-circle" src="adminlte/dist/img/user1-128x128.jpg" alt="User Avatar" />
                     </n:div>
                     <n:div class="box-footer">
                         <n:div class="row">
@@ -840,12 +840,12 @@
                 <!-- Widget: user widget style 1 -->
                 <n:div class="box box-widget widget-user">
                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <n:div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
+                    <n:div class="widget-user-header bg-black" style="background: url('adminlte/dist/img/photo1.png') center center;">
                         <n:h3 class="widget-user-username">Elizabeth Pierce</n:h3>
                         <n:h5 class="widget-user-desc">Web Designer</n:h5>
                     </n:div>
                     <n:div class="widget-user-image">
-                        <n:img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar" />
+                        <n:img class="img-circle" src="adminlte/dist/img/user3-128x128.jpg" alt="User Avatar" />
                     </n:div>
                     <n:div class="box-footer">
                         <n:div class="row">
@@ -889,7 +889,7 @@
                 <n:div class="box box-widget">
                     <n:div class="box-header with-border">
                         <n:div class="user-block">
-                            <n:img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+                            <n:img class="img-circle" src="adminlte/dist/img/user1-128x128.jpg" alt="User Image" />
                             <n:span class="username"><n:a href="#">Jonathan Burke Jr.</n:a></n:span>
                             <n:span class="description">Shared publicly - 7:30 PM Today</n:span>
                         </n:div>
@@ -905,7 +905,7 @@
                     </n:div>
                     <!-- /.box-header -->
                     <n:div class="box-body">
-                        <n:img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo" />
+                        <n:img class="img-responsive pad" src="adminlte/dist/img/photo2.png" alt="Photo" />
 
                         <n:p>I took this photo this morning. What do you guys think?</n:p>
                         <n:button type="button" class="btn btn-default btn-xs"><n:i class="fa fa-share"></n:i> Share</n:button>
@@ -916,7 +916,7 @@
                     <n:div class="box-footer box-comments">
                         <n:div class="box-comment">
                             <!-- User image -->
-                            <n:img class="img-circle img-sm" src="../dist/img/user3-128x128.jpg" alt="User Image" />
+                            <n:img class="img-circle img-sm" src="adminlte/dist/img/user3-128x128.jpg" alt="User Image" />
 
                             <n:div class="comment-text">
                                 <n:span class="username">
@@ -931,7 +931,7 @@
                         <!-- /.box-comment -->
                         <n:div class="box-comment">
                             <!-- User image -->
-                            <n:img class="img-circle img-sm" src="../dist/img/user4-128x128.jpg" alt="User Image" />
+                            <n:img class="img-circle img-sm" src="adminlte/dist/img/user4-128x128.jpg" alt="User Image" />
 
                             <n:div class="comment-text">
                                 <n:span class="username">
@@ -948,7 +948,7 @@
                     <!-- /.box-footer -->
                     <n:div class="box-footer">
                         <n:form action="#" method="post">
-                            <n:img class="img-responsive img-circle img-sm" src="../dist/img/user4-128x128.jpg" alt="Alt Text" />
+                            <n:img class="img-responsive img-circle img-sm" src="adminlte/dist/img/user4-128x128.jpg" alt="Alt Text" />
                             <!-- .img-push is used to add margin to elements next to floating images -->
                             <n:div class="img-push">
                                 <n:input type="text" class="form-control input-sm" placeholder="Press enter to post comment" />
@@ -965,7 +965,7 @@
                 <n:div class="box box-widget">
                     <n:div class="box-header with-border">
                         <n:div class="user-block">
-                            <n:img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Image" />
+                            <n:img class="img-circle" src="adminlte/dist/img/user1-128x128.jpg" alt="User Image" />
                             <n:span class="username"><n:a href="#">Jonathan Burke Jr.</n:a></n:span>
                             <n:span class="description">Shared publicly - 7:30 PM Today</n:span>
                         </n:div>
@@ -994,7 +994,7 @@
 
                         <!-- Attachment -->
                         <n:div class="attachment-block clearfix">
-                            <n:img class="attachment-img" src="../dist/img/photo1.png" alt="Attachment Image" />
+                            <n:img class="attachment-img" src="adminlte/dist/img/photo1.png" alt="Attachment Image" />
 
                             <n:div class="attachment-pushed">
                                 <n:h4 class="attachment-heading"><n:a href="http://www.lipsum.com/">Lorem ipsum text generator</n:a></n:h4>
@@ -1018,7 +1018,7 @@
                     <n:div class="box-footer box-comments">
                         <n:div class="box-comment">
                             <!-- User image -->
-                            <n:img class="img-circle img-sm" src="../dist/img/user3-128x128.jpg" alt="User Image" />
+                            <n:img class="img-circle img-sm" src="adminlte/dist/img/user3-128x128.jpg" alt="User Image" />
 
                             <n:div class="comment-text">
                                 <n:span class="username">
@@ -1033,7 +1033,7 @@
                         <!-- /.box-comment -->
                         <n:div class="box-comment">
                             <!-- User image -->
-                            <n:img class="img-circle img-sm" src="../dist/img/user5-128x128.jpg" alt="User Image" />
+                            <n:img class="img-circle img-sm" src="adminlte/dist/img/user5-128x128.jpg" alt="User Image" />
 
                             <n:div class="comment-text">
                                 <n:span class="username">
@@ -1051,7 +1051,7 @@
                     <!-- /.box-footer -->
                     <n:div class="box-footer">
                         <n:form action="#" method="post">
-                            <n:img class="img-responsive img-circle img-sm" src="../dist/img/user4-128x128.jpg" alt="Alt Text" />
+                            <n:img class="img-responsive img-circle img-sm" src="adminlte/dist/img/user4-128x128.jpg" alt="Alt Text" />
                             <!-- .img-push is used to add margin to elements next to floating images -->
                             <n:div class="img-push">
                                 <n:input type="text" class="form-control input-sm" placeholder="Press enter to post comment" />

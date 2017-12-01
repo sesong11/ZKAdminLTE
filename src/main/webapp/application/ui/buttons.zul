@@ -1,0 +1,996 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+      <n:h1>
+        Buttons
+        <n:small>Control panel</n:small>
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li><n:a href="#">UI</n:a></n:li>
+        <n:li class="active">Buttons</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+
+      <n:div class="row">
+        <n:div class="col-md-12">
+          <n:div class="box box-primary">
+            <n:div class="box-header">
+              <n:i class="fa fa-edit"></n:i>
+
+              <n:h3 class="box-title">Buttons</n:h3>
+            </n:div>
+            <n:div class="box-body pad table-responsive">
+              <n:p>Various types of buttons. Using the base class <n:code>.btn</n:code></n:p>
+              <n:table class="table table-bordered text-center">
+                <n:tr>
+                  <n:th>Normal</n:th>
+                  <n:th>Large <n:code>.btn-lg</n:code></n:th>
+                  <n:th>Small <n:code>.btn-sm</n:code></n:th>
+                  <n:th>X-Small <n:code>.btn-xs</n:code></n:th>
+                  <n:th>Flat <n:code>.btn-flat</n:code></n:th>
+                  <n:th>Disabled <n:code>.disabled</n:code></n:th>
+                </n:tr>
+                <n:tr>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-default">Default</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-default btn-lg">Default</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-default btn-sm">Default</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-default btn-xs">Default</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-default btn-flat">Default</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-default disabled">Default</n:button>
+                  </n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-primary">Primary</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-primary btn-lg">Primary</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-primary btn-sm">Primary</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-primary btn-xs">Primary</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-primary btn-flat">Primary</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-primary disabled">Primary</n:button>
+                  </n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-success">Success</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-success btn-lg">Success</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-success btn-sm">Success</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-success btn-xs">Success</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-success btn-flat">Success</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-success disabled">Success</n:button>
+                  </n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-info">Info</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-info btn-lg">Info</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-info btn-sm">Info</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-info btn-xs">Info</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-info btn-flat">Info</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-info disabled">Info</n:button>
+                  </n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-danger">Danger</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-danger btn-lg">Danger</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-danger btn-sm">Danger</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-danger btn-xs">Danger</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-danger btn-flat">Danger</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-danger disabled">Danger</n:button>
+                  </n:td>
+                </n:tr>
+                <n:tr>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-warning">Warning</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-warning btn-lg">Warning</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-warning btn-sm">Warning</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-warning btn-xs">Warning</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-warning btn-flat">Warning</n:button>
+                  </n:td>
+                  <n:td>
+                    <n:button type="button" class="btn btn-block btn-warning disabled">Warning</n:button>
+                  </n:td>
+                </n:tr>
+              </n:table>
+            </n:div>
+            <!-- /.box -->
+          </n:div>
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- ./row -->
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <!-- Block buttons -->
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Block Buttons</n:h3>
+            </n:div>
+            <n:div class="box-body">
+              <n:button type="button" class="btn btn-default btn-block">.btn-block</n:button>
+              <n:button type="button" class="btn btn-default btn-block btn-flat">.btn-block .btn-flat</n:button>
+              <n:button type="button" class="btn btn-default btn-block btn-sm">.btn-block .btn-sm</n:button>
+            </n:div>
+          </n:div>
+          <!-- /.box -->
+
+          <!-- Horizontal grouping -->
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Horizontal Button Group</n:h3>
+            </n:div>
+            <n:div class="box-body table-responsive pad">
+              <n:p>
+                Horizontal button groups are easy to create with bootstrap. Just add your buttons
+                inside <n:code>&lt;div class="btn-group"&gt;&lt;/div&gt;</n:code>
+              </n:p>
+
+              <n:table class="table table-bordered">
+                <n:tr>
+                  <n:th>Button</n:th>
+                  <n:th>Icons</n:th>
+                  <n:th>Flat</n:th>
+                  <n:th>Dropdown</n:th>
+                </n:tr>
+                <!-- Default -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-default">Left</n:button>
+                      <n:button type="button" class="btn btn-default">Middle</n:button>
+                      <n:button type="button" class="btn btn-default">Right</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-default"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-default"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-default"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-default btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-default btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-default btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-default">1</n:button>
+                      <n:button type="button" class="btn btn-default">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- ./default -->
+                <!-- Info -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-info">Left</n:button>
+                      <n:button type="button" class="btn btn-info">Middle</n:button>
+                      <n:button type="button" class="btn btn-info">Right</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-info"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-info"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-info"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-info btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-info btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-info btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-info">1</n:button>
+                      <n:button type="button" class="btn btn-info">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- /. info -->
+                <!-- /.danger -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-danger">Left</n:button>
+                      <n:button type="button" class="btn btn-danger">Middle</n:button>
+                      <n:button type="button" class="btn btn-danger">Right</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-danger"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-danger"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-danger"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-danger btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-danger btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-danger btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-danger">1</n:button>
+                      <n:button type="button" class="btn btn-danger">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- /.danger -->
+                <!-- warning -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-warning">Left</n:button>
+                      <n:button type="button" class="btn btn-warning">Middle</n:button>
+                      <n:button type="button" class="btn btn-warning">Right</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-warning"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-warning"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-warning"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-warning btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-warning btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-warning btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-warning">1</n:button>
+                      <n:button type="button" class="btn btn-warning">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- /.warning -->
+                <!-- success -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-success">Left</n:button>
+                      <n:button type="button" class="btn btn-success">Middle</n:button>
+                      <n:button type="button" class="btn btn-success">Right</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-success"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-success"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-success"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-success btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-success btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-success btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group">
+                      <n:button type="button" class="btn btn-success">1</n:button>
+                      <n:button type="button" class="btn btn-success">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- /.success -->
+              </n:table>
+            </n:div>
+          </n:div>
+          <!-- /.box -->
+
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Button Addon</n:h3>
+            </n:div>
+            <n:div class="box-body">
+              <n:p>With dropdown</n:p>
+
+              <n:div class="input-group margin">
+                <n:div class="input-group-btn">
+                  <n:button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action
+                    <n:span class="fa fa-caret-down"></n:span></n:button>
+                  <n:ul class="dropdown-menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+                <!-- /btn-group -->
+                <n:input type="text" class="form-control"/>
+              </n:div>
+              <!-- /input-group -->
+              <n:p>Normal</n:p>
+
+              <n:div class="input-group margin">
+                <n:div class="input-group-btn">
+                  <n:button type="button" class="btn btn-danger">Action</n:button>
+                </n:div>
+                <!-- /btn-group -->
+                <n:input type="text" class="form-control" />
+              </n:div>
+              <!-- /input-group -->
+              <n:p>Flat</n:p>
+
+              <n:div class="input-group margin">
+                <n:input type="text" class="form-control" />
+                    <n:span class="input-group-btn">
+                      <n:button type="button" class="btn btn-info btn-flat">Go!</n:button>
+                    </n:span>
+              </n:div>
+              <!-- /input-group -->
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+          <!-- split buttons box -->
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Split buttons</n:h3>
+            </n:div>
+            <n:div class="box-body">
+              <!-- Split button -->
+              <n:p>Normal split buttons:</n:p>
+
+              <n:div class="margin">
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-default">Action</n:button>
+                  <n:button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-info">Action</n:button>
+                  <n:button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-danger">Action</n:button>
+                  <n:button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-success">Action</n:button>
+                  <n:button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-warning">Action</n:button>
+                  <n:button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+              </n:div>
+              <!-- flat split buttons -->
+              <n:p>Flat split buttons:</n:p>
+
+              <n:div class="margin">
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-default btn-flat">Action</n:button>
+                  <n:button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-info btn-flat">Action</n:button>
+                  <n:button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-danger btn-flat">Action</n:button>
+                  <n:button type="button" class="btn btn-danger btn-flat dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-success btn-flat">Action</n:button>
+                  <n:button type="button" class="btn btn-success btn-flat dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+                <n:div class="btn-group">
+                  <n:button type="button" class="btn btn-warning btn-flat">Action</n:button>
+                  <n:button type="button" class="btn btn-warning btn-flat dropdown-toggle" data-toggle="dropdown">
+                    <n:span class="caret"></n:span>
+                    <n:span class="sr-only">Toggle Dropdown</n:span>
+                  </n:button>
+                  <n:ul class="dropdown-menu" role="menu">
+                    <n:li><n:a href="#">Action</n:a></n:li>
+                    <n:li><n:a href="#">Another action</n:a></n:li>
+                    <n:li><n:a href="#">Something else here</n:a></n:li>
+                    <n:li class="divider"></n:li>
+                    <n:li><n:a href="#">Separated link</n:a></n:li>
+                  </n:ul>
+                </n:div>
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- end split buttons box -->
+
+          <!-- social buttons -->
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Social Buttons (By <n:a href="https://github.com/lipis/bootstrap-social">Lipis</n:a>)
+              </n:h3>
+            </n:div>
+            <n:div class="box-body">
+              <n:a class="btn btn-block btn-social btn-bitbucket">
+                <n:i class="fa fa-bitbucket"></n:i> Sign in with Bitbucket
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-dropbox">
+                <n:i class="fa fa-dropbox"></n:i> Sign in with Dropbox
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-facebook">
+                <n:i class="fa fa-facebook"></n:i> Sign in with Facebook
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-flickr">
+                <n:i class="fa fa-flickr"></n:i> Sign in with Flickr
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-foursquare">
+                <n:i class="fa fa-foursquare"></n:i> Sign in with Foursquare
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-github">
+                <n:i class="fa fa-github"></n:i> Sign in with GitHub
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-google">
+                <n:i class="fa fa-google-plus"></n:i> Sign in with Google
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-instagram">
+                <n:i class="fa fa-instagram"></n:i> Sign in with Instagram
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-linkedin">
+                <n:i class="fa fa-linkedin"></n:i> Sign in with LinkedIn
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-tumblr">
+                <n:i class="fa fa-tumblr"></n:i> Sign in with Tumblr
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-twitter">
+                <n:i class="fa fa-twitter"></n:i> Sign in with Twitter
+              </n:a>
+              <n:a class="btn btn-block btn-social btn-vk">
+                <n:i class="fa fa-vk"></n:i> Sign in with VK
+              </n:a>
+              <n:br />
+
+              <n:div class="text-center">
+                <n:a class="btn btn-social-icon btn-bitbucket"><n:i class="fa fa-bitbucket"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-dropbox"><n:i class="fa fa-dropbox"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-facebook"><n:i class="fa fa-facebook"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-flickr"><n:i class="fa fa-flickr"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-foursquare"><n:i class="fa fa-foursquare"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-github"><n:i class="fa fa-github"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-google"><n:i class="fa fa-google-plus"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-instagram"><n:i class="fa fa-instagram"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-linkedin"><n:i class="fa fa-linkedin"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-tumblr"><n:i class="fa fa-tumblr"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-twitter"><n:i class="fa fa-twitter"></n:i></n:a>
+                <n:a class="btn btn-social-icon btn-vk"><n:i class="fa fa-vk"></n:i></n:a>
+              </n:div>
+            </n:div>
+          </n:div>
+          <!-- /.box -->
+
+        </n:div>
+        <!-- /.col -->
+        <n:div class="col-md-6">
+          <!-- Application buttons -->
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Application Buttons</n:h3>
+            </n:div>
+            <n:div class="box-body">
+              <n:p>Add the classes <n:code>.btn.btn-app</n:code> to an <n:code>&lt;a></n:code> tag to achieve the following:</n:p>
+              <n:a class="btn btn-app">
+                <n:i class="fa fa-edit"></n:i> Edit
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:i class="fa fa-play"></n:i> Play
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:i class="fa fa-repeat"></n:i> Repeat
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:i class="fa fa-pause"></n:i> Pause
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:i class="fa fa-save"></n:i> Save
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:span class="badge bg-yellow">3</n:span>
+                <n:i class="fa fa-bullhorn"></n:i> Notifications
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:span class="badge bg-green">300</n:span>
+                <n:i class="fa fa-barcode"></n:i> Products
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:span class="badge bg-purple">891</n:span>
+                <n:i class="fa fa-users"></n:i> Users
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:span class="badge bg-teal">67</n:span>
+                <n:i class="fa fa-inbox"></n:i> Orders
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:span class="badge bg-aqua">12</n:span>
+                <n:i class="fa fa-envelope"></n:i> Inbox
+              </n:a>
+              <n:a class="btn btn-app">
+                <n:span class="badge bg-red">531</n:span>
+                <n:i class="fa fa-heart-o"></n:i> Likes
+              </n:a>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+          <!-- Various colors -->
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Different colors</n:h3>
+            </n:div>
+            <n:div class="box-body">
+              <n:p>Mix and match with various background colors. Use base class <n:code>.btn</n:code> and add any available
+                <n:code>.bg-*</n:code> class</n:p>
+              <!-- You may notice a .margin class added
+              here but that's only to make the content
+              display correctly without having to use a table-->
+              <n:p>
+                <n:button type="button" class="btn bg-maroon btn-flat margin">.btn.bg-maroon.btn-flat</n:button>
+                <n:button type="button" class="btn bg-purple btn-flat margin">.btn.bg-purple.btn-flat</n:button>
+                <n:button type="button" class="btn bg-navy btn-flat margin">.btn.bg-navy.btn-flat</n:button>
+                <n:button type="button" class="btn bg-orange btn-flat margin">.btn.bg-orange.btn-flat</n:button>
+                <n:button type="button" class="btn bg-olive btn-flat margin">.btn.bg-olive.btn-flat</n:button>
+              </n:p>
+
+              <n:p>
+                <n:button type="button" class="btn bg-maroon margin">.btn.bg-maroon</n:button>
+                <n:button type="button" class="btn bg-purple margin">.btn.bg-purple</n:button>
+                <n:button type="button" class="btn bg-navy margin">.btn.bg-navy</n:button>
+                <n:button type="button" class="btn bg-orange margin">.btn.bg-orange</n:button>
+                <n:button type="button" class="btn bg-olive margin">.btn.bg-olive</n:button>
+              </n:p>
+            </n:div>
+          </n:div>
+          <!-- /.box -->
+
+          <!-- Vertical grouping -->
+          <n:div class="box">
+            <n:div class="box-header">
+              <n:h3 class="box-title">Vertical Button Group</n:h3>
+            </n:div>
+            <n:div class="box-body table-responsive pad">
+
+              <n:p>
+                Vertical button groups are easy to create with bootstrap. Just add your buttons
+                inside <n:code>&lt;div class="btn-group-vertical"&gt;&lt;/div&gt;</n:code>
+              </n:p>
+
+              <n:table class="table table-bordered">
+                <n:tr>
+                  <n:th>Button</n:th>
+                  <n:th>Icons</n:th>
+                  <n:th>Flat</n:th>
+                  <n:th>Dropdown</n:th>
+                </n:tr>
+                <!-- Default -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-default">Top</n:button>
+                      <n:button type="button" class="btn btn-default">Middle</n:button>
+                      <n:button type="button" class="btn btn-default">Bottom</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-default"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-default"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-default"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-default btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-default btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-default btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-default">1</n:button>
+                      <n:button type="button" class="btn btn-default">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- ./default -->
+                <!-- Info -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-info">Top</n:button>
+                      <n:button type="button" class="btn btn-info">Middle</n:button>
+                      <n:button type="button" class="btn btn-info">Bottom</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-info"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-info"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-info"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-info btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-info btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-info btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-info">1</n:button>
+                      <n:button type="button" class="btn btn-info">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- /. info -->
+                <!-- /.danger -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-danger">Top</n:button>
+                      <n:button type="button" class="btn btn-danger">Middle</n:button>
+                      <n:button type="button" class="btn btn-danger">Bottom</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-danger"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-danger"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-danger"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-danger btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-danger btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-danger btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-danger">1</n:button>
+                      <n:button type="button" class="btn btn-danger">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- /.danger -->
+                <!-- warning -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-warning">Top</n:button>
+                      <n:button type="button" class="btn btn-warning">Middle</n:button>
+                      <n:button type="button" class="btn btn-warning">Bottom</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-warning"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-warning"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-warning"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-warning btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-warning btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-warning btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-warning">1</n:button>
+                      <n:button type="button" class="btn btn-warning">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- /.warning -->
+                <!-- success -->
+                <n:tr>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-success">Top</n:button>
+                      <n:button type="button" class="btn btn-success">Middle</n:button>
+                      <n:button type="button" class="btn btn-success">Bottom</n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-success"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-success"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-success"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-success btn-flat"><n:i class="fa fa-align-left"></n:i></n:button>
+                      <n:button type="button" class="btn btn-success btn-flat"><n:i class="fa fa-align-center"></n:i></n:button>
+                      <n:button type="button" class="btn btn-success btn-flat"><n:i class="fa fa-align-right"></n:i></n:button>
+                    </n:div>
+                  </n:td>
+                  <n:td>
+                    <n:div class="btn-group-vertical">
+                      <n:button type="button" class="btn btn-success">1</n:button>
+                      <n:button type="button" class="btn btn-success">2</n:button>
+
+                      <n:div class="btn-group">
+                        <n:button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                          <n:span class="caret"></n:span>
+                        </n:button>
+                        <n:ul class="dropdown-menu">
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                          <n:li><n:a href="#">Dropdown link</n:a></n:li>
+                        </n:ul>
+                      </n:div>
+                    </n:div>
+                  </n:td>
+                </n:tr>
+                <!-- /.success -->
+              </n:table>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /. row -->
+    </n:section>
+    <!-- /.content -->
+</zk>

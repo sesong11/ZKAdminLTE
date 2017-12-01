@@ -1,0 +1,193 @@
+<zk xmlns:n="native">
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+      <n:h1>
+        Timeline
+        <n:small>example</n:small>
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li><n:a href="#">UI</n:a></n:li>
+        <n:li class="active">Timeline</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+
+      <!-- row -->
+      <n:div class="row">
+        <n:div class="col-md-12">
+          <!-- The time line -->
+          <n:ul class="timeline">
+            <!-- timeline time label -->
+            <n:li class="time-label">
+                  <n:span class="bg-red">
+                    10 Feb. 2014
+                  </n:span>
+            </n:li>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <n:li>
+              <n:i class="fa fa-envelope bg-blue"></n:i>
+
+              <n:div class="timeline-item">
+                <n:span class="time"><n:i class="fa fa-clock-o"></n:i> 12:05</n:span>
+
+                <n:h3 class="timeline-header"><n:a href="#">Support Team</n:a> sent you an email</n:h3>
+
+                <n:div class="timeline-body">
+                  Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                  weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                  jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                  quora plaxo ideeli hulu weebly balihoo...
+                </n:div>
+                <n:div class="timeline-footer">
+                  <n:a class="btn btn-primary btn-xs">Read more</n:a>
+                  <n:a class="btn btn-danger btn-xs">Delete</n:a>
+                </n:div>
+              </n:div>
+            </n:li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <n:li>
+              <n:i class="fa fa-user bg-aqua"></n:i>
+
+              <n:div class="timeline-item">
+                <n:span class="time"><n:i class="fa fa-clock-o"></n:i> 5 mins ago</n:span>
+
+                <n:h3 class="timeline-header no-border"><n:a href="#">Sarah Young</n:a> accepted your friend request</n:h3>
+              </n:div>
+            </n:li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <n:li>
+              <n:i class="fa fa-comments bg-yellow"></n:i>
+
+              <n:div class="timeline-item">
+                <n:span class="time"><n:i class="fa fa-clock-o"></n:i> 27 mins ago</n:span>
+
+                <n:h3 class="timeline-header"><n:a href="#">Jay White</n:a> commented on your post</n:h3>
+
+                <n:div class="timeline-body">
+                  Take me to your leader!
+                  Switzerland is small and neutral!
+                  We are more like Germany, ambitious and misunderstood!
+                </n:div>
+                <n:div class="timeline-footer">
+                  <n:a class="btn btn-warning btn-flat btn-xs">View comment</n:a>
+                </n:div>
+              </n:div>
+            </n:li>
+            <!-- END timeline item -->
+            <!-- timeline time label -->
+            <n:li class="time-label">
+                  <n:span class="bg-green">
+                    3 Jan. 2014
+                  </n:span>
+            </n:li>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <n:li>
+              <n:i class="fa fa-camera bg-purple"></n:i>
+
+              <n:div class="timeline-item">
+                <n:span class="time"><n:i class="fa fa-clock-o"></n:i> 2 days ago</n:span>
+
+                <n:h3 class="timeline-header"><n:a href="#">Mina Lee</n:a> uploaded new photos</n:h3>
+
+                <n:div class="timeline-body">
+                  <n:img src="http://placehold.it/150x100" alt="..." class="margin" />
+                  <n:img src="http://placehold.it/150x100" alt="..." class="margin" />
+                  <n:img src="http://placehold.it/150x100" alt="..." class="margin" />
+                  <n:img src="http://placehold.it/150x100" alt="..." class="margin" />
+                </n:div>
+              </n:div>
+            </n:li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <n:li>
+              <n:i class="fa fa-video-camera bg-maroon"></n:i>
+
+              <n:div class="timeline-item">
+                <n:span class="time"><n:i class="fa fa-clock-o"></n:i> 5 days ago</n:span>
+
+                <n:h3 class="timeline-header"><n:a href="#">Mr. Doe</n:a> shared a video</n:h3>
+
+                <n:div class="timeline-body">
+                  <n:div class="embed-responsive embed-responsive-16by9">
+                    <n:iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs"
+                            frameborder="0" allowfullscreen="allowfullscreen"></n:iframe>
+                  </n:div>
+                </n:div>
+                <n:div class="timeline-footer">
+                  <n:a href="#" class="btn btn-xs bg-maroon">See comments</n:a>
+                </n:div>
+              </n:div>
+            </n:li>
+            <!-- END timeline item -->
+            <n:li>
+              <n:i class="fa fa-clock-o bg-gray"></n:i>
+            </n:li>
+          </n:ul>
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /.row -->
+
+      <n:div class="row" style="margin-top: 10px;">
+        <n:div class="col-md-12">
+          <n:div class="box box-primary">
+            <n:div class="box-header">
+              <n:h3 class="box-title"><n:i class="fa fa-code"></n:i> Timeline Markup</n:h3>
+            </n:div>
+            <n:div class="box-body">
+              <![CDATA[
+                  <pre style="font-weight: 600;">
+&lt;ul class="timeline">
+
+    &lt;!-- timeline time label -->
+    &lt;li class="time-label">
+        &lt;span class="bg-red">
+            10 Feb. 2014
+        &lt;/span>
+    &lt;/li>
+    &lt;!-- /.timeline-label -->
+
+    &lt;!-- timeline item -->
+    &lt;li>
+        &lt;!-- timeline icon -->
+        &lt;i class="fa fa-envelope bg-blue">&lt;/i>
+        &lt;div class="timeline-item">
+            &lt;span class="time">&lt;i class="fa fa-clock-o">&lt;/i> 12:05&lt;/span>
+
+            &lt;h3 class="timeline-header">&lt;a href="#">Support Team&lt;/a> ...&lt;/h3>
+
+            &lt;div class="timeline-body">
+                ...
+                Content goes here
+            &lt;/div>
+
+            &lt;div class="timeline-footer">
+                &lt;a class="btn btn-primary btn-xs">...&lt;/a>
+            &lt;/div>
+        &lt;/div>
+    &lt;/li>
+    &lt;!-- END timeline item -->
+
+    ...
+
+&lt;/ul>
+                  </pre>]]>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /.row -->
+
+    </n:section>
+    <!-- /.content -->
+</zk>

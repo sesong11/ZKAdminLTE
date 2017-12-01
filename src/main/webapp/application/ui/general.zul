@@ -1,0 +1,937 @@
+<zk xmlns:n="native">
+  <n:style>
+    .color-palette {
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+    }
+
+    .color-palette-set {
+      margin-bottom: 15px;
+    }
+
+    .color-palette span {
+      display: none;
+      font-size: 12px;
+    }
+
+    .color-palette:hover span {
+      display: block;
+    }
+
+    .color-palette-box h4 {
+      position: absolute;
+      top: 100%;
+      left: 25px;
+      margin-top: -40px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 12px;
+      display: block;
+      z-index: 7;
+    }
+  </n:style>
+    <!-- Content Header (Page header) -->
+    <n:section class="content-header">
+      <n:h1>
+        General UI
+        <n:small>Preview of UI elements</n:small>
+      </n:h1>
+      <n:ol class="breadcrumb">
+        <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+        <n:li><n:a href="#">UI</n:a></n:li>
+        <n:li class="active">General</n:li>
+      </n:ol>
+    </n:section>
+
+    <!-- Main content -->
+    <n:section class="content">
+      <!-- COLOR PALETTE -->
+      <n:div class="box box-default color-palette-box">
+        <n:div class="box-header with-border">
+          <n:h3 class="box-title"><n:i class="fa fa-tag"></n:i> Color Palette</n:h3>
+        </n:div>
+        <n:div class="box-body">
+          <n:div class="row">
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Primary</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-light-blue disabled color-palette"><n:span>Disabled</n:span></n:div>
+                <n:div class="bg-light-blue color-palette"><n:span>#3c8dbc</n:span></n:div>
+                <n:div class="bg-light-blue-active color-palette"><n:span>Active</n:span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Info</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-aqua disabled color-palette"><n:span>Disabled</n:span></n:div>
+                <n:div class="bg-aqua color-palette"><n:span>#00c0ef</n:span></n:div>
+                <n:div class="bg-aqua-active color-palette"><n:span>Active</n:span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Success</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-green disabled color-palette"><span>Disabled</span></n:div>
+                <n:div class="bg-green color-palette"><span>#00a65a</span></n:div>
+                <n:div class="bg-green-active color-palette"><span>Active</span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Warning</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-yellow disabled color-palette"><span>Disabled</span></n:div>
+                <n:div class="bg-yellow color-palette"><span>#f39c12</span></n:div>
+                <n:div class="bg-yellow-active color-palette"><span>Active</span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Danger</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-red disabled color-palette"><span>Disabled</span></n:div>
+                <n:div class="bg-red color-palette"><span>#f56954</span></n:div>
+                <n:div class="bg-red-active color-palette"><span>Active</span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Gray</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-gray disabled color-palette"><n:span>Disabled</n:span></n:div>
+                <n:div class="bg-gray color-palette"><n:span>#d2d6de</n:span></n:div>
+                <n:div class="bg-gray-active color-palette"><n:span>Active</n:span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+          </n:div>
+          <!-- /.row -->
+          <n:div class="row">
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Navy</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-navy disabled color-palette"><n:span>Disabled</n:span></n:div>
+                <n:div class="bg-navy color-palette"><n:span>#001F3F</n:span></n:div>
+                <n:div class="bg-navy-active color-palette"><n:span>Active</n:span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Teal</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-teal disabled color-palette"><n:span>Disabled</n:span></n:div>
+                <n:div class="bg-teal color-palette"><n:span>#39CCCC</n:span></n:div>
+                <n:div class="bg-teal-active color-palette"><n:span>Active</n:span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Purple</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-purple disabled color-palette"><n:span>Disabled</n:span></n:div>
+                <n:div class="bg-purple color-palette"><n:span>#605ca8</n:span></n:div>
+                <n:div class="bg-purple-active color-palette"><n:span>Active</n:span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Orange</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-orange disabled color-palette"><n:span>Disabled</n:span></n:div>
+                <n:div class="bg-orange color-palette"><n:span>#ff851b</n:span></n:div>
+                <n:div class="bg-orange-active color-palette"><n:span>Active</n:span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Maroon</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-maroon disabled color-palette"><n:span>Disabled</n:span></n:div>
+                <n:div class="bg-maroon color-palette"><n:span>#D81B60</n:span></n:div>
+                <n:div class="bg-maroon-active color-palette"><n:span>Active</n:span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+            <n:div class="col-sm-4 col-md-2">
+              <n:h4 class="text-center">Black</n:h4>
+
+              <n:div class="color-palette-set">
+                <n:div class="bg-black disabled color-palette"><n:span>Disabled</n:span></n:div>
+                <n:div class="bg-black color-palette"><n:span>#111111</n:span></n:div>
+                <n:div class="bg-black-active color-palette"><n:span>Active</n:span></n:div>
+              </n:div>
+            </n:div>
+            <!-- /.col -->
+          </n:div>
+          <!-- /.row -->
+        </n:div>
+        <!-- /.box-body -->
+      </n:div>
+      <!-- /.box -->
+      <!-- START ALERTS AND CALLOUTS -->
+      <n:h2 class="page-header">Alerts and Callouts</n:h2>
+
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <n:div class="box box-default">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-warning"></n:i>
+
+              <n:h3 class="box-title">Alerts</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:div class="alert alert-danger alert-dismissible">
+                <n:button type="button" class="close" data-dismiss="alert" aria-hidden="true"><html><![CDATA[&times;]]></html></n:button>
+                <n:h4><n:i class="icon fa fa-ban"></n:i> Alert!</n:h4>
+                Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my entire
+                soul, like these sweet mornings of spring which I enjoy with my whole heart.
+              </n:div>
+              <n:div class="alert alert-info alert-dismissible">
+                <n:button type="button" class="close" data-dismiss="alert" aria-hidden="true"><html><![CDATA[&times;]]></html></n:button>
+                <n:h4><n:i class="icon fa fa-info"></n:i> Alert!</n:h4>
+                Info alert preview. This alert is dismissable.
+              </n:div>
+              <n:div class="alert alert-warning alert-dismissible">
+                <n:button type="button" class="close" data-dismiss="alert" aria-hidden="true"><html><![CDATA[&times;]]></html></n:button>
+                <n:h4><n:i class="icon fa fa-warning"></n:i> Alert!</n:h4>
+                Warning alert preview. This alert is dismissable.
+              </n:div>
+              <n:div class="alert alert-success alert-dismissible">
+                <n:button type="button" class="close" data-dismiss="alert" aria-hidden="true"><html><![CDATA[&times;]]></html></n:button>
+                <n:h4><n:i class="icon fa fa-check"></n:i> Alert!</n:h4>
+                Success alert preview. This alert is dismissable.
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+
+        <n:div class="col-md-6">
+          <n:div class="box box-default">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-bullhorn"></n:i>
+
+              <n:h3 class="box-title">Callouts</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:div class="callout callout-danger">
+                <n:h4>I am a danger callout!</n:h4>
+
+                <n:p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul,
+                  like these sweet mornings of spring which I enjoy with my whole heart.</n:p>
+              </n:div>
+              <n:div class="callout callout-info">
+                <n:h4>I am an info callout!</n:h4>
+
+                <n:p>Follow the steps to continue to payment.</n:p>
+              </n:div>
+              <n:div class="callout callout-warning">
+                <n:h4>I am a warning callout!</n:h4>
+
+                <n:p>This is a yellow callout.</n:p>
+              </n:div>
+              <n:div class="callout callout-success">
+                <n:h4>I am a success callout!</n:h4>
+
+                <n:p>This is a green callout.</n:p>
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /.row -->
+      <!-- END ALERTS AND CALLOUTS -->
+      <!-- START CUSTOM TABS -->
+      <n:h2 class="page-header">AdminLTE Custom Tabs</n:h2>
+
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <!-- Custom Tabs -->
+          <n:div class="nav-tabs-custom">
+            <n:ul class="nav nav-tabs">
+              <n:li class="active"><n:a href="#tab_1" data-toggle="tab">Tab 1</n:a></n:li>
+              <n:li><n:a href="#tab_2" data-toggle="tab">Tab 2</n:a></n:li>
+              <n:li><n:a href="#tab_3" data-toggle="tab">Tab 3</n:a></n:li>
+              <n:li class="dropdown">
+                <n:a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  Dropdown <n:span class="caret"></n:span>
+                </n:a>
+                <n:ul class="dropdown-menu">
+                  <n:li role="presentation"><n:a role="menuitem" tabindex="-1" href="#">Action</n:a></n:li>
+                  <n:li role="presentation"><n:a role="menuitem" tabindex="-1" href="#">Another action</n:a></n:li>
+                  <n:li role="presentation"><n:a role="menuitem" tabindex="-1" href="#">Something else here</n:a></n:li>
+                  <n:li role="presentation" class="divider"></n:li>
+                  <n:li role="presentation"><n:a role="menuitem" tabindex="-1" href="#">Separated link</n:a></n:li>
+                </n:ul>
+              </n:li>
+              <n:li class="pull-right"><n:a href="#" class="text-muted"><n:i class="fa fa-gear"></n:i></n:a></n:li>
+            </n:ul>
+            <n:div class="tab-content">
+              <n:div class="tab-pane active" id="tab_1">
+                <n:b>How to use:</n:b>
+
+                <n:p>Exactly like the original bootstrap tabs except you should use
+                  the custom wrapper <n:code>.nav-tabs-custom</n:code> to achieve this style.</n:p>
+                A wonderful serenity has taken possession of my entire soul,
+                like these sweet mornings of spring which I enjoy with my whole heart.
+                I am alone, and feel the charm of existence in this spot,
+                which was created for the bliss of souls like mine. I am so happy,
+                my dear friend, so absorbed in the exquisite sense of mere tranquil existence,
+                that I neglect my talents. I should be incapable of drawing a single stroke
+                at the present moment; and yet I feel that I never was a greater artist than now.
+              </n:div>
+              <!-- /.tab-pane -->
+              <n:div class="tab-pane" id="tab_2">
+                The European languages are members of the same family. Their separate existence is a myth.
+                For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                new common language would be desirable: one could refuse to pay expensive translators. To
+                achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                words. If several languages coalesce, the grammar of the resulting language is more simple
+                and regular than that of the individual languages.
+              </n:div>
+              <!-- /.tab-pane -->
+              <n:div class="tab-pane" id="tab_3">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                like Aldus PageMaker including versions of Lorem Ipsum.
+              </n:div>
+              <!-- /.tab-pane -->
+            </n:div>
+            <!-- /.tab-content -->
+          </n:div>
+          <!-- nav-tabs-custom -->
+        </n:div>
+        <!-- /.col -->
+
+        <n:div class="col-md-6">
+          <!-- Custom Tabs (Pulled to the right) -->
+          <n:div class="nav-tabs-custom">
+            <n:ul class="nav nav-tabs pull-right">
+              <n:li class="active"><n:a href="#tab_1-1" data-toggle="tab">Tab 1</n:a></n:li>
+              <n:li><n:a href="#tab_2-2" data-toggle="tab">Tab 2</n:a></n:li>
+              <n:li><n:a href="#tab_3-2" data-toggle="tab">Tab 3</n:a></n:li>
+              <n:li class="dropdown">
+                <n:a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  Dropdown <n:span class="caret"></n:span>
+                </n:a>
+                <n:ul class="dropdown-menu">
+                  <n:li role="presentation"><n:a role="menuitem" tabindex="-1" href="#">Action</n:a></n:li>
+                  <n:li role="presentation"><n:a role="menuitem" tabindex="-1" href="#">Another action</n:a></n:li>
+                  <n:li role="presentation"><n:a role="menuitem" tabindex="-1" href="#">Something else here</n:a></n:li>
+                  <n:li role="presentation" class="divider"></n:li>
+                  <n:li role="presentation"><n:a role="menuitem" tabindex="-1" href="#">Separated link</n:a></n:li>
+                </n:ul>
+              </n:li>
+              <n:li class="pull-left header"><n:i class="fa fa-th"></n:i> Custom Tabs</n:li>
+            </n:ul>
+            <n:div class="tab-content">
+              <n:div class="tab-pane active" id="tab_1-1">
+                <n:b>How to use:</n:b>
+
+                <n:p>Exactly like the original bootstrap tabs except you should use
+                  the custom wrapper <n:code>.nav-tabs-custom</n:code> to achieve this style.</n:p>
+                A wonderful serenity has taken possession of my entire soul,
+                like these sweet mornings of spring which I enjoy with my whole heart.
+                I am alone, and feel the charm of existence in this spot,
+                which was created for the bliss of souls like mine. I am so happy,
+                my dear friend, so absorbed in the exquisite sense of mere tranquil existence,
+                that I neglect my talents. I should be incapable of drawing a single stroke
+                at the present moment; and yet I feel that I never was a greater artist than now.
+              </n:div>
+              <!-- /.tab-pane -->
+              <n:div class="tab-pane" id="tab_2-2">
+                The European languages are members of the same family. Their separate existence is a myth.
+                For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                new common language would be desirable: one could refuse to pay expensive translators. To
+                achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                words. If several languages coalesce, the grammar of the resulting language is more simple
+                and regular than that of the individual languages.
+              </n:div>
+              <!-- /.tab-pane -->
+              <n:div class="tab-pane" id="tab_3-2">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                like Aldus PageMaker including versions of Lorem Ipsum.
+              </n:div>
+              <!-- /.tab-pane -->
+            </n:div>
+            <!-- /.tab-content -->
+          </n:div>
+          <!-- nav-tabs-custom -->
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /.row -->
+      <!-- END CUSTOM TABS -->
+      <!-- START PROGRESS BARS -->
+      <n:h2 class="page-header">Progress Bars</n:h2>
+
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Progress Bars Different Sizes</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:p><n:code>.progress</n:code></n:p>
+
+              <n:div class="progress">
+                <n:div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                  <n:span class="sr-only">40% Complete (success)</n:span>
+                </n:div>
+              </n:div>
+              <n:p>Class: <n:code>.sm</n:code></n:p>
+
+              <n:div class="progress progress-sm active">
+                <n:div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                  <n:span class="sr-only">20% Complete</n:span>
+                </n:div>
+              </n:div>
+              <n:p>Class: <n:code>.xs</n:code></n:p>
+
+              <n:div class="progress progress-xs">
+                <n:div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                  <n:span class="sr-only">60% Complete (warning)</n:span>
+                </n:div>
+              </n:div>
+              <n:p>Class: <n:code>.xxs</n:code></n:p>
+
+              <n:div class="progress progress-xxs">
+                <n:div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                  <n:span class="sr-only">60% Complete (warning)</n:span>
+                </n:div>
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col (left) -->
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Progress bars</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:div class="progress">
+                <n:div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                  <n:span class="sr-only">40% Complete (success)</n:span>
+                </n:div>
+              </n:div>
+              <n:div class="progress">
+                <n:div class="progress-bar progress-bar-aqua" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                  <n:span class="sr-only">20% Complete</n:span>
+                </n:div>
+              </n:div>
+              <n:div class="progress">
+                <n:div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                  <n:span class="sr-only">60% Complete (warning)</n:span>
+                </n:div>
+              </n:div>
+              <n:div class="progress">
+                <n:div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                  <n:span class="sr-only">80% Complete</n:span>
+                </n:div>
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col (right) -->
+      </n:div>
+      <!-- /.row -->
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Vertical Progress Bars Different Sizes</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body text-center">
+              <n:p>By adding the class <n:code>.vertical</n:code> and <n:code>.progress-sm</n:code>, <n:code>.progress-xs</n:code> or
+                <n:code>.progress-xxs</n:code> we achieve:</n:p>
+
+              <n:div class="progress vertical active">
+                <n:div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="height: 40%">
+                  <n:span class="sr-only">40%</n:span>
+                </n:div>
+              </n:div>
+              <n:div class="progress vertical progress-sm">
+                <n:div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="height: 100%">
+                  <n:span class="sr-only">100%</n:span>
+                </n:div>
+              </n:div>
+              <n:div class="progress vertical progress-xs">
+                <n:div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
+                  <n:span class="sr-only">60%</n:span>
+                </n:div>
+              </n:div>
+              <n:div class="progress vertical progress-xxs">
+                <n:div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
+                  <n:span class="sr-only">60%</n:span>
+                </n:div>
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col (left) -->
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Vertical Progress bars</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body text-center">
+              <n:p>By adding the class <n:code>.vertical</n:code> we achieve:</n:p>
+
+              <n:div class="progress vertical">
+                <n:div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="height: 40%">
+                  <n:span class="sr-only">40%</n:span>
+                </n:div>
+              </n:div>
+              <n:div class="progress vertical">
+                <n:div class="progress-bar progress-bar-aqua" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="height: 20%">
+                  <n:span class="sr-only">20%</n:span>
+                </n:div>
+              </n:div>
+              <n:div class="progress vertical">
+                <n:div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
+                  <n:span class="sr-only">60%</n:span>
+                </n:div>
+              </n:div>
+              <n:div class="progress vertical">
+                <n:div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="height: 80%">
+                  <n:span class="sr-only">80%</n:span>
+                </n:div>
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col (right) -->
+      </n:div>
+      <!-- /.row -->
+      <!-- END PROGRESS BARS -->
+
+      <!-- START ACCORDION & CAROUSEL-->
+      <n:h2 class="page-header">Bootstrap Accordion and Carousel</n:h2>
+
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Collapsible Accordion</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:div class="box-group" id="accordion">
+                <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                <n:div class="panel box box-primary">
+                  <n:div class="box-header with-border">
+                    <n:h4 class="box-title">
+                      <n:a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        Collapsible Group Item #1
+                      </n:a>
+                    </n:h4>
+                  </n:div>
+                  <n:div id="collapseOne" class="panel-collapse collapse in">
+                    <n:div class="box-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                      eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                      nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                      labore sustainable VHS.
+                    </n:div>
+                  </n:div>
+                </n:div>
+                <n:div class="panel box box-danger">
+                  <n:div class="box-header with-border">
+                    <n:h4 class="box-title">
+                      <n:a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        Collapsible Group Danger
+                      </n:a>
+                    </n:h4>
+                  </n:div>
+                  <n:div id="collapseTwo" class="panel-collapse collapse">
+                    <n:div class="box-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                      eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                      nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                      labore sustainable VHS.
+                    </n:div>
+                  </n:div>
+                </n:div>
+                <n:div class="panel box box-success">
+                  <n:div class="box-header with-border">
+                    <n:h4 class="box-title">
+                      <n:a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                        Collapsible Group Success
+                      </n:a>
+                    </n:h4>
+                  </n:div>
+                  <n:div id="collapseThree" class="panel-collapse collapse">
+                    <n:div class="box-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                      eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                      nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                      labore sustainable VHS.
+                    </n:div>
+                  </n:div>
+                </n:div>
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:h3 class="box-title">Carousel</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <n:ol class="carousel-indicators">
+                  <n:li data-target="#carousel-example-generic" data-slide-to="0" class="active"></n:li>
+                  <n:li data-target="#carousel-example-generic" data-slide-to="1" class=""></n:li>
+                  <n:li data-target="#carousel-example-generic" data-slide-to="2" class=""></n:li>
+                </n:ol>
+                <n:div class="carousel-inner">
+                  <n:div class="item active">
+                    <n:img src="http://placehold.it/900x500/39CCCC/ffffff-text=I+Love+Bootstrap" alt="First slide" />
+
+                    <n:div class="carousel-caption">
+                      First Slide
+                    </n:div>
+                  </n:div>
+                  <n:div class="item">
+                    <n:img src="http://placehold.it/900x500/3c8dbc/ffffff-text=I+Love+Bootstrap" alt="Second slide" />
+
+                    <n:div class="carousel-caption">
+                      Second Slide
+                    </n:div>
+                  </n:div>
+                  <n:div class="item">
+                    <n:img src="http://placehold.it/900x500/f39c12/ffffff-text=I+Love+Bootstrap" alt="Third slide" />
+
+                    <n:div class="carousel-caption">
+                      Third Slide
+                    </n:div>
+                  </n:div>
+                </n:div>
+                <n:a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                  <n:span class="fa fa-angle-left"></n:span>
+                </n:a>
+                <n:a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                  <n:span class="fa fa-angle-right"></n:span>
+                </n:a>
+              </n:div>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- /.col -->
+      </n:div>
+      <!-- /.row -->
+      <!-- END ACCORDION & CAROUSEL-->
+
+      <!-- START TYPOGRAPHY -->
+      <n:h2 class="page-header">Typography</n:h2>
+
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-text-width"></n:i>
+
+              <n:h3 class="box-title">Headlines</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:h1>h1. Bootstrap heading</n:h1>
+
+              <n:h2>h2. Bootstrap heading</n:h2>
+
+              <n:h3>h3. Bootstrap heading</n:h3>
+              <n:h4>h4. Bootstrap heading</n:h4>
+              <n:h5>h5. Bootstrap heading</n:h5>
+              <n:h6>h6. Bootstrap heading</n:h6>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- ./col -->
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-text-width"></n:i>
+
+              <n:h3 class="box-title">Text Emphasis</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:p class="lead">Lead to emphasize importance</n:p>
+              <n:p class="text-green">Text green to emphasize success</n:p>
+              <n:p class="text-aqua">Text aqua to emphasize info</n:p>
+              <n:p class="text-light-blue">Text light blue to emphasize info (2)</n:p>
+              <n:p class="text-red">Text red to emphasize danger</n:p>
+              <n:p class="text-yellow">Text yellow to emphasize warning</n:p>
+              <n:p class="text-muted">Text muted to emphasize general</n:p>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- ./col -->
+      </n:div>
+      <!-- /.row -->
+
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-text-width"></n:i>
+              <n:h3 class="box-title">Block Quotes</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:blockquote>
+                <n:p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</n:p>
+                <n:small>Someone famous in <n:cite title="Source Title">Source Title</n:cite></n:small>
+              </n:blockquote>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- ./col -->
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-text-width"></n:i>
+
+              <n:h3 class="box-title">Block Quotes Pulled Right</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body clearfix">
+              <n:blockquote class="pull-right">
+                <n:p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</n:p>
+                <n:small>Someone famous in <n:cite title="Source Title">Source Title</n:cite></n:small>
+              </n:blockquote>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- ./col -->
+      </n:div>
+      <!-- /.row -->
+
+      <n:div class="row">
+        <n:div class="col-md-4">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-text-width"></n:i>
+
+              <n:h3 class="box-title">Unordered List</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:ul>
+                <n:li>Lorem ipsum dolor sit amet</n:li>
+                <n:li>Consectetur adipiscing elit</n:li>
+                <n:li>Integer molestie lorem at massa</n:li>
+                <n:li>Facilisis in pretium nisl aliquet</n:li>
+                <n:li>Nulla volutpat aliquam velit
+                  <n:ul>
+                    <n:li>Phasellus iaculis neque</n:li>
+                    <n:li>Purus sodales ultricies</n:li>
+                    <n:li>Vestibulum laoreet porttitor sem</n:li>
+                    <n:li>Ac tristique libero volutpat at</n:li>
+                  </n:ul>
+                </n:li>
+                <n:li>Faucibus porta lacus fringilla vel</n:li>
+                <n:li>Aenean sit amet erat nunc</n:li>
+                <n:li>Eget porttitor lorem</n:li>
+              </n:ul>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- ./col -->
+        <n:div class="col-md-4">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-text-width"></n:i>
+
+              <n:h3 class="box-title">Ordered Lists</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:ol>
+                <n:li>Lorem ipsum dolor sit amet</n:li>
+                <n:li>Consectetur adipiscing elit</n:li>
+                <n:li>Integer molestie lorem at massa</n:li>
+                <n:li>Facilisis in pretium nisl aliquet</n:li>
+                <n:li>Nulla volutpat aliquam velit
+                  <n:ol>
+                    <n:li>Phasellus iaculis neque</n:li>
+                    <n:li>Purus sodales ultricies</n:li>
+                    <n:li>Vestibulum laoreet porttitor sem</n:li>
+                    <n:li>Ac tristique libero volutpat at</n:li>
+                  </n:ol>
+                </n:li>
+                <n:li>Faucibus porta lacus fringilla vel</n:li>
+                <n:li>Aenean sit amet erat nunc</n:li>
+                <n:li>Eget porttitor lorem</n:li>
+              </n:ol>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- ./col -->
+        <n:div class="col-md-4">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-text-width"></n:i>
+
+              <n:h3 class="box-title">Unstyled List</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:ul class="list-unstyled">
+                <n:li>Lorem ipsum dolor sit amet</n:li>
+                <n:li>Consectetur adipiscing elit</n:li>
+                <n:li>Integer molestie lorem at massa</n:li>
+                <n:li>Facilisis in pretium nisl aliquet</n:li>
+                <n:li>Nulla volutpat aliquam velit
+                  <n:ul>
+                    <n:li>Phasellus iaculis neque</n:li>
+                    <n:li>Purus sodales ultricies</n:li>
+                    <n:li>Vestibulum laoreet porttitor sem</n:li>
+                    <n:li>Ac tristique libero volutpat at</n:li>
+                  </n:ul>
+                </n:li>
+                <n:li>Faucibus porta lacus fringilla vel</n:li>
+                <n:li>Aenean sit amet erat nunc</n:li>
+                <n:li>Eget porttitor lorem</n:li>
+              </n:ul>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- ./col -->
+      </n:div>
+      <!-- /.row -->
+
+      <n:div class="row">
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-text-width"></n:i>
+
+              <n:h3 class="box-title">Description</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:dl>
+                <n:dt>Description lists</n:dt>
+                <n:dd>A description list is perfect for defining terms.</n:dd>
+                <n:dt>Euismod</n:dt>
+                <n:dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</n:dd>
+                <n:dd>Donec id elit non mi porta gravida at eget metus.</n:dd>
+                <n:dt>Malesuada porta</n:dt>
+                <n:dd>Etiam porta sem malesuada magna mollis euismod.</n:dd>
+              </n:dl>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- ./col -->
+        <n:div class="col-md-6">
+          <n:div class="box box-solid">
+            <n:div class="box-header with-border">
+              <n:i class="fa fa-text-width"></n:i>
+
+              <n:h3 class="box-title">Description Horizontal</n:h3>
+            </n:div>
+            <!-- /.box-header -->
+            <n:div class="box-body">
+              <n:dl class="dl-horizontal">
+                <n:dt>Description lists</n:dt>
+                <n:dd>A description list is perfect for defining terms.</n:dd>
+                <n:dt>Euismod</n:dt>
+                <n:dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</n:dd>
+                <n:dd>Donec id elit non mi porta gravida at eget metus.</n:dd>
+                <n:dt>Malesuada porta</n:dt>
+                <n:dd>Etiam porta sem malesuada magna mollis euismod.</n:dd>
+                <n:dt>Felis euismod semper eget lacinia</n:dt>
+                <n:dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                  sit amet risus.
+                </n:dd>
+              </n:dl>
+            </n:div>
+            <!-- /.box-body -->
+          </n:div>
+          <!-- /.box -->
+        </n:div>
+        <!-- ./col -->
+      </n:div>
+      <!-- /.row -->
+      <!-- END TYPOGRAPHY -->
+
+    </n:section>
+    <!-- /.content -->
+</zk>

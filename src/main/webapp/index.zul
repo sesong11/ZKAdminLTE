@@ -1,3 +1,4 @@
+<zk xmlns:n="native">
 <?meta charset="utf-8"?>
 <?meta http-equiv="X-UA-Compatible" content="IE=edge"?>
 <!-- Tell the browser to be responsive to screen width -->
@@ -29,11 +30,12 @@ folder instead of downloading all of them to reduce the load. -->
 <?link rel="stylesheet" href="adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print"?>
 <!-- DataTables -->
 <?link rel="stylesheet" href="adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"?>
+
 <!-- iCheck -->
 <?link rel="stylesheet" href="adminlte/plugins/iCheck/flat/blue.css"?>
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-<?link rel="stylesheet" href="adminlte/dist/css/skins/_all-skins.min.css"?>
+<!-- bootstrap slider -->
+<?link rel="stylesheet" href="adminlte/plugins/bootstrap-slider/slider.css"?>
+
 <?link rel="stylesheet" href="/css/application.css"?>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +46,7 @@ folder instead of downloading all of them to reduce the load. -->
 
 <!-- Google Font -->
 <?link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"?>
-<zk xmlns:n="native">
+
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
          viewModel="@id('vm') @init('com.sample.ZKSpringJPA.MyViewModel')"
          validationMessages="@id('vmsgs')">
@@ -370,7 +372,7 @@ folder instead of downloading all of them to reduce the load. -->
                             </n:ul>
                         </n:li>
                         <n:li class="${vm.urlParam.contains('widgets') ? 'active treeview' : ''} ">
-                            <n:a href="?p=widgets">
+                            <n:a href="?p=widgets/widgets">
                                 <n:i class="fa fa-th"></n:i> <n:span>Widgets</n:span>
                                 <n:span class="pull-right-container">
                                     <n:small class="label pull-right bg-green">new</n:small>
@@ -392,7 +394,7 @@ folder instead of downloading all of them to reduce the load. -->
                                 <n:li><n:a href="pages/charts/inline.html"><n:i class="fa fa-circle-o"></n:i> Inline charts</n:a></n:li>
                             </n:ul>
                         </n:li>
-                        <n:li class="treeview">
+                        <n:li class="${vm.urlParam.contains('ui/') ? 'active treeview' : ''} treeview">
                             <n:a href="#">
                                 <n:i class="fa fa-laptop"></n:i>
                                 <n:span>UI Elements</n:span>
@@ -401,12 +403,12 @@ folder instead of downloading all of them to reduce the load. -->
                                 </n:span>
                             </n:a>
                             <n:ul class="treeview-menu">
-                                <n:li><n:a href="pages/UI/general.html"><n:i class="fa fa-circle-o"></n:i> General</n:a></n:li>
-                                <n:li><n:a href="pages/UI/icons.html"><n:i class="fa fa-circle-o"></n:i> Icons</n:a></n:li>
-                                <n:li><n:a href="pages/UI/buttons.html"><n:i class="fa fa-circle-o"></n:i> Buttons</n:a></n:li>
-                                <n:li><n:a href="pages/UI/sliders.html"><n:i class="fa fa-circle-o"></n:i> Sliders</n:a></n:li>
-                                <n:li><n:a href="pages/UI/timeline.html"><n:i class="fa fa-circle-o"></n:i> Timeline</n:a></n:li>
-                                <n:li><n:a href="pages/UI/modals.html"><n:i class="fa fa-circle-o"></n:i> Modals</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('ui/general') ? 'active' : ''}"><n:a href="?p=ui/general"><n:i class="fa fa-circle-o"></n:i> General</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('ui/icons') ? 'active' : ''}"><n:a href="?p=ui/icons"><n:i class="fa fa-circle-o"></n:i> Icons</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('ui/buttons') ? 'active' : ''}"><n:a href="?p=ui/buttons"><n:i class="fa fa-circle-o"></n:i> Buttons</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('ui/sliders') ? 'active' : ''}"><n:a href="?p=ui/sliders"><n:i class="fa fa-circle-o"></n:i> Sliders</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('ui/timeline') ? 'active' : ''}"><n:a href="?p=ui/timeline"><n:i class="fa fa-circle-o"></n:i> Timeline</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('ui/modals') ? 'active' : ''}"><n:a href="?p=ui/modals"><n:i class="fa fa-circle-o"></n:i> Modals</n:a></n:li>
                             </n:ul>
                         </n:li>
                         <n:li class="${vm.urlParam.contains('forms/') ? 'active' : ''} treeview">
@@ -738,56 +740,58 @@ folder instead of downloading all of them to reduce the load. -->
                  immediately after the control sidebar -->
             <n:div class="control-sidebar-bg"></n:div>
         </n:div>
-
-        <!-- jQuery 3 -->
-        <script src="adminlte/bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- jQuery UI 1.11.4 -->
-        <script src="adminlte/bower_components/jquery-ui/jquery-ui.min.js"></script>
-        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <n:script>
-            $.widget.bridge('uibutton', $.ui.button);
-        </n:script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- Sparkline -->
-        <script src="adminlte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-        <!-- jvectormap -->
-        <script src="adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-        <!-- jQuery Knob Chart -->
-        <script src="adminlte/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
-        <!-- daterangepicker -->
-        <script src="adminlte/bower_components/moment/min/moment.min.js"></script>
-        <script src="adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-        <!-- datepicker -->
-        <script src="adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-        <!-- Bootstrap WYSIHTML5 -->
-        <script src="adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-        <!-- Slimscroll -->
-        <script src="adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <!-- FastClick -->
-        <script src="adminlte/bower_components/fastclick/lib/fastclick.js"></script>
-        <!-- Morris.js charts -->
-        <script src="adminlte/bower_components/raphael/raphael.min.js"></script>
-        <script src="adminlte/bower_components/morris.js/morris.min.js"></script>
-        <!-- DataTables -->
-        <script src="adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="adminlte/dist/js/adminlte.min.js"></script>
-        <!-- SlimScroll -->
-        <script src="adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <!-- ChartJS -->
-        <script src="adminlte/bower_components/chart.js/Chart.js"></script>
-        <!-- fullCalendar -->
-        <script src="adminlte/bower_components/moment/moment.js"></script>
-        <script src="adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-        <!-- iCheck -->
-        <script src="adminlte/plugins/iCheck/icheck.min.js"></script>
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="adminlte/dist/js/pages/dashboard.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="adminlte/dist/js/demo.js"></script>
-        <script src="js/application.js"></script>
     </div>
+    <!-- jQuery 3 -->
+    <script src="adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="adminlte/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <n:script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </n:script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Sparkline -->
+    <script src="adminlte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- jvectormap -->
+    <script src="adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="adminlte/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="adminlte/bower_components/moment/min/moment.min.js"></script>
+    <script src="adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- datepicker -->
+    <script src="adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="adminlte/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- Morris.js charts -->
+    <script src="adminlte/bower_components/raphael/raphael.min.js"></script>
+    <script src="adminlte/bower_components/morris.js/morris.min.js"></script>
+    <!-- DataTables -->
+    <script src="adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="adminlte/dist/js/adminlte.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- ChartJS -->
+    <script src="adminlte/bower_components/chart.js/Chart.js"></script>
+    <!-- fullCalendar -->
+    <script src="adminlte/bower_components/moment/moment.js"></script>
+    <script src="adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <!-- iCheck -->
+    <script src="adminlte/plugins/iCheck/icheck.min.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="adminlte/dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="adminlte/dist/js/demo.js"></script>
+    <!-- Bootstrap slider -->
+    <script src="adminlte/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+
+    <script src="js/application.js"></script>
 </zk>
