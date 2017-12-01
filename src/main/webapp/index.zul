@@ -379,7 +379,7 @@ folder instead of downloading all of them to reduce the load. -->
                                 </n:span>
                             </n:a>
                         </n:li>
-                        <n:li class="treeview">
+                        <n:li class="${vm.urlParam.contains('charts') ? 'active treeview' : 'treeview'} ">
                             <n:a href="#">
                                 <n:i class="fa fa-pie-chart"></n:i>
                                 <n:span>Charts</n:span>
@@ -388,10 +388,10 @@ folder instead of downloading all of them to reduce the load. -->
                                 </n:span>
                             </n:a>
                             <n:ul class="treeview-menu">
-                                <n:li><n:a href="pages/charts/chartjs.html"><n:i class="fa fa-circle-o"></n:i> ChartJS</n:a></n:li>
-                                <n:li><n:a href="pages/charts/morris.html"><n:i class="fa fa-circle-o"></n:i> Morris</n:a></n:li>
-                                <n:li><n:a href="pages/charts/flot.html"><n:i class="fa fa-circle-o"></n:i> Flot</n:a></n:li>
-                                <n:li><n:a href="pages/charts/inline.html"><n:i class="fa fa-circle-o"></n:i> Inline charts</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('charts/chartjs') ? 'active' : ''}"><n:a href="?p=charts/chartjs"><n:i class="fa fa-circle-o"></n:i> ChartJS</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('charts/morris') ? 'active' : ''}"><n:a href="?p=charts/morris"><n:i class="fa fa-circle-o"></n:i> Morris</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('charts/flot') ? 'active' : ''}"><n:a href="?p=charts/flot"><n:i class="fa fa-circle-o"></n:i> Flot</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('charts/inline') ? 'active' : ''}"><n:a href="?p=charts/inline"><n:i class="fa fa-circle-o"></n:i> Inline charts</n:a></n:li>
                             </n:ul>
                         </n:li>
                         <n:li class="${vm.urlParam.contains('ui/') ? 'active treeview' : ''} treeview">
@@ -775,6 +775,14 @@ folder instead of downloading all of them to reduce the load. -->
     <!-- DataTables -->
     <script src="adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- FLOT CHARTS -->
+    <script src="adminlte/bower_components/Flot/jquery.flot.js"></script>
+    <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+    <script src="adminlte/bower_components/Flot/jquery.flot.resize.js"></script>
+    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+    <script src="adminlte/bower_components/Flot/jquery.flot.pie.js"></script>
+    <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+    <script src="adminlte/bower_components/Flot/jquery.flot.categories.js"></script>
     <!-- AdminLTE App -->
     <script src="adminlte/dist/js/adminlte.min.js"></script>
     <!-- SlimScroll -->
@@ -792,6 +800,10 @@ folder instead of downloading all of them to reduce the load. -->
     <script src="adminlte/dist/js/demo.js"></script>
     <!-- Bootstrap slider -->
     <script src="adminlte/plugins/bootstrap-slider/bootstrap-slider.js"></script>
-
+    <!-- jQuery Knob -->
+    <script src="adminlte/bower_components/jquery-knob/js/jquery.knob.js"></script>
+    <!-- Sparkline -->
+    <script src="adminlte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- page script -->
     <script src="js/application.js"></script>
 </zk>
