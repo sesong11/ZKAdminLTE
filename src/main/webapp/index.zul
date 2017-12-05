@@ -47,9 +47,11 @@ folder instead of downloading all of them to reduce the load. -->
 <!-- Google Font -->
 <?link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"?>
 
-    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+    <window zclass="none" apply="org.zkoss.bind.BindComposer"
          viewModel="@id('vm') @init('com.sample.ZKSpringJPA.MyViewModel')"
          validationMessages="@id('vmsgs')">
+         <button onClick="@command('addLog')">Add Log</button>
+         <textbox value="@bind(message)"></textbox>
         <n:div class="wrapper">
                 <n:header class="main-header">
                     <!-- Logo -->
@@ -740,7 +742,7 @@ folder instead of downloading all of them to reduce the load. -->
                  immediately after the control sidebar -->
             <n:div class="control-sidebar-bg"></n:div>
         </n:div>
-    </div>
+    </window>
     <!-- jQuery 3 -->
     <script src="adminlte/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
