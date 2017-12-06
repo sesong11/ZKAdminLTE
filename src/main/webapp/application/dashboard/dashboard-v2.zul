@@ -1,4 +1,9 @@
 <zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.sample.ZKSpringJPA.UserVM')"
+            validationMessages="@id('vmsgs')">
+
+
     <!-- Content Header (Page header) -->
     <n:section class="content-header">
         <n:h1>
@@ -629,6 +634,50 @@
                     <!-- /.box-footer -->
                 </n:div>
                 <!-- /.box -->
+                <!-- TABLE: Users -->
+                <n:div class="box box-info">
+                    <n:div class="box-header with-border">
+                        <n:h3 class="box-title">All Users</n:h3>
+
+                        <n:div class="box-tools pull-right">
+                            <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                            </n:button>
+                            <n:button type="button" class="btn btn-box-tool" data-widget="remove"><n:i class="fa fa-times"></n:i></n:button>
+                        </n:div>
+                    </n:div>
+                    <!-- /.box-header -->
+                    <n:div class="box-body">
+
+                            <grid zclass="none" height="350px" model="@load(vm.users)" sclass="table table-bordered"
+                                  emptyMessage="Nothing in Inbox.">
+                                <columns zclass="none">
+                                    <column label="Id" zclass="none"/>
+                                    <column label="Username" zclass="none"/>
+                                    <column label="Email" width="80px" zclass="none"/>
+                                    <column label="Enabled" width="80px" zclass="none"/>
+                                    <column label="Ctrl" width="100px" zclass="none"/>
+                                </columns>
+                                <template name="model">
+                                    <row zclass="none">
+                                        <label value="@load(each.userId)" />
+                                        <label value="@load(each.username)" />
+                                        <label value="@load(each.email)" />
+                                        <label value="@load(each.enabled)" />
+                                        <a zclass="none" label="Delete" onClick="@command('deleteObject', user=each)" sclass="btn btn-danger pull-right btn-xs" />
+                                    </row>
+                                </template>
+                            </grid>
+
+                        <!-- /.table-responsive -->
+                    </n:div>
+                    <!-- /.box-body -->
+                    <n:div class="box-footer clearfix">
+                        <n:a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</n:a>
+                        <n:a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</n:a>
+                    </n:div>
+                    <!-- /.box-footer -->
+                </n:div>
+                <!-- /.box -->
             </n:div>
             <!-- /.col -->
 
@@ -833,6 +882,7 @@
         <!-- /.row -->
     </n:section>
     <!-- /.content -->
+    </div>
     <n:script>
         dashboard2();
     </n:script>

@@ -30,11 +30,16 @@
 
 	<authentication-manager>
 		<authentication-provider>
-			<password-encoder ref="plainText" />
+			<password-encoder ref="encoder" />
 			<user-service>
-				<user name="sesong" password="pass" authorities="ROLE_USER" />
+				<user name="admin" password="$2a$10$ULbhFM1d54vwdAD95qyxDeTHIgORUPu5tXFfZKg8OxupRiA/4RpLe" authorities="ROLE_USER" />
 			</user-service>
+		</authentication-provider>
+		<authentication-provider user-service-ref="customUserDetailsService">
+			<password-encoder ref="encoder" />
 		</authentication-provider>
 	</authentication-manager>
 
+	<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	<beans:bean id="customUserDetailsService" class="com.sample.ZKSpringJPA.services.CustomUserDetailsService" />
 </beans:beans>

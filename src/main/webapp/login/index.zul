@@ -72,7 +72,7 @@
 
             <n:a href="#">I forgot my password</n:a><n:br />
             <n:a href="../register" class="text-center">Register a new membership</n:a>
-
+            <a sclass="text-center" onClick="@command('createUser')">No User?</a>
         </n:div>
         <!-- /.login-box-body -->
     </n:div>
