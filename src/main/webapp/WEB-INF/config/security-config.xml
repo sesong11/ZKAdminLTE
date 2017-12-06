@@ -10,23 +10,31 @@
 		http://www.springframework.org/schema/context/spring-context.xsd 
 		http://www.springframework.org/schema/security 
 		http://www.springframework.org/schema/security/spring-security.xsd">
+	<http pattern="/login/**" security="none"/>
+	<http pattern="/adminlte/**" security="none"/>
+	<http pattern="/css/**" security="none"/>
+	<http pattern="/js/**" security="none"/>
+	<http pattern="/img/**" security="none"/>
+	<http auto-config="true">
+		<csrf disabled="true"/>
+		<!-- ZK AU reqeust -->
+		<intercept-url pattern="/zkau/**" access="permitAll" />
+		<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+
+		<form-login login-page="/login/"
+					authentication-failure-url="/login.zul?login_error=1" />
+		<logout logout-success-url="/login.zul"/>
+	</http>
 		
-		<http auto-config="true">
-			<csrf disabled="true"/>
-			<!-- ZK AU reqeust -->
-        	<intercept-url pattern="/zkau/**" access="permitAll" />
-			<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
-		</http>
-		
-		<beans:bean name="plainText" class="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>
-		
-		<authentication-manager>
-			<authentication-provider>
-				<password-encoder ref="plainText" />
-				<user-service>
-					<user name="sesong" password="pass" authorities="ROLE_USER" />
-				</user-service>
-			</authentication-provider>
-		</authentication-manager>
+	<beans:bean name="plainText" class="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>
+
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder ref="plainText" />
+			<user-service>
+				<user name="sesong" password="pass" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
 
 </beans:beans>

@@ -16,8 +16,15 @@ import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zsoup.helper.HttpConnection;
 import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class MyViewModel {
@@ -61,6 +68,13 @@ public class MyViewModel {
 		Log log = new Log(message);
 		log = myService.addLog(log);
 		logListModel.add(log);
+	}
+
+	@Command
+	public void logout() throws ServletException {
+		HttpServletResponse response = (HttpServletResponse) Executions.getCurrent().getNativeResponse();
+		Executions.sendRedirect(response.encodeRedirectURL("/logout"));
+		Executions.getCurrent().setVoided(true);
 	}
 
 	@Command

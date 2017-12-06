@@ -50,8 +50,6 @@ folder instead of downloading all of them to reduce the load. -->
     <window zclass="none" apply="org.zkoss.bind.BindComposer"
          viewModel="@id('vm') @init('com.sample.ZKSpringJPA.MyViewModel')"
          validationMessages="@id('vmsgs')">
-         <button onClick="@command('addLog')">Add Log</button>
-         <textbox value="@bind(message)"></textbox>
         <n:div class="wrapper">
                 <n:header class="main-header">
                     <!-- Logo -->
@@ -304,7 +302,7 @@ folder instead of downloading all of them to reduce the load. -->
                                                 <n:a href="#" class="btn btn-default btn-flat">Profile</n:a>
                                             </n:div>
                                             <n:div class="pull-right">
-                                                <n:a href="#" class="btn btn-default btn-flat">Sign out</n:a>
+                                                <a sclass="btn btn-default btn-flat" onClick="@command('logout')">Sign out</a>
                                             </n:div>
                                         </n:li>
                                     </n:ul>

@@ -25,6 +25,9 @@
 <?link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"?>
 
 <zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.LoginVM')"
+         validationMessages="@id('vmsgs')">
     <n:div class="login-box">
         <n:div class="login-logo">
             <n:a href="../../index2.html"><n:b>Admin</n:b>LTE</n:a>
@@ -33,13 +36,13 @@
         <n:div class="login-box-body">
             <n:p class="login-box-msg">Sign in to start your session</n:p>
 
-            <n:form action="../../index2.html" method="post">
+
                 <n:div class="form-group has-feedback">
-                    <n:input type="email" class="form-control" placeholder="Email" />
-                    <n:span class="glyphicon glyphicon-envelope form-control-feedback"></n:span>
+                    <textbox type="text" sclass="form-control" placeholder="Username" value="@bind(vm.username)" />
+                    <n:span class="glyphicon glyphicon-user form-control-feedback"></n:span>
                 </n:div>
                 <n:div class="form-group has-feedback">
-                    <n:input type="password" class="form-control" placeholder="Password" />
+                    <textbox type="password" sclass="form-control" placeholder="Password" value="@bind(vm.password)"/>
                     <n:span class="glyphicon glyphicon-lock form-control-feedback"></n:span>
                 </n:div>
                 <n:div class="row">
@@ -52,11 +55,11 @@
                     </n:div>
                     <!-- /.col -->
                     <n:div class="col-xs-4">
-                        <n:button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</n:button>
+                        <button type="submit" sclass="btn btn-primary btn-block btn-flat" onClick="@command('login')">Sign In</button>
                     </n:div>
                     <!-- /.col -->
                 </n:div>
-            </n:form>
+
 
             <n:div class="social-auth-links text-center">
                 <n:p>- OR -</n:p>
@@ -73,15 +76,16 @@
         </n:div>
         <!-- /.login-box-body -->
     </n:div>
-
+    </div>
     <!-- jQuery 3 -->
     <script src="../adminlte/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="../adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- iCheck -->
     <script src="../adminlte/plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(document).ready(function(){
+    <n:script>
+        <![CDATA[
+            zk.afterMount(function(){
             $(function () {
                 $('input').iCheck({
                     checkboxClass: 'icheckbox_square-blue',
@@ -90,6 +94,6 @@
                 });
             });
             $('body').addClass('hold-transition login-page');
-        });
-    </script>
+        });]]>
+    </n:script>
 </zk>
