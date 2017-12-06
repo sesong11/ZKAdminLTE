@@ -49,3 +49,4 @@ rebel.xml
 webapp/logs/sql.log
 **/target
 *.idea/
+data/
