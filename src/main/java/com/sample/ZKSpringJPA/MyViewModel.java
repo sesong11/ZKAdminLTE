@@ -6,6 +6,8 @@ import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import org.springframework.web.context.annotation.SessionScope;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
@@ -26,9 +28,9 @@ public class MyViewModel {
 	private ListModelList<Log> logListModel;
 	private String message;
 
-	@Getter	@Setter
 	private String urlParam = "/application/dashboard/dashboard-v1.zul";
 
+	public String getUrlParam() {return urlParam; }
 	@Init
 	public void init() {
 		List<Log> logList = myService.getLogs();

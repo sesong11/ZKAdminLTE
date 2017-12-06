@@ -16,7 +16,30 @@
 	 <listener>
     	<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
-
+	
+	<!-- Spring Security -->
+	 
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	 
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/config/security-config.xml</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>applicationContext</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+ -->
+	
 	<!-- ZK -->
 	<listener>
 		<description>ZK listener for session cleanup</description>
@@ -132,10 +155,10 @@
 		<url-pattern>*.dsp</url-pattern>
 	</servlet-mapping>
 	-->
-	
+		
 	<!-- [Optional] Session timeout -->
 	<session-config>
-		<session-timeout>60</session-timeout>
+		<session-timeout>600</session-timeout>
 	</session-config>
 
 	<!-- [Optional] MIME mapping -->
