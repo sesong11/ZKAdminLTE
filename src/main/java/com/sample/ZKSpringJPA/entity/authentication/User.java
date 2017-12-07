@@ -2,10 +2,15 @@ package com.sample.ZKSpringJPA.entity.authentication;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
 import com.sample.ZKSpringJPA.utils.TableSchemas;
+
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.Type;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -47,11 +52,12 @@ public class User implements Serializable {
 	}
 
 	@Getter @Setter
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "user_roles",
 			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+
 	)
 	private List<Role> roles;
 }

@@ -137,6 +137,21 @@
                         </n:div>
                         <!-- /.box-header -->
                         <n:div class="box-body">
+                            <grid zclass="none" height="350px" model="@load(vm.currentUser.roles)" sclass="table table-bordered"
+                                  emptyMessage="Nothing in Inbox.">
+                                <columns zclass="none">
+                                    <column label="Id" zclass="none" width="50px"/>
+                                    <column label="Name" zclass="none"/>
+                                </columns>
+                                <template name="model">
+                                    <row zclass="none" onClick="@command('select', role=each)">
+                                        <label value="@load(each.id)" />
+                                        <label value="@load(each.name)" />
+                                    </row>
+                                </template>
+                            </grid>
+                            <textbox value="" id="txtRoleName" />
+                            <button onClick="@command('addRole', roleName = txtRoleName.value)" label="Add Role"></button>
                         </n:div>
                     </n:div>
                 </n:div>

@@ -1,12 +1,14 @@
 package com.sample.ZKSpringJPA.services.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
+import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.UserService;
 
@@ -35,6 +37,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void deleteUser(User user) {
 		userDao.delete(user);
+	}
+
+	@Override public List<Role> queryRoles(final User user) {
+		return userDao.queryRoles(user);
 	}
 
 	@Override

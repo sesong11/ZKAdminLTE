@@ -7,13 +7,13 @@
         <!-- Content Header (Page header) -->
         <n:section class="content-header">
             <n:h1>
-                User Dashboard
-                <n:small>All Users</n:small>
+                Roles Dashboard
+                <n:small>All Roles</n:small>
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
                 <n:li class="active">Dashboard</n:li>
-                <n:li class="active">User Dashboard</n:li>
+                <n:li class="active">Roles Dashboard</n:li>
             </n:ol>
         </n:section>
         <!-- Main content -->
@@ -25,7 +25,7 @@
                     <!-- TABLE: Users -->
                     <n:div class="box box-info">
                         <n:div class="box-header with-border">
-                            <n:h3 class="box-title">All Users</n:h3>
+                            <n:h3 class="box-title">All Roles</n:h3>
 
                             <n:div class="box-tools pull-right">
                                 <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
@@ -39,10 +39,10 @@
                                   emptyMessage="Nothing in Inbox.">
                                 <columns zclass="none">
                                     <column label="Id" zclass="none" width="50px"/>
-                                    <column label="Name" width="120px" zclass="none"/>
+                                    <column label="Name" zclass="none"/>
                                 </columns>
                                 <template name="model">
-                                    <row zclass="none" onClick="@command('select', user=each)">
+                                    <row zclass="none" onClick="@command('select', role=each)">
                                         <label value="@load(each.id)" />
                                         <label value="@load(each.name)" />
                                     </row>
@@ -65,7 +65,7 @@
                     <!-- TABLE: Users -->
                     <n:div class="box box-info">
                         <n:div class="box-header with-border">
-                            <n:h3 class="box-title">Manage Users</n:h3>
+                            <n:h3 class="box-title">Manage Roles</n:h3>
                             <n:div class="box-tools pull-right">
                                 <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
                                 </n:button>
@@ -90,8 +90,8 @@
                                    name = txtName.value)"
                                    sclass="btn btn-sm btn-info btn-flat pull-right margin">Create Create</a>
                                 <a visible="@load(vm.role.id eq 0 || vm.role.id eq null)" onClick="@command('cancel')" sclass="btn btn-sm btn-default btn-flat pull-left margin">Clear</a>
-                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('updateUser')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update User</a>
-                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('deleteUser')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete User</a>
+                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('update', name = txtName.value)" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update User</a>
+                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete User</a>
                                 <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))"
                                    onClick="@command('cancel')"
                                    sclass="btn btn-sm btn-default btn-flat pull-left margin">Cancel</a>
@@ -104,7 +104,7 @@
                 <n:div class="col-md-12">
                     <n:div class="box box-info">
                         <n:div class="box-header with-border">
-                            <n:h3 class="box-title">All Roles</n:h3>
+                            <n:h3 class="box-title">All Users</n:h3>
 
                             <n:div class="box-tools pull-right">
                                 <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>

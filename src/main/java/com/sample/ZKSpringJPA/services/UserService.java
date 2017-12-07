@@ -1,7 +1,9 @@
 package com.sample.ZKSpringJPA.services;
 
 import java.util.List;
+import java.util.Set;
 
+import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 
 public interface UserService {
@@ -10,6 +12,7 @@ public interface UserService {
 	User addUser(User user);
 	User updateUser(User user);
 	void deleteUser(User user);
+	List<Role> queryRoles(User user);
 //	{
 //        Map<String, Object> userMap = null;
 //        //logic here to get your user from the database
