@@ -9,8 +9,11 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sample.ZKSpringJPA.entity.User;
+import com.sample.ZKSpringJPA.entity.authentication.User;
 
+/**
+ * Data Access Object for User Entity
+ */
 @Repository
 public class UserDao {
 
@@ -35,5 +38,18 @@ public class UserDao {
 		em.persist(user);
 		em.flush();
 		return user;
+	}
+
+	@Transactional
+	public User update(User user) {
+		em.merge(user);
+		em.flush();
+		return user;
+	}
+
+	@Transactional
+	public void delete(User user) {
+		Object mg = em.merge(user);
+		em.remove(mg);
 	}
 }

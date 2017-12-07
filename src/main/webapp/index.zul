@@ -354,6 +354,7 @@ folder instead of downloading all of them to reduce the load. -->
                             <n:ul class="treeview-menu">
                                 <n:li class="${vm.urlParam.contains('dashboard/dashboard-v1') ? 'active' : ''}"><n:a href="?p=dashboard/dashboard-v1"><n:i class="fa fa-circle-o"></n:i> Dashboard v1</n:a></n:li>
                                 <n:li class="${vm.urlParam.contains('dashboard/dashboard-v2') ? 'active' : ''}"><n:a href="?p=dashboard/dashboard-v2"><n:i class="fa fa-circle-o"></n:i> Dashboard v2</n:a></n:li>
+                                <n:li class="${vm.urlParam.contains('dashboard/user-dashboard') ? 'active' : ''}"><n:a href="?p=dashboard/user-dashboard"><n:i class="fa fa-circle-o"></n:i> Users Dashboard</n:a></n:li>
                             </n:ul>
                         </n:li>
                         <n:li class="${vm.urlParam.contains('layout-option/') ? 'active treeview' : 'treeview'} ">

@@ -1,14 +1,11 @@
-package com.sample.ZKSpringJPA.entity;
+package com.sample.ZKSpringJPA.entity.authentication;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import com.sample.ZKSpringJPA.utils.TableSchemas;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,9 +16,9 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="user_id")
+	@Column(name="id")
 	@Getter @Setter
-	private Long userId;
+	private long id;
 	
 	@Column(name = "username", unique = true)
 	@Getter @Setter
@@ -37,15 +34,24 @@ public class User implements Serializable {
 	
 	@Column(name = "enabled")
 	@Getter @Setter
-	private int enabled;
+	private boolean enabled;
 
 	public User() {}
 	
 	public User(User user) {
-		this.userId = user.userId;
+		this.id = user.id;
 		this.username = user.username;
 		this.email = user.email;
 		this.password = user.password;
 		this.enabled = user.enabled;
 	}
+
+	@Getter @Setter
+	@ManyToMany
+	@JoinTable(
+			name = "user_roles",
+			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+	)
+	private List<Role> roles;
 }

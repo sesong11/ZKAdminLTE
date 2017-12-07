@@ -1,17 +1,15 @@
 package com.sample.ZKSpringJPA.services;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
-import com.sample.ZKSpringJPA.entity.User;
+import com.sample.ZKSpringJPA.entity.authentication.User;
 
 public interface UserService {
 	List<User> allUser();
 	User getUserByUsername(String username);
 	User addUser(User user);
+	User updateUser(User user);
+	void deleteUser(User user);
 //	{
 //        Map<String, Object> userMap = null;
 //        //logic here to get your user from the database

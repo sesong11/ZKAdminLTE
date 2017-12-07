@@ -1,14 +1,13 @@
 package com.sample.ZKSpringJPA.services.impl;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
-import com.sample.ZKSpringJPA.entity.User;
+import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.UserService;
 
 @Service("userService")
@@ -26,6 +25,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User addUser(User user) {
 		return userDao.save(user);
+	}
+
+	@Override
+	public User updateUser(User user) {
+		return userDao.update(user);
+	}
+
+	@Override
+	public void deleteUser(User user) {
+		userDao.delete(user);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.sample.ZKSpringJPA.entity;
+package com.sample.ZKSpringJPA.entity.authentication;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
