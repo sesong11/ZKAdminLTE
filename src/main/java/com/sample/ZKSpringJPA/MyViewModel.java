@@ -1,12 +1,20 @@
 package com.sample.ZKSpringJPA;
 
+import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.Log;
 import com.sample.ZKSpringJPA.services.MyService;
-import java.util.List;
 
+import java.lang.reflect.Field;
+import java.util.*;
+
+import com.sample.ZKSpringJPA.utils.Menu;
+import com.sample.ZKSpringJPA.viewmodel.authentication.RolesVM;
 import lombok.Getter;
 import lombok.Setter;
 
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
+import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.web.context.annotation.SessionScope;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
@@ -32,6 +40,9 @@ public class MyViewModel {
 	@WireVariable
 	private MyService myService;
 
+	@Getter @Setter
+	private Menu menu;
+
 	private ListModelList<Log> logListModel;
 	private String message;
 
@@ -39,13 +50,17 @@ public class MyViewModel {
 
 	public String getUrlParam() {return urlParam; }
 	@Init
-	public void init() {
+	public void init() throws ClassNotFoundException {
 		List<Log> logList = myService.getLogs();
 		logListModel = new ListModelList<Log>(logList);
 		String param = Executions.getCurrent().getParameter("p");
 		if(param!=null){
 			urlParam = "/application/"+param+".zul";
 		}
+
+		menu = new Menu();
+		scanMenu();
+		System.out.println("menu: "+menu.getSubMenu().size());
 	}
 
 	public ListModel<Log> getLogListModel() {
@@ -81,5 +96,30 @@ public class MyViewModel {
 	public void deleteLog(@BindingParam("log") Log log) {
 		myService.deleteLog(log);
 		logListModel.remove(log);
+	}
+
+	private void scanMenu() throws ClassNotFoundException {
+		ClassPathScanningCandidateComponentProvider scanner =
+				new ClassPathScanningCandidateComponentProvider(false);
+
+		scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
+
+		Map<String, Feature> menus = new TreeMap<>();
+		for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
+			String className = bd.getBeanClassName();
+			System.out.println("className: "+className);
+			Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
+			for (Feature feature: features) {
+				menus.put(feature.menuOrder(), feature);
+				String param = Executions.getCurrent().getParameter("m");
+				if(param!=null && param.toLowerCase().equals(feature.uuid())){
+					urlParam = feature.view();
+				}
+			}
+		}
+		List<Feature> list = new ArrayList<>(menus.values());
+		for(Feature feature: list){
+			menu.addMenu(feature, feature.menuOrder());
+		}
 	}
 }

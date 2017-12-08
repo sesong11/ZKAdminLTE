@@ -1,5 +1,6 @@
 package com.sample.ZKSpringJPA.viewmodel.authentication;
 
+import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.authentication.RoleService;
@@ -17,6 +18,12 @@ import java.util.List;
 import java.util.Set;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
+@Feature(view = "/application/dashboard/roles-dashboard.zul",
+        uuid = "roles-dashboard",
+        menuName = "dashboard",
+        menuOrder = "1.1",
+        displayName = "Roles Dashboard"
+)
 public class RolesVM {
     @WireVariable
     private RoleService roleService;

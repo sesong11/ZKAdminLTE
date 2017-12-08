@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.UserService;
@@ -25,6 +26,7 @@ import lombok.Setter;
 import org.zkoss.zul.ListModelList;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
+@Feature(view = "/viewmodel")
 public class UserVM {
 
     @WireVariable UserService userService;

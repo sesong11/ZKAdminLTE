@@ -344,9 +344,16 @@ folder instead of downloading all of them to reduce the load. -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <n:ul class="sidebar-menu" data-widget="tree">
                         <n:li class="header">MAIN NAVIGATION</n:li>
+                        <zk forEach="${vm.menu.subMenu}">
+                            <n:li class="treeview">
+                                <n:a href="#">
+                                    <n:i class="fa fa-dashboard"></n:i> <n:span>${each.displayName}</n:span>
+                                </n:a>
+                            </n:li>
+                        </zk>
                         <n:li class="${vm.urlParam.contains('dashboard/') ? 'active' : ''} treeview">
                             <n:a href="?p=main">
-                                <n:i class="fa fa-dashboard"></n:i> <span>Dashboard</span>
+                                <n:i class="fa fa-dashboard"></n:i> <n:span>Dashboard</n:span>
                                 <n:span class="pull-right-container">
                                     <n:i class="fa fa-angle-left pull-right"></n:i>
                                 </n:span>
