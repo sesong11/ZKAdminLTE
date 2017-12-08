@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 		userDao.delete(user);
 	}
 
-	@Override public List<Role> queryRoles(final User user) {
+	@Override public Set<Role> queryRoles(final User user) {
 		return userDao.queryRoles(user);
 	}
 

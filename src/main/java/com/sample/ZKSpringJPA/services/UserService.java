@@ -12,7 +12,7 @@ public interface UserService {
 	User addUser(User user);
 	User updateUser(User user);
 	void deleteUser(User user);
-	List<Role> queryRoles(User user);
+	Set<Role> queryRoles(User user);
 //	{
 //        Map<String, Object> userMap = null;
 //        //logic here to get your user from the database

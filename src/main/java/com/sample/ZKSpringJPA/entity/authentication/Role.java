@@ -21,6 +21,6 @@ public class Role {
     private String name;
 
     @Getter @Setter
-    @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+    @ManyToMany(mappedBy = "roles", targetEntity = User.class)
+    private Set<User> users;
 }

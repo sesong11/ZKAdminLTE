@@ -1,6 +1,7 @@
 package com.sample.ZKSpringJPA.services.authentication.impl;
 
 import com.sample.ZKSpringJPA.entity.authentication.Role;
+import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.authentication.RoleService;
 import com.sample.ZKSpringJPA.services.authentication.dao.RoleDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service("roleService")
 @Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -40,5 +42,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void delete(Role role) {
         roleDao.delete(role);
+    }
+
+    @Override
+    public Set<User> queryUsers(final Role role){
+        return roleDao.queryUsers(role);
     }
 }

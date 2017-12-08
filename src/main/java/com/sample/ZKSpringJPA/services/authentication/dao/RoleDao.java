@@ -1,13 +1,16 @@
 package com.sample.ZKSpringJPA.services.authentication.dao;
 
 import com.sample.ZKSpringJPA.entity.authentication.Role;
+import com.sample.ZKSpringJPA.entity.authentication.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public class RoleDao {
@@ -45,5 +48,12 @@ public class RoleDao {
     public void delete(Role role) {
         Object mg = em.merge(role);
         em.remove(mg);
+    }
+
+    @Transactional(readOnly = true)
+    public Set<User> queryUsers(final Role role) {
+        Query query = em.createQuery("SELECT u FROM User u JOIN u.roles r WHERE r.id = :roleId").setParameter("roleId", role.getId());
+        Set<User> result = new HashSet<>(query.getResultList());
+        return result;
     }
 }

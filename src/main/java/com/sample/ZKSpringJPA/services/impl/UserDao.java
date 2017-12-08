@@ -57,9 +57,9 @@ public class UserDao {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Role> queryRoles(final User user) {
+	public Set<Role> queryRoles(final User user) {
 		Query query = em.createQuery("SELECT r FROM Role r JOIN r.users u WHERE u.id = :userId").setParameter("userId", user.getId());
-		List<Role> result = query.getResultList();
+		Set<Role> result = new HashSet<>(query.getResultList());
 		return result;
 	}
 }

@@ -84,7 +84,7 @@ public class UserVM {
     @NotifyChange({"currentUser"})
     public void selectUser(@BindingParam("user") final User user) {
         this.currentUser = user;
-        List<Role> r = userService.queryRoles(currentUser);
+        Set<Role> r = userService.queryRoles(currentUser);
         currentUser.setRoles(r);
         System.out.println(r.size());
     }
@@ -110,7 +110,7 @@ public class UserVM {
         role.setName(roleName);
         role = roleService.create(role);
         if(currentUser.getRoles()==null){
-            currentUser.setRoles(new ArrayList<>());
+            currentUser.setRoles(new HashSet<>());
         }
         currentUser.getRoles().add(role);
         userService.updateUser(currentUser);

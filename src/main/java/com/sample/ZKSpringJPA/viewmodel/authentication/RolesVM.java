@@ -1,6 +1,7 @@
 package com.sample.ZKSpringJPA.viewmodel.authentication;
 
 import com.sample.ZKSpringJPA.entity.authentication.Role;
+import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.authentication.RoleService;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
 
 import java.util.List;
+import java.util.Set;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class RolesVM {
@@ -44,6 +46,8 @@ public class RolesVM {
     @NotifyChange({"role"})
     public void select(@BindingParam("role") final Role role){
         this.role = role;
+        Set<User> users = roleService.queryUsers(role);
+        role.setUsers(users);
     }
 
     @Command
