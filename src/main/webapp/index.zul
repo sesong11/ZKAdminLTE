@@ -47,7 +47,7 @@ folder instead of downloading all of them to reduce the load. -->
 <!-- Google Font -->
 <?link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"?>
 
-    <window zclass="none" apply="org.zkoss.bind.BindComposer"
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
          viewModel="@id('vm') @init('com.sample.ZKSpringJPA.MyViewModel')"
          validationMessages="@id('vmsgs')">
         <n:div class="wrapper">
@@ -342,14 +342,11 @@ folder instead of downloading all of them to reduce the load. -->
                     </n:form>
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <!--<include src="/application/component/menu.zul" />-->
                     <n:ul class="sidebar-menu" data-widget="tree">
                         <n:li class="header">MAIN NAVIGATION</n:li>
                         <zk forEach="${vm.menu.subMenu}">
-                            <n:li class="treeview">
-                                <n:a href="#">
-                                    <n:i class="fa fa-dashboard"></n:i> <n:span>${each.displayName}</n:span>
-                                </n:a>
-                            </n:li>
+                            ${each.html}
                         </zk>
                         <n:li class="${vm.urlParam.contains('dashboard/') ? 'active' : ''} treeview">
                             <n:a href="?p=main">
@@ -749,7 +746,7 @@ folder instead of downloading all of them to reduce the load. -->
                  immediately after the control sidebar -->
             <n:div class="control-sidebar-bg"></n:div>
         </n:div>
-    </window>
+    </div>
     <!-- jQuery 3 -->
     <script src="adminlte/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->

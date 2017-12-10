@@ -1,0 +1,22 @@
+<zk xmlns:n="native">
+    <variables menu="${menu}"/>
+    <n:ul class="sidebar-menu" data-widget="tree">
+        <n:li class="header">MAIN NAVIGATION</n:li>
+        <zk forEach="${menu.subMenu}">
+            <n:li class="${vm.urlParam.contains('dashboard/') ? 'active' : ''} treeview">
+                <n:a href="?p=main">
+                    <n:i class="fa fa-dashboard"></n:i> <n:span>${each.displayName}</n:span>
+                    <n:span class="pull-right-container">
+                        <n:i class="fa fa-angle-left pull-right"></n:i>
+                    </n:span>
+                </n:a>
+                <n:ul class="treeview-menu">
+                    <n:li class="${vm.urlParam.contains('dashboard/dashboard-v1') ? 'active' : ''}"><n:a href="?p=dashboard/dashboard-v1"><n:i class="fa fa-circle-o"></n:i> Dashboard v1</n:a></n:li>
+                    <n:li class="${vm.urlParam.contains('dashboard/dashboard-v2') ? 'active' : ''}"><n:a href="?p=dashboard/dashboard-v2"><n:i class="fa fa-circle-o"></n:i> Dashboard v2</n:a></n:li>
+                    <n:li class="${vm.urlParam.contains('dashboard/user-dashboard') ? 'active' : ''}"><n:a href="?p=dashboard/user-dashboard"><n:i class="fa fa-user"></n:i> Users Dashboard</n:a></n:li>
+                    <n:li class="${vm.urlParam.contains('dashboard/roles-dashboard') ? 'active' : ''}"><n:a href="?p=dashboard/roles-dashboard"><n:i class="fa  fa-unlock"></n:i> Roles Dashboard</n:a></n:li>
+                </n:ul>
+            </n:li>
+        </zk>
+    </n:ul>
+</zk>

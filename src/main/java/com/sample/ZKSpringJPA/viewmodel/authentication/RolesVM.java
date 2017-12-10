@@ -22,7 +22,8 @@ import java.util.Set;
         uuid = "roles-dashboard",
         menuName = "dashboard",
         menuOrder = "1.1",
-        displayName = "Roles Dashboard"
+        displayName = "Roles Dashboard",
+        menuIcon = "unlock"
 )
 public class RolesVM {
     @WireVariable

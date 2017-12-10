@@ -1,4 +1,4 @@
-package com.sample.ZKSpringJPA;
+package com.sample.ZKSpringJPA.viewmodel.authentication;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -26,7 +26,13 @@ import lombok.Setter;
 import org.zkoss.zul.ListModelList;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
-@Feature(view = "/viewmodel")
+@Feature(view = "/application/dashboard/users-dashboard.zul",
+        uuid = "users-dashboard",
+        menuName = "dashboard",
+        menuOrder = "1.2",
+        displayName = "Users Dashboard",
+        menuIcon = "user"
+)
 public class UserVM {
 
     @WireVariable UserService userService;
