@@ -60,7 +60,7 @@ public class MyViewModel {
 		}
 
 		menu = new Menu();
-		scanMenu();
+		urlParam = menu.scanMenu();
 		System.out.println("menu: "+menu.getSubMenu().size());
 	}
 
@@ -99,33 +99,4 @@ public class MyViewModel {
 		logListModel.remove(log);
 	}
 
-	private void scanMenu() throws ClassNotFoundException {
-		ClassPathScanningCandidateComponentProvider scanner =
-				new ClassPathScanningCandidateComponentProvider(false);
-
-		scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
-
-		Map<String, Feature> menus = new TreeMap<>();
-		String activeOrder = "";
-		for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
-			String className = bd.getBeanClassName();
-			System.out.println("className: "+className);
-			Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
-			for (Feature feature: features) {
-				menus.put(feature.menuOrder(), feature);
-				String param = Executions.getCurrent().getParameter("m");
-				if (param != null && param.toLowerCase().equals(feature.uuid())) {
-					urlParam = feature.view();
-					activeOrder = feature.menuOrder();
-				}
-			}
-		}
-		List<Feature> list = new ArrayList<>(menus.values());
-		for(Feature feature: list){
-			menu.addMenu(feature, feature.menuOrder(), activeOrder);
-		}
-		if(StringUtil.isBlank(activeOrder)){
-			urlParam = "/view/error/404.zul";
-		}
-	}
 }

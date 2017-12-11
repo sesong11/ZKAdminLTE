@@ -104,6 +104,37 @@
                 <n:div class="col-md-12">
                     <n:div class="box box-info">
                         <n:div class="box-header with-border">
+                            <n:h3 class="box-title">All Permissions</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body">
+                            <tree zclass="none" id="tree" rows="7" multiple="true" checkmark="true" model="@load(vm.role.permissions)">
+                                <treecols zclass="none">
+                                    <treecol label="Name" zclass="none"/>
+                                    <treecol label="Description" zclass="none"/>
+                                </treecols>
+                                <treechildren>
+                                    <treeitem>
+                                        <treerow>
+                                            <treecell label="${each.id}"/>
+                                            <treecell label="${each.feature}"/>
+                                        </treerow>
+                                    </treeitem>
+                                </treechildren>
+                            </tree>
+                        </n:div>
+                    </n:div>
+                </n:div>
+            </n:div>
+            <n:div class="row">
+                <n:div class="col-md-12">
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
                             <n:h3 class="box-title">All Users</n:h3>
 
                             <n:div class="box-tools pull-right">

@@ -23,4 +23,8 @@ public class Role {
     @Getter @Setter
     @ManyToMany(mappedBy = "roles", targetEntity = User.class)
     private Set<User> users;
+
+    @Getter @Setter
+    @OneToMany(mappedBy = "role")
+    private Set<RolePermission> permissions;
 }

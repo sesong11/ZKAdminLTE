@@ -35,6 +35,9 @@ public class RolesVM {
     @Getter @Setter
     private Role role;
 
+    @Getter @Setter
+    private ListModelList<Feature> allFeatures;
+
     @Init
     public void init() {
         roles = new ListModelList<>(roleService.findAll());

@@ -7,8 +7,14 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
+import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zsoup.helper.StringUtil;
 
 public class Menu {
 
@@ -86,5 +92,58 @@ public class Menu {
             }
         }
         return false;
+    }
+
+    public String scanMenu() throws ClassNotFoundException {
+        ClassPathScanningCandidateComponentProvider scanner =
+                new ClassPathScanningCandidateComponentProvider(false);
+        String urlParam = "";
+
+        scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
+
+        Map<String, Feature> menus = new TreeMap<>();
+        String activeOrder = "";
+        for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
+            String className = bd.getBeanClassName();
+            System.out.println("className: "+className);
+            Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
+            for (Feature feature: features) {
+                menus.put(feature.menuOrder(), feature);
+                String param = Executions.getCurrent().getParameter("m");
+                if (param != null && param.toLowerCase().equals(feature.uuid())) {
+                    urlParam = feature.view();
+                    activeOrder = feature.menuOrder();
+                }
+            }
+        }
+        List<Feature> list = new ArrayList<>(menus.values());
+        for(Feature feature: list){
+            this.addMenu(feature, feature.menuOrder(), activeOrder);
+        }
+        if(StringUtil.isBlank(activeOrder)){
+            urlParam = "/view/error/404.zul";
+        }
+        return urlParam;
+    }
+
+    public static Map<String, Feature> scanFeatures() throws ClassNotFoundException {
+        ClassPathScanningCandidateComponentProvider scanner =
+                new ClassPathScanningCandidateComponentProvider(false);
+        String urlParam = "";
+
+        scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
+
+        Map<String, Feature> menus = new TreeMap<>();
+
+        for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
+            String className = bd.getBeanClassName();
+            System.out.println("className: "+className);
+            Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
+            for (Feature feature: features) {
+                menus.put(feature.menuOrder(), feature);
+            }
+        }
+
+        return menus;
     }
 }
