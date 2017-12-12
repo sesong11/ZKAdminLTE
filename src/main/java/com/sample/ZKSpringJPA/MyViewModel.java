@@ -11,6 +11,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 import com.sample.ZKSpringJPA.services.UserService;
+import com.sample.ZKSpringJPA.utils.FeaturesScanner;
 import com.sample.ZKSpringJPA.utils.Menu;
 import com.sample.ZKSpringJPA.viewmodel.authentication.RolesVM;
 import lombok.Getter;
@@ -62,6 +63,9 @@ public class MyViewModel {
 	public String getUrlParam() {return urlParam; }
 	@Init
 	public void init() throws ClassNotFoundException {
+		if(isAdmin() && FeaturesScanner.getFeatures().size()==0){
+			FeaturesScanner.scanFeatures();
+		}
 		List<Log> logList = myService.getLogs();
 		logListModel = new ListModelList<Log>(logList);
 		String param = Executions.getCurrent().getParameter("p");
@@ -82,13 +86,10 @@ public class MyViewModel {
 		}
 	}
 
-	private boolean isAuthenticated(final String feature){
-
+	private boolean isAuthenticated(final String feature) throws ClassNotFoundException{
+		if(isAdmin()) return true;
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
-		for(GrantedAuthority authority:authentication.getAuthorities()){
-			if(authority.getAuthority().equals("ROLE_ADMIN")) return true;
-		}
 		try{
 			User user = userService.getUserByUsername(currentPrincipalName);
 			for(Role role:user.getRoles()){
@@ -100,6 +101,16 @@ public class MyViewModel {
 			}
 		}catch (Exception ex){
 			ex.printStackTrace();
+		}
+		return false;
+	}
+
+	private boolean isAdmin() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		for(GrantedAuthority authority:authentication.getAuthorities()){
+			if(authority.getAuthority().equals("ROLE_ADMIN")) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -128,6 +139,7 @@ public class MyViewModel {
 
 	@Command
 	public void logout() throws ServletException {
+		FeaturesScanner.getFeatures().clear();
 		HttpServletResponse response = (HttpServletResponse) Executions.getCurrent().getNativeResponse();
 		Executions.sendRedirect(response.encodeRedirectURL("/logout"));
 		Executions.getCurrent().setVoided(true);

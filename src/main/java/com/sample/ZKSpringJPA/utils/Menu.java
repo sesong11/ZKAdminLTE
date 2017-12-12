@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -107,48 +108,55 @@ public class Menu {
                 new ClassPathScanningCandidateComponentProvider(false);
 
         Feature tempFeature = null;
-        scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
+        //scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
 
-        Map<String, Feature> menus = new TreeMap<>();
+        //Map<String, Feature> menus = new TreeMap<>();
         String activeOrder = "";
-        for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
-            String className = bd.getBeanClassName();
-            Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
-            for (Feature feature: features) {
-                menus.put(feature.menuOrder(), feature);
-                String param = Executions.getCurrent().getParameter("m");
-                if (param != null && param.toLowerCase().equals(feature.uuid())) {
-                    tempFeature = feature;
-                    activeOrder = feature.menuOrder();
-                }
+//        for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
+//            String className = bd.getBeanClassName();
+//            Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
+//            for (Feature feature: features) {
+//                menus.put(feature.menuOrder(), feature);
+//
+//
+//            }
+//        }
+
+        Map<String, Feature> featureMap = FeaturesScanner.getFeatures();
+        String param = Executions.getCurrent().getParameter("m");
+        if (param != null){
+            Feature feature = featureMap.get(param);
+            if(feature != null) {
+                tempFeature = feature;
+                activeOrder = feature.menuOrder();
             }
         }
-        List<Feature> list = new ArrayList<>(menus.values());
-        for(Feature feature: list){
-            this.addMenu(feature, feature.menuOrder(), activeOrder);
+        List<Feature> list = new ArrayList<>(featureMap.values());
+        for(Feature f: list){
+            this.addMenu(f, f.menuOrder(), activeOrder);
         }
 
         return tempFeature;
     }
 
-    public static Map<String, Feature> scanFeatures() throws ClassNotFoundException {
-        ClassPathScanningCandidateComponentProvider scanner =
-                new ClassPathScanningCandidateComponentProvider(false);
-        String urlParam = "";
-
-        scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
-
-        Map<String, Feature> menus = new TreeMap<>();
-
-        for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
-            String className = bd.getBeanClassName();
-            System.out.println("className: "+className);
-            Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
-            for (Feature feature: features) {
-                menus.put(feature.menuOrder(), feature);
-            }
-        }
-
-        return menus;
-    }
+//    public static Map<String, Feature> scanFeatures() throws ClassNotFoundException {
+//        ClassPathScanningCandidateComponentProvider scanner =
+//                new ClassPathScanningCandidateComponentProvider(false);
+//        String urlParam = "";
+//
+//        scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
+//
+//        Map<String, Feature> menus = new TreeMap<>();
+//
+//        for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
+//            String className = bd.getBeanClassName();
+//            System.out.println("className: "+className);
+//            Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
+//            for (Feature feature: features) {
+//                menus.put(feature.menuOrder(), feature);
+//            }
+//        }
+//
+//        return menus;
+//    }
 }

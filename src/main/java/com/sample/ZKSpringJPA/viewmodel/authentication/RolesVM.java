@@ -6,6 +6,7 @@ import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.authentication.RolePermissionService;
 import com.sample.ZKSpringJPA.services.authentication.RoleService;
+import com.sample.ZKSpringJPA.utils.FeaturesScanner;
 import com.sample.ZKSpringJPA.utils.Menu;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,8 +14,6 @@ import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.*;
@@ -100,7 +99,7 @@ public class RolesVM {
     }
 
     private void loadPermission() throws ClassNotFoundException {
-        Map<String, Feature> featureMap = Menu.scanFeatures();
+        Map<String, Feature> featureMap = FeaturesScanner.getFeatures();
         List<Feature> features = new ListModelList<>(featureMap.values());
         for(Feature feature: features){
             if(this.permissions==null){

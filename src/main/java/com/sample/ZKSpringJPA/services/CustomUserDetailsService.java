@@ -3,7 +3,10 @@ package com.sample.ZKSpringJPA.services;
 import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,6 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.sample.ZKSpringJPA.entity.authentication.User;
+import com.sample.ZKSpringJPA.utils.FeaturesScanner;
+
 import org.zkoss.zk.ui.Executions;
 
 import java.util.ArrayList;
@@ -21,7 +26,10 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService {
 	@Autowired
     private UserService userService;
- 
+
+	@Autowired
+    private FeaturesScanner featuresScanner;
+
     static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
  
     @Override
@@ -37,6 +45,12 @@ public class CustomUserDetailsService implements UserDetailsService {
         String username = user.getUsername();
         String password = user.getPassword();
         List<Role> roles = new ArrayList<>(user.getRoles());
+
+        try {
+            featuresScanner.scanFeatures(user);
+        }catch (ClassNotFoundException ex){
+            ex.printStackTrace();
+        }
 
         List<SimpleGrantedAuthority> authList = getAuthorities(roles);
 
