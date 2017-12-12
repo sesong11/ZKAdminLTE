@@ -1,6 +1,7 @@
 package com.sample.ZKSpringJPA.services.authentication.impl;
 
 import com.sample.ZKSpringJPA.entity.authentication.Role;
+import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.authentication.RoleService;
 import com.sample.ZKSpringJPA.services.authentication.dao.RoleDao;
@@ -47,5 +48,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Set<User> queryUsers(final Role role){
         return roleDao.queryUsers(role);
+    }
+
+    @Override
+    public Set<RolePermission> queryPermissions(final Role role){
+        return roleDao.queryPermissions(role);
     }
 }

@@ -2,6 +2,10 @@ package com.sample.ZKSpringJPA.utils;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
 
+import com.sample.ZKSpringJPA.entity.authentication.Role;
+import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
+import com.sample.ZKSpringJPA.entity.authentication.User;
+import com.sample.ZKSpringJPA.services.UserService;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,10 +14,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zsoup.helper.StringUtil;
 
 public class Menu {
@@ -94,24 +102,23 @@ public class Menu {
         return false;
     }
 
-    public String scanMenu() throws ClassNotFoundException {
+    public Feature scanMenu() throws ClassNotFoundException {
         ClassPathScanningCandidateComponentProvider scanner =
                 new ClassPathScanningCandidateComponentProvider(false);
-        String urlParam = "";
 
+        Feature tempFeature = null;
         scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
 
         Map<String, Feature> menus = new TreeMap<>();
         String activeOrder = "";
         for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
             String className = bd.getBeanClassName();
-            System.out.println("className: "+className);
             Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
             for (Feature feature: features) {
                 menus.put(feature.menuOrder(), feature);
                 String param = Executions.getCurrent().getParameter("m");
                 if (param != null && param.toLowerCase().equals(feature.uuid())) {
-                    urlParam = feature.view();
+                    tempFeature = feature;
                     activeOrder = feature.menuOrder();
                 }
             }
@@ -120,10 +127,8 @@ public class Menu {
         for(Feature feature: list){
             this.addMenu(feature, feature.menuOrder(), activeOrder);
         }
-        if(StringUtil.isBlank(activeOrder)){
-            urlParam = "/view/error/404.zul";
-        }
-        return urlParam;
+
+        return tempFeature;
     }
 
     public static Map<String, Feature> scanFeatures() throws ClassNotFoundException {

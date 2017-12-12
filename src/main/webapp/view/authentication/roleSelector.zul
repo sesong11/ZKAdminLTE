@@ -1,0 +1,23 @@
+<zk>
+    <custom-attributes permissions="${permissions}"/>
+    <window id="modalDialog" title="Coffee Order" border="normal" width="460px"
+            position="center,center" closable="true"
+            action="show: slideDown;hide: slideUp" visible="false">
+        <vlayout>
+            <grid zclass="none" height="350px" model="@load(permissions)" sclass="table table-bordered"
+                  emptyMessage="Nothing in Inbox.">
+                <columns zclass="none">
+                    <column label="Id" zclass="none" width="50px"/>
+                    <column label="Feature Name" width="120px" zclass="none"/>
+                </columns>
+                <template name="model">
+                    <row zclass="none">
+                        <checkbox checked="false" />
+                        <label value="@load(each.id)" />
+                        <label value="@load(each.feature)" />
+                    </row>
+                </template>
+            </grid>
+        </vlayout>
+    </window>
+</zk>

@@ -1,12 +1,6 @@
 package com.sample.ZKSpringJPA.entity.authentication;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +8,7 @@ import lombok.Setter;
 @Entity
 public class RolePermission {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter @Setter
     private long id;
 

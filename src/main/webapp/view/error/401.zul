@@ -13,27 +13,16 @@
     <!-- Main content -->
     <n:section class="content">
         <n:div class="error-page">
-            <n:h2 class="headline text-yellow"> 404</n:h2>
+            <n:h2 class="headline text-red"> 401</n:h2>
 
             <n:div class="error-content">
-                <n:h3><n:i class="fa fa-warning text-yellow"></n:i> Oops! Page not found.</n:h3>
+                <n:h3><n:i class="fa fa-warning text-red"></n:i>Oops! Unauthorized</n:h3>
 
                 <n:p>
-                    We could not find the page you were looking for.
-                    Meanwhile, you may <n:a href="../../index.html">return to dashboard</n:a> or try using the search form.
+                    Access is denied due to invalid credentials. You do not have permission to view this directory
+                    or page using the credentials that you supplied.
                 </n:p>
 
-                <n:form class="search-form">
-                    <n:div class="input-group">
-                        <n:input type="text" name="search" class="form-control" placeholder="Search" />
-
-                        <n:div class="input-group-btn">
-                            <n:button type="submit" name="submit" class="btn btn-warning btn-flat"><n:i class="fa fa-search"></n:i>
-                            </n:button>
-                        </n:div>
-                    </n:div>
-                    <!-- /.input-group -->
-                </n:form>
             </n:div>
             <!-- /.error-content -->
         </n:div>

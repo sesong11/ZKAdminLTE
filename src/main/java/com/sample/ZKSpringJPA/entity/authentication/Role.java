@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -25,6 +26,33 @@ public class Role {
     private Set<User> users;
 
     @Getter @Setter
-    @OneToMany(mappedBy = "role")
+    @OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
     private Set<RolePermission> permissions;
+
+    public void add(RolePermission rolePermission) {
+        if(permissions==null){
+            permissions = new HashSet<>();
+        }
+        permissions.add(rolePermission);
+    }
+
+    public void add(List<RolePermission> roleTemplateList) {
+        if(roleTemplateList!=null) {
+            for (RolePermission rolePermission : roleTemplateList) {
+                this.add(rolePermission);
+            }
+        }
+    }
+
+    public void remove(RolePermission rolePermission) {
+        if(permissions!=null){
+            permissions.remove(rolePermission);
+        }
+    }
+
+    public void remove(List<RolePermission> roleTemplateList) {
+        if(permissions!=null){
+            permissions.removeAll(roleTemplateList);
+        }
+    }
 }

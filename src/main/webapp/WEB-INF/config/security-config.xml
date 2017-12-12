@@ -19,20 +19,22 @@
 		<csrf disabled="true"/>
 		<!-- ZK AU reqeust -->
 		<intercept-url pattern="/zkau/**" access="permitAll" />
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 
 		<form-login login-page="/login/"
 					authentication-failure-url="/login.zul?login_error=1" />
 		<logout logout-success-url="/login.zul"/>
 	</http>
+
+
 		
 	<beans:bean name="plainText" class="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>
 
 	<authentication-manager>
 		<authentication-provider>
-			<password-encoder ref="encoder" />
+			<password-encoder ref="plainText" />
 			<user-service>
-				<user name="admin" password="$2a$10$ULbhFM1d54vwdAD95qyxDeTHIgORUPu5tXFfZKg8OxupRiA/4RpLe" authorities="ROLE_USER" />
+				<user name="admin" password="pass" authorities="ROLE_USER, ROLE_ADMIN" />
 			</user-service>
 		</authentication-provider>
 		<authentication-provider user-service-ref="customUserDetailsService">

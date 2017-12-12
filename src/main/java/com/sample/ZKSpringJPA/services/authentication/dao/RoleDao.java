@@ -1,6 +1,7 @@
 package com.sample.ZKSpringJPA.services.authentication.dao;
 
 import com.sample.ZKSpringJPA.entity.authentication.Role;
+import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,6 +55,13 @@ public class RoleDao {
     public Set<User> queryUsers(final Role role) {
         Query query = em.createQuery("SELECT u FROM User u JOIN u.roles r WHERE r.id = :roleId").setParameter("roleId", role.getId());
         Set<User> result = new HashSet<>(query.getResultList());
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Set<RolePermission> queryPermissions(final Role role) {
+        Query query = em.createQuery("SELECT p FROM RolePermission p WHERE p.role.id = :roleId").setParameter("roleId", role.getId());
+        Set<RolePermission> result = new HashSet<RolePermission>(query.getResultList());
         return result;
     }
 }

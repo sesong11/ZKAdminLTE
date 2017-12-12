@@ -2,11 +2,15 @@ package com.sample.ZKSpringJPA;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.Log;
+import com.sample.ZKSpringJPA.entity.authentication.Role;
+import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
+import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.MyService;
 
 import java.lang.reflect.Field;
 import java.util.*;
 
+import com.sample.ZKSpringJPA.services.UserService;
 import com.sample.ZKSpringJPA.utils.Menu;
 import com.sample.ZKSpringJPA.viewmodel.authentication.RolesVM;
 import lombok.Getter;
@@ -15,6 +19,9 @@ import lombok.Setter;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.annotation.SessionScope;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
@@ -41,6 +48,9 @@ public class MyViewModel {
 	@WireVariable
 	private MyService myService;
 
+	@WireVariable
+	private UserService userService;
+
 	@Getter @Setter
 	private Menu menu;
 
@@ -55,13 +65,43 @@ public class MyViewModel {
 		List<Log> logList = myService.getLogs();
 		logListModel = new ListModelList<Log>(logList);
 		String param = Executions.getCurrent().getParameter("p");
+
 		if(param!=null){
 			urlParam = "/application/"+param+".zul";
 		}
 
 		menu = new Menu();
-		urlParam = menu.scanMenu();
-		System.out.println("menu: "+menu.getSubMenu().size());
+		Feature feature = menu.scanMenu();
+		if(feature == null){
+			urlParam = "/view/error/404.zul";
+		}
+		else if(isAuthenticated(feature.uuid())){
+			urlParam = feature.view();
+		}else{
+			urlParam = "/view/error/401.zul";
+		}
+	}
+
+	private boolean isAuthenticated(final String feature){
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String currentPrincipalName = authentication.getName();
+		for(GrantedAuthority authority:authentication.getAuthorities()){
+			if(authority.getAuthority().equals("ROLE_ADMIN")) return true;
+		}
+		try{
+			User user = userService.getUserByUsername(currentPrincipalName);
+			for(Role role:user.getRoles()){
+				for(RolePermission rolePermission: role.getPermissions()){
+					if(rolePermission.getFeature().equals(feature)){
+						return true;
+					}
+				}
+			}
+		}catch (Exception ex){
+			ex.printStackTrace();
+		}
+		return false;
 	}
 
 	public ListModel<Log> getLogListModel() {

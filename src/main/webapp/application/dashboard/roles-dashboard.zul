@@ -22,48 +22,122 @@
             <n:div class="row">
                 <!-- Left col -->
                 <n:div class="col-md-8">
+                    <n:div class="row">
+                        <n:div class="col-md-12">
                     <!-- TABLE: Users -->
-                    <n:div class="box box-info">
-                        <n:div class="box-header with-border">
-                            <n:h3 class="box-title">All Roles</n:h3>
+                            <n:div class="box box-info">
+                                <n:div class="box-header with-border">
+                                    <n:h3 class="box-title">All Roles</n:h3>
 
-                            <n:div class="box-tools pull-right">
-                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
-                                </n:button>
+                                    <n:div class="box-tools pull-right">
+                                        <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                        </n:button>
+                                    </n:div>
+                                </n:div>
+                                <!-- /.box-header -->
+                                <n:div class="box-body">
+
+                                    <grid zclass="none" height="350px" model="@load(vm.roles)" sclass="table table-bordered"
+                                          emptyMessage="Nothing in Inbox.">
+                                        <columns zclass="none">
+                                            <column label="Id" zclass="none" width="50px"/>
+                                            <column label="Name" zclass="none"/>
+                                        </columns>
+                                        <template name="model">
+                                            <row zclass="none" onClick="@command('select', role=each)">
+                                                <label value="@load(each.id)" />
+                                                <label value="@load(each.name)" />
+                                            </row>
+                                        </template>
+                                    </grid>
+
+
+                                    <!-- /.col -->
+                                </n:div>
+                                <!-- /.table-responsive -->
+                                <n:div class="box-footer clearfix">
+
+                                </n:div>
+                                <!-- /.box-footer -->
                             </n:div>
                         </n:div>
-                        <!-- /.box-header -->
-                        <n:div class="box-body">
+                    </n:div>
+                    <n:div class="row">
+                        <n:div class="col-md-12">
+                            <n:div sclass="row">
+                                <n:div class="col-md-5">
+                                    <n:div class="box box-info">
+                                        <n:div class="box-header with-border">
+                                            <n:h3 class="box-title">All Permissions</n:h3>
 
-                            <grid zclass="none" height="350px" model="@load(vm.roles)" sclass="table table-bordered"
-                                  emptyMessage="Nothing in Inbox.">
-                                <columns zclass="none">
-                                    <column label="Id" zclass="none" width="50px"/>
-                                    <column label="Name" zclass="none"/>
-                                </columns>
-                                <template name="model">
-                                    <row zclass="none" onClick="@command('select', role=each)">
-                                        <label value="@load(each.id)" />
-                                        <label value="@load(each.name)" />
-                                    </row>
-                                </template>
-                            </grid>
+                                            <n:div class="box-tools pull-right">
+                                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                                </n:button>
+                                            </n:div>
+                                        </n:div>
+                                        <!-- /.box-header -->
+                                        <n:div class="box-body">
+                                            <grid id="gridPermission" zclass="none" height="350px" model="@load(vm.permissions)" sclass="table table-bordered"
+                                                  emptyMessage="Nothing in Inbox.">
+                                                <columns zclass="none">
+                                                    <column label="" zclass="none" width="50px"/>
+                                                    <column label="Feature Name" zclass="none"/>
+                                                </columns>
+                                                <template name="model">
+                                                    <row zclass="none">
+                                                        <checkbox checked="false" />
+                                                        <label value="@load(each.feature)" />
+                                                    </row>
+                                                </template>
+                                            </grid>
+                                        </n:div>
+                                    </n:div>
+                                </n:div>
+                                <n:div class="col-md-2">
+                                    <button sclass="btn btn-block btn-flat" onClick="@command('removePermissions', grid=gridRolePermission)"><![CDATA[<<]]></button>
+                                    <button sclass="btn btn-block btn-flat" onClick="@command('addPermissions', grid=gridPermission)"><![CDATA[>>]]></button>
+                                </n:div>
+                                <n:div class="col-md-5">
+                                    <n:div class="box box-info">
+                                        <n:div class="box-header with-border">
+                                            <n:h3 class="box-title">All Permissions</n:h3>
 
-
-                            <!-- /.col -->
+                                            <n:div class="box-tools pull-right">
+                                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                                </n:button>
+                                            </n:div>
+                                        </n:div>
+                                        <!-- /.box-header -->
+                                        <n:div class="box-body">
+                                            <grid id="gridRolePermission" zclass="none" height="350px" model="@load(vm.role.permissions)" sclass="table table-bordered"
+                                                  emptyMessage="Nothing in Inbox.">
+                                                <columns zclass="none">
+                                                    <column width="50px" label="" zclass="none"/>
+                                                    <column width="50px" label="Id" zclass="none"/>
+                                                    <column label="Feature Name" zclass="none"/>
+                                                </columns>
+                                                <template name="model">
+                                                    <row zclass="none">
+                                                        <checkbox checked="false" />
+                                                        <label value="@load(each.id)" />
+                                                        <label value="@load(each.feature)" />
+                                                    </row>
+                                                </template>
+                                            </grid>
+                                        </n:div>
+                                    </n:div>
+                                </n:div>
+                            </n:div>
                         </n:div>
-                        <!-- /.table-responsive -->
-                        <n:div class="box-footer clearfix">
-
-                        </n:div>
-                        <!-- /.box-footer -->
                     </n:div>
                     <!-- /.box-body -->
                 </n:div>
+
                 <!-- /.box -->
                 <n:div class="col-md-4">
-                    <!-- TABLE: Users -->
-                    <n:div class="box box-info">
+                    <n:div class="row">
+                        <n:div class="col-md-12">
+                            <n:div class="box box-info">
                         <n:div class="box-header with-border">
                             <n:h3 class="box-title">Manage Roles</n:h3>
                             <n:div class="box-tools pull-right">
@@ -98,69 +172,40 @@
                             </n:div>
                         </n:div>
                     </n:div>
-                </n:div>
-            </n:div>
-            <n:div class="row">
-                <n:div class="col-md-12">
-                    <n:div class="box box-info">
-                        <n:div class="box-header with-border">
-                            <n:h3 class="box-title">All Permissions</n:h3>
-
-                            <n:div class="box-tools pull-right">
-                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
-                                </n:button>
-                            </n:div>
-                        </n:div>
-                        <!-- /.box-header -->
-                        <n:div class="box-body">
-                            <tree zclass="none" id="tree" rows="7" multiple="true" checkmark="true" model="@load(vm.role.permissions)">
-                                <treecols zclass="none">
-                                    <treecol label="Name" zclass="none"/>
-                                    <treecol label="Description" zclass="none"/>
-                                </treecols>
-                                <treechildren>
-                                    <treeitem>
-                                        <treerow>
-                                            <treecell label="${each.id}"/>
-                                            <treecell label="${each.feature}"/>
-                                        </treerow>
-                                    </treeitem>
-                                </treechildren>
-                            </tree>
                         </n:div>
                     </n:div>
-                </n:div>
-            </n:div>
-            <n:div class="row">
-                <n:div class="col-md-12">
-                    <n:div class="box box-info">
-                        <n:div class="box-header with-border">
-                            <n:h3 class="box-title">All Users</n:h3>
+                    <n:div class="row">
+                        <n:div class="col-md-12">
+                            <n:div class="box box-info">
+                                <n:div class="box-header with-border">
+                                    <n:h3 class="box-title">All Users</n:h3>
 
-                            <n:div class="box-tools pull-right">
-                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
-                                </n:button>
+                                    <n:div class="box-tools pull-right">
+                                        <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                        </n:button>
+                                    </n:div>
+                                </n:div>
+                                <!-- /.box-header -->
+                                <n:div class="box-body">
+                                    <grid zclass="none" height="350px" model="@load(vm.role.users)" sclass="table table-bordered"
+                                          emptyMessage="Nothing in Inbox.">
+                                        <columns zclass="none">
+                                            <column label="Id" zclass="none" width="50px"/>
+                                            <column label="Username" width="120px" zclass="none"/>
+                                            <column label="Email"  zclass="none"/>
+                                            <column label="Enabled" width="80px" zclass="none"/>
+                                        </columns>
+                                        <template name="model">
+                                            <row zclass="none" onClick="@command('selectUser', user=each)">
+                                                <label value="@load(each.id)" />
+                                                <label value="@load(each.username)" />
+                                                <label value="@load(each.email)" />
+                                                <label value="@load(each.enabled)" />
+                                            </row>
+                                        </template>
+                                    </grid>
+                                </n:div>
                             </n:div>
-                        </n:div>
-                        <!-- /.box-header -->
-                        <n:div class="box-body">
-                            <grid zclass="none" height="350px" model="@load(vm.role.users)" sclass="table table-bordered"
-                                  emptyMessage="Nothing in Inbox.">
-                                <columns zclass="none">
-                                    <column label="Id" zclass="none" width="50px"/>
-                                    <column label="Username" width="120px" zclass="none"/>
-                                    <column label="Email"  zclass="none"/>
-                                    <column label="Enabled" width="80px" zclass="none"/>
-                                </columns>
-                                <template name="model">
-                                    <row zclass="none" onClick="@command('selectUser', user=each)">
-                                        <label value="@load(each.id)" />
-                                        <label value="@load(each.username)" />
-                                        <label value="@load(each.email)" />
-                                        <label value="@load(each.enabled)" />
-                                    </row>
-                                </template>
-                            </grid>
                         </n:div>
                     </n:div>
                 </n:div>
