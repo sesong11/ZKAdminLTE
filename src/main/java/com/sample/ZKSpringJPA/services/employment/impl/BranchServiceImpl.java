@@ -20,7 +20,7 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public Branch find(final Long id) {
-        return (Branch)branchDao.find(id);
+        return (Branch)branchDao.find(id, Branch.class);
     }
 
     @Override

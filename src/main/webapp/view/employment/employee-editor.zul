@@ -44,17 +44,16 @@
                                     value="@bind(vm.employee.lastName)"/>
                                 </n:div>
                                 <n:div class="form-group">
-                                    <n:label>Gender</n:label>
-                                    <selectbox zclass="none" model="@bind(vm.genders)" sclass="form-control"
-                                        onSelect="@command('selectGender', index=self.selectedIndex)">
+                                    <n:label>Gender</n:label> <n:br />
+                                    <combobox model="@bind(vm.genders)" width="100%" selectedItem="@bind(vm.employee.gender)">
                                         <template name="item">
                                             <listitem label="${each}" />
                                         </template>
-                                    </selectbox>
+                                    </combobox>
                                 </n:div>
                                 <n:div class="form-group">
                                     <n:label>Date of Birth</n:label><n:br/>
-                                    <datebox width="100%" format="MM-dd-yyyy"
+                                    <datebox width="100%" format="dd-MM-yyyy"
                                     value="@bind(vm.employee.dob)"/>
                                 </n:div>
                                 <n:div class="form-group">
@@ -76,6 +75,11 @@
                             <!-- /.tab-pane -->
                         </n:div>
                         <!-- /.tab-content -->
+                        <n:div class="box-footer clearfix">
+                            <n:a href="?m=employeelist" class="btn btn-sm btn-danger btn-sm pull-left" >Cancel</n:a>
+                            <button visible="@load(vm.employee.id eq null)" sclass="btn btn-sm btn-info btn-sm pull-right" onClick="@command('save')">Save</button>
+                            <button visible="@load(vm.employee.id ne null)" sclass="btn btn-sm btn-info btn-sm pull-right" onClick="@command('update')">Update</button>
+                        </n:div>
                     </n:div>
                 </n:div>
                 <n:div class="col-md-8">
@@ -95,12 +99,20 @@
                                       emptyMessage="Nothing in Inbox.">
                                     <columns zclass="none">
                                         <column label="Id" zclass="none" width="50px"/>
-
+                                        <column label="Type" zclass="none" width="150px"/>
+                                        <column label="Active Date" zclass="none" width="120px"/>
+                                        <column label="Branch" zclass="none" width="150px"/>
+                                        <column label="Department" zclass="none" width="150px"/>
+                                        <column label="Designation" zclass="none" />
                                     </columns>
                                     <template name="model">
                                         <row zclass="none" onClick="@command('select', role=each)">
                                             <label value="@load(each.id)" />
-
+                                            <label value="@load(each.employmentType)" />
+                                            <label value="@load(each.activeDate)" />
+                                            <label value="@load(each.branch.name)" />
+                                            <label value="@load(each.department.name)" />
+                                            <label value="@load(each.designation.name)" />
                                         </row>
                                     </template>
                                 </grid>

@@ -9,6 +9,8 @@ import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
+import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
@@ -31,18 +33,33 @@ public class EmployeeEditorVM {
     private List<Gender> genders;
 
     @Getter @Setter
+    private int selectedGender;
+
+    @Getter @Setter
     private Employee employee;
 
     @Init
     public void init(){
         genders = new ListModelList<>(Gender.values());
         employee = new Employee();
+        String id = Executions.getCurrent().getParameter("id");
+        if(id!=null) {
+            employee = employeeService.find(Long.parseLong(id));
+        }
     }
 
     //region > Command
+
     @Command
-    public void selectGender(@BindingParam("index")final int index){
-        employee.setGender(genders.get(index));
+    @NotifyChange({"employee"})
+    public void save(){
+        employee = employeeService.create(employee);
+    }
+
+    @Command
+    @NotifyChange({"employee"})
+    public void update(){
+        employee = employeeService.update(employee);
     }
     //endregion
 

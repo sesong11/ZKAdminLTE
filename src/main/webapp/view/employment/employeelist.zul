@@ -44,11 +44,15 @@
                                 <columns zclass="none">
                                     <column label="Id" zclass="none" width="50px"/>
                                     <column label="Fist Name" zclass="none"/>
+                                    <column label="" zclass="none" width="50px"/>
                                 </columns>
                                 <template name="model">
                                     <row zclass="none" onClick="@command('select', role=each)">
                                         <label value="@load(each.id)" />
                                         <label value="@load(each.firstName)" />
+                                        <div>
+                                            <a onClick="@command('edit', employee = each)"><n:i class="fa fa-edit"></n:i></a>
+                                        </div>
                                     </row>
                                 </template>
                             </grid>

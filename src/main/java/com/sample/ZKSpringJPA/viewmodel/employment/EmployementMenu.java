@@ -4,7 +4,7 @@ import com.sample.ZKSpringJPA.anotation.Feature;
 
 @Feature(
         uuid = "employment",
-        menuOrder = "2.0.1",
+        menuOrder = "2",
         displayName = "Employment",
         menuIcon = "users"
 )

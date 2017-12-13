@@ -20,7 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee find(Long id) {
-        return (Employee) employeeDao.find(id);
+        return (Employee) employeeDao.find(id, Employee.class);
     }
 
     @Override

@@ -10,8 +10,8 @@ public class CrudRepository {
     private EntityManager em;
 
     @Transactional(readOnly = true)
-    public Object find(long id) {
-        Object object = em.find(Object.class, id);
+    public <T> Object find(Long id, Class<T> cls) {
+        Object object = em.find(cls, id);
         return object;
     }
 

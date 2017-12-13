@@ -21,6 +21,4 @@ public class BranchDao extends CrudRepository {
         List<Branch> result = query.getResultList();
         return result;
     }
-
-
 }
