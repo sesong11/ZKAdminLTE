@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.User;
-import com.sample.ZKSpringJPA.services.UserService;
+import com.sample.ZKSpringJPA.services.authentication.UserService;
 
 @Service("userService")
 @Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)

@@ -21,7 +21,7 @@ import org.zkoss.zul.*;
 import java.util.*;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
-@Feature(view = "/application/dashboard/roles-dashboard.zul",
+@Feature(view = "/view/authentication/roles-dashboard.zul",
         uuid = "roles-dashboard",
         menuName = "dashboard",
         menuOrder = "1.1",

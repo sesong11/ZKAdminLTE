@@ -1,16 +1,13 @@
 package com.sample.ZKSpringJPA.viewmodel.authentication;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.User;
-import com.sample.ZKSpringJPA.services.UserService;
+import com.sample.ZKSpringJPA.services.authentication.UserService;
 import com.sample.ZKSpringJPA.services.authentication.RoleService;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,7 +23,7 @@ import lombok.Setter;
 import org.zkoss.zul.ListModelList;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
-@Feature(view = "/application/dashboard/users-dashboard.zul",
+@Feature(view = "/view/authentication/users-dashboard.zul",
         uuid = "users-dashboard",
         menuName = "dashboard",
         menuOrder = "1.2",

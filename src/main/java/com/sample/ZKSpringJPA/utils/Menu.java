@@ -2,28 +2,15 @@ package com.sample.ZKSpringJPA.utils;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
 
-import com.sample.ZKSpringJPA.entity.authentication.Role;
-import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
-import com.sample.ZKSpringJPA.entity.authentication.User;
-import com.sample.ZKSpringJPA.services.UserService;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
-import org.springframework.core.type.filter.AnnotationTypeFilter;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.select.annotation.WireVariable;
-import org.zkoss.zsoup.helper.StringUtil;
 
 public class Menu {
 
@@ -132,11 +119,23 @@ public class Menu {
             }
         }
         List<Feature> list = new ArrayList<>(featureMap.values());
-        for(Feature f: list){
-            this.addMenu(f, f.menuOrder(), activeOrder);
-        }
+        int i = 0;
+        do {
+            list = addMenu(list, activeOrder);
+            i++;
+        }while (list.size()>0&&i<3);
 
         return tempFeature;
+    }
+
+    private List<Feature> addMenu(final List<Feature> list, final String activeOrder){
+        List<Feature> failure = new ArrayList<>();
+        for (Feature f : list) {
+            if (!this.addMenu(f, f.menuOrder(), activeOrder)) {
+                failure.add(f);
+            }
+        }
+        return failure;
     }
 
 //    public static Map<String, Feature> scanFeatures() throws ClassNotFoundException {

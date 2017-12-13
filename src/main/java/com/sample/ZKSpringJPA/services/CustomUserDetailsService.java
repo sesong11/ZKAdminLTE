@@ -1,12 +1,9 @@
 package com.sample.ZKSpringJPA.services;
 
 import com.sample.ZKSpringJPA.entity.authentication.Role;
-import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
+import com.sample.ZKSpringJPA.services.authentication.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,8 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.utils.FeaturesScanner;
-
-import org.zkoss.zk.ui.Executions;
 
 import java.util.ArrayList;
 import java.util.List;

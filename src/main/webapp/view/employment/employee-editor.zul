@@ -1,0 +1,135 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.EmployeeEditorVM')">
+
+        <!-- Content Header (Page header) -->
+        <n:section class="content-header">
+            <n:h1>
+                Employees
+                <n:small>create new</n:small>
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Dashboard</n:li>
+                <n:li class="active">New Employee</n:li>
+            </n:ol>
+        </n:section>
+        <!-- Main content -->
+        <n:section class="content">
+            <!-- Main row -->
+            <n:div class="row">
+
+                <n:div class="col-md-4">
+                    <n:div class="nav-tabs-custom">
+                        <n:ul class="nav nav-tabs">
+                            <n:li class="active"><n:a href="#info" data-toggle="tab" aria-expanded="true">Basic Info</n:a></n:li>
+                            <n:li class=""><n:a href="#status" data-toggle="tab" aria-expanded="false">Employment Status</n:a></n:li>
+                            <n:li class=""><n:a href="#user" data-toggle="tab" aria-expanded="false">User</n:a></n:li>
+                        </n:ul>
+                        <n:div class="tab-content">
+                            <n:div class="tab-pane active" id="info">
+                                <n:div class="form-group">
+                                    <n:label>Text</n:label>
+                                    <textbox sclass="form-control" placeholder="Code"
+                                    value="@bind(vm.employee.code)"/>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>First Name</n:label>
+                                    <textbox sclass="form-control" placeholder="First Name"
+                                    value="@bind(vm.employee.firstName)"/>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>Last Name</n:label>
+                                    <textbox sclass="form-control" placeholder="Last Name"
+                                    value="@bind(vm.employee.lastName)"/>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>Gender</n:label>
+                                    <selectbox zclass="none" model="@bind(vm.genders)" sclass="form-control"
+                                        onSelect="@command('selectGender', index=self.selectedIndex)">
+                                        <template name="item">
+                                            <listitem label="${each}" />
+                                        </template>
+                                    </selectbox>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>Date of Birth</n:label><n:br/>
+                                    <datebox width="100%" format="MM-dd-yyyy"
+                                    value="@bind(vm.employee.dob)"/>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>Note</n:label><n:br/>
+                                    <textbox zclass="none" sclass="form-control" placeholder="Note..."
+                                             value="@bind(vm.employee.note)"
+                                             multiline="true" rows="5" />
+                                </n:div>
+                            </n:div>
+                            <!-- /.tab-pane -->
+                            <n:div class="tab-pane" id="status">
+
+                            </n:div>
+                            <!-- /.tab-pane -->
+
+                            <n:div class="tab-pane" id="user">
+
+                            </n:div>
+                            <!-- /.tab-pane -->
+                        </n:div>
+                        <!-- /.tab-content -->
+                    </n:div>
+                </n:div>
+                <n:div class="col-md-8">
+                    <n:div class="nav-tabs-custom">
+                        <n:ul class="nav nav-tabs">
+                            <n:li class="active"><n:a href="#history" data-toggle="tab" aria-expanded="true">Employment History</n:a></n:li>
+                            <n:li class=""><n:a href="#allowance" data-toggle="tab" aria-expanded="false">Allowance</n:a></n:li>
+                            <n:li class=""><n:a href="#subordinate" data-toggle="tab" aria-expanded="false">Subordinate</n:a></n:li>
+                            <n:li class=""><n:a href="#authorization" data-toggle="tab" aria-expanded="false">Authorization</n:a></n:li>
+                        </n:ul>
+                        <n:div class="tab-content">
+                            <n:div class="tab-pane active" id="history">
+                                <n:div class="mailbox-controls">
+                                    <n:a href="?m=employee-editor" class="btn btn-default btn-sm"><n:i class="fa fa-plus"></n:i></n:a>
+                                </n:div>
+                                <grid zclass="none" height="450px" model="@load(vm.employee.employmentHistories)" sclass="table-responsive mailbox-messages"
+                                      emptyMessage="Nothing in Inbox.">
+                                    <columns zclass="none">
+                                        <column label="Id" zclass="none" width="50px"/>
+
+                                    </columns>
+                                    <template name="model">
+                                        <row zclass="none" onClick="@command('select', role=each)">
+                                            <label value="@load(each.id)" />
+
+                                        </row>
+                                    </template>
+                                </grid>
+                            </n:div>
+                            <!-- /.tab-pane -->
+                            <n:div class="tab-pane" id="allowance">
+
+                            </n:div>
+                            <!-- /.tab-pane -->
+
+                            <n:div class="tab-pane" id="subordinate">
+
+                            </n:div>
+                            <!-- /.tab-pane -->
+
+                            <n:div class="tab-pane" id="authorization">
+
+                            </n:div>
+                            <!-- /.tab-pane -->
+                        </n:div>
+                        <!-- /.tab-content -->
+                    </n:div>
+                </n:div>
+            </n:div>
+            <!-- /.box-body -->
+
+            <!-- /.col -->
+            <!-- /.row -->
+        </n:section>
+        <!-- /.content -->
+    </div>
+</zk>

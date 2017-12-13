@@ -7,40 +7,28 @@ import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.services.MyService;
 
-import java.lang.reflect.Field;
 import java.util.*;
 
-import com.sample.ZKSpringJPA.services.UserService;
+import com.sample.ZKSpringJPA.services.authentication.UserService;
 import com.sample.ZKSpringJPA.utils.FeaturesScanner;
 import com.sample.ZKSpringJPA.utils.Menu;
-import com.sample.ZKSpringJPA.viewmodel.authentication.RolesVM;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
-import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.context.annotation.SessionScope;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.lang.Strings;
-import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
-import org.zkoss.zsoup.helper.HttpConnection;
-import org.zkoss.zsoup.helper.StringUtil;
 import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)

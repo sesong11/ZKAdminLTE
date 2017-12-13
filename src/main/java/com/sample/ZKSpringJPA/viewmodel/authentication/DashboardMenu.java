@@ -1,4 +1,4 @@
-package com.sample.ZKSpringJPA.viewmodel;
+package com.sample.ZKSpringJPA.viewmodel.authentication;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
 

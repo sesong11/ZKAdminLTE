@@ -1,0 +1,75 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.EmployeeListVM')">
+
+        <!-- Content Header (Page header) -->
+        <n:section class="content-header">
+            <n:h1>
+                All Employees
+                <n:small>preview</n:small>
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Dashboard</n:li>
+                <n:li class="active">Employee List</n:li>
+            </n:ol>
+        </n:section>
+        <!-- Main content -->
+        <n:section class="content">
+            <!-- Main row -->
+            <n:div class="row">
+
+                <n:div class="col-md-12">
+                    <!-- TABLE: Users -->
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">All Employees</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body">
+                            <n:div class="mailbox-controls">
+                                <!-- Check all button -->
+                                <n:button type="button" class="btn btn-default btn-sm checkbox-toggle"><n:i class="fa fa-square-o"></n:i>
+                                </n:button>
+                                <n:a href="?m=employee-editor" class="btn btn-default btn-sm"><n:i class="fa fa-plus"></n:i></n:a>
+                                <!-- /.pull-right -->
+                            </n:div>
+                            <grid zclass="none" height="450px" model="@load(vm.employees)" sclass="table-responsive mailbox-messages"
+                                  emptyMessage="Nothing in Inbox.">
+                                <columns zclass="none">
+                                    <column label="Id" zclass="none" width="50px"/>
+                                    <column label="Fist Name" zclass="none"/>
+                                </columns>
+                                <template name="model">
+                                    <row zclass="none" onClick="@command('select', role=each)">
+                                        <label value="@load(each.id)" />
+                                        <label value="@load(each.firstName)" />
+                                    </row>
+                                </template>
+                            </grid>
+
+
+                            <!-- /.col -->
+                        </n:div>
+
+                        <!-- /.table-responsive -->
+                        <n:div class="box-footer clearfix">
+
+                        </n:div>
+                        <!-- /.box-footer -->
+                    </n:div>
+                </n:div>
+            </n:div>
+            <!-- /.box-body -->
+
+            <!-- /.col -->
+            <!-- /.row -->
+        </n:section>
+        <!-- /.content -->
+    </div>
+</zk>

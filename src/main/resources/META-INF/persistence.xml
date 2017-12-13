@@ -9,10 +9,10 @@
 			<property name="hibernate.connection.username" value="sa" />
 			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.show_sql" value="true" />
-			<!-- data store in data/db under project folder -->
-			<property name="hibernate.connection.url" value="jdbc:hsqldb:file:data/db" />
-			<!-- db is not persistent to disk
-			<property name="hibernate.connection.url" value="jdbc:hsqldb:mem:data/store" /> -->
+			<!-- data store in data/db under project folder
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:file:data/db" />-->
+			<!-- db is not persistent to disk -->
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:mem:store" />
 			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<!-- drop table every time
 			<property name="hibernate.hbm2ddl.auto" value="create" /> -->
