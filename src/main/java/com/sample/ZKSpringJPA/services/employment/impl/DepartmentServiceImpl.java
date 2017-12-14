@@ -2,34 +2,38 @@ package com.sample.ZKSpringJPA.services.employment.impl;
 
 import com.sample.ZKSpringJPA.entity.employment.Department;
 import com.sample.ZKSpringJPA.services.employment.DepartmentService;
+import com.sample.ZKSpringJPA.services.employment.dao.DepartmentDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service("departmentService")
 public class DepartmentServiceImpl implements DepartmentService {
+    @Autowired
+    DepartmentDao departmentDao;
     @Override
     public List<Department> findAll() {
-        return null;
+        return departmentDao.queryAll();
     }
 
     @Override
     public Department find(Long id) {
-        return null;
+        return (Department) departmentDao.find(id, Department.class);
     }
 
     @Override
     public Department create(Department department) {
-        return null;
+        return (Department) departmentDao.create(department);
     }
 
     @Override
     public Department update(Department department) {
-        return null;
+        return (Department) departmentDao.update(department);
     }
 
     @Override
     public void delete(Department department) {
-
+        departmentDao.delete(department);
     }
 }

@@ -54,12 +54,10 @@ public class UserVM {
     public void createUser(
             @BindingParam("username") final String username,
             @BindingParam("password") final String password,
-            @BindingParam("email") final String email,
             @BindingParam("enabled") final boolean enabled
     ){
         currentUser.setUsername(username);
         currentUser.setPassword(password);
-        currentUser.setEmail(email);
         currentUser.setEnabled(enabled);
 
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -72,11 +70,9 @@ public class UserVM {
     @Command
     public void updateUser(
             @BindingParam("username") final String username,
-            @BindingParam("email") final String email,
             @BindingParam("enabled") final boolean enabled
     ){
         currentUser.setUsername(username);
-        currentUser.setEmail(email);
         currentUser.setEnabled(enabled);
 
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

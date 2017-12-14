@@ -1,12 +1,16 @@
 package com.sample.ZKSpringJPA.entity.employment;
 
+import com.sample.ZKSpringJPA.entity.authentication.User;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
+import java.util.SortedSet;
 
 @Entity
 @Table(name="employee")
@@ -46,8 +50,13 @@ public class Employee implements Serializable, Cloneable{
 
     @Getter @Setter
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
-    private List<EmploymentHistory> employmentHistories;
+    @OrderBy("id")
+    private SortedSet<EmploymentHistory> employmentHistories;
 
+    @Getter @Setter
+    @JoinColumn(name = "user_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    private User user;
     //endregion
 
     //region > Serialize
@@ -77,4 +86,57 @@ public class Employee implements Serializable, Cloneable{
     }
     //endregion
 
+    //region > Programmatic
+    public EmploymentHistory getActiveEmploymentHistory(){
+        return employmentHistories!=null?
+                employmentHistories.stream()
+                        .filter(h -> h.getActiveDate().compareTo(new java.util.Date())<=0)
+                        //.sorted((h1, h2) -> h1.getFromDate().compareTo(h2.getFromDate()))
+                        .sorted(Comparator.comparing(EmploymentHistory::getActiveDate).reversed())
+                        .findFirst().orElse(null)
+                :null;
+    }
+    public Branch getBranch(){
+        Branch branch = null;
+        if (getActiveEmploymentHistory() != null) {
+            branch = getActiveEmploymentHistory().getBranch();
+        }
+        return branch;
+    }
+
+    public Department getDepartment(){
+        Department department = null;
+        if (getActiveEmploymentHistory() != null) {
+            department = getActiveEmploymentHistory().getDepartment();
+        }
+        return department;
+    }
+
+    public Designation getDesignation(){
+        Designation designation = null;
+        if (getActiveEmploymentHistory() != null) {
+            designation = getActiveEmploymentHistory().getDesignation();
+        }
+        return designation;
+    }
+
+    public Employee getSupervisor(){
+        Employee supervisor = null;
+        if (getActiveEmploymentHistory() != null) {
+            supervisor = getActiveEmploymentHistory().getSupervisor();
+        }
+        return supervisor;
+    }
+
+    public Date getDateOfHire(){
+        EmploymentHistory employmentHistory = employmentHistories!=null?employmentHistories.stream()
+                .filter(h -> h.getHistoryType() == HistoryType.JOIN)
+                .findFirst().orElse(null):null;
+        return employmentHistory!=null?employmentHistory.getActiveDate():null;
+    }
+
+    public String getFullName(){
+        return getLastName() + " " + getFirstName();
+    }
+    //endregion
 }

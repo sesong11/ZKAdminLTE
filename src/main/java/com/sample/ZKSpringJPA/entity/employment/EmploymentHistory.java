@@ -2,6 +2,8 @@ package com.sample.ZKSpringJPA.entity.employment;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.transaction.annotation.Transactional;
+import org.zkoss.bind.annotation.Command;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,7 +11,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name="employee_history")
-public class EmploymentHistory implements Serializable, Cloneable {
+public class EmploymentHistory implements Serializable, Cloneable, Comparable<EmploymentHistory> {
 
     //region > Field
     @Id
@@ -22,6 +24,11 @@ public class EmploymentHistory implements Serializable, Cloneable {
     @Getter @Setter
     @Column(name = "active_date")
     private Date activeDate;
+
+    @Getter @Setter
+    @Column(name = "history_type")
+    @Enumerated(EnumType.STRING)
+    private HistoryType historyType;
 
     @Getter @Setter
     @JoinColumn(name="branch_id")
@@ -39,10 +46,18 @@ public class EmploymentHistory implements Serializable, Cloneable {
     private Department department;
 
     @Getter @Setter
+    @Column(name = "note")
+    private String note;
+
+    @Getter @Setter
     @JoinColumn(name="employee_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee employee;
 
+    @Getter @Setter
+    @JoinColumn(name = "supervisor_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Employee supervisor;
     //endregion
 
     //region > Serialize
@@ -69,6 +84,11 @@ public class EmploymentHistory implements Serializable, Cloneable {
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
+    }
+
+    @Override
+    public int compareTo(EmploymentHistory employmentHistory) {
+        return this.getId().compareTo(employmentHistory.getId());
     }
     //endregion
 }

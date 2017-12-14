@@ -1,0 +1,70 @@
+<zk xmlns:n="native">
+    <window id="modalDialog" title="Employee History" border="normal" width="460px"
+            position="center,center" closable="true"
+            viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.EmploymentHistoryVM')"
+            action="show: slideDown;hide: slideUp"
+            onCancel="@command('closeThis')">
+        <n:div class="form-group">
+            <n:label>Type</n:label>
+            <combobox model="@load(vm.historyTypes)" width="100%" selectedItem="@bind(vm.employmentHistory.historyType)"
+            value="@load(vm.employmentHistory.historyType.name)">
+                <template name="model">
+                    <comboitem label="@load(each.name)"/>
+                </template>
+            </combobox>
+        </n:div>
+        <n:div class="form-group">
+            <n:label>Active Date</n:label>
+            <datebox placeholder="Active Date" width="100%"
+                     value="@bind(vm.employmentHistory.activeDate)" format="@load(vm.standardDateFormat)"/>
+        </n:div>
+        <n:div class="form-group">
+            <n:label>Branch</n:label>
+            <combobox model="@load(vm.branches)" width="100%" selectedItem="@bind(vm.employmentHistory.branch)"
+                      value="@load(vm.employmentHistory.branch.name)">
+                <template name="model">
+                    <comboitem label="@load(each.name)"/>
+                </template>
+            </combobox>
+        </n:div>
+        <n:div class="form-group">
+            <n:label>Department</n:label>
+            <combobox model="@load(vm.departments)" width="100%" selectedItem="@bind(vm.employmentHistory.department)"
+                      value="@load(vm.employmentHistory.department.name)">
+                <template name="model">
+                    <comboitem label="@load(each.name)"/>
+                </template>
+            </combobox>
+        </n:div>
+        <n:div class="form-group">
+            <n:label>Designation</n:label>
+            <combobox model="@load(vm.designations)" width="100%" selectedItem="@bind(vm.employmentHistory.designation)"
+                      value="@load(vm.employmentHistory.designation.name)">
+                <template name="model">
+                    <comboitem label="@load(each.name)"/>
+                </template>
+            </combobox>
+        </n:div>
+        <n:div class="form-group">
+            <n:label>Supervisor</n:label>
+            <combobox model="@load(vm.supervisors)" width="100%" selectedItem="@bind(vm.employmentHistory.supervisor)"
+                      value="@load(vm.employmentHistory.supervisor.fullName)">
+                <template name="model">
+                    <comboitem label="@load(each.fullName)"/>
+                </template>
+            </combobox>
+        </n:div>
+        <n:div class="form-group">
+            <n:label>Note</n:label><n:br/>
+            <textbox zclass="none" sclass="form-control" placeholder="Note..."
+                     value="@bind(vm.employmentHistory.note)"
+                     multiline="true" rows="5" />
+        </n:div>
+
+        <n:div class="box-footer clearfix">
+            <button sclass="btn btn-sm btn-danger btn-sm pull-left" onClick="@command('closeThis')">Cancel</button>
+            <button visible="@load(vm.employmentHistory.id eq null)" sclass="btn btn-sm btn-info btn-sm pull-right" onClick="@command('save')">Save</button>
+            <button visible="@load(vm.employmentHistory.id ne null)" sclass="btn btn-sm btn-info btn-sm pull-right" onClick="@command('update')">Update</button>
+        </n:div>
+    </window>
+</zk>

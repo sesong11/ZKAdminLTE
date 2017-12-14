@@ -11,7 +11,8 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Repository
-public class EmployeeHistoryDao extends CrudRepository {
+@Transactional
+public class EmploymentHistoryDao extends CrudRepository {
     @PersistenceContext
     private EntityManager em;
 

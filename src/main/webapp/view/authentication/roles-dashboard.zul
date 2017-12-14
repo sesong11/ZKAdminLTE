@@ -192,14 +192,12 @@
                                         <columns zclass="none">
                                             <column label="Id" zclass="none" width="50px"/>
                                             <column label="Username" width="120px" zclass="none"/>
-                                            <column label="Email"  zclass="none"/>
                                             <column label="Enabled" width="80px" zclass="none"/>
                                         </columns>
                                         <template name="model">
                                             <row zclass="none" onClick="@command('selectUser', user=each)">
                                                 <label value="@load(each.id)" />
                                                 <label value="@load(each.username)" />
-                                                <label value="@load(each.email)" />
                                                 <label value="@load(each.enabled)" />
                                             </row>
                                         </template>

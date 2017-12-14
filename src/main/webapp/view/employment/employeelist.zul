@@ -39,19 +39,31 @@
                                 <n:a href="?m=employee-editor" class="btn btn-default btn-sm"><n:i class="fa fa-plus"></n:i></n:a>
                                 <!-- /.pull-right -->
                             </n:div>
-                            <grid zclass="none" height="450px" model="@load(vm.employees)" sclass="table-responsive mailbox-messages"
-                                  emptyMessage="Nothing in Inbox.">
-                                <columns zclass="none">
-                                    <column label="Id" zclass="none" width="50px"/>
-                                    <column label="Fist Name" zclass="none"/>
-                                    <column label="" zclass="none" width="50px"/>
+                            <grid height="450px" model="@load(vm.employees)" sclass="table table-bordered table-responsive mailbox-messages"
+                                  emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" >
+                                <columns>
+                                    <column label="Code" width="80px"/>
+                                    <column label="Full Name" width="150px"/>
+                                    <column label="Date of Birth" width="120px"/>
+                                    <column label="Gender" width="80px"/>
+                                    <column label="Date of Hire" width="120px"/>
+                                    <column label="Branch" width="150px"/>
+                                    <column label="Department" width="150px"/>
+                                    <column label="Designation" />
+                                    <column label="" width="50px"/>
                                 </columns>
                                 <template name="model">
-                                    <row zclass="none" onClick="@command('select', role=each)">
-                                        <label value="@load(each.id)" />
-                                        <label value="@load(each.firstName)" />
+                                    <row >
+                                        <label value="@load(each.code)" />
+                                        <label value="@load(each.fullName)" />
+                                        <label value="@load(each.dob) @converter('formattedDate', format = vm.standardDateFormat)" />
+                                        <label value="@load(each.gender.name)" />
+                                        <label value="@load(each.dateOfHire) @converter('formattedDate', format = vm.standardDateFormat)" />
+                                        <label value="@load(each.branch.name)" />
+                                        <label value="@load(each.department.name)" />
+                                        <label value="@load(each.designation.name)" />
                                         <div>
-                                            <a onClick="@command('edit', employee = each)"><n:i class="fa fa-edit"></n:i></a>
+                                            <a onClick="@command('edit', employee = each)" sclass="pull-right text-blue"><n:i class="fa fa-edit"></n:i></a>
                                         </div>
                                     </row>
                                 </template>

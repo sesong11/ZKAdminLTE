@@ -65,12 +65,50 @@
                             </n:div>
                             <!-- /.tab-pane -->
                             <n:div class="tab-pane" id="status">
+                                <n:div class="form-group">
+                                    <n:label>Date of Hire</n:label>
+                                    <textbox sclass="form-control" readonly="true"
+                                             value="@load(vm.employee.dateOfHire) @converter('formatedDate', format=vm.standardDateFormat)"/>
+                                </n:div>
 
+                                <n:div class="form-group">
+                                    <n:label>Branch</n:label>
+                                    <textbox sclass="form-control" readonly="true"
+                                             value="@load(vm.employee.branch.name)"/>
+                                </n:div>
+
+                                <n:div class="form-group">
+                                    <n:label>Department</n:label>
+                                    <textbox sclass="form-control" readonly="true"
+                                             value="@load(vm.employee.department.name)"/>
+                                </n:div>
+
+                                <n:div class="form-group">
+                                    <n:label>Department</n:label>
+                                    <textbox sclass="form-control" readonly="true"
+                                             value="@load(vm.employee.designation.name)"/>
+                                </n:div>
+
+                                <n:div class="form-group">
+                                    <n:label>Supervisor</n:label>
+                                    <textbox sclass="form-control" readonly="true"
+                                             value="@load(vm.employee.supervisor.fullName)"/>
+                                </n:div>
                             </n:div>
+
                             <!-- /.tab-pane -->
 
                             <n:div class="tab-pane" id="user">
-
+                                <div visible="@load(vm.employee.user ne null)">
+                                    <n:div class="form-group">
+                                        <n:label>Username</n:label>
+                                        <textbox sclass="form-control" readonly="true"
+                                                 value="@load(vm.employee.user.username)"/>
+                                    </n:div>
+                                </div>
+                                <div visible="@load(vm.employee.user eq null)">
+                                    <button onClick="@command('createUser')" label="Create User" />
+                                </div>
                             </n:div>
                             <!-- /.tab-pane -->
                         </n:div>
@@ -92,30 +130,35 @@
                         </n:ul>
                         <n:div class="tab-content">
                             <n:div class="tab-pane active" id="history">
-                                <n:div class="mailbox-controls">
-                                    <n:a href="?m=employee-editor" class="btn btn-default btn-sm"><n:i class="fa fa-plus"></n:i></n:a>
-                                </n:div>
-                                <grid zclass="none" height="450px" model="@load(vm.employee.employmentHistories)" sclass="table-responsive mailbox-messages"
+                                <grid zclass="none" height="450px" model="@load(vm.employee.employmentHistories)" sclass="table table-bordered table-responsive mailbox-messages"
                                       emptyMessage="Nothing in Inbox.">
                                     <columns zclass="none">
                                         <column label="Id" zclass="none" width="50px"/>
                                         <column label="Type" zclass="none" width="150px"/>
                                         <column label="Active Date" zclass="none" width="120px"/>
-                                        <column label="Branch" zclass="none" width="150px"/>
-                                        <column label="Department" zclass="none" width="150px"/>
+                                        <column label="Branch" zclass="none" width="120px"/>
+                                        <column label="Department" zclass="none" width="120px"/>
                                         <column label="Designation" zclass="none" />
+                                        <column label="" width="50" zclass="none"/>
                                     </columns>
                                     <template name="model">
-                                        <row zclass="none" onClick="@command('select', role=each)">
+                                        <row zclass="none" onClick="@command('selectHistory', item=each)">
                                             <label value="@load(each.id)" />
-                                            <label value="@load(each.employmentType)" />
-                                            <label value="@load(each.activeDate)" />
+                                            <label value="@load(each.historyType.name)" />
+                                            <label value="@load(each.activeDate) @converter('formatedDate', format=vm.standardDateFormat)" />
                                             <label value="@load(each.branch.name)" />
                                             <label value="@load(each.department.name)" />
                                             <label value="@load(each.designation.name)" />
+                                            <div>
+                                                <a onClick="@command('selectHistory', item = each)" sclass="pull-right text-blue margin"><n:i class="fa fa-edit"/></a>
+                                                <a onClick="@command('deleteHistory', item = each)" sclass="pull-right text-red margin"><n:i class="fa fa-trash"/></a>
+                                            </div>
                                         </row>
                                     </template>
                                 </grid>
+                                <n:div class="box-footer clearfix">
+                                    <button sclass="btn btn-sm btn-info btn-sm pull-right" onClick="@command('addHistory', window=modalDialog)">Add History</button>
+                                </n:div>
                             </n:div>
                             <!-- /.tab-pane -->
                             <n:div class="tab-pane" id="allowance">
@@ -144,4 +187,5 @@
         </n:section>
         <!-- /.content -->
     </div>
+
 </zk>

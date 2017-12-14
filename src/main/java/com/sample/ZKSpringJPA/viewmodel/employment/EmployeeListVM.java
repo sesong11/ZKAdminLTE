@@ -3,6 +3,7 @@ package com.sample.ZKSpringJPA.viewmodel.employment;
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.services.employment.EmployeeService;
+import com.sample.ZKSpringJPA.utils.StandardDateTime;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,16 +28,27 @@ import java.util.List;
 )
 public class EmployeeListVM {
 
+    //region > inject
     @WireVariable
     private EmployeeService employeeService;
 
+    //endregion
+
+    //region > Fields
     @Getter @Setter
     private List<Employee> employees;
 
+    @Getter
+    private final String standardDateFormat = StandardDateTime.getStandardDateFormat();
+    //endregion
+
+    //region > Constructor
     @Init
     public void init(){
         employees = employeeService.findAll();
     }
+
+    //endregion
 
     //region > Command
     @Command

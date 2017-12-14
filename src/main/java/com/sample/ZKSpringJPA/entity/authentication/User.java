@@ -32,11 +32,7 @@ public class User implements Serializable {
 	@Column(name = "password")
 	@Getter @Setter
 	private String password;
-	
-	@Column(name = "email")
-	@Getter @Setter
-	private String email;
-	
+
 	@Column(name = "enabled")
 	@Getter @Setter
 	private boolean enabled;
@@ -46,7 +42,6 @@ public class User implements Serializable {
 	public User(User user) {
 		this.id = user.id;
 		this.username = user.username;
-		this.email = user.email;
 		this.password = user.password;
 		this.enabled = user.enabled;
 	}

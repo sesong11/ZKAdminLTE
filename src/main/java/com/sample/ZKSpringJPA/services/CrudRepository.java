@@ -1,15 +1,17 @@
 package com.sample.ZKSpringJPA.services;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Repository
 public class CrudRepository {
     @PersistenceContext
     private EntityManager em;
 
-    @Transactional(readOnly = true)
+    @Transactional
     public <T> Object find(Long id, Class<T> cls) {
         Object object = em.find(cls, id);
         return object;

@@ -1,19 +1,18 @@
 <zk xmlns:n="native">
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
-         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.DepartmentListVM)"
-         validationMessages="@id('vmsgs')">
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.DepartmentListVM')">
 
 
         <!-- Content Header (Page header) -->
         <n:section class="content-header">
             <n:h1>
-                All Branch
+                All Departments
                 <n:small>preview</n:small>
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
                 <n:li class="active">Employment</n:li>
-                <n:li class="active">Branch List</n:li>
+                <n:li class="active">Department List</n:li>
             </n:ol>
         </n:section>
         <!-- Main content -->
@@ -25,7 +24,7 @@
                     <!-- TABLE: Users -->
                     <n:div class="box box-info">
                         <n:div class="box-header with-border">
-                            <n:h3 class="box-title">All Branches</n:h3>
+                            <n:h3 class="box-title">All Departments</n:h3>
 
                             <n:div class="box-tools pull-right">
                                 <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
@@ -35,14 +34,14 @@
                         <!-- /.box-header -->
                         <n:div class="box-body">
 
-                            <grid zclass="none" height="350px" model="@load(vm.branches)" sclass="table table-bordered"
+                            <grid zclass="none" height="350px" model="@load(vm.departments)" sclass="table table-bordered"
                                   emptyMessage="Nothing in Inbox.">
                                 <columns zclass="none">
                                     <column label="Id" zclass="none" width="50px"/>
                                     <column label="Name" zclass="none"/>
                                 </columns>
                                 <template name="model">
-                                    <row zclass="none" onClick="@command('select', branch=each)">
+                                    <row zclass="none" onClick="@command('select', department=each)">
                                         <label value="@load(each.id)" />
                                         <label value="@load(each.name)" />
                                     </row>
@@ -75,26 +74,23 @@
                         <n:div class="box-body">
                             <n:div class="form-group">
                                 <n:label>Id</n:label>
-                                <textbox value="@load(vm.branch.id)" disabled="true"
-                                         type="text" sclass="form-control" id="txtUserId" placeholder="User Id" />
+                                <textbox value="@load(vm.department.id)" disabled="true"
+                                         type="text" sclass="form-control" id="txtUserId" placeholder="Id" />
                             </n:div>
                             <n:div class="form-group">
                                 <n:label>Name</n:label>
-                                <textbox value="@bind(vm.branch.name)" type="text"
+                                <textbox value="@bind(vm.department.name)" type="text"
                                          sclass="form-control" id="txtUsername" placeholder="Name" />
                             </n:div>
 
                             <n:div class="form-group">
-                                <a visible="@load(vm.branch.id eq 0 || vm.branch.id eq null)"
-                                   onClick="@command('create')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Create Branch</a>
-                                <a visible="@load(vm.branch.id eq 0 || vm.branch.id eq null)" onClick="@command('cancel')" sclass="btn btn-sm btn-default btn-flat pull-left margin">Clear</a>
-                                <a visible="@load(!(vm.branch.id eq 0 || vm.branch.id eq null))" onClick="@command('update')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update</a>
-                                <a visible="@load(!(vm.branch.id eq 0 || vm.branch.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete</a>
-                                <a visible="@load(!(vm.branch.id eq 0 || vm.branch.id eq null))"
-                                   onClick="@command('cancel',
-                                   username = txtUsername.value,
-                                   email = txtEmail.value,
-                                   enabled = cbEnabled.checked)"
+                                <a visible="@load(vm.department.id eq 0 || vm.department.id eq null)"
+                                   onClick="@command('create')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Create</a>
+                                <a visible="@load(vm.department.id eq 0 || vm.department.id eq null)" onClick="@command('cancel')" sclass="btn btn-sm btn-default btn-flat pull-left margin">Clear</a>
+                                <a visible="@load(!(vm.department.id eq 0 || vm.department.id eq null))" onClick="@command('update')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update</a>
+                                <a visible="@load(!(vm.department.id eq 0 || vm.department.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete</a>
+                                <a visible="@load(!(vm.department.id eq 0 || vm.department.id eq null))"
+                                   onClick="@command('cancel')"
                                    sclass="btn btn-sm btn-default btn-flat pull-left margin">Cancel</a>
                             </n:div>
                         </n:div>
