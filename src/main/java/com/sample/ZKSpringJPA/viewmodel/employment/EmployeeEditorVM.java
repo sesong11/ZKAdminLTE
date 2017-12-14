@@ -1,5 +1,6 @@
 package com.sample.ZKSpringJPA.viewmodel.employment;
 
+import com.google.javascript.jscomp.parsing.parser.util.format.SimpleFormat;
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.entity.employment.Employee;
@@ -11,6 +12,9 @@ import com.sample.ZKSpringJPA.services.employment.EmployeeService;
 import com.sample.ZKSpringJPA.utils.StandardDateTime;
 import lombok.Getter;
 import lombok.Setter;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.zkoss.bind.annotation.*;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
@@ -122,6 +126,10 @@ public class EmployeeEditorVM {
         User user = new User();
         user.setEnabled(true);
         user.setUsername(employee.getLastName().toLowerCase()+"_"+employee.getFirstName().toLowerCase());
+        String password = SimpleFormat.format("ddMMyy", employee.getDob());
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(password);
+        user.setPassword(encodedPassword);
         user = userService.addUser(user);
         employee.setUser(user);
         update();

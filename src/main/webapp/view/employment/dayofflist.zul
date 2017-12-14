@@ -1,0 +1,112 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.DayoffListVM')"
+         validationMessages="@id('vmsgs')">
+
+
+        <!-- Content Header (Page header) -->
+        <n:section class="content-header">
+            <n:h1>
+                All Days Off
+                <n:small>preview</n:small>
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Employment</n:li>
+                <n:li class="active">Days Off List</n:li>
+            </n:ol>
+        </n:section>
+        <!-- Main content -->
+        <n:section class="content">
+            <!-- Main row -->
+            <n:div class="row">
+                <!-- Left col -->
+                <n:div class="col-md-8">
+                    <!-- TABLE: Users -->
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">All Days Off</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body">
+
+                            <grid zclass="none" height="350px" model="@load(vm.dayOffs)" sclass="table table-bordered"
+                                  emptyMessage="Nothing in Inbox.">
+                                <columns zclass="none">
+                                    <column label="Id" zclass="none" width="50px"/>
+                                    <column label="Date" zclass="none" width="120px"/>
+                                    <column label="Name" zclass="none"/>
+                                </columns>
+                                <template name="model">
+                                    <row zclass="none" onClick="@command('select', dayOff=each)">
+                                        <label value="@load(each.id)" />
+                                        <label value="@load(each.date) @converter('formattedDate', format=vm.standardDateFormat)" />
+                                        <label value="@load(each.name)" />
+                                    </row>
+                                </template>
+                            </grid>
+
+
+                            <!-- /.col -->
+                        </n:div>
+                        <!-- /.table-responsive -->
+                        <n:div class="box-footer clearfix">
+
+                        </n:div>
+                        <!-- /.box-footer -->
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+                <n:div class="col-md-4">
+                    <!-- TABLE: Users -->
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Editor</n:h3>
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body">
+                            <n:div class="form-group">
+                                <n:label>Id</n:label>
+                                <textbox value="@load(vm.dayOff.id)" disabled="true"
+                                         type="text" sclass="form-control" id="txtUserId" placeholder="Id" />
+                            </n:div>
+                            <n:div class="form-group">
+                                <n:label>Name</n:label>
+                                <textbox value="@bind(vm.dayOff.name)" type="text"
+                                         sclass="form-control" id="txtUsername" placeholder="Name" />
+                            </n:div>
+
+                            <n:div class="form-group">
+                                <n:label>Date</n:label>
+                                <datebox value="@bind(vm.dayOff.date) " width="100%" format="@load(vm.standardDateFormat)"
+                                         id="txtDate" placeholder="date" />
+                            </n:div>
+
+                            <n:div class="form-group">
+                                <a visible="@load(vm.dayOff.id eq 0 || vm.dayOff.id eq null)"
+                                   onClick="@command('create')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Create</a>
+                                <a visible="@load(vm.dayOff.id eq 0 || vm.dayOff.id eq null)" onClick="@command('cancel')" sclass="btn btn-sm btn-default btn-flat pull-left margin">Clear</a>
+                                <a visible="@load(!(vm.dayOff.id eq 0 || vm.dayOff.id eq null))" onClick="@command('update')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update</a>
+                                <a visible="@load(!(vm.dayOff.id eq 0 || vm.dayOff.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete</a>
+                                <a visible="@load(!(vm.dayOff.id eq 0 || vm.dayOff.id eq null))"
+                                   onClick="@command('cancel')"
+                                   sclass="btn btn-sm btn-default btn-flat pull-left margin">Cancel</a>
+                            </n:div>
+                        </n:div>
+                    </n:div>
+                </n:div>
+            </n:div>
+        </n:section>
+        <!-- /.content -->
+    </div>
+</zk>

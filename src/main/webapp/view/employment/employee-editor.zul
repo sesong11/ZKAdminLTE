@@ -105,6 +105,11 @@
                                         <textbox sclass="form-control" readonly="true"
                                                  value="@load(vm.employee.user.username)"/>
                                     </n:div>
+                                    <n:div class="checkbox">
+                                        <n:label>
+                                            <checkbox id="cbEnabled" checked="@load(vm.employee.user.enabled)" disabled="true" /> Enabled
+                                        </n:label>
+                                    </n:div>
                                 </div>
                                 <div visible="@load(vm.employee.user eq null)">
                                     <button onClick="@command('createUser')" label="Create User" />
