@@ -3,14 +3,13 @@ package com.sample.ZKSpringJPA.viewmodel.employment;
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.services.employment.EmployeeService;
-import com.sample.ZKSpringJPA.utils.StandardDateTime;
+import com.sample.ZKSpringJPA.utils.StandardFormat;
 import lombok.Getter;
 import lombok.Setter;
 
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
-import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
@@ -39,7 +38,7 @@ public class EmployeeListVM {
     private List<Employee> employees;
 
     @Getter
-    private final String standardDateFormat = StandardDateTime.getStandardDateFormat();
+    private final String standardDateFormat = StandardFormat.getStandardDateFormat();
     //endregion
 
     //region > Constructor

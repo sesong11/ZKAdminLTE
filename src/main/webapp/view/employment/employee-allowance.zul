@@ -1,0 +1,29 @@
+<zk xmlns:n="native">
+    <window id="modalDialog" title="Employee Allowance" border="normal" width="460px"
+            position="center,center" closable="true"
+            viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.EmployeeAllowanceVM')"
+            action="show: slideDown;hide: slideUp"
+            onCancel="@command('closeThis')">
+        <n:div class="form-group">
+            <n:label>Active Date</n:label>
+            <datebox placeholder="Active Date" width="100%"
+                     value="@bind(vm.employeeAllowance.activeDate)" format="@load(vm.standardDateFormat)"/>
+        </n:div>
+
+        <n:div class="form-group">
+            <n:label>Supervisor</n:label>
+            <combobox model="@load(vm.allowances)" width="100%" selectedItem="@bind(vm.employeeAllowance.allowance)"
+                      value="@load(vm.employeeAllowance.allowance.name)">
+                <template name="model">
+                    <comboitem label="@load(each.name)"/>
+                </template>
+            </combobox>
+        </n:div>
+
+        <n:div class="box-footer clearfix">
+            <button sclass="btn btn-sm btn-danger btn-sm pull-left" onClick="@command('closeThis')">Cancel</button>
+            <button visible="@load(vm.employeeAllowance.id eq null)" sclass="btn btn-sm btn-info btn-sm pull-right" onClick="@command('save')">Save</button>
+            <button visible="@load(vm.employeeAllowance.id ne null)" sclass="btn btn-sm btn-info btn-sm pull-right" onClick="@command('update')">Update</button>
+        </n:div>
+    </window>
+</zk>

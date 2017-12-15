@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 import java.util.SortedSet;
+import java.util.TreeSet;
 
 @Entity
 @Table(name="employee")
@@ -52,6 +53,11 @@ public class Employee implements Serializable, Cloneable{
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
     @OrderBy("id")
     private SortedSet<EmploymentHistory> employmentHistories;
+
+    @Getter @Setter
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
+    @OrderBy("id")
+    private SortedSet<EmployeeAllowance> employeeAllowances;
 
     @Getter @Setter
     @JoinColumn(name = "user_id")
@@ -137,6 +143,17 @@ public class Employee implements Serializable, Cloneable{
 
     public String getFullName(){
         return getLastName() + " " + getFirstName();
+    }
+
+    public void addAllowance(final EmployeeAllowance employeeAllowance){
+        if(this.employeeAllowances == null) {
+            employeeAllowances = new TreeSet<>();
+        }
+        employeeAllowances.add(employeeAllowance);
+    }
+
+    public void removeAllowance(final EmployeeAllowance employeeAllowance){
+        employeeAllowances.remove(employeeAllowance);
     }
     //endregion
 }

@@ -1,11 +1,9 @@
 package com.sample.ZKSpringJPA.viewmodel.employment;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
-import com.sample.ZKSpringJPA.entity.employment.Branch;
 import com.sample.ZKSpringJPA.entity.employment.DayOff;
-import com.sample.ZKSpringJPA.services.employment.BranchService;
 import com.sample.ZKSpringJPA.services.employment.DayOffService;
-import com.sample.ZKSpringJPA.utils.StandardDateTime;
+import com.sample.ZKSpringJPA.utils.StandardFormat;
 
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
@@ -43,7 +41,7 @@ public class DayoffListVM {
     private DayOff dayOff;
 
     @Getter
-    private final String standardDateFormat = StandardDateTime.getStandardDateFormat();
+    private final String standardDateFormat = StandardFormat.getStandardDateFormat();
 
     //endregion
 

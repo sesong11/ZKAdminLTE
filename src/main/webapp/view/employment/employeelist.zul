@@ -32,13 +32,6 @@
                         </n:div>
                         <!-- /.box-header -->
                         <n:div class="box-body">
-                            <n:div class="mailbox-controls">
-                                <!-- Check all button -->
-                                <n:button type="button" class="btn btn-default btn-sm checkbox-toggle"><n:i class="fa fa-square-o"></n:i>
-                                </n:button>
-                                <n:a href="?m=employee-editor" class="btn btn-default btn-sm"><n:i class="fa fa-plus"></n:i></n:a>
-                                <!-- /.pull-right -->
-                            </n:div>
                             <grid height="450px" model="@load(vm.employees)" sclass="table table-bordered table-responsive mailbox-messages"
                                   emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" >
                                 <columns>
@@ -75,7 +68,7 @@
 
                         <!-- /.table-responsive -->
                         <n:div class="box-footer clearfix">
-
+                            <n:a href="?m=employee-editor" class="btn btn-sm btn-info btn-sm pull-right"><n:i class="fa fa-plus"></n:i> Add New</n:a>
                         </n:div>
                         <!-- /.box-footer -->
                     </n:div>

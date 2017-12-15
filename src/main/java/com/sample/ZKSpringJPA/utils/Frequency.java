@@ -2,7 +2,6 @@ package com.sample.ZKSpringJPA.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 @AllArgsConstructor()
 public enum Frequency {
@@ -13,13 +12,13 @@ public enum Frequency {
     MONTHLY("Monthly", new AccrualMonthly()),
     YEARLY("Yearly", new AccrualYearlyRenew());
 
-    @Getter @Setter
+    @Getter
     private String name;
 
     public double getValue(){
         return accrualFormula.getValue();
     }
 
-    @Setter @Getter
+    @Getter
     private AccrualFormula accrualFormula;
 }

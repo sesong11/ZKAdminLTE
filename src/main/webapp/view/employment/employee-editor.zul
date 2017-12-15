@@ -135,7 +135,7 @@
                         </n:ul>
                         <n:div class="tab-content">
                             <n:div class="tab-pane active" id="history">
-                                <grid zclass="none" height="450px" model="@load(vm.employee.employmentHistories)" sclass="table table-bordered table-responsive mailbox-messages"
+                                <grid zclass="none" height="auto" model="@load(vm.employee.employmentHistories)" sclass="table table-bordered table-responsive mailbox-messages"
                                       emptyMessage="Nothing in Inbox.">
                                     <columns zclass="none">
                                         <column label="Id" zclass="none" width="50px"/>
@@ -162,12 +162,44 @@
                                     </template>
                                 </grid>
                                 <n:div class="box-footer clearfix">
-                                    <button sclass="btn btn-sm btn-info btn-sm pull-right" onClick="@command('addHistory', window=modalDialog)">Add History</button>
+                                    <button sclass="btn btn-sm btn-info btn-sm pull-right"
+                                            onClick="@command('addHistory')">Add History</button>
                                 </n:div>
                             </n:div>
                             <!-- /.tab-pane -->
                             <n:div class="tab-pane" id="allowance">
-
+                                <grid zclass="none" height="auto" model="@load(vm.employee.employeeAllowances)" sclass="table table-bordered table-responsive mailbox-messages"
+                                      emptyMessage="Nothing in Inbox.">
+                                    <columns sizable="true" zclass="none">
+                                        <column zclass="none" label="Id" width="50px" />
+                                        <column zclass="none" label="Active Date" width="100px"/>
+                                        <column zclass="none" label="Allowance Type" />
+                                        <column zclass="none" label="Allowance Balance" width="100px"/>
+                                        <column zclass="none" label="Accrual Balance" width="100px"/>
+                                        <column zclass="none" label="Existing Balance" width="100px"/>
+                                        <column zclass="none" label="Used Balance" width="100px"/>
+                                        <column zclass="none" label="" width="80px" />
+                                    </columns>
+                                    <template name="model">
+                                        <row onClick="@command('selectAllowance', item=each)" zclass="none">
+                                            <label zclass="none" value="@load(each.id)" />
+                                            <label zclass="none" value="@load(each.activeDate) @converter('formatedDate', format=vm.standardDateFormat)" />
+                                            <label zclass="none" value="@load(each.allowance.name)" />
+                                            <label zclass="none" value="@load(each.allowanceBalance)" />
+                                            <label zclass="none" value="@load(each.accrualBalance)" />
+                                            <label zclass="none" value="@load(each.existingBalance)" />
+                                            <label zclass="none" value="@load(each.usedBalance)" />
+                                            <div zclass="none">
+                                                <a onClick="@command('selectAllowance', item = each)" sclass="pull-right text-blue margin"><n:i class="fa fa-edit"/></a>
+                                                <a onClick="@command('deleteAllowance', item = each)" sclass="pull-right text-red margin"><n:i class="fa fa-trash"/></a>
+                                            </div>
+                                        </row>
+                                    </template>
+                                </grid>
+                                <n:div class="box-footer clearfix">
+                                    <button sclass="btn btn-sm btn-info btn-sm pull-right"
+                                            onClick="@command('addAllowance')">Add Allowance</button>
+                                </n:div>
                             </n:div>
                             <!-- /.tab-pane -->
 

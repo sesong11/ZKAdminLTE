@@ -2,7 +2,7 @@ package com.sample.ZKSpringJPA.viewmodel.employment;
 
 import com.sample.ZKSpringJPA.entity.employment.*;
 import com.sample.ZKSpringJPA.services.employment.*;
-import com.sample.ZKSpringJPA.utils.StandardDateTime;
+import com.sample.ZKSpringJPA.utils.StandardFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.BindUtils;
@@ -15,7 +15,6 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -61,7 +60,7 @@ public class EmploymentHistoryVM {
     private List<Employee> supervisors;
 
     @Getter
-    private final String standardDateFormat = StandardDateTime.getStandardDateFormat();
+    private final String standardDateFormat = StandardFormat.getStandardDateFormat();
     //endregion
 
     //region > Constructor

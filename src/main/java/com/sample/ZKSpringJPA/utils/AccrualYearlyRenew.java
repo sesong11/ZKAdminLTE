@@ -23,7 +23,7 @@ public @Data class AccrualYearlyRenew implements AccrualFormula {
         }
         switch (allowance.getFrequencyAccrual()) {
         case YEARLY:
-            balance = allowance.getAccrualBalance() / allowance.getNFrequencyAccrual();
+            balance = allowance.getAccrualBalance() / allowance.getNoFrequencyAccrual();
             break;
         case MONTHLY:
             Calendar start = Calendar.getInstance();
@@ -79,11 +79,11 @@ public @Data class AccrualYearlyRenew implements AccrualFormula {
         switch (allowance.getFrequencyRenew()) {
         case YEARLY:
             start.set(Calendar.DAY_OF_YEAR, 1);
-            start.set(Calendar.YEAR, start.get(Calendar.YEAR)-allowance.getNFrequencyRenew()+1);
+            start.set(Calendar.YEAR, start.get(Calendar.YEAR)-allowance.getNoFrequencyRenew()+1);
             break;
         case MONTHLY:
             start.set(Calendar.DAY_OF_MONTH, 1);
-            start.set(Calendar.MONTH, start.get(Calendar.MONTH)-allowance.getNFrequencyRenew()+1);
+            start.set(Calendar.MONTH, start.get(Calendar.MONTH)-allowance.getNoFrequencyRenew()+1);
             break;
         }
 
@@ -101,17 +101,17 @@ public @Data class AccrualYearlyRenew implements AccrualFormula {
         switch (allowance.getFrequencyRenew()) {
         case YEARLY:
             start.set(Calendar.DAY_OF_YEAR, 1);
-            start.set(Calendar.YEAR, start.get(Calendar.YEAR)-allowance.getNFrequencyRenew()+1);
+            start.set(Calendar.YEAR, start.get(Calendar.YEAR)-allowance.getNoFrequencyRenew()+1);
             end.set(Calendar.DAY_OF_YEAR, Calculator.daysOfYear(end));
             break;
         case MONTHLY:
             start.set(Calendar.DAY_OF_MONTH, 1);
-            start.set(Calendar.MONTH, start.get(Calendar.MONTH)-allowance.getNFrequencyRenew()+1);
+            start.set(Calendar.MONTH, start.get(Calendar.MONTH)-allowance.getNoFrequencyRenew()+1);
             end.set(Calendar.DAY_OF_MONTH, Calculator.daysOfMonth(end));
             break;
         case WEEKLY:
             start.set(Calendar.DAY_OF_WEEK, 1);
-            start.set(Calendar.WEEK_OF_MONTH, start.get(Calendar.WEEK_OF_MONTH)-allowance.getNFrequencyRenew()+1);
+            start.set(Calendar.WEEK_OF_MONTH, start.get(Calendar.WEEK_OF_MONTH)-allowance.getNoFrequencyRenew()+1);
             end.set(Calendar.DAY_OF_WEEK, 7);
             break;
         }

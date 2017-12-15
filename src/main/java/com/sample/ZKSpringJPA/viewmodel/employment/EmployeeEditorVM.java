@@ -4,12 +4,14 @@ import com.google.javascript.jscomp.parsing.parser.util.format.SimpleFormat;
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.entity.employment.Employee;
+import com.sample.ZKSpringJPA.entity.employment.EmployeeAllowance;
 import com.sample.ZKSpringJPA.entity.employment.EmploymentHistory;
 import com.sample.ZKSpringJPA.entity.employment.Gender;
 import com.sample.ZKSpringJPA.services.authentication.UserService;
+import com.sample.ZKSpringJPA.services.employment.EmployeeAllowanceService;
 import com.sample.ZKSpringJPA.services.employment.EmployeeHistoryService;
 import com.sample.ZKSpringJPA.services.employment.EmployeeService;
-import com.sample.ZKSpringJPA.utils.StandardDateTime;
+import com.sample.ZKSpringJPA.utils.StandardFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,7 +24,6 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,6 +43,9 @@ public class EmployeeEditorVM {
     private EmployeeHistoryService employeeHistoryService;
 
     @WireVariable
+    private EmployeeAllowanceService employeeAllowanceService;
+
+    @WireVariable
     private UserService userService;
 
     //endregion
@@ -57,7 +61,7 @@ public class EmployeeEditorVM {
     private Employee employee;
 
     @Getter
-    private final String standardDateFormat = StandardDateTime.getStandardDateFormat();
+    private final String standardDateFormat = StandardFormat.getStandardDateFormat();
 
     //endregion
 
@@ -134,6 +138,33 @@ public class EmployeeEditorVM {
         employee.setUser(user);
         update();
     }
+
+    //region >> Allowance
+    @Command
+    public void addAllowance(){
+        final HashMap<String, Object> map = new HashMap<>();
+        map.put("employee", employee);
+        map.put("employeeAllowance", new EmployeeAllowance());
+        Window window = (Window) Executions.createComponents(
+                "/view/employment/employee-allowance.zul", null, map);
+        window.doModal();
+    }
+    @Command
+    public void selectAllowance(@BindingParam("item") final EmployeeAllowance employeeAllowance){
+        final HashMap<String, Object> map = new HashMap<>();
+        map.put("employee", employee);
+        map.put("employeeAllowance", employeeAllowance);
+        Window window = (Window) Executions.createComponents(
+                "/view/employment/employee-allowance.zul", null, map);
+        window.doModal();
+    }
+    @Command
+    @NotifyChange({"employee"})
+    public void deleteAllowance(@BindingParam("item") final EmployeeAllowance employeeAllowance){
+        employeeAllowanceService.delete(employeeAllowance);
+        employee.getEmployeeAllowances().remove(employeeAllowance);
+    }
+    //endregion
     //endregion
 
 }

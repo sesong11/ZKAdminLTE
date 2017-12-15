@@ -26,7 +26,7 @@ public @Data class AccrualNeverRenew implements AccrualFormula {
             break;
         default:
             int dayBetween = (int)Calculator.daysBetween(startDate.toDate(), endDate.toDate());
-            balance = allowance.getAccrualBalance() * (int)(dayBetween/(allowance.getFrequencyAccrual().getValue()*allowance.getNFrequencyAccrual()));
+            balance = allowance.getAccrualBalance() * (int)(dayBetween/(allowance.getFrequencyAccrual().getValue()*allowance.getNoFrequencyAccrual()));
             break;
         }
         LocalDate now = LocalDate.now();

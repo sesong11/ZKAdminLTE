@@ -46,17 +46,17 @@ public class Allowance {
     @Getter @Setter
     private Frequency frequencyAccrual;
 
-    @Column(name = "n_frequency_accrual")
+    @Column(name = "no_frequency_accrual")
     @Getter @Setter
-    private double nFrequencyAccrual;
+    private int noFrequencyAccrual;
 
     @Column(name = "frequency_renew")
     @Getter @Setter
     private Frequency frequencyRenew;
 
-    @Column(name = "n_frequency_renew")
+    @Column(name = "no_frequency_renew")
     @Getter @Setter
-    private int nFrequencyRenew;
+    private int noFrequencyRenew;
 
     @Column(name = "accrual_balance")
     @Getter @Setter
