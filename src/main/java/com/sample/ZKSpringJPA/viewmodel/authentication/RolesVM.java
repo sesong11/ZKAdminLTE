@@ -29,12 +29,16 @@ import java.util.*;
         menuIcon = "unlock"
 )
 public class RolesVM {
+
+    //region > Inject Services
     @WireVariable
     private RoleService roleService;
 
     @WireVariable
-    RolePermissionService rolePermissionService;
+    private RolePermissionService rolePermissionService;
+    //endregion
 
+    //region > Fields
     @Getter @Setter
     private ListModelList<RolePermission> permissions;
 
@@ -47,13 +51,18 @@ public class RolesVM {
     @Getter @Setter
     private ListModelList<Feature> allFeatures;
 
+    //endregion
+
+    //region > Constructor
     @Init
     public void init() throws ClassNotFoundException {
         roles = new ListModelList<>(roleService.findAll());
         role = new Role();
         loadPermission();
     }
+    //endregion
 
+    //region > Command
     @Command
     @NotifyChange({"role"})
     public void create(@BindingParam("name") final String name) {
@@ -178,4 +187,6 @@ public class RolesVM {
         }
         return null;
     }
+
+    //endregion
 }

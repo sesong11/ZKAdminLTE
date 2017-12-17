@@ -1,6 +1,7 @@
 package com.sample.ZKSpringJPA.viewmodel.authentication;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
@@ -32,22 +33,39 @@ import org.zkoss.zul.ListModelList;
 )
 public class UserVM {
 
-    @WireVariable UserService userService;
-    @WireVariable RoleService roleService;
+    //region > Inject Service
+    @WireVariable
+    private UserService userService;
+    @WireVariable
+    private RoleService roleService;
+    //endregion
 
+    //region > Fields
     @Getter @Setter
     private ListModelList<User> users;
 
     @Getter @Setter
     private User currentUser;
 
+    @Getter
+    private List<Role> roles;
+
+    @Getter @Setter
+    private Role role;
+    //endregion
+
+    //region > Constructor
     @Init
     public void UserVM() {
         users = new ListModelList<>(userService.allUser());
+        roles = roleService.findAll();
         if(currentUser == null){
             currentUser = new User();
         }
     }
+    //endregion
+
+    //region > Command
 
     @Command
     @NotifyChange({"currentUser"})
@@ -106,14 +124,12 @@ public class UserVM {
 
     @Command
     @NotifyChange({"currentUser"})
-    public void addRole(@BindingParam("roleName") final String roleName){
-        Role role = new Role();
-        role.setName(roleName);
-        role = roleService.create(role);
+    public void addRole(){
         if(currentUser.getRoles()==null){
             currentUser.setRoles(new HashSet<>());
         }
         currentUser.getRoles().add(role);
         userService.updateUser(currentUser);
     }
+    //endregion
 }

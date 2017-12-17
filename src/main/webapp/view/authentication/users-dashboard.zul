@@ -133,14 +133,18 @@
                                     <column label="Name" zclass="none"/>
                                 </columns>
                                 <template name="model">
-                                    <row zclass="none" onClick="@command('select', role=each)">
+                                    <row zclass="none">
                                         <label value="@load(each.id)" />
                                         <label value="@load(each.name)" />
                                     </row>
                                 </template>
                             </grid>
-                            <textbox value="" id="txtRoleName" />
-                            <button onClick="@command('addRole', roleName = txtRoleName.value)" label="Add Role"></button>
+                            <combobox id="cbRole" model="@load(vm.roles)" selectedItem="@bind(vm.role)" value="@load(vm.role.name)">
+                                <template name="model">
+                                    <comboitem label="@load(each.name)"/>
+                                </template>
+                            </combobox>
+                            <button onClick="@command('addRole')" label="Add Role"></button>
                         </n:div>
                     </n:div>
                 </n:div>
