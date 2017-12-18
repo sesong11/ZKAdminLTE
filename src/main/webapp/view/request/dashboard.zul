@@ -1,0 +1,48 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.request.RequestMainVM')"
+         validationMessages="@id('vmsgs')">
+
+
+        <!-- Content Header (Page header) -->
+        <n:section class="content-header">
+            <n:h1>
+                Request Dashboard
+                <n:small></n:small>
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Request</n:li>
+                <n:li class="active">Request Dashboard</n:li>
+            </n:ol>
+        </n:section>
+        <!-- Main content -->
+        <n:section class="content">
+            <!-- Main row -->
+            <n:div class="row">
+                <div children="@load(vm.requestForms)">
+                    <template name="children">
+                        <n:div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <n:div class="small-box bg-aqua">
+                                <n:div class="inner">
+                                    <n:h3>${each.category}</n:h3>
+
+                                    <n:p>${each.name}</n:p>
+                                </n:div>
+                                <n:div class="icon">
+                                    <n:i class="ion ion-${each.icon}"></n:i>
+                                </n:div>
+                                <n:a href="?m=${each.uuid}"
+                                        zclass="none" sclass="small-box-footer">New Request
+                                    <n:i class="fa fa-arrow-circle-right"></n:i>
+                                </n:a>
+                            </n:div>
+                        </n:div>
+                    </template>
+                </div>
+            </n:div>
+        </n:section>
+        <!-- /.content -->
+    </div>
+</zk>

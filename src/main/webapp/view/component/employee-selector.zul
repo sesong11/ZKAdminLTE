@@ -1,0 +1,28 @@
+<zk xmlns:n="native">
+    <window id="modalDialog" title="Employees" border="normal" width="640px"
+            position="center,center" closable="true"
+            viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.component.EmployeeSelectorVM')"
+            onCancel="@command('closeThis')">
+        <grid zclass="none" model="@load(vm.employees)" sclass="table table-bordered table-responsive mailbox-messages"
+              emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" >
+            <columns zclass="none">
+                <column zclass="none" label="Code" width="80px"/>
+                <column zclass="none" label="Full Name" width="150px"/>
+                <column zclass="none" label="Gender" width="80px"/>
+                <column zclass="none" label="Branch" width="150px"/>
+                <column zclass="none" label="Department" width="150px"/>
+                <column zclass="none" label="Designation" width="150px"/>
+            </columns>
+            <template name="model" >
+                <row zclass="none">
+                    <label zclass="none" value="@load(each.code)" />
+                    <label zclass="none" value="@load(each.fullName)" />
+                    <label zclass="none" value="@load(each.gender.name)" />
+                    <label zclass="none" value="@load(each.branch.name)" />
+                    <label zclass="none" value="@load(each.department.name)" />
+                    <label zclass="none" value="@load(each.designation.name)" />
+                </row>
+            </template>
+        </grid>
+    </window>
+</zk>

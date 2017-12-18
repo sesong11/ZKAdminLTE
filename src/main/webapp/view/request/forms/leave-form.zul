@@ -1,0 +1,234 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.request.leaveform.LeaveFormVM')"
+         validationMessages="@id('vmsgs')">
+
+        <n:section class="content-header">
+            <n:h1>
+                Leave Request
+                <n:small>New Request</n:small>
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Request</n:li>
+                <n:li class="active">Leave Request</n:li>
+            </n:ol>
+        </n:section>
+
+        <n:section class="content">
+            <n:div class="mailbox-controls">
+                <n:div class="btn-group">
+                    <n:button type="button" class="btn btn-info btn-sm"><n:i class="fa fa-save"></n:i> Submit Request</n:button>
+                </n:div>
+            </n:div>
+            <n:div class="row">
+                <n:div class="col-md-8">
+                    <include src="/view/request/forms/form-header.zul"/>
+
+                    <n:div class="box box-default">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Request Detail</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i></n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body" style="">
+
+                            <n:div class="row">
+                                <n:div class="col-md-6">
+                                    <n:div class="form-group">
+                                        <n:label class="col-sm-4 control-label">Leaving Date</n:label>
+                                        <n:div class="col-sm-8">
+                                            <datebox format="dd-MM-yyyy" placeholder="" />
+                                        </n:div>
+                                        <n:div class="clearfix"></n:div>
+                                    </n:div>
+                                    <n:div class="form-group">
+                                        <n:label class="col-sm-4 control-label">Total No. of Days for leave</n:label>
+                                        <n:div class="col-sm-8">
+                                            <doublebox sclass="form-control" placeholder="" width="100%"/>
+                                        </n:div>
+                                        <n:div class="clearfix"></n:div>
+                                    </n:div>
+                                </n:div>
+                                <n:div class="col-md-6">
+                                    <n:div class="form-group">
+                                        <n:label class="col-sm-4 control-label">Leaving Date</n:label>
+                                        <n:div class="col-sm-8">
+                                            <datebox format="dd-MM-yyyy" placeholder="" />
+                                        </n:div>
+                                    </n:div>
+                                </n:div>
+                                <n:div class="col-md-12">
+                                    <n:div class="form-group">
+                                        <n:label>REASON FOR APPLICATION ( Attach supporting documents where necessary)</n:label>
+                                        <textbox multiline="true" rows="2" sclass="form-control"
+                                                 placeholder="" />
+                                    </n:div>
+                                    <n:div class="form-group">
+                                        <n:label>ADDRESS DURING LEAVE OF ABSENCE / TELEPHONE CONTACT</n:label>
+                                        <textbox multiline="true" rows="2" sclass="form-control"
+                                                 placeholder="" />
+                                    </n:div>
+                                    <n:div class="checkbox" style="margin-left: 20px">
+                                        <checkbox label="I understand that I may be recalled from my leave by Management to attend to any exigencies of duties "/>
+                                    </n:div>
+                                </n:div>
+                            </n:div>
+                        </n:div>
+                    </n:div>
+
+                    <n:div class="box box-default">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Request Approval</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i></n:button>
+                            </n:div>
+                        </n:div>
+
+                        <n:div class="box-body" style="">
+                            <n:div class="col-md-6">
+                                <n:div class="form-group">
+                                    <n:label class="col-sm-4 control-label">Relief</n:label>
+                                    <n:div class="col-sm-8">
+                                        <n:div class="input-group input-group-sm">
+                                            <textbox type="text" sclass="form-control" readonly="true"/>
+                                            <n:span class="input-group-btn">
+                                                <a sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
+                                            </n:span>
+                                        </n:div>
+                                    </n:div>
+                                    <n:div class="clearfix"></n:div>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label class="col-sm-4 control-label">Department Manager</n:label>
+                                    <n:div class="col-sm-8">
+                                        <n:div class="input-group input-group-sm">
+                                            <textbox type="text" sclass="form-control" readonly="true"/>
+                                            <n:span class="input-group-btn">
+                                                <a sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
+                                            </n:span>
+                                        </n:div>
+                                    </n:div>
+                                    <n:div class="clearfix"></n:div>
+                                </n:div>
+                            </n:div>
+                            <n:div class="col-md-6">
+                                <n:div class="form-group">
+                                    <n:label class="col-sm-4 control-label">Immediate Supervisor</n:label>
+                                    <n:div class="col-sm-8">
+                                        <n:div class="input-group input-group-sm">
+                                            <textbox type="text" sclass="form-control" readonly="true"/>
+                                            <n:span class="input-group-btn">
+                                                <a sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
+                                            </n:span>
+                                        </n:div>
+                                    </n:div>
+                                    <n:div class="clearfix"></n:div>
+                                </n:div>
+                            </n:div>
+                        <n:div class="row">
+                            <n:div class="col-md-6">
+                            </n:div>
+                        </n:div>
+                    </n:div>
+                    </n:div>
+                </n:div>
+                <n:div class="col-md-4">
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Relief</n:h3>
+                            <n:div class="box-tools pull-right">
+                                <a onClick="@command('click')">
+                                    <n:span data-toggle="tooltip" title="" class="badge bg-blue" data-original-title="Approve">
+                                        <n:i class="fa fa-check"></n:i> Approve</n:span>
+                                </a>
+                                <a onClick="@command('click')">
+                                    <n:span data-toggle="tooltip" title="" class="badge bg-red" data-original-title="Approve">
+                                        <n:i class="fa fa-close"></n:i> Reject</n:span>
+                                </a>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+
+                            <n:div class="box-body">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-left text-primary">Alexander Pierce</n:span>
+                                    <n:span class="direct-chat-name pull-left text-muted"><n:code>IT Officer, Project and Continuity</n:code></n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="img/profile-pictures.png" alt="message user image" />
+                                <!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text bg-default" style="background-color: #FFFFFF">
+                                    <textbox multiline="true" rows="2" style="resize: vertical; border: none"
+                                             sclass="form-control" placeholder="Comment"/>
+                                </n:div>
+                            </n:div>
+
+                    </n:div>
+                    <n:div class="box box-danger">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Approve</n:h3>
+                            <n:div class="box-tools pull-right">
+                                <n:span data-toggle="tooltip" title="" class="badge bg-red" data-original-title="Approve">
+                                    Rejected</n:span>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+
+                            <n:div class="box-body">
+                                <n:div class="direct-chat-msg">
+                                    <n:div class="direct-chat-info clearfix">
+                                        <n:span class="direct-chat-name pull-left text-primary">Alexander Pierce</n:span>
+                                        <n:span class="direct-chat-name pull-left text-muted"><n:code>Project and Continuity</n:code></n:span>
+                                        <n:span class="direct-chat-timestamp pull-right">23-07-2017 5:37 pm</n:span>
+                                    </n:div>
+                                    <!-- /.direct-chat-info -->
+                                    <n:img class="direct-chat-img" src="img/profile-pictures.png" alt="message user image" />
+                                    <!-- /.direct-chat-img -->
+                                    <n:div class="direct-chat-text bg-red">
+                                        Working with AdminLTE on a great new app! Wanna join?
+                                    </n:div>
+                                    <!-- /.direct-chat-text -->
+                                </n:div>
+                            </n:div>
+
+                    </n:div>
+                    <n:div class="box box-success">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Authorize</n:h3>
+                            <n:div class="box-tools pull-right">
+                                <n:span data-toggle="tooltip" title="" class="badge bg-green" data-original-title="Approve">
+                                    Approved</n:span>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <n:div class="box-body">
+                            <n:div class="direct-chat-msg">
+                                <n:div class="direct-chat-info clearfix">
+                                    <n:span class="direct-chat-name pull-left text-primary">Alexander Pierce</n:span>
+                                    <n:span class="direct-chat-name pull-left text-muted"><n:code>Project and Continuity</n:code></n:span>
+                                    <n:span class="direct-chat-timestamp pull-right">23-07-2017 5:37 pm</n:span>
+                                </n:div>
+                                <!-- /.direct-chat-info -->
+                                <n:img class="direct-chat-img" src="img/profile-pictures.png" alt="message user image" />
+                                <!-- /.direct-chat-img -->
+                                <n:div class="direct-chat-text bg-green">
+                                    Working with AdminLTE on a great new app! Wanna join?
+                                </n:div>
+                                <!-- /.direct-chat-text -->
+                            </n:div>
+                        </n:div>
+                    </n:div>
+                </n:div>
+            </n:div>
+        </n:section>
+
+    </div>
+</zk>
