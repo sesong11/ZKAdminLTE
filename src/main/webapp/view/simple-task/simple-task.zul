@@ -1,0 +1,12 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.SimpleTask.SimpleTaskVM')"
+         validationMessages="@id('vmsgs')">
+        <n:h1>Simple Task</n:h1>
+        <combobox model="@bind(vm.scheduleTypes)" onChange="@command('changeSchedule', item = self.selectedItem.value)">
+            <template name="item">
+                <listitem label="${each.name}" />
+            </template>
+        </combobox>
+    </div>
+</zk>

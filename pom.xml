@@ -8,6 +8,7 @@
 		<zk.version>8.5.0</zk.version>
 		<spring.version>5.0.0.RELEASE</spring.version>
 		<hibernate.version>5.0.0.Final</hibernate.version>
+		<quartz.version>2.2.3</quartz.version>
 		<commons-io>2.6</commons-io>
 		<commons-logging>1.1.1</commons-logging>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
@@ -147,6 +148,16 @@
 			<version>2.9.9</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz-jobs</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
 
 	</dependencies>
 	<build>
