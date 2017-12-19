@@ -24,6 +24,7 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 
@@ -130,13 +131,26 @@ public class EmployeeEditorVM {
         User user = new User();
         user.setEnabled(true);
         user.setUsername(employee.getLastName().toLowerCase()+"_"+employee.getFirstName().toLowerCase());
-        String password = SimpleFormat.format("ddMMyy", employee.getDob());
+        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy");
+        String password = formatter.format(employee.getDob());
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(password);
         user.setPassword(encodedPassword);
         user = userService.addUser(user);
         employee.setUser(user);
         update();
+    }
+
+    @Command
+    public void resetPassword(){
+        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy");
+        String password = formatter.format(employee.getDob());
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(password);
+        User user = employee.getUser();
+        user.setPassword(encodedPassword);
+        System.out.println(password + ": "+  encodedPassword);
+        userService.updateUser(user);
     }
 
     //region >> Allowance
@@ -164,6 +178,7 @@ public class EmployeeEditorVM {
         employeeAllowanceService.delete(employeeAllowance);
         employee.getEmployeeAllowances().remove(employeeAllowance);
     }
+
     //endregion
     //endregion
 

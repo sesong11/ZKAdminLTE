@@ -114,6 +114,9 @@
                                 <div visible="@load(vm.employee.user eq null)">
                                     <button onClick="@command('createUser')" label="Create User" />
                                 </div>
+                                <div visible="@load(vm.employee.user ne null)">
+                                    <button onClick="@command('resetPassword')" label="Reset Password"/>
+                                </div>
                             </n:div>
                             <!-- /.tab-pane -->
                         </n:div>
