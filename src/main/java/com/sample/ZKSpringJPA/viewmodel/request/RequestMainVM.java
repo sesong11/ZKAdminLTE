@@ -1,7 +1,7 @@
 package com.sample.ZKSpringJPA.viewmodel.request;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
-import com.sample.ZKSpringJPA.entity.request.RequestForm;
+import com.sample.ZKSpringJPA.entity.request.FormType;
 import lombok.Getter;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -16,7 +16,7 @@ import java.util.List;
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
         view = "/view/request/dashboard.zul",
-        uuid = "request-dashboard",
+        uuid = "1request-dashboard",
         menuOrder = "3.1",
         displayName = "Dashboard",
         menuIcon = "tag"
@@ -29,7 +29,7 @@ public class RequestMainVM {
 
     //region > Fields
     @Getter
-    public final List<RequestForm> requestForms = new ListModelList<>(RequestForm.values());
+    public final List<FormType> requestForms = new ListModelList<>(FormType.values());
     //endregion
 
     //region > Constructor
@@ -41,7 +41,7 @@ public class RequestMainVM {
 
     //region > Commands
     @Command
-    public void newRequest(@BindingParam("form") final RequestForm form){
+    public void newRequest(@BindingParam("form") final FormType form){
         System.out.println("Form Request: "+form.getName());
     }
     //endregion

@@ -1,0 +1,42 @@
+package com.sample.ZKSpringJPA.services.request.impl;
+
+import com.sample.ZKSpringJPA.entity.request.Request;
+import com.sample.ZKSpringJPA.services.request.RequestService;
+import com.sample.ZKSpringJPA.services.request.dao.RequestDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service("requestService")
+public class RequestServiceImpl implements RequestService {
+
+    @Autowired
+    RequestDao requestDao;
+
+    @Override
+    public List<Request> findAll() {
+        return requestDao.queryAll();
+    }
+
+    @Override
+    public Request find(Long id) {
+        return (Request) requestDao.find(id, Request.class);
+    }
+
+    @Override
+    public Request create(Request request) {
+        return (Request) requestDao.create(request);
+    }
+
+    @Override
+    public Request update(Request request) {
+        return (Request) requestDao.update(request);
+    }
+
+    @Override
+    public void delete(Request request) {
+        requestDao.delete(request);
+    }
+}

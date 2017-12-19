@@ -2,7 +2,6 @@
     <window id="modalDialog" title="Employee History" border="normal" width="460px"
             position="center,center" closable="true"
             viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.EmploymentHistoryVM')"
-            action="show: slideDown;hide: slideUp"
             onCancel="@command('closeThis')">
         <n:div class="form-group">
             <n:label>Type</n:label>

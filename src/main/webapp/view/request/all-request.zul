@@ -1,0 +1,55 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.request.AllRequestVM')">
+        <n:section class="content-header">
+            <n:h1>
+                All Requests
+                <n:small></n:small>
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">All Requests</n:li>
+            </n:ol>
+        </n:section>
+        <n:section class="content">
+            <n:div class="row">
+
+                <n:div class="col-md-12">
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">All Requests</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <n:div class="box-body">
+                            <listbox model="@load(vm.requests)" sclass="table table-bordered table-responsive mailbox-messages"
+                                  emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" >
+                                <listhead>
+                                    <listheader label="Id" width="80px"/>
+                                    <listheader label="Request Form" width="150px"/>
+                                    <listheader label="Priority" width="120px"/>
+                                    <listheader label="Request Date" width="160px"/>
+                                    <listheader label="" />
+                                </listhead>
+                                <template name="model">
+                                    <listitem>
+                                        <listcell label="@load(each.id)" />
+                                        <listcell label="@load(each.formType.name)" />
+                                        <listcell label="@load(each.priority.name)" />
+                                        <listcell label="@load(each.requestDate) @converter('formattedDate', format = vm.standardDateTimeFormat)" />
+                                        <listcell>
+                                            <a onClick="@command('open', item = each)" sclass="pull-right text-blue"><n:i class="fa fa-edit"></n:i></a>
+                                        </listcell>
+                                    </listitem>
+                                </template>
+                            </listbox>
+                        </n:div>
+                    </n:div>
+                </n:div>
+            </n:div>
+        </n:section>
+    </div>
+</zk>

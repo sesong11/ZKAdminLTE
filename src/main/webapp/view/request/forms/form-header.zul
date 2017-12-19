@@ -29,7 +29,7 @@
                         <n:label class="col-sm-4 control-label">Request For</n:label>
                         <n:div class="col-sm-8">
                             <n:div class="input-group input-group-sm">
-                                <textbox type="text" sclass="form-control" readonly="true"/>
+                                <textbox type="text" sclass="form-control" readonly="true" value="@load(vm.form.request.requestFor.fullName)"/>
                                 <n:span class="input-group-btn">
                                     <a sclass="btn btn-info btn-flat" onClick="@command('selectRequestFor')">
                                         <n:i class="fa fa-user"></n:i></a>
@@ -57,7 +57,12 @@
                     <n:div class="form-group">
                         <n:label class="col-sm-4 control-label">Request Priority</n:label>
                         <n:div class="col-sm-8">
-                            <textbox sclass="form-control" placeholder="" readonly="true"/>
+                            <combobox model="@load(vm.requestPriorities)" width="100%" id="cbLeaveType"
+                                      selectedItem="@bind(vm.form.request.priority)" value="@load(vm.form.request.priority.name)">
+                                <template name="model">
+                                    <comboitem label="@load(each.name)"/>
+                                </template>
+                            </combobox>
                         </n:div>
                         <n:div class="clearfix"></n:div>
                     </n:div>
