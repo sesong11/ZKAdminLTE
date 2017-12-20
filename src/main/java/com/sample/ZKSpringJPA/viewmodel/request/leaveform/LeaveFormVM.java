@@ -2,10 +2,9 @@ package com.sample.ZKSpringJPA.viewmodel.request.leaveform;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.employment.Employee;
-import com.sample.ZKSpringJPA.entity.request.FormType;
-import com.sample.ZKSpringJPA.entity.request.Request;
-import com.sample.ZKSpringJPA.entity.request.RequestPriority;
-import com.sample.ZKSpringJPA.entity.request.RequestStatus;
+import com.sample.ZKSpringJPA.entity.request.*;
+import com.sample.ZKSpringJPA.entity.request.approval.Approval;
+import com.sample.ZKSpringJPA.entity.request.approval.ApprovalType;
 import com.sample.ZKSpringJPA.entity.request.leaveform.LeaveForm;
 import com.sample.ZKSpringJPA.entity.request.leaveform.LeaveType;
 import com.sample.ZKSpringJPA.services.employment.EmployeeService;
@@ -79,7 +78,8 @@ public class LeaveFormVM {
         String sid = Executions.getCurrent().getParameter("id");
         if(sid==null) {
             form = new LeaveForm();
-            form.setRequest(new Request());
+            Request request = new Request();
+            form.setRequest(request);
             form.getRequest().setFormType(FormType.LEAVE_REQUEST);
         } else {
             Long id = Long.parseLong(sid);

@@ -31,17 +31,17 @@
                                 <n:div class="form-group">
                                     <n:label>Text</n:label>
                                     <textbox sclass="form-control" placeholder="Code"
-                                    value="@bind(vm.employee.code)"/>
+                                             value="@bind(vm.employee.code)"/>
                                 </n:div>
                                 <n:div class="form-group">
                                     <n:label>First Name</n:label>
                                     <textbox sclass="form-control" placeholder="First Name"
-                                    value="@bind(vm.employee.firstName)"/>
+                                             value="@bind(vm.employee.firstName)"/>
                                 </n:div>
                                 <n:div class="form-group">
                                     <n:label>Last Name</n:label>
                                     <textbox sclass="form-control" placeholder="Last Name"
-                                    value="@bind(vm.employee.lastName)"/>
+                                             value="@bind(vm.employee.lastName)"/>
                                 </n:div>
                                 <n:div class="form-group">
                                     <n:label>Gender</n:label> <n:br />
@@ -54,7 +54,7 @@
                                 <n:div class="form-group">
                                     <n:label>Date of Birth</n:label><n:br/>
                                     <datebox width="100%" format="dd-MM-yyyy"
-                                    value="@bind(vm.employee.dob)"/>
+                                             value="@bind(vm.employee.dob)"/>
                                 </n:div>
                                 <n:div class="form-group">
                                     <n:label>Note</n:label><n:br/>
@@ -113,6 +113,9 @@
                                 </div>
                                 <div visible="@load(vm.employee.user eq null)">
                                     <button onClick="@command('createUser')" label="Create User" />
+                                </div>
+                                <div visible="@load(vm.employee.user ne null)">
+                                    <button onClick="@command('resetPassword')" label="Reset Password"/>
                                 </div>
                             </n:div>
                             <!-- /.tab-pane -->

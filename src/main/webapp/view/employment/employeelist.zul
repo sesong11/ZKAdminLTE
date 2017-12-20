@@ -32,35 +32,35 @@
                         </n:div>
                         <!-- /.box-header -->
                         <n:div class="box-body">
-                            <grid height="450px" model="@load(vm.employees)" sclass="table table-bordered table-responsive mailbox-messages"
-                                  emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" >
-                                <columns>
-                                    <column label="Code" width="80px"/>
-                                    <column label="Full Name" width="150px"/>
-                                    <column label="Date of Birth" width="120px"/>
-                                    <column label="Gender" width="80px"/>
-                                    <column label="Date of Hire" width="120px"/>
-                                    <column label="Branch" width="150px"/>
-                                    <column label="Department" width="150px"/>
-                                    <column label="Designation" />
-                                    <column label="" width="50px"/>
-                                </columns>
+                            <listbox height="450px" model="@load(vm.employees)" sclass="table table-hover table-bordered table-responsive mailbox-messages"
+                                  emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" zclass="none">
+                                <listhead>
+                                    <listheader zclass="none" label="Code" width="80px"/>
+                                    <listheader zclass="none" label="Full Name" width="150px"/>
+                                    <listheader zclass="none" label="Date of Birth" width="120px"/>
+                                    <listheader zclass="none" label="Gender" width="80px"/>
+                                    <listheader zclass="none" label="Date of Hire" width="120px"/>
+                                    <listheader zclass="none" label="Branch" width="150px"/>
+                                    <listheader zclass="none" label="Department" width="150px"/>
+                                    <listheader zclass="none" label="Designation" />
+                                    <listheader zclass="none" label="" width="50px"/>
+                                </listhead>
                                 <template name="model">
-                                    <row >
-                                        <label value="@load(each.code)" />
-                                        <label value="@load(each.fullName)" />
-                                        <label value="@load(each.dob) @converter('formattedDate', format = vm.standardDateFormat)" />
-                                        <label value="@load(each.gender.name)" />
-                                        <label value="@load(each.dateOfHire) @converter('formattedDate', format = vm.standardDateFormat)" />
-                                        <label value="@load(each.branch.name)" />
-                                        <label value="@load(each.department.name)" />
-                                        <label value="@load(each.designation.name)" />
-                                        <div>
-                                            <a onClick="@command('edit', employee = each)" sclass="pull-right text-blue"><n:i class="fa fa-edit"></n:i></a>
-                                        </div>
-                                    </row>
+                                    <listitem zclass="none">
+                                        <listcell zclass="none" label="@load(each.code)" />
+                                        <listcell zclass="none" label="@load(each.fullName)" />
+                                        <listcell zclass="none" label="@load(each.dob) @converter('formattedDate', format = vm.standardDateFormat)" />
+                                        <listcell zclass="none" label="@load(each.gender.name)" />
+                                        <listcell zclass="none" label="@load(each.dateOfHire) @converter('formattedDate', format = vm.standardDateFormat)" />
+                                        <listcell zclass="none" label="@load(each.branch.name)" />
+                                        <listcell zclass="none" label="@load(each.department.name)" />
+                                        <listcell zclass="none" label="@load(each.designation.name)" />
+                                        <listcell zclass="none">
+                                            <n:a href="" class="pull-right text-blue"><n:i class="fa fa-edit"></n:i></n:a>
+                                        </listcell>
+                                    </listitem>
                                 </template>
-                            </grid>
+                            </listbox>
 
 
                             <!-- /.col -->

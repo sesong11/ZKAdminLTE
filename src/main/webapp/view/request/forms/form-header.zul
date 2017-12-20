@@ -45,7 +45,7 @@
                         <n:label class="col-sm-4 control-label">Request Date</n:label>
                         <n:div class="col-sm-8">
                             <datebox value="@load(vm.form.request.requestDate)" format="@load(vm.standardDateTimeFormat)"
-                                     placeholder="" readonly="true" width="100%"/>
+                                     placeholder="" readonly="true" width="100%" disabled="true"/>
                         </n:div>
                         <n:div class="clearfix"></n:div>
                     </n:div>

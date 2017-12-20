@@ -30,3 +30,13 @@
         input{
             font-size: 14px !important;
         }
+        input,
+        .input-group-btn,
+        .z-combobox-button,
+        .z-datebox-button,
+        .z-datebox-button,
+        .input-group-sm>.form-control,
+        .input-group-sm>.input-group-addon,
+        .input-group-sm>.input-group-btn>.btn{
+            border-radius: 0 0 0 0 !important;
+        }
