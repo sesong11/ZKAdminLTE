@@ -20,6 +20,11 @@ public class LeaveFormServiceImpl implements LeaveFormService {
     }
 
     @Override
+    public LeaveForm findByRequestId(Long id) {
+        return (LeaveForm) leaveFormDao.findByRequestId(id);
+    }
+
+    @Override
     public LeaveForm create(LeaveForm leaveForm) {
         return (LeaveForm) leaveFormDao.create(leaveForm);
     }

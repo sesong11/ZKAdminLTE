@@ -9,6 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
@@ -21,5 +25,27 @@ public class RequestDao extends CrudRepository {
         Query query = em.createQuery("SELECT r FROM Request r");
         List<Request> result = query.getResultList();
         return result;
+    }
+
+    public List<Request> findPaging(final int offset, final int limit) {
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Request> criteriaQuery = criteriaBuilder
+                .createQuery(Request.class);
+        Root<Request> from = criteriaQuery.from(Request.class);
+        CriteriaQuery<Request> select = criteriaQuery.select(from);
+        TypedQuery<Request> typedQuery = em.createQuery(select);
+        typedQuery.setFirstResult(offset);
+        typedQuery.setMaxResults(limit);
+        List<Request> list = typedQuery.getResultList();
+        return list;
+    }
+
+    public Long count(){
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Long> countQuery = criteriaBuilder.createQuery(Long.class);
+        countQuery.select(criteriaBuilder.count(countQuery.from(Request.class)));
+        Long count = em.createQuery(countQuery)
+                .getSingleResult();
+        return count;
     }
 }

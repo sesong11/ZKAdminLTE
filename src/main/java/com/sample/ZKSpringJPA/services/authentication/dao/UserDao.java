@@ -1,4 +1,4 @@
-package com.sample.ZKSpringJPA.services.impl;
+package com.sample.ZKSpringJPA.services.authentication.dao;
 
 import java.util.HashSet;
 import java.util.List;

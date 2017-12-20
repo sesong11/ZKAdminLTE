@@ -24,28 +24,48 @@
                                 </n:button>
                             </n:div>
                         </n:div>
-                        <n:div class="box-body">
-                            <listbox model="@load(vm.requests)" sclass="table table-bordered table-responsive mailbox-messages"
-                                  emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" >
-                                <listhead>
-                                    <listheader label="Id" width="80px"/>
-                                    <listheader label="Request Form" width="150px"/>
-                                    <listheader label="Priority" width="120px"/>
-                                    <listheader label="Request Date" width="160px"/>
-                                    <listheader label="" />
+                        <n:div class="box-body no-padding">
+                            <n:div class="mailbox-controls">
+                                <n:span>Page Size: </n:span>
+                                <spinner id="quantitySpinner" width="100px" value="10"
+                                         onChange="@command('changePageSize', size = self.value)"
+                                         format=",###" constraint="no empty,min 1, max 100" />
+                            </n:div>
+                            <listbox model="@load(vm.requests)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
+                                  emptyMessage="Nothing in Inbox." zclass="none" >
+                                <listhead zclass="none">
+                                    <listheader zclass="none" label="Id" width="80px"/>
+                                    <listheader zclass="none" label="Request Form" width="150px"/>
+                                    <listheader zclass="none" label="Priority" width="120px"/>
+                                    <listheader zclass="none" label="Decision Status" width="120px"/>
+                                    <listheader zclass="none" label="Status" width="120px"/>
+                                    <listheader zclass="none" label="Request By" width="120px"/>
+                                    <listheader zclass="none" label="Request For" width="120px"/>
+                                    <listheader zclass="none" label="Request Date" width="120px"/>
+                                    <listheader zclass="none" label=""/>
                                 </listhead>
                                 <template name="model">
                                     <listitem>
-                                        <listcell label="@load(each.id)" />
-                                        <listcell label="@load(each.formType.name)" />
-                                        <listcell label="@load(each.priority.name)" />
-                                        <listcell label="@load(each.requestDate) @converter('formattedDate', format = vm.standardDateTimeFormat)" />
-                                        <listcell>
-                                            <a onClick="@command('open', item = each)" sclass="pull-right text-blue"><n:i class="fa fa-edit"></n:i></a>
+                                        <listcell zclass="none" label="@load(each.id)" />
+                                        <listcell zclass="none" label="@load(each.formType.name)" />
+                                        <listcell zclass="none">
+                                            <n:span class="label label-${each.priority.sclass}">${each.priority.name}</n:span>
+                                        </listcell>
+                                        <listcell zclass="none">
+                                            <n:span class="label label-${each.decisionStatus.sclass}">${each.decisionStatus.name}</n:span>
+                                        </listcell>
+                                        <listcell zclass="none" label="@load(each.status.name)" />
+                                        <listcell zclass="none" label="@load(each.requestBy.fullName)" />
+                                        <listcell zclass="none" label="@load(each.requestFor.fullName)" />
+                                        <listcell zclass="none" label="@load(each.requestDate) @converter('formattedDate', format = vm.standardDateTimeFormat)" />
+                                        <listcell zclass="none">
+                                            <n:a href="?m=${each.formType.menuUuid}&amp;id=${each.id}" class="pull-right"><n:i class="fa fa-edit"></n:i></n:a>
                                         </listcell>
                                     </listitem>
                                 </template>
                             </listbox>
+                            <paging pageSize="@load(vm.pageSize)" onClick="@command('changeActivePage', index=self.activePage)"
+                                    mold="os" totalSize="@load(vm.totalSize)" activePage="@load(vm.activePage)" />
                         </n:div>
                     </n:div>
                 </n:div>

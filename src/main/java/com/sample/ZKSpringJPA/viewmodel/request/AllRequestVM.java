@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
+import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
@@ -34,6 +35,15 @@ public class AllRequestVM {
     @Getter @Setter
     private List<Request> requests;
 
+    @Getter @Setter
+    private int pageSize = 10;
+
+    @Getter
+    private Long totalSize;
+
+    @Getter
+    private int activePage;
+
     @Getter
     private String standardDateTimeFormat = StandardFormat.getStandardDateTimeFormat();
     //endregion
@@ -41,7 +51,8 @@ public class AllRequestVM {
     //region > Constructor
     @Init
     public void init() {
-        requests = new ListModelList<Request>(requestService.findAll());
+        requests = new ListModelList<Request>(requestService.findPaging(0, pageSize));
+        totalSize = requestService.count();
     }
     //endregion
 
@@ -49,6 +60,21 @@ public class AllRequestVM {
     @Command
     public void open(@BindingParam("item") final Request request){
 
+    }
+
+    @Command
+    @NotifyChange({"pageSize", "requests"})
+    public void changePageSize(@BindingParam("size") final int pageSize){
+        this.pageSize = pageSize;
+        requests = new ListModelList<Request>(requestService.findPaging(0, pageSize));
+    }
+
+    @Command
+    @NotifyChange({"requests"})
+    public void changeActivePage(@BindingParam("index") final int activePage){
+        this.activePage = activePage;
+        int offset = activePage* pageSize;
+        requests = new ListModelList<Request>(requestService.findPaging(offset, pageSize));
     }
     //endregion
 }

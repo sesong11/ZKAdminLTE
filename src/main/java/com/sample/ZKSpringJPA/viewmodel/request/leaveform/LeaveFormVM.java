@@ -11,6 +11,7 @@ import com.sample.ZKSpringJPA.entity.request.leaveform.LeaveType;
 import com.sample.ZKSpringJPA.services.employment.EmployeeService;
 import com.sample.ZKSpringJPA.services.request.LeaveFormService;
 import com.sample.ZKSpringJPA.services.request.RequestService;
+import com.sample.ZKSpringJPA.utils.StandardFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.BindUtils;
@@ -54,18 +55,36 @@ public class LeaveFormVM {
     private Employee requestFor;
 
     @Getter @Setter
+    private Employee relief;
+
+    @Getter @Setter
+    private Employee supervisor;
+
+    @Getter @Setter
+    private Employee manager;
+
+    @Getter @Setter
     private List<LeaveType> leaveTypes = new ListModelList<>(LeaveType.values());
 
     @Getter @Setter
     private List<RequestPriority> requestPriorities = new ListModelList<>(RequestPriority.values());
+
+    @Getter
+    private final String standardDateTimeFormat = StandardFormat.getStandardDateTimeFormat();
     //endregion
 
     //region > Constructor
     @Init
     public void init(){
-        form = new LeaveForm();
-        form.setRequest(new Request());
-        form.getRequest().setFormType(FormType.LEAVE_REQUEST);
+        String sid = Executions.getCurrent().getParameter("id");
+        if(sid==null) {
+            form = new LeaveForm();
+            form.setRequest(new Request());
+            form.getRequest().setFormType(FormType.LEAVE_REQUEST);
+        } else {
+            Long id = Long.parseLong(sid);
+            form = leaveFormService.findByRequestId(id);
+        }
     }
     //endregion
 
@@ -84,6 +103,52 @@ public class LeaveFormVM {
         this.form.getRequest().setRequestFor(employee);
         postNotifyChange("form");
     }
+
+    @Command
+    public void selectRelief(){
+        final HashMap<String, Object> map = new HashMap<>();
+        map.put("employees", employeeService.findAll());
+        map.put("receiver", "selectReliefCallback");
+        Window window = (Window) Executions.createComponents(
+                "/view/component/employee-selector.zul", null, map);
+        window.doModal();
+    }
+    @GlobalCommand
+    public void selectReliefCallback(@BindingParam("employee") final Employee employee){
+        this.relief = employee;
+        postNotifyChange("relief");
+    }
+
+    @Command
+    public void selectSupervisor(){
+        final HashMap<String, Object> map = new HashMap<>();
+        map.put("employees", employeeService.findAll());
+        map.put("receiver", "selectSupervisorCallback");
+        Window window = (Window) Executions.createComponents(
+                "/view/component/employee-selector.zul", null, map);
+        window.doModal();
+    }
+    @GlobalCommand
+    public void selectSupervisorCallback(@BindingParam("employee") final Employee employee){
+        this.supervisor = employee;
+        postNotifyChange("supervisor");
+    }
+
+    @Command
+    public void selectManager(){
+        final HashMap<String, Object> map = new HashMap<>();
+        map.put("employees", employeeService.findAll());
+        map.put("receiver", "selectManagerCallback");
+        Window window = (Window) Executions.createComponents(
+                "/view/component/employee-selector.zul", null, map);
+        window.doModal();
+    }
+    @GlobalCommand
+    public void selectManagerCallback(@BindingParam("employee") final Employee employee){
+        this.manager = employee;
+        postNotifyChange("manager");
+    }
+
     @Command
     public void submit(){
         Request request = form.getRequest();

@@ -14,14 +14,15 @@
                     <n:div class="form-group">
                         <n:label class="col-sm-4 control-label">Request Id</n:label>
                         <n:div class="col-sm-8">
-                            <longbox sclass="form-control" placeholder="" width="100%" readonly="true"/>
+                            <longbox value="@load(vm.form.request.id)"
+                                    sclass="form-control" placeholder="" width="100%" readonly="true"/>
                         </n:div>
                         <n:div class="clearfix"></n:div>
                     </n:div>
                     <n:div class="form-group">
                         <n:label class="col-sm-4 control-label">Request By</n:label>
                         <n:div class="col-sm-8">
-                            <textbox sclass="form-control" placeholder="" readonly="true"/>
+                            <textbox type="text" sclass="form-control" readonly="true" value="@load(vm.form.request.requestBy.fullName)"/>
                         </n:div>
                         <n:div class="clearfix"></n:div>
                     </n:div>
@@ -43,14 +44,16 @@
                     <n:div class="form-group">
                         <n:label class="col-sm-4 control-label">Request Date</n:label>
                         <n:div class="col-sm-8">
-                            <textbox sclass="form-control" placeholder="" readonly="true"/>
+                            <datebox value="@load(vm.form.request.requestDate)" format="@load(vm.standardDateTimeFormat)"
+                                     placeholder="" readonly="true" width="100%"/>
                         </n:div>
                         <n:div class="clearfix"></n:div>
                     </n:div>
                     <n:div class="form-group">
                         <n:label class="col-sm-4 control-label">Request Status</n:label>
                         <n:div class="col-sm-8">
-                            <textbox sclass="form-control" placeholder="" readonly="true"/>
+                            <textbox value="@load(vm.form.request.status.name)"
+                                    sclass="form-control" placeholder="" readonly="true"/>
                         </n:div>
                         <n:div class="clearfix"></n:div>
                     </n:div>

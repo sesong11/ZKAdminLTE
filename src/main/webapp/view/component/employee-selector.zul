@@ -3,24 +3,24 @@
             position="center,center" closable="true"
             viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.component.EmployeeSelectorVM')"
             onCancel="@command('closeThis')">
-        <listbox model="@load(vm.employees)" sclass="table table-bordered table-responsive mailbox-messages"
-              emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" >
-            <listhead sizable="true">
-                <listheader label="Code" width="80px"/>
-                <listheader label="Full Name" width="150px"/>
-                <listheader label="Gender" width="80px"/>
-                <listheader label="Branch" width="150px"/>
-                <listheader label="Department" width="150px"/>
-                <listheader label="Designation" />
+        <listbox model="@load(vm.employees)" sclass="table table-bordered table-responsive table-hover mailbox-messages"
+              emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" zclass="none">
+            <listhead sizable="true" zclass="none">
+                <listheader zclass="none" label="Code" width="80px"/>
+                <listheader zclass="none" label="Full Name" width="150px"/>
+                <listheader zclass="none" label="Gender" width="80px"/>
+                <listheader zclass="none" label="Branch" width="150px"/>
+                <listheader zclass="none" label="Department" width="150px"/>
+                <listheader zclass="none" label="Designation" />
             </listhead>
             <template name="model" >
-                <listitem onClick="@command('select', item = each)">
-                    <listcell label="@load(each.code)" />
-                    <listcell label="@load(each.fullName)" />
-                    <listcell label="@load(each.gender.name)" />
-                    <listcell label="@load(each.branch.name)" />
-                    <listcell label="@load(each.department.name)" />
-                    <listcell label="@load(each.designation.name)" />
+                <listitem onClick="@command('select', item = each)" zclass="none">
+                    <listcell zclass="none" label="@load(each.code)" />
+                    <listcell zclass="none" label="@load(each.fullName)" />
+                    <listcell zclass="none" label="@load(each.gender.name)" />
+                    <listcell zclass="none" label="@load(each.branch.name)" />
+                    <listcell zclass="none" label="@load(each.department.name)" />
+                    <listcell zclass="none" label="@load(each.designation.name)" />
                 </listitem>
             </template>
         </listbox>

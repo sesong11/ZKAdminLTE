@@ -73,14 +73,15 @@
                                     <n:div class="form-group">
                                         <n:label class="col-sm-4 control-label">From Date</n:label>
                                         <n:div class="col-sm-8">
-                                            <datebox format="dd-MM-yyyy HH:mm" placeholder="" value="@bind(vm.form.fromDate)"/>
+                                            <datebox width="100%" format="dd-MM-yyyy HH:mm" value="@bind(vm.form.fromDate)"/>
                                         </n:div>
                                         <n:div class="clearfix"></n:div>
                                     </n:div>
                                     <n:div class="form-group">
                                         <n:label class="col-sm-4 control-label">Total No. of Days for leave</n:label>
                                         <n:div class="col-sm-8">
-                                            <doublebox sclass="form-control" placeholder="" width="100%"/>
+                                            <doublebox value="@bind(vm.form.totalDays)"
+                                                    sclass="form-control" placeholder="" width="100%"/>
                                         </n:div>
                                         <n:div class="clearfix"></n:div>
                                     </n:div>
@@ -89,7 +90,8 @@
                                     <n:div class="form-group">
                                         <n:label class="col-sm-4 control-label">To Date</n:label>
                                         <n:div class="col-sm-8">
-                                            <datebox format="dd-MM-yyyy HH:mm" placeholder="" value="@bind(vm.form.toDate)"/>
+                                            <datebox format="dd-MM-yyyy HH:mm" value="@bind(vm.form.toDate)"
+                                                width="100%"/>
                                         </n:div>
                                     </n:div>
                                 </n:div>
@@ -128,9 +130,10 @@
                                     <n:label class="col-sm-4 control-label">Relief</n:label>
                                     <n:div class="col-sm-8">
                                         <n:div class="input-group input-group-sm">
-                                            <textbox type="text" sclass="form-control" readonly="true"/>
+                                            <textbox type="text" sclass="form-control" readonly="true" value="@load(vm.relief.fullName)"/>
                                             <n:span class="input-group-btn">
-                                                <a sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
+                                                <a onClick="@command('selectRelief')"
+                                                        sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
                                             </n:span>
                                         </n:div>
                                     </n:div>
@@ -140,9 +143,10 @@
                                     <n:label class="col-sm-4 control-label">Department Manager</n:label>
                                     <n:div class="col-sm-8">
                                         <n:div class="input-group input-group-sm">
-                                            <textbox type="text" sclass="form-control" readonly="true"/>
+                                            <textbox value="@load(vm.manager.fullName)"
+                                                    type="text" sclass="form-control" readonly="true"/>
                                             <n:span class="input-group-btn">
-                                                <a sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
+                                                <a onClick="@command('selectManager')" sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
                                             </n:span>
                                         </n:div>
                                     </n:div>
@@ -154,9 +158,10 @@
                                     <n:label class="col-sm-4 control-label">Immediate Supervisor</n:label>
                                     <n:div class="col-sm-8">
                                         <n:div class="input-group input-group-sm">
-                                            <textbox type="text" sclass="form-control" readonly="true"/>
+                                            <textbox value="@load(vm.supervisor.fullName)"
+                                                    type="text" sclass="form-control" readonly="true"/>
                                             <n:span class="input-group-btn">
-                                                <a sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
+                                                <a onClick="@command('selectSupervisor')" sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
                                             </n:span>
                                         </n:div>
                                     </n:div>

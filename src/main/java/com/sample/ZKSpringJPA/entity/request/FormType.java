@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 public enum FormType {
-    LEAVE_REQUEST(1, "Leave Request", "HR Form", "plane", LeaveFormVM.class);
+    LEAVE_REQUEST(1, "Leave Request", "HR Form", "plane", "leave-form", LeaveFormVM.class);
 
     @Getter @Setter
     private int value;
@@ -23,12 +23,16 @@ public enum FormType {
     @Getter @Setter
     private Class cls;
 
-    <T> FormType(final int value, final String name, final String category, final String icon, final Class<T> cls) {
+    @Getter @Setter
+    private String menuUuid;
+
+    <T> FormType(final int value, final String name, final String category, final String icon, final String menuUuid, final Class<T> cls) {
         this.value = value;
         this.category = category;
         this.name = name;
         this.icon = icon;
         this.cls = cls;
+        this.menuUuid = menuUuid;
     }
 
     public Feature getFeature() throws ClassNotFoundException {

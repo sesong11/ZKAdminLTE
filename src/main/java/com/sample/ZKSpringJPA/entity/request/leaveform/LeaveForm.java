@@ -1,6 +1,8 @@
 package com.sample.ZKSpringJPA.entity.request.leaveform;
 
 import com.sample.ZKSpringJPA.entity.request.Form;
+import com.sample.ZKSpringJPA.entity.request.Request;
+import com.sample.ZKSpringJPA.entity.request.approval.Approval;
 import lombok.Getter;
 import lombok.Setter;
 import java.sql.Timestamp;
@@ -10,6 +12,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "leave_form")
 public class LeaveForm extends Form {
+
+    //region > Fields
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
@@ -48,4 +52,6 @@ public class LeaveForm extends Form {
     @Getter @Setter
     @Column(name = "confirm_policy")
     private boolean confirmPolicy;
+    //endregion
+
 }

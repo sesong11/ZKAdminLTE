@@ -1,8 +1,9 @@
-package com.sample.ZKSpringJPA.services.impl;
+package com.sample.ZKSpringJPA.services.authentication.impl;
 
 import java.util.List;
 import java.util.Set;
 
+import com.sample.ZKSpringJPA.services.authentication.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;

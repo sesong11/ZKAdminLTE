@@ -21,6 +21,16 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
+    public List<Request> findPaging(final int offset, final int limit) {
+        return requestDao.findPaging(offset, limit);
+    }
+
+    @Override
+    public Long count(){
+        return requestDao.count();
+    }
+
+    @Override
     public Request find(Long id) {
         return (Request) requestDao.find(id, Request.class);
     }

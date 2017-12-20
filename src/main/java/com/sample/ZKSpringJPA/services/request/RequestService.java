@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface RequestService {
     List<Request> findAll();
+    List<Request> findPaging(int offset, int limit);
+    Long count();
     Request find(Long id);
     Request create(Request request);
     Request update(Request request);

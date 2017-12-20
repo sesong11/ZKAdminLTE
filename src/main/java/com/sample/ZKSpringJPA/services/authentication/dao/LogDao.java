@@ -1,4 +1,4 @@
-package com.sample.ZKSpringJPA.services.impl;
+package com.sample.ZKSpringJPA.services.authentication.dao;
 
 import com.sample.ZKSpringJPA.entity.Log;
 import java.util.List;

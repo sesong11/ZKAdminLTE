@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass
 public class Form implements RequestForm {
 
     @Getter

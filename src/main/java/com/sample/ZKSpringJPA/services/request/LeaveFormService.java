@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface LeaveFormService {
     LeaveForm find(Long id);
+    LeaveForm findByRequestId(Long id);
     LeaveForm create(LeaveForm leaveForm);
     LeaveForm update(LeaveForm leaveForm);
     void delete(LeaveForm leaveForm);

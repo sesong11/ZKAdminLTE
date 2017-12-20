@@ -1,11 +1,14 @@
 package com.sample.ZKSpringJPA.entity.request;
 
 import com.sample.ZKSpringJPA.entity.employment.Employee;
+import com.sample.ZKSpringJPA.entity.request.approval.Approval;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 @Entity
 @Table(name = "request")
@@ -45,5 +48,24 @@ public class Request {
     @Column(name = "form_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private FormType formType;
+
+    @Getter @Setter
+    @Column(name = "decision_status")
+    @Enumerated(EnumType.STRING)
+    private DecisionStatus decisionStatus;
+
+    @Getter @Setter
+    @OneToMany(mappedBy = "approvePerson", fetch = FetchType.EAGER)
+    @OrderBy("id")
+    private SortedSet<Approval> approvals;
+    //endregion
+
+    //region > Programmatic
+    public void addApproval(final Approval approval){
+        if(approvals == null){
+            approvals = new TreeSet<>();
+        }
+        approvals.add(approval);
+    }
     //endregion
 }
