@@ -55,17 +55,19 @@ public class Request {
     private DecisionStatus decisionStatus;
 
     @Getter @Setter
-    @OneToMany(mappedBy = "approvePerson", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "request", fetch = FetchType.EAGER)
     @OrderBy("id")
     private SortedSet<Approval> approvals;
     //endregion
 
     //region > Programmatic
     public void addApproval(final Approval approval){
-        if(approvals == null){
+        if(this.getApprovals() == null){
             approvals = new TreeSet<>();
         }
-        approvals.add(approval);
+        approval.setRequest(this);
+        this.getApprovals().add(approval);
+        System.out.println(approval.getApprovalType().getName());
     }
     //endregion
 }

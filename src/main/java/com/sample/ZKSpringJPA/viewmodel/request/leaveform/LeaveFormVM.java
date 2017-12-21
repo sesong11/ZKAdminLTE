@@ -8,6 +8,7 @@ import com.sample.ZKSpringJPA.entity.request.approval.ApprovalType;
 import com.sample.ZKSpringJPA.entity.request.leaveform.LeaveForm;
 import com.sample.ZKSpringJPA.entity.request.leaveform.LeaveType;
 import com.sample.ZKSpringJPA.services.employment.EmployeeService;
+import com.sample.ZKSpringJPA.services.request.ApprovalService;
 import com.sample.ZKSpringJPA.services.request.LeaveFormService;
 import com.sample.ZKSpringJPA.services.request.RequestService;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
@@ -25,6 +26,7 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Date;
+import java.util.TreeSet;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
@@ -44,6 +46,9 @@ public class LeaveFormVM {
 
     @WireVariable
     private LeaveFormService leaveFormService;
+
+    @WireVariable
+    private ApprovalService approvalService;
     //endregion
 
     //region > Fields
@@ -54,13 +59,13 @@ public class LeaveFormVM {
     private Employee requestFor;
 
     @Getter @Setter
-    private Employee relief;
+    private Approval relief;
 
     @Getter @Setter
-    private Employee supervisor;
+    private Approval supervisor;
 
     @Getter @Setter
-    private Employee manager;
+    private Approval manager;
 
     @Getter @Setter
     private List<LeaveType> leaveTypes = new ListModelList<>(LeaveType.values());
@@ -79,11 +84,39 @@ public class LeaveFormVM {
         if(sid==null) {
             form = new LeaveForm();
             Request request = new Request();
+            request.setFormType(FormType.LEAVE_REQUEST);
             form.setRequest(request);
-            form.getRequest().setFormType(FormType.LEAVE_REQUEST);
+            //person who relief requester job during his/her leave.
+            relief = new Approval();
+            relief.setDecisionStatus(DecisionStatus.AWAITING);
+            relief.setApprovalType(ApprovalType.RELIEF);
+            request.addApproval(relief);
+            //direct supervisor who approve the request
+            supervisor = new Approval();
+            supervisor.setDecisionStatus(DecisionStatus.AWAITING);
+            supervisor.setApprovalType(ApprovalType.APPROVE);
+            request.addApproval(supervisor);
+            //head department who authorize the request
+            manager = new Approval();
+            manager.setDecisionStatus(DecisionStatus.AWAITING);
+            manager.setApprovalType(ApprovalType.AUTHORIZE);
+            request.addApproval(manager);
+            System.out.println("Approval Size: "+request.getApprovals().size());
         } else {
             Long id = Long.parseLong(sid);
             form = leaveFormService.findByRequestId(id);
+            TreeSet<Approval> approvals = requestService.findApproval(form.getRequest().getId());
+            for(Approval approval: form.getRequest().getApprovals()){
+                if(approval.getApprovalType() == ApprovalType.RELIEF){
+                    relief = approval;
+                }
+                if(approval.getApprovalType() == ApprovalType.APPROVE){
+                    supervisor = approval;
+                }
+                if(approval.getApprovalType() == ApprovalType.AUTHORIZE){
+                    manager = approval;
+                }
+            }
         }
     }
     //endregion
@@ -115,7 +148,7 @@ public class LeaveFormVM {
     }
     @GlobalCommand
     public void selectReliefCallback(@BindingParam("employee") final Employee employee){
-        this.relief = employee;
+        this.relief.setApprovePerson(employee);
         postNotifyChange("relief");
     }
 
@@ -130,7 +163,7 @@ public class LeaveFormVM {
     }
     @GlobalCommand
     public void selectSupervisorCallback(@BindingParam("employee") final Employee employee){
-        this.supervisor = employee;
+        this.supervisor.setApprovePerson(employee);
         postNotifyChange("supervisor");
     }
 
@@ -145,18 +178,27 @@ public class LeaveFormVM {
     }
     @GlobalCommand
     public void selectManagerCallback(@BindingParam("employee") final Employee employee){
-        this.manager = employee;
+        this.manager.setApprovePerson(employee);
         postNotifyChange("manager");
     }
 
     @Command
+    @NotifyChange({"form", "relief", "supervisor", "manager"})
     public void submit(){
         Request request = form.getRequest();
         request.setRequestDate(new Timestamp(new Date().getTime()));
         request.setRequestBy(request.getRequestFor());
         request.setStatus(RequestStatus.PENDING);
+        request.getApprovals().clear();
         request = requestService.create(request);
+        form.setRequest(request);
         leaveFormService.create(form);
+        request.addApproval(relief);
+        request.addApproval(supervisor);
+        request.addApproval(manager);
+        relief = approvalService.create(relief);
+        supervisor = approvalService.create(supervisor);
+        manager = approvalService.create(manager);
     }
     //endregion
 

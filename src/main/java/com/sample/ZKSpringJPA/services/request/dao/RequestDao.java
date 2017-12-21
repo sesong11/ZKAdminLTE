@@ -2,6 +2,7 @@ package com.sample.ZKSpringJPA.services.request.dao;
 
 import com.sample.ZKSpringJPA.entity.employment.Allowance;
 import com.sample.ZKSpringJPA.entity.request.Request;
+import com.sample.ZKSpringJPA.entity.request.approval.Approval;
 import com.sample.ZKSpringJPA.services.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import java.util.TreeSet;
 
 @Repository
 public class RequestDao extends CrudRepository {
@@ -47,5 +49,11 @@ public class RequestDao extends CrudRepository {
         Long count = em.createQuery(countQuery)
                 .getSingleResult();
         return count;
+    }
+
+    public TreeSet<Approval> findApproval(Long id) {
+        Query query = em.createQuery("SELECT a FROM Approval a WHERE a.request.id = :requestId").setParameter("requestId", id);
+        TreeSet<Approval> result = new TreeSet<>(query.getResultList());
+        return result;
     }
 }

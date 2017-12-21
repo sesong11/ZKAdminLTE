@@ -17,8 +17,15 @@ public class CrudRepository {
         return object;
     }
 
-    @Transactional
+    @Transactional()
     public Object create(Object object) {
+        em.persist(object);
+        em.flush();
+        return object;
+    }
+
+    @Transactional
+    public Object createOrUpdate(Object object) {
         em.persist(object);
         em.flush();
         return object;

@@ -56,7 +56,7 @@
                                         <listcell zclass="none" label="@load(each.department.name)" />
                                         <listcell zclass="none" label="@load(each.designation.name)" />
                                         <listcell zclass="none">
-                                            <n:a href="" class="pull-right text-blue"><n:i class="fa fa-edit"></n:i></n:a>
+                                            <n:a href="?m=employee-editor&amp;id=${each.id}" class="pull-right text-blue"><n:i class="fa fa-edit"></n:i></n:a>
                                         </listcell>
                                     </listitem>
                                 </template>

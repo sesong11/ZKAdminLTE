@@ -1,0 +1,5 @@
+<zk>
+    <zk forEach="${vm.form.request.approvals}">
+        <include src="${each.approvalType.view}" />
+    </zk>
+</zk>

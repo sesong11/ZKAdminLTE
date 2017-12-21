@@ -1,0 +1,31 @@
+<zk xmlns:n="native">
+    <n:div class="box box-danger">
+        <n:div class="box-header with-border">
+            <n:h3 class="box-title">Approve</n:h3>
+            <n:div class="box-tools pull-right">
+                <n:span data-toggle="tooltip" title="" class="badge bg-red" data-original-title="Approve">
+                    Rejected</n:span>
+            </n:div>
+        </n:div>
+        <!-- /.box-header -->
+        <!-- form start -->
+
+        <n:div class="box-body">
+            <n:div class="direct-chat-msg">
+                <n:div class="direct-chat-info clearfix">
+                    <n:span class="direct-chat-name pull-left text-primary">Alexander Pierce</n:span>
+                    <n:span class="direct-chat-name pull-left text-muted"><n:code>Project and Continuity</n:code></n:span>
+                    <n:span class="direct-chat-timestamp pull-right">23-07-2017 5:37 pm</n:span>
+                </n:div>
+                <!-- /.direct-chat-info -->
+                <n:img class="direct-chat-img" src="img/profile-pictures.png" alt="message user image" />
+                <!-- /.direct-chat-img -->
+                <n:div class="direct-chat-text bg-red">
+                    Working with AdminLTE on a great new app! Wanna join?
+                </n:div>
+                <!-- /.direct-chat-text -->
+            </n:div>
+        </n:div>
+
+    </n:div>
+</zk>
