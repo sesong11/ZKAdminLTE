@@ -42,7 +42,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         List<Role> roles = new ArrayList<>(user.getRoles());
 
         try {
-            featuresScanner.scanFeatures(user);
+            if(FeaturesScanner.getFeatures().size()==0)
+            featuresScanner.scanFeatures();
         }catch (ClassNotFoundException ex){
             ex.printStackTrace();
         }

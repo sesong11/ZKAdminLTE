@@ -1,6 +1,9 @@
 package com.sample.ZKSpringJPA.utils;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
+import com.sample.ZKSpringJPA.entity.authentication.Role;
+import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
+import com.sample.ZKSpringJPA.entity.authentication.User;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.zkoss.zk.ui.Executions;
 
 public class Menu {
@@ -90,24 +96,12 @@ public class Menu {
         return false;
     }
 
-    public Feature scanMenu() throws ClassNotFoundException {
+    public Feature scanMenu(final User user) throws ClassNotFoundException {
         ClassPathScanningCandidateComponentProvider scanner =
                 new ClassPathScanningCandidateComponentProvider(false);
 
         Feature tempFeature = null;
-        //scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
-
-        //Map<String, Feature> menus = new TreeMap<>();
         String activeOrder = "";
-//        for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
-//            String className = bd.getBeanClassName();
-//            Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
-//            for (Feature feature: features) {
-//                menus.put(feature.menuOrder(), feature);
-//
-//
-//            }
-//        }
 
         Map<String, Feature> featureMap = FeaturesScanner.getFeatures();
         String param = Executions.getCurrent().getParameter("m");
@@ -121,41 +115,50 @@ public class Menu {
         List<Feature> list = new ArrayList<>(featureMap.values());
         int i = 0;
         do {
-            list = addMenu(list, activeOrder);
+            list = addMenu(list, activeOrder, user);
             i++;
         }while (list.size()>0&&i<3);
 
         return tempFeature;
     }
 
-    private List<Feature> addMenu(final List<Feature> list, final String activeOrder){
+    private boolean isAuthenticated(final String feature, final User user) throws ClassNotFoundException{
+        if(isAdmin()) return true;
+        try{
+            for(Role role:user.getRoles()){
+                for(RolePermission rolePermission: role.getPermissions()){
+                    if(rolePermission.getFeature().equals(feature)){
+                        return true;
+                    }
+                }
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    private boolean isAdmin() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        for(GrantedAuthority authority:authentication.getAuthorities()){
+            if(authority.getAuthority().equals("ROLE_ADMIN")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private List<Feature> addMenu(final List<Feature> list, final String activeOrder, final User user)
+            throws ClassNotFoundException {
         List<Feature> failure = new ArrayList<>();
         for (Feature f : list) {
+            if(!isAuthenticated(f.uuid(), user)){
+                continue;
+            }
             if (!this.addMenu(f, f.menuOrder(), activeOrder)) {
                 failure.add(f);
             }
         }
         return failure;
     }
-
-//    public static Map<String, Feature> scanFeatures() throws ClassNotFoundException {
-//        ClassPathScanningCandidateComponentProvider scanner =
-//                new ClassPathScanningCandidateComponentProvider(false);
-//        String urlParam = "";
-//
-//        scanner.addIncludeFilter(new AnnotationTypeFilter(Feature.class));
-//
-//        Map<String, Feature> menus = new TreeMap<>();
-//
-//        for (BeanDefinition bd : scanner.findCandidateComponents("com.sample.ZKSpringJPA.viewmodel")){
-//            String className = bd.getBeanClassName();
-//            System.out.println("className: "+className);
-//            Feature[] features = Class.forName(className).getAnnotationsByType(Feature.class);
-//            for (Feature feature: features) {
-//                menus.put(feature.menuOrder(), feature);
-//            }
-//        }
-//
-//        return menus;
-//    }
 }
