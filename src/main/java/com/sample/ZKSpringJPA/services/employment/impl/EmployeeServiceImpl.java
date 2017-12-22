@@ -1,5 +1,6 @@
 package com.sample.ZKSpringJPA.services.employment.impl;
 
+import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.services.employment.EmployeeService;
 import com.sample.ZKSpringJPA.services.employment.dao.EmployeeDao;
@@ -36,5 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void delete(Employee employee) {
         employeeDao.delete(employee);
+    }
+
+    @Override
+    public Employee findByUser(User user){
+        return employeeDao.findByUser(user);
     }
 }

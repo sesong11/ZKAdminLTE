@@ -5,6 +5,7 @@ import com.sample.ZKSpringJPA.entity.Log;
 import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
 import com.sample.ZKSpringJPA.entity.authentication.User;
+import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.services.MyService;
 
 import java.util.*;
@@ -12,6 +13,8 @@ import java.util.*;
 import com.sample.ZKSpringJPA.services.authentication.UserService;
 import com.sample.ZKSpringJPA.utils.FeaturesScanner;
 import com.sample.ZKSpringJPA.utils.Menu;
+import com.sample.ZKSpringJPA.utils.UserCredentialService;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,10 +41,19 @@ public class MyViewModel {
 	private MyService myService;
 
 	@WireVariable
+	private UserCredentialService userCredentialService;
+
+	@WireVariable
 	private UserService userService;
 
 	@Getter @Setter
 	private Menu menu;
+
+	@Getter
+	private User currentUser;
+
+	@Getter
+	private Employee currentEmployee;
 
 	private ListModelList<Log> logListModel;
 	private String message;
@@ -51,11 +63,14 @@ public class MyViewModel {
 	public String getUrlParam() {return urlParam; }
 	@Init
 	public void init() throws ClassNotFoundException {
+		currentEmployee = userCredentialService.getCurrentEmployee();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String currentPrincipalName = authentication.getName();
+		User user = isAdmin()? null: userService.getUserByUsername(currentPrincipalName);
+
 		if(isAdmin() && FeaturesScanner.getFeatures().size()==0){
 			FeaturesScanner.scanFeatures();
 		}
-		List<Log> logList = myService.getLogs();
-		logListModel = new ListModelList<Log>(logList);
 		String param = Executions.getCurrent().getParameter("p");
 
 		if(param!=null){
@@ -63,7 +78,8 @@ public class MyViewModel {
 		}
 
 		menu = new Menu();
-		Feature feature = menu.scanMenu();
+
+		Feature feature = menu.scanMenu(user);
 		if(feature == null){
 			urlParam = "/view/error/404.zul";
 		}

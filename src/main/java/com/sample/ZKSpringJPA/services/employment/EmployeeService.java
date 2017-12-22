@@ -1,5 +1,6 @@
 package com.sample.ZKSpringJPA.services.employment;
 
+import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.entity.employment.Designation;
 import com.sample.ZKSpringJPA.entity.employment.Employee;
 
@@ -11,4 +12,5 @@ public interface EmployeeService {
     Employee create(Employee employee);
     Employee update(Employee employee);
     void delete(Employee employee);
+    Employee findByUser(User user);
 }
