@@ -88,20 +88,25 @@ public class LeaveFormVM {
             form.setRequest(request);
             //person who relief requester job during his/her leave.
             relief = new Approval();
+            relief.setSortedIndex(1);
+            relief.setId(1L);
             relief.setDecisionStatus(DecisionStatus.AWAITING);
             relief.setApprovalType(ApprovalType.RELIEF);
             request.addApproval(relief);
             //direct supervisor who approve the request
             supervisor = new Approval();
+            supervisor.setSortedIndex(2);
+            supervisor.setId(2L);
             supervisor.setDecisionStatus(DecisionStatus.AWAITING);
             supervisor.setApprovalType(ApprovalType.APPROVE);
             request.addApproval(supervisor);
             //head department who authorize the request
             manager = new Approval();
+            manager.setSortedIndex(3);
+            manager.setId(3L);
             manager.setDecisionStatus(DecisionStatus.AWAITING);
             manager.setApprovalType(ApprovalType.AUTHORIZE);
             request.addApproval(manager);
-            System.out.println("Approval Size: "+request.getApprovals().size());
         } else {
             Long id = Long.parseLong(sid);
             form = leaveFormService.findByRequestId(id);
@@ -196,8 +201,11 @@ public class LeaveFormVM {
         request.addApproval(relief);
         request.addApproval(supervisor);
         request.addApproval(manager);
+        relief.setId(null);
         relief = approvalService.create(relief);
+        supervisor.setId(null);
         supervisor = approvalService.create(supervisor);
+        manager.setId(null);
         manager = approvalService.create(manager);
     }
     //endregion

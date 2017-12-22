@@ -6,6 +6,7 @@ import com.sample.ZKSpringJPA.entity.request.DecisionStatus;
 import com.sample.ZKSpringJPA.entity.request.Request;
 import lombok.Getter;
 import lombok.Setter;
+import org.zkoss.bind.annotation.Command;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -44,6 +45,14 @@ public class Approval implements Serializable, Comparable<Approval>, Cloneable{
     @JoinColumn(name = "request_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Request request;
+
+    @Getter @Setter
+    @Column(name = "comment")
+    private String comment;
+
+    @Getter @Setter
+    @Column(name = "sorted_index")
+    private int sortedIndex;
     //endregion
 
     //region > Serialize
@@ -74,11 +83,7 @@ public class Approval implements Serializable, Comparable<Approval>, Cloneable{
 
     @Override
     public int compareTo(Approval approval) {
-        //use this statement to avoid null pointer exception, if ids are null.
-        if(this.getId()==approval.getId()){
-            return Integer.compare(this.getApprovalType().getValue(), approval.getApprovalType().getValue());
-        }
-        return this.getId().compareTo(approval.getId());
+        return Integer.compare(sortedIndex, approval.getSortedIndex());
     }
     //endregion
 }

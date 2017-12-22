@@ -1,5 +1,15 @@
 <zk>
-    <zk forEach="${vm.form.request.approvals}">
-        <include src="${each.approvalType.view}" componentModel="${each}" />
-    </zk>
+    <grid zclass="none" model="@load(vm.form.request.approvals)"
+          emptyMessage="You don't have any components">
+        <template name="model" var="com">
+            <row zclass="none">
+                <cell>
+                    <vbox width="100%" sclass="kpi-group"
+                          style="position:relative">
+                        <include src="${com.approvalType.view}" componentModel="${com}" />
+                    </vbox>
+                </cell>
+            </row>
+        </template>
+    </grid>
 </zk>
