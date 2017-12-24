@@ -14,7 +14,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 @Entity
-@Table(name="employee")
+@Table(name="employee", schema = "employment")
 public class Employee implements Serializable, Cloneable{
 
     //region > Fields

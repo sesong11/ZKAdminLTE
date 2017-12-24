@@ -15,7 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "security")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

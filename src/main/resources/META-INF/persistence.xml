@@ -13,7 +13,7 @@
 			<property name="hibernate.connection.url" value="jdbc:hsqldb:file:data/db" />
 			<!-- db is not persistent to disk -->
 			<!--<property name="hibernate.connection.url" value="jdbc:hsqldb:mem:store" />-->
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<!-- drop table every time
 			<property name="hibernate.hbm2ddl.auto" value="create" /> -->
 			<property name="hibernate.enable_lazy_load_no_trans" value="true" />
