@@ -66,8 +66,8 @@ public class ReliefVM extends ApprovalVM {
     public void approve(){
         getApproval().setDecisionStatus(DecisionStatus.APPROVED);
         getApproval().getRequest().setStatus(RequestStatus.OPEN);
-        setApproval(approvalService.update(getApproval()));
         getApproval().setApproveDate(new Timestamp(System.currentTimeMillis()));
+        setApproval(approvalService.update(getApproval()));
         Request request = getApproval().getRequest();
         for (Approval a: request.getApprovals()) {
             if(a.getSortedIndex() == getApproval().getSortedIndex()+1){

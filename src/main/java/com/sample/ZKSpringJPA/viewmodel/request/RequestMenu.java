@@ -8,7 +8,7 @@ import org.zkoss.zk.ui.select.annotation.VariableResolver;
         uuid = "request",
         menuOrder = "3",
         displayName = "Request",
-        menuIcon = "tag"
+        menuIcon = "list-alt"
 )
 public class RequestMenu {
 }

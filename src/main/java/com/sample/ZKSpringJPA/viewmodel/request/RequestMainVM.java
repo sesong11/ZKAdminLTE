@@ -16,10 +16,10 @@ import java.util.List;
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
         view = "/view/request/dashboard.zul",
-        uuid = "1request-dashboard",
+        uuid = "1-request-dashboard",
         menuOrder = "3.1",
         displayName = "Dashboard",
-        menuIcon = "tag"
+        menuIcon = "bar-chart"
 )
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class RequestMainVM {

@@ -6,10 +6,10 @@ import org.zkoss.zk.ui.select.annotation.VariableResolver;
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
         view = "/view/request/dashboard.zul",
-        uuid = "2draft-request",
+        uuid = "4-awaiting-approval",
         menuOrder = "3.2",
-        displayName = "Draft Request",
-        menuIcon = "tag"
+        displayName = "Awaiting Approve",
+        menuIcon = "spinner"
 )
-public class DraftRequestVM {
+public class AwaitingApprovalVM {
 }

@@ -6,7 +6,7 @@ import org.zkoss.zk.ui.select.annotation.VariableResolver;
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
         view = "/view/request/dashboard.zul",
-        uuid = "5closed-request",
+        uuid = "5-closed-request",
         menuOrder = "3.5",
         displayName = "Closed Request",
         menuIcon = "folder"

@@ -66,8 +66,8 @@ public class ApproveVM extends ApprovalVM {
     public void approve(){
         getApproval().setDecisionStatus(DecisionStatus.APPROVED);
         getApproval().getRequest().setStatus(RequestStatus.OPEN);
-        setApproval(approvalService.update(getApproval()));
         getApproval().setApproveDate(new Timestamp(System.currentTimeMillis()));
+        setApproval(approvalService.update(getApproval()));
         Request request = getApproval().getRequest();
         for (Approval a: request.getApprovals()) {
             if(a.getSortedIndex() == getApproval().getSortedIndex()+1){
@@ -83,8 +83,8 @@ public class ApproveVM extends ApprovalVM {
     public void reject(){
         getApproval().setDecisionStatus(DecisionStatus.REJECTED);
         getApproval().getRequest().setStatus(RequestStatus.CLOSED);
-        setApproval(approvalService.update(getApproval()));
         getApproval().setApproveDate(new Timestamp(System.currentTimeMillis()));
+        setApproval(approvalService.update(getApproval()));
         requestService.update(getApproval().getRequest());
     }
     //endregion

@@ -1,6 +1,7 @@
 package com.sample.ZKSpringJPA.services.request.impl;
 
 import com.sample.ZKSpringJPA.entity.request.Request;
+import com.sample.ZKSpringJPA.entity.request.RequestStatus;
 import com.sample.ZKSpringJPA.entity.request.approval.Approval;
 import com.sample.ZKSpringJPA.services.request.RequestService;
 import com.sample.ZKSpringJPA.services.request.dao.RequestDao;
@@ -25,6 +26,11 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public List<Request> findPaging(final int offset, final int limit) {
         return requestDao.findPaging(offset, limit);
+    }
+
+    @Override
+    public List<Request> findMyRequest(final int offset, final int limit, final RequestStatus requestStatus) {
+        return requestDao.findMyRequest(offset, limit, requestStatus);
     }
 
     @Override

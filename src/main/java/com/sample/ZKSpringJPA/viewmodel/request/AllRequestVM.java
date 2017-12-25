@@ -20,10 +20,10 @@ import java.util.List;
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
         view = "/view/request/all-request.zul",
-        uuid = "6all-request",
+        uuid = "6-all-request",
         menuOrder = "3.6",
         displayName = "All Request",
-        menuIcon = "list-alt"
+        menuIcon = "list"
 )
 public class AllRequestVM {
     //region > Inject Service

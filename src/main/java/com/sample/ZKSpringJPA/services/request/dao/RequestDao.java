@@ -1,11 +1,16 @@
 package com.sample.ZKSpringJPA.services.request.dao;
 
 import com.sample.ZKSpringJPA.entity.employment.Allowance;
+import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.entity.request.Request;
+import com.sample.ZKSpringJPA.entity.request.RequestStatus;
 import com.sample.ZKSpringJPA.entity.request.approval.Approval;
 import com.sample.ZKSpringJPA.services.CrudRepository;
+import com.sample.ZKSpringJPA.utils.UserCredentialService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,7 +18,9 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -21,6 +28,9 @@ import java.util.TreeSet;
 public class RequestDao extends CrudRepository {
     @PersistenceContext
     private EntityManager em;
+
+    @Autowired
+    UserCredentialService userCredentialService;
 
     @Transactional(readOnly = true)
     public List<Request> queryAll() {
@@ -55,5 +65,25 @@ public class RequestDao extends CrudRepository {
         Query query = em.createQuery("SELECT a FROM Approval a WHERE a.request.id = :requestId").setParameter("requestId", id);
         TreeSet<Approval> result = new TreeSet<>(query.getResultList());
         return result;
+    }
+
+    public List<Request> findMyRequest(int offset, int limit, final RequestStatus requestStatus) {
+        Employee currentEmployee = userCredentialService.getCurrentEmployee();
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Request> criteriaQuery = criteriaBuilder
+                .createQuery(Request.class);
+        Root<Request> from = criteriaQuery.from(Request.class);
+        CriteriaQuery<Request> select = criteriaQuery.select(from);
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(criteriaBuilder.equal(from.get("status"), requestStatus));
+        predicates.add(criteriaBuilder.equal(from.get("requestFor"), currentEmployee));
+        criteriaQuery.where(predicates.toArray(new Predicate[]{}));
+        criteriaQuery.select(from);
+        TypedQuery<Request> typedQuery = em.createQuery(select);
+        typedQuery.setFirstResult(offset);
+        typedQuery.setMaxResults(limit);
+        List<Request> list = typedQuery.getResultList();
+        System.out.println("My Pending Request: "+list.size());
+        return list;
     }
 }
