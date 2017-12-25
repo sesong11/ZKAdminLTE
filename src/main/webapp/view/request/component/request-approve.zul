@@ -1,31 +1,55 @@
 <zk xmlns:n="native">
-    <n:div class="box box-danger">
-        <n:div class="box-header with-border">
-            <n:h3 class="box-title">Approve</n:h3>
-            <n:div class="box-tools pull-right">
-                <n:span data-toggle="tooltip" title="" class="badge bg-red" data-original-title="Approve">
-                    Rejected</n:span>
-            </n:div>
-        </n:div>
-        <!-- /.box-header -->
-        <!-- form start -->
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('rvm') @init('com.sample.ZKSpringJPA.viewmodel.request.components.ApproveVM')">
+        <custom-attributes model="${componentModel}" />
+        <n:div class="box box-${rvm.boxClass}">
+            <n:div class="box-header with-border">
+                <n:h3 class="box-title">Superior</n:h3>
+                <n:div class="box-tools pull-right">
+                    <a onClick="@command('reject')" visible="@load(rvm.approveAble)">
+                        <n:span data-toggle="tooltip" title="" class="badge bg-red" data-original-title="Approve">
+                            <n:i class="fa fa-close"></n:i> Reject</n:span>
+                    </a>
+                    <a onClick="@command('approve')" visible="@load(rvm.approveAble)">
+                        <n:span data-toggle="tooltip" title="" class="badge bg-blue" data-original-title="Approve">
+                            <n:i class="fa fa-check"></n:i> Approve</n:span>
+                    </a>
 
-        <n:div class="box-body">
-            <n:div class="direct-chat-msg">
+                    <div visible="@load(rvm.approved)">
+                        <n:span data-toggle="tooltip" title="" class="badge bg-${rvm.badgeColor}" data-original-title="Approve">
+                            Approved</n:span>
+                    </div>
+                </n:div>
+            </n:div>
+            <!-- /.box-header -->
+            <!-- form start -->
+
+            <n:div class="box-body">
                 <n:div class="direct-chat-info clearfix">
-                    <n:span class="direct-chat-name pull-left text-primary">Alexander Pierce</n:span>
-                    <n:span class="direct-chat-name pull-left text-muted"><n:code>Project and Continuity</n:code></n:span>
-                    <n:span class="direct-chat-timestamp pull-right">23-07-2017 5:37 pm</n:span>
+                    <n:span sclass="direct-chat-name pull-left text-primary">
+                        ${rvm.approval.approvePerson.fullName}
+                    </n:span>
+                    <n:span class="direct-chat-name pull-left text-muted"><n:code>
+                        ${rvm.approval.approvePerson.designation.name}
+                    </n:code></n:span>
+                    <n:span sclass="direct-chat-timestamp pull-right">
+                        <label value="@load(rvm.approval.approveDate)" />
+                    </n:span>
                 </n:div>
                 <!-- /.direct-chat-info -->
                 <n:img class="direct-chat-img" src="img/profile-pictures.png" alt="message user image" />
                 <!-- /.direct-chat-img -->
-                <n:div class="direct-chat-text bg-red">
-                    Working with AdminLTE on a great new app! Wanna join?
-                </n:div>
-                <!-- /.direct-chat-text -->
+                <div zclass="none" visible="@load(not rvm.approved)" sclass="direct-chat-text bg-default" style="background-color: #FFFFFF">
+                    <textbox multiline="true" rows="2" style="resize: vertical; border: none" value="@bind(rvm.approval.comment)"
+                             sclass="form-control" placeholder="Comment" readonly="@load(!rvm.approveAble)"/>
+                </div>
+                <div visible="@load(rvm.approved)" zclass="none">
+                    <n:div style="min-height: 35px" sclass="direct-chat-text bg-${rvm.badgeColor}">
+                        <label zclass="none" value="@load(rvm.approval.comment)" />
+                    </n:div>
+                </div>
             </n:div>
-        </n:div>
 
-    </n:div>
+        </n:div>
+    </div>
 </zk>

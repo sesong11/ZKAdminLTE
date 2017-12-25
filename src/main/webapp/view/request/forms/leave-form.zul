@@ -42,7 +42,7 @@
                                     <n:div class="row">
                                         <n:div class="col-md-6">
                                             <n:div class="form-group">
-                                                <n:label class="col-sm-4 control-label">TYPE OF LEAVE</n:label>
+                                                <n:label class="col-sm-4 control-label">Type of leave</n:label>
                                                 <n:div class="col-sm-8">
                                                     <combobox selectedItem="@bind(vm.form.leaveType)" value="@load(vm.form.leaveType.name)"
                                                             model="@load(vm.leaveTypes)" width="100%" id="cbLeaveType">
@@ -55,14 +55,10 @@
                                             </n:div>
                                         </n:div>
                                         <n:div class="col-md-6">
-                                            <div class="form-group" visible="@load(cbLeaveType.value eq 'Other')">
-                                                <n:label class="col-sm-4 control-label">TYPE OF LEAVE</n:label>
-                                                <n:div class="col-sm-8">
-                                                    <combobox model="@load(vm.leaveTypes)" width="100%">
-                                                        <template name="model">
-                                                            <comboitem label="@load(each.name)"/>
-                                                        </template>
-                                                    </combobox>
+                                            <div class="form-group" visible="@load(vm.form.leaveType.name eq 'Other Special Paid Leave')">
+                                                <n:label class="control-label">Please specify</n:label>
+                                                <n:div>
+                                                   <textbox multiline="true" rows="1" style="resize: vertical;" sclass="form-control" />
                                                 </n:div>
                                                 <n:div class="clearfix"></n:div>
                                             </div>

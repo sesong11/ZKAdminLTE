@@ -2,7 +2,7 @@
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
          viewModel="@id('rvm') @init('com.sample.ZKSpringJPA.viewmodel.request.components.ReliefVM')">
         <custom-attributes model="${componentModel}" />
-        <n:div class="box box-info">
+        <n:div class="box box-${rvm.boxClass}">
             <n:div class="box-header with-border">
                 <n:h3 class="box-title">Relief</n:h3>
                 <n:div class="box-tools pull-right">
@@ -12,7 +12,7 @@
                     </a>
 
                     <div visible="@load(rvm.approved)">
-                        <n:span data-toggle="tooltip" title="" class="badge bg-green" data-original-title="Approve">
+                        <n:span data-toggle="tooltip" title="" class="badge bg-${rvm.badgeColor}" data-original-title="Approve">
                             Confirmed</n:span>
                     </div>
                 </n:div>
@@ -40,7 +40,7 @@
                              sclass="form-control" placeholder="Comment" readonly="@load(!rvm.approveAble)"/>
                 </div>
                 <div visible="@load(rvm.approved)" zclass="none">
-                    <n:div style="min-height: 35px" sclass="direct-chat-text bg-green">
+                    <n:div style="min-height: 35px" sclass="direct-chat-text bg-${rvm.badgeColor}">
                         <label zclass="none" value="@load(rvm.approval.comment)" />
                     </n:div>
                 </div>

@@ -97,14 +97,12 @@ public class LeaveFormVM {
             supervisor = new Approval();
             supervisor.setSortedIndex(2);
             supervisor.setId(2L);
-            supervisor.setDecisionStatus(DecisionStatus.AWAITING);
             supervisor.setApprovalType(ApprovalType.APPROVE);
             request.addApproval(supervisor);
             //head department who authorize the request
             manager = new Approval();
             manager.setSortedIndex(3);
             manager.setId(3L);
-            manager.setDecisionStatus(DecisionStatus.AWAITING);
             manager.setApprovalType(ApprovalType.AUTHORIZE);
             request.addApproval(manager);
         } else {

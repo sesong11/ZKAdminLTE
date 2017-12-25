@@ -1,5 +1,6 @@
 package com.sample.ZKSpringJPA.viewmodel.request.components;
 
+
 import com.sample.ZKSpringJPA.entity.request.DecisionStatus;
 import com.sample.ZKSpringJPA.entity.request.Request;
 import com.sample.ZKSpringJPA.entity.request.RequestStatus;
@@ -18,8 +19,7 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import java.sql.Timestamp;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
-public class ReliefVM extends ApprovalVM {
-
+public class AuthorizeVM extends ApproveVM{
     //region > Inject Service
     @WireVariable
     private UserCredentialService userCredentialService;
@@ -78,6 +78,14 @@ public class ReliefVM extends ApprovalVM {
         }
         requestService.update(request);
     }
+    @Command
+    @NotifyChange({"approval", "approveAble", "approved"})
+    public void reject(){
+        getApproval().setDecisionStatus(DecisionStatus.REJECTED);
+        getApproval().getRequest().setStatus(RequestStatus.CLOSED);
+        setApproval(approvalService.update(getApproval()));
+        getApproval().setApproveDate(new Timestamp(System.currentTimeMillis()));
+        requestService.update(getApproval().getRequest());
+    }
     //endregion
-
 }
