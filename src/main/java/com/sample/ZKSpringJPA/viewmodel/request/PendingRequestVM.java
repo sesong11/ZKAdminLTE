@@ -53,7 +53,7 @@ public class PendingRequestVM {
     @Init
     public void init() {
         requests = new ListModelList<Request>(requestService.findMyRequest(0, pageSize, RequestStatus.PENDING));
-        totalSize = requestService.count();
+        totalSize = requestService.findMyRequestCounter(RequestStatus.PENDING);
     }
     //endregion
 

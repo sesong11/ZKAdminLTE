@@ -22,7 +22,7 @@
 <![endif]-->
 
 <!-- Google Font -->
-<?link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"?>
+<?link rel="stylesheet" href="../adminlte/googlefont/googlefont.css"?>
 
 <zk xmlns:n="native">
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
@@ -30,7 +30,7 @@
          validationMessages="@id('vmsgs')">
     <n:div class="login-box">
         <n:div class="login-logo">
-            <n:a href="../../index2.html"><n:b>Admin</n:b>LTE</n:a>
+            <n:a href="../../index2.html"><n:b>Phillip</n:b>Bank</n:a>
         </n:div>
         <!-- /.login-logo -->
         <n:div class="login-box-body">
@@ -42,7 +42,7 @@
                     <n:span class="glyphicon glyphicon-user form-control-feedback"></n:span>
                 </n:div>
                 <n:div class="form-group has-feedback">
-                    <textbox type="password" sclass="form-control" placeholder="Password" value="@bind(vm.password)"/>
+                    <textbox onOK="@command('login')" type="password" sclass="form-control" placeholder="Password" value="@bind(vm.password)"/>
                     <n:span class="glyphicon glyphicon-lock form-control-feedback"></n:span>
                 </n:div>
                 <n:div class="row">
@@ -59,19 +59,8 @@
                     </n:div>
                     <!-- /.col -->
                 </n:div>
-
-
-            <n:div class="social-auth-links text-center">
-                <n:p>- OR -</n:p>
-                <n:a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><n:i class="fa fa-facebook"></n:i> Sign in using
-                    Facebook</n:a>
-                <n:a href="#" class="btn btn-block btn-social btn-google btn-flat"><n:i class="fa fa-google-plus"></n:i> Sign in using
-                    Google+</n:a>
-            </n:div>
-            <!-- /.social-auth-links -->
-
-            <n:a href="#">I forgot my password</n:a><n:br />
-            <n:a href="../register" class="text-center">Register a new membership</n:a>
+            <!--<n:a href="#">I forgot my password</n:a><n:br />-->
+            <!--<n:a href="../register" class="text-center">Register a new membership</n:a>-->
         </n:div>
         <!-- /.login-box-body -->
     </n:div>

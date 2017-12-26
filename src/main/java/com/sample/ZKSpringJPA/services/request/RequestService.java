@@ -17,4 +17,6 @@ public interface RequestService {
     Request create(Request request);
     Request update(Request request);
     void delete(Request request);
+
+    Long findMyRequestCounter(RequestStatus pending);
 }

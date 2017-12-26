@@ -83,7 +83,23 @@ public class RequestDao extends CrudRepository {
         typedQuery.setFirstResult(offset);
         typedQuery.setMaxResults(limit);
         List<Request> list = typedQuery.getResultList();
-        System.out.println("My Pending Request: "+list.size());
         return list;
+    }
+
+    public Long findMyRequestCounter(RequestStatus requestStatus) {
+        Employee currentEmployee = userCredentialService.getCurrentEmployee();
+
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Long> countQuery = criteriaBuilder.createQuery(Long.class);
+        Root<Request> from = countQuery.from(Request.class);
+        countQuery.select(criteriaBuilder.count(from));
+
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(criteriaBuilder.equal(from.get("status"), requestStatus));
+        predicates.add(criteriaBuilder.equal(from.get("requestFor"), currentEmployee));
+        countQuery.where(predicates.toArray(new Predicate[]{}));
+
+        Long count = em.createQuery(countQuery).getSingleResult();
+        return count;
     }
 }

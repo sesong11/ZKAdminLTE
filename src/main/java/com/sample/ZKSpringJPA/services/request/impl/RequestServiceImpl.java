@@ -62,4 +62,9 @@ public class RequestServiceImpl implements RequestService {
     public void delete(Request request) {
         requestDao.delete(request);
     }
+
+    @Override
+    public Long findMyRequestCounter(RequestStatus requestStatus) {
+        return requestDao.findMyRequestCounter(requestStatus);
+    }
 }
