@@ -53,5 +53,4 @@ public class LeaveForm extends Form {
     @Column(name = "confirm_policy")
     private boolean confirmPolicy;
     //endregion
-
 }

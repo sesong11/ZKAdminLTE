@@ -1,0 +1,75 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.request.AwaitingApprovalVM')">
+        <n:section class="content-header">
+            <n:h1>
+                Open Requests
+                <n:small></n:small>
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Awaiting Approval</n:li>
+            </n:ol>
+        </n:section>
+        <n:section class="content">
+            <n:div class="row">
+
+                <n:div class="col-md-12">
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Awaiting Approval</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <n:div class="box-body no-padding">
+                            <n:div class="mailbox-controls">
+                                <n:span>Page Size: </n:span>
+                                <spinner id="quantitySpinner" width="100px" value="10"
+                                         onChange="@command('changePageSize', size = self.value)"
+                                         format=",###" constraint="no empty,min 1, max 100" />
+                            </n:div>
+                            <listbox model="@load(vm.requests)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
+                                     emptyMessage="Nothing in Inbox." zclass="none" >
+                                <listhead zclass="none">
+                                    <listheader zclass="none" label="Id" width="80px"/>
+                                    <listheader zclass="none" label="Request Form" width="150px"/>
+                                    <listheader zclass="none" label="Priority" width="120px"/>
+                                    <listheader zclass="none" label="Decision Status" width="120px"/>
+                                    <listheader zclass="none" label="Status" width="120px"/>
+                                    <listheader zclass="none" label="Request By" width="120px"/>
+                                    <listheader zclass="none" label="Request For" width="120px"/>
+                                    <listheader zclass="none" label="Request Date" width="120px"/>
+                                    <listheader zclass="none" label=""/>
+                                </listhead>
+                                <template name="model">
+                                    <listitem>
+                                        <listcell zclass="none" label="@load(each.id)" />
+                                        <listcell zclass="none" label="@load(each.formType.name)" />
+                                        <listcell zclass="none">
+                                            <n:span class="label label-${each.priority.sclass}">${each.priority.name}</n:span>
+                                        </listcell>
+                                        <listcell zclass="none">
+                                            <n:span class="label label-${each.decisionStatus.sclass}">${each.decisionStatus.name}</n:span>
+                                        </listcell>
+                                        <listcell zclass="none" label="@load(each.status.name)" />
+                                        <listcell zclass="none" label="@load(each.requestBy.fullName)" />
+                                        <listcell zclass="none" label="@load(each.requestFor.fullName)" />
+                                        <listcell zclass="none" label="@load(each.requestDate) @converter('formattedDate', format = vm.standardDateTimeFormat)" />
+                                        <listcell zclass="none">
+                                            <n:a href="?m=${each.formType.menuUuid}&amp;id=${each.id}" class="pull-right"><n:i class="fa fa-edit"></n:i></n:a>
+                                        </listcell>
+                                    </listitem>
+                                </template>
+                            </listbox>
+                            <paging pageSize="@load(vm.pageSize)" onClick="@command('changeActivePage', index=self.activePage)"
+                                    mold="os" totalSize="@load(vm.totalSize)" activePage="@load(vm.activePage)" />
+                        </n:div>
+                    </n:div>
+                </n:div>
+            </n:div>
+        </n:section>
+    </div>
+</zk>

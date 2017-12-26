@@ -12,12 +12,14 @@ import com.sample.ZKSpringJPA.services.request.ApprovalService;
 import com.sample.ZKSpringJPA.services.request.LeaveFormService;
 import com.sample.ZKSpringJPA.services.request.RequestService;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
+import com.sample.ZKSpringJPA.utils.UserCredentialService;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.*;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
+import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
@@ -49,6 +51,9 @@ public class LeaveFormVM {
 
     @WireVariable
     private ApprovalService approvalService;
+
+    @WireVariable
+    private UserCredentialService userCredentialService;
     //endregion
 
     //region > Fields
@@ -190,7 +195,7 @@ public class LeaveFormVM {
     public void submit(){
         Request request = form.getRequest();
         request.setRequestDate(new Timestamp(new Date().getTime()));
-        request.setRequestBy(request.getRequestFor());
+        request.setRequestBy(userCredentialService.getCurrentEmployee());
         request.setStatus(RequestStatus.PENDING);
         request.getApprovals().clear();
         request = requestService.create(request);
