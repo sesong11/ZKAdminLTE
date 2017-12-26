@@ -1,0 +1,48 @@
+<zk xmlns:n="native">
+    <n:section class="content-header">
+        <n:h1>
+            Home
+            <n:small></n:small>
+        </n:h1>
+        <n:ol class="breadcrumb">
+            <n:li><n:i class="fa fa-dashboard"></n:i> Home</n:li>
+        </n:ol>
+    </n:section>
+    <n:section class="content">
+        <n:div class="row">
+
+            <n:div class="col-md-4">
+                <n:div class="box box-solid">
+                    <n:div class="box-body">
+                        <n:h4 style="background-color:#f7f7f7; font-size: 18px; text-align: center; padding: 7px 10px; margin-top: 0;">
+                            PREMIUM TEMPLATE
+                        </n:h4>
+                        <n:div class="media">
+                            <n:div class="media-left">
+                                <n:a href="https://themequarry.com/theme/ample-admin-the-ultimate-dashboard-template-ASFEDA95" class="ad-click-event">
+                                    <n:img src="https://themequarry.com/storage/images/approved/ASFEDA95_v2.1_5a0eaa448e2d5.png" alt="Ample Admin" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
+                                </n:a>
+                            </n:div>
+                            <n:div class="media-body">
+                                <n:div class="clearfix">
+                                    <n:p class="pull-right">
+                                        <n:a href="https://themequarry.com/theme/ample-admin-the-ultimate-dashboard-template-ASFEDA95" class="btn btn-success btn-sm ad-click-event">
+                                            LEARN MORE
+                                        </n:a>
+                                    </n:p>
+
+                                    <n:h4 style="margin-top: 0">Ample Admin ─ $24</n:h4>
+
+                                    <n:p>Admin + Frontend Template</n:p>
+                                    <n:p style="margin-bottom: 0">
+                                        <n:i class="fa fa-shopping-cart margin-r5"></n:i> 100+ purchases
+                                    </n:p>
+                                </n:div>
+                            </n:div>
+                        </n:div>
+                    </n:div>
+                </n:div>
+            </n:div>
+        </n:div>
+    </n:section>
+</zk>

@@ -3,12 +3,12 @@
          viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.request.ClosedRequestVM')">
         <n:section class="content-header">
             <n:h1>
-                Pending Requests
+                Closed Requests
                 <n:small></n:small>
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
-                <n:li class="active">Pending Requests</n:li>
+                <n:li class="active">Closed Requests</n:li>
             </n:ol>
         </n:section>
         <n:section class="content">
@@ -17,7 +17,7 @@
                 <n:div class="col-md-12">
                     <n:div class="box box-info">
                         <n:div class="box-header with-border">
-                            <n:h3 class="box-title">Pending Requests</n:h3>
+                            <n:h3 class="box-title">Closed Requests</n:h3>
 
                             <n:div class="box-tools pull-right">
                                 <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>

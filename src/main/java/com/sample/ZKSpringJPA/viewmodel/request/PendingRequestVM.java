@@ -23,7 +23,7 @@ import java.util.List;
         uuid = "2-pending-request",
         menuOrder = "3.3",
         displayName = "Pending Request",
-        menuIcon = "hourglass"
+        menuIcon = "hourglass text-yellow"
 )
 public class PendingRequestVM {
     //region > Inject Service

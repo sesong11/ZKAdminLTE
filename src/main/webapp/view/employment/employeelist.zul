@@ -32,7 +32,7 @@
                         </n:div>
                         <!-- /.box-header -->
                         <n:div class="box-body">
-                            <listbox height="450px" model="@load(vm.employees)" sclass="table table-hover table-bordered table-responsive mailbox-messages"
+                            <listbox height="450px" model="@load(vm.employees)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                   emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" zclass="none">
                                 <listhead>
                                     <listheader zclass="none" label="Code" width="80px"/>

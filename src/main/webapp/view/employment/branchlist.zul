@@ -35,7 +35,7 @@
                         <!-- /.box-header -->
                         <n:div class="box-body">
 
-                            <grid zclass="none" height="350px" model="@load(vm.branches)" sclass="table table-bordered"
+                            <grid zclass="none" height="350px" model="@load(vm.branches)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                   emptyMessage="Nothing in Inbox.">
                                 <columns zclass="none">
                                     <column label="Id" zclass="none" width="50px"/>

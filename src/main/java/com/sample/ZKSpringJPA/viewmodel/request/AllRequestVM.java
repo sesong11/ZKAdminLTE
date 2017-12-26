@@ -23,7 +23,7 @@ import java.util.List;
         uuid = "6-all-request",
         menuOrder = "3.6",
         displayName = "All Request",
-        menuIcon = "list"
+        menuIcon = "list text-default"
 )
 public class AllRequestVM {
     //region > Inject Service

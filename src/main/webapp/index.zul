@@ -47,16 +47,20 @@
     <![endif]-->
 
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
-         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.MyViewModel')"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.MainVM')"
          validationMessages="@id('vmsgs')">
         <n:div class="wrapper">
             <n:header class="main-header">
                 <!-- Logo -->
-                <n:a href="?p=dashboard/dashboard-v1" class="logo">
+                <n:a href="?m=default" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <n:span class="logo-mini"><n:b>A</n:b>LT</n:span>
+                    <n:span class="logo-mini">
+                        <n:img src="img/icon/phillip-logo.png" style="width: 50px; height: 50px" />
+                    </n:span>
                     <!-- logo for regular state and mobile devices -->
-                    <n:span class="logo-lg"><n:b>Phillip</n:b>Bank</n:span>
+                    <n:span class="logo-lg">
+                        <n:img src="img/icon/phillip-logo.png" style="width: 50px; height: 50px" />
+                        <n:b>Phillip</n:b>Bank</n:span>
                 </n:a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <n:nav class="navbar navbar-static-top">
@@ -145,9 +149,9 @@
 
             <n:footer class="main-footer">
                 <n:div class="pull-right hidden-xs">
-                    <n:b>Version</n:b> 2.4.0
+                    <n:b>Version</n:b> 1.0.0-SNAPSHOT
                 </n:div>
-                <n:strong>Copyright 2014-2016 <n:a href="https://adminlte.io">Almsaeed Studio</n:a>.</n:strong> All rights
+                <n:strong>Copyright 2017 <n:a target="_blank" href="http://phillipbankplc.com.kh">Phillip Bank PLC</n:a>.</n:strong> All rights reserved.
                 reserved.
             </n:footer>
         </n:div>

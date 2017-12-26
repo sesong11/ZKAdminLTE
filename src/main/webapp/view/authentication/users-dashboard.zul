@@ -12,7 +12,7 @@
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
-                <n:li class="active">Dashboard</n:li>
+                <n:li class="active">Admin Dashboard</n:li>
                 <n:li class="active">User Dashboard</n:li>
             </n:ol>
         </n:section>
@@ -35,12 +35,12 @@
                         <!-- /.box-header -->
                         <n:div class="box-body">
 
-                            <grid zclass="none" height="350px" model="@load(vm.users)" sclass="table table-bordered"
+                            <grid zclass="none" height="350px" model="@load(vm.users)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                   emptyMessage="Nothing in Inbox.">
                                 <columns zclass="none">
                                     <column label="Id" zclass="none" width="50px"/>
                                     <column label="Username" width="120px" zclass="none"/>
-                                    <column label="Enabled" width="80px" zclass="none"/>
+                                    <column label="Enabled" zclass="none"/>
                                 </columns>
                                 <template name="model">
                                     <row zclass="none" onClick="@command('selectUser', user=each)">
@@ -126,7 +126,7 @@
                         </n:div>
                         <!-- /.box-header -->
                         <n:div class="box-body">
-                            <grid zclass="none" height="350px" model="@load(vm.currentUser.roles)" sclass="table table-bordered"
+                            <grid zclass="none" height="350px" model="@load(vm.currentUser.roles)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                   emptyMessage="Nothing in Inbox.">
                                 <columns zclass="none">
                                     <column label="Id" zclass="none" width="50px"/>

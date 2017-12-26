@@ -138,7 +138,7 @@
                         </n:ul>
                         <n:div class="tab-content">
                             <n:div class="tab-pane active" id="history">
-                                <grid zclass="none" height="auto" model="@load(vm.employee.employmentHistories)" sclass="table table-bordered table-responsive mailbox-messages"
+                                <grid zclass="none" height="auto" model="@load(vm.employee.employmentHistories)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                       emptyMessage="Nothing in Inbox.">
                                     <columns zclass="none">
                                         <column label="Id" zclass="none" width="50px"/>
@@ -171,7 +171,7 @@
                             </n:div>
                             <!-- /.tab-pane -->
                             <n:div class="tab-pane" id="allowance">
-                                <grid zclass="none" height="auto" model="@load(vm.employee.employeeAllowances)" sclass="table table-bordered table-responsive mailbox-messages"
+                                <grid zclass="none" height="auto" model="@load(vm.employee.employeeAllowances)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                       emptyMessage="Nothing in Inbox.">
                                     <columns sizable="true" zclass="none">
                                         <column zclass="none" label="Id" width="50px" />

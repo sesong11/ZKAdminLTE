@@ -19,7 +19,7 @@ import java.util.List;
         uuid = "1-request-dashboard",
         menuOrder = "3.1",
         displayName = "Dashboard",
-        menuIcon = "bar-chart"
+        menuIcon = "bar-chart text-blue"
 )
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class RequestMainVM {

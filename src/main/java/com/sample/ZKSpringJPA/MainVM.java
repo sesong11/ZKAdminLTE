@@ -35,7 +35,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
-public class MyViewModel {
+public class MainVM {
 
 	@WireVariable
 	private MyService myService;
@@ -71,22 +71,19 @@ public class MyViewModel {
 		if(isAdmin() && FeaturesScanner.getFeatures().size()==0){
 			FeaturesScanner.scanFeatures();
 		}
-		String param = Executions.getCurrent().getParameter("p");
-
-		if(param!=null){
-			urlParam = "/application/"+param+".zul";
-		}
-
+		String param = Executions.getCurrent().getParameter("m");
 		menu = new Menu();
-
 		Feature feature = menu.scanMenu(user);
-		if(feature == null){
-			urlParam = "/view/error/404.zul";
-		}
-		else if(isAuthenticated(feature.uuid())){
-			urlParam = feature.view();
-		}else{
-			urlParam = "/view/error/401.zul";
+		if(param==null && isAuthenticated("default")){
+			urlParam = "/view/default.zul";
+		}else {
+			if (feature == null) {
+				urlParam = "/view/error/404.zul";
+			} else if (isAuthenticated(feature.uuid())) {
+				urlParam = feature.view();
+			} else {
+				urlParam = "/view/error/401.zul";
+			}
 		}
 	}
 

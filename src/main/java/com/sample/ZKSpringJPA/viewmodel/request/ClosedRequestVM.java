@@ -23,7 +23,7 @@ import java.util.List;
         uuid = "5-closed-request",
         menuOrder = "3.5",
         displayName = "Closed Request",
-        menuIcon = "folder"
+        menuIcon = "folder text-red"
 )
 public class ClosedRequestVM {
     //region > Inject Service

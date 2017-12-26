@@ -23,7 +23,7 @@ import java.util.List;
         uuid = "3-open-request",
         menuOrder = "3.4",
         displayName = "Open Request",
-        menuIcon = "folder-open"
+        menuIcon = "folder-open text-green"
 )
 public class OpenRequestVM {
     //region > Inject Service
