@@ -7,13 +7,13 @@
         <!-- Content Header (Page header) -->
         <n:section class="content-header">
             <n:h1>
-                All Days Off
-                <n:small>preview</n:small>
+                Holidays
+                <n:small></n:small>
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
                 <n:li class="active">Employment</n:li>
-                <n:li class="active">Days Off List</n:li>
+                <n:li class="active">Holidays</n:li>
             </n:ol>
         </n:section>
         <!-- Main content -->
@@ -25,7 +25,7 @@
                     <!-- TABLE: Users -->
                     <n:div class="box box-info">
                         <n:div class="box-header with-border">
-                            <n:h3 class="box-title">All Days Off</n:h3>
+                            <n:h3 class="box-title">Holidays</n:h3>
 
                             <n:div class="box-tools pull-right">
                                 <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>

@@ -27,6 +27,7 @@ public class Request {
     @Getter @Setter
     @JoinColumn(name = "request_by", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
+
     private Employee requestBy;
 
     @Getter @Setter

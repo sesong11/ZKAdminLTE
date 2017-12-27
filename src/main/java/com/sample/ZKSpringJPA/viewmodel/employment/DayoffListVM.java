@@ -21,7 +21,7 @@ import lombok.Setter;
         view = "/view/employment/dayofflist.zul",
         uuid = "dayofflist",
         menuOrder = "2.5",
-        displayName = "Days Off List",
+        displayName = "Holidays",
         menuIcon = "id-card"
 )
 public class DayoffListVM {
