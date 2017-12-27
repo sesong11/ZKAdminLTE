@@ -12,10 +12,10 @@
  
  	<context:component-scan base-package="com.sample.ZKSpringJPA" />
  	<!-- <context:component-scan base-package="org.zkoss.reference.developer.spring.security.model"/> -->
- 	
- 	<!-- jpa(hibernate) configuration -->
+
+	<!-- jpa(hibernate) configuration -->
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="myapp"/>
+		<property name="persistenceUnitName" value="dev"/>
 	</bean>
 	
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Table(schema = "sec", name = "role_permission")
 public class RolePermission {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

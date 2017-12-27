@@ -16,7 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "allowance")
+@Table(name = "allowance", schema = "employment")
 public class Allowance {
     //region > Fields
     @Id

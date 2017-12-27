@@ -194,6 +194,9 @@ public class LeaveFormVM {
     @NotifyChange({"form", "relief", "supervisor", "manager"})
     public void submit(){
         Request request = form.getRequest();
+        relief.setId(null);
+        supervisor.setId(null);
+        manager.setId(null);
         request.setRequestDate(new Timestamp(new Date().getTime()));
         request.setRequestBy(userCredentialService.getCurrentEmployee());
         request.setStatus(RequestStatus.PENDING);
@@ -204,11 +207,8 @@ public class LeaveFormVM {
         request.addApproval(relief);
         request.addApproval(supervisor);
         request.addApproval(manager);
-        relief.setId(null);
         relief = approvalService.create(relief);
-        supervisor.setId(null);
         supervisor = approvalService.create(supervisor);
-        manager.setId(null);
         manager = approvalService.create(manager);
     }
     //endregion

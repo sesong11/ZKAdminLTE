@@ -10,6 +10,7 @@
 		<hibernate.version>5.0.0.Final</hibernate.version>
 		<bean.validation.api.version>2.0.0.Final</bean.validation.api.version>
 		<hibernate.validation.version>6.0.7.Final</hibernate.validation.version>
+		<postgresql.version>42.1.4</postgresql.version>
 		<commons-io>2.6</commons-io>
 		<commons-logging>1.1.1</commons-logging>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
@@ -135,6 +136,11 @@
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<version>${bean.validation.api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hsqldb</groupId>

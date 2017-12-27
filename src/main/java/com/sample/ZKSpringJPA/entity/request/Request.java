@@ -11,7 +11,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 @Entity
-@Table(name = "request")
+@Table(name = "request", schema = "req")
 public class Request {
     //region > Fields
     @Id

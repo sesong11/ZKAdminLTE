@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "leave_form")
+@Table(name = "leave_form", schema = "req")
 public class LeaveForm extends Form {
 
     //region > Fields

@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "approval")
+@Table(name = "approval", schema = "req")
 public class Approval implements Serializable, Comparable<Approval>, Cloneable{
     //region > Fields
     @Id

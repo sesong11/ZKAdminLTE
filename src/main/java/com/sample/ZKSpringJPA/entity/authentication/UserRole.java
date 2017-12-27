@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "user_roles")
+@Table(schema = "sec", name = "user_roles")
 public class UserRole {
 
 	@Id

@@ -18,7 +18,7 @@
         <n:section class="content">
             <n:div class="mailbox-controls">
                 <n:div class="btn-group">
-                    <button onClick="@command('submit')"
+                    <button onClick="@command('submit')" visible="@load(vm.form.request.id eq null)"
                             type="button" sclass="btn btn-info btn-sm fa fa-save"> Submit Request</button>
                 </n:div>
             </n:div>
