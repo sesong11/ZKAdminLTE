@@ -1,14 +1,10 @@
 package com.sample.ZKSpringJPA;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
-import com.sample.ZKSpringJPA.entity.Log;
 import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.RolePermission;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.entity.employment.Employee;
-import com.sample.ZKSpringJPA.services.MyService;
-
-import java.util.*;
 
 import com.sample.ZKSpringJPA.services.authentication.UserService;
 import com.sample.ZKSpringJPA.utils.FeaturesScanner;
@@ -21,24 +17,17 @@ import lombok.Setter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
-import org.zkoss.lang.Strings;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
-import org.zkoss.zul.ListModel;
-import org.zkoss.zul.ListModelList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class MainVM {
-
-	@WireVariable
-	private MyService myService;
 
 	@WireVariable
 	private UserCredentialService userCredentialService;
@@ -54,9 +43,6 @@ public class MainVM {
 
 	@Getter
 	private Employee currentEmployee;
-
-	private ListModelList<Log> logListModel;
-	private String message;
 
 	private String urlParam = "/application/dashboard/dashboard-v1.zul";
 
@@ -116,28 +102,6 @@ public class MainVM {
 		return false;
 	}
 
-	public ListModel<Log> getLogListModel() {
-		return logListModel;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	@Command
-	public void addLog() {
-		if(Strings.isBlank(message)) {
-			return;
-		}
-		Log log = new Log(message);
-		log = myService.addLog(log);
-		logListModel.add(log);
-	}
-
 	@Command
 	public void logout() throws ServletException {
 		FeaturesScanner.getFeatures().clear();
@@ -145,11 +109,4 @@ public class MainVM {
 		Executions.sendRedirect(response.encodeRedirectURL("/logout"));
 		Executions.getCurrent().setVoided(true);
 	}
-
-	@Command
-	public void deleteLog(@BindingParam("log") Log log) {
-		myService.deleteLog(log);
-		logListModel.remove(log);
-	}
-
 }

@@ -24,7 +24,7 @@ import java.util.List;
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
         view = "/view/employment/allowancelist.zul",
-        uuid = "allowancelist",
+        uuid = "allowancelist_",
         menuOrder = "2.6",
         displayName = "Allowance List",
         menuIcon = "money"

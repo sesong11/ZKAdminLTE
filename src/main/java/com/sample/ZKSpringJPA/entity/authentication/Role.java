@@ -1,6 +1,5 @@
 package com.sample.ZKSpringJPA.entity.authentication;
 
-import com.sample.ZKSpringJPA.utils.TableSchemas;
 import lombok.Getter;
 import lombok.Setter;
 
