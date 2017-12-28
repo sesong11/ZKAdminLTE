@@ -16,10 +16,12 @@ import com.sample.ZKSpringJPA.utils.UserCredentialService;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.BindUtils;
+import org.zkoss.bind.ValidationContext;
+import org.zkoss.bind.Validator;
 import org.zkoss.bind.annotation.*;
+import org.zkoss.bind.validator.AbstractValidator;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
-import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
@@ -54,28 +56,36 @@ public class LeaveFormVM {
 
     @WireVariable
     private UserCredentialService userCredentialService;
+
     //endregion
 
     //region > Fields
-    @Setter @Getter
+    @Setter
+    @Getter
     private LeaveForm form;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Employee requestFor;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Approval relief;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Approval supervisor;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Approval manager;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private List<LeaveType> leaveTypes = new ListModelList<>(LeaveType.values());
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private List<RequestPriority> requestPriorities = new ListModelList<>(RequestPriority.values());
 
     @Getter
@@ -84,9 +94,9 @@ public class LeaveFormVM {
 
     //region > Constructor
     @Init
-    public void init(){
+    public void init() {
         String sid = Executions.getCurrent().getParameter("id");
-        if(sid==null) {
+        if (sid == null) {
             form = new LeaveForm();
             Request request = new Request();
             request.setFormType(FormType.LEAVE_REQUEST);
@@ -114,14 +124,14 @@ public class LeaveFormVM {
             Long id = Long.parseLong(sid);
             form = leaveFormService.findByRequestId(id);
             TreeSet<Approval> approvals = requestService.findApproval(form.getRequest().getId());
-            for(Approval approval: form.getRequest().getApprovals()){
-                if(approval.getApprovalType() == ApprovalType.RELIEF){
+            for (Approval approval : form.getRequest().getApprovals()) {
+                if (approval.getApprovalType() == ApprovalType.RELIEF) {
                     relief = approval;
                 }
-                if(approval.getApprovalType() == ApprovalType.APPROVE){
+                if (approval.getApprovalType() == ApprovalType.APPROVE) {
                     supervisor = approval;
                 }
-                if(approval.getApprovalType() == ApprovalType.AUTHORIZE){
+                if (approval.getApprovalType() == ApprovalType.AUTHORIZE) {
                     manager = approval;
                 }
             }
@@ -131,7 +141,7 @@ public class LeaveFormVM {
 
     //region > Component
     @Command
-    public void selectRequestFor(){
+    public void selectRequestFor() {
         final HashMap<String, Object> map = new HashMap<>();
         map.put("employees", employeeService.findAll());
         map.put("receiver", "selectRequestForCallback");
@@ -139,14 +149,15 @@ public class LeaveFormVM {
                 "/view/component/employee-selector.zul", null, map);
         window.doModal();
     }
+
     @GlobalCommand
-    public void selectRequestForCallback(@BindingParam("employee") final Employee employee){
+    public void selectRequestForCallback(@BindingParam("employee") final Employee employee) {
         this.form.getRequest().setRequestFor(employee);
         postNotifyChange("form");
     }
 
     @Command
-    public void selectRelief(){
+    public void selectRelief() {
         final HashMap<String, Object> map = new HashMap<>();
         map.put("employees", employeeService.findAll());
         map.put("receiver", "selectReliefCallback");
@@ -154,14 +165,15 @@ public class LeaveFormVM {
                 "/view/component/employee-selector.zul", null, map);
         window.doModal();
     }
+
     @GlobalCommand
-    public void selectReliefCallback(@BindingParam("employee") final Employee employee){
+    public void selectReliefCallback(@BindingParam("employee") final Employee employee) {
         this.relief.setApprovePerson(employee);
         postNotifyChange("relief");
     }
 
     @Command
-    public void selectSupervisor(){
+    public void selectSupervisor() {
         final HashMap<String, Object> map = new HashMap<>();
         map.put("employees", employeeService.findAll());
         map.put("receiver", "selectSupervisorCallback");
@@ -169,14 +181,15 @@ public class LeaveFormVM {
                 "/view/component/employee-selector.zul", null, map);
         window.doModal();
     }
+
     @GlobalCommand
-    public void selectSupervisorCallback(@BindingParam("employee") final Employee employee){
+    public void selectSupervisorCallback(@BindingParam("employee") final Employee employee) {
         this.supervisor.setApprovePerson(employee);
         postNotifyChange("supervisor");
     }
 
     @Command
-    public void selectManager(){
+    public void selectManager() {
         final HashMap<String, Object> map = new HashMap<>();
         map.put("employees", employeeService.findAll());
         map.put("receiver", "selectManagerCallback");
@@ -184,15 +197,16 @@ public class LeaveFormVM {
                 "/view/component/employee-selector.zul", null, map);
         window.doModal();
     }
+
     @GlobalCommand
-    public void selectManagerCallback(@BindingParam("employee") final Employee employee){
+    public void selectManagerCallback(@BindingParam("employee") final Employee employee) {
         this.manager.setApprovePerson(employee);
         postNotifyChange("manager");
     }
 
     @Command
     @NotifyChange({"form", "relief", "supervisor", "manager"})
-    public void submit(){
+    public void submit() {
         Request request = form.getRequest();
         relief.setId(null);
         supervisor.setId(null);
@@ -214,8 +228,9 @@ public class LeaveFormVM {
     //endregion
 
     //region > Programmatic
-    private void postNotifyChange(final String property){
-        BindUtils.postNotifyChange(null,null,this,property);
+    private void postNotifyChange(final String property) {
+        BindUtils.postNotifyChange(null, null, this, property);
     }
     //endregion
+
 }
