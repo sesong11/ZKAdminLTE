@@ -26,11 +26,11 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
 import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Date;
-import java.util.TreeSet;
+import java.util.*;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
@@ -57,6 +57,10 @@ public class LeaveFormVM {
     @WireVariable
     private UserCredentialService userCredentialService;
 
+    ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
+    private javax.validation.Validator validator = vf.getValidator();
+
+    private Set<ConstraintViolation<RequestForm>> violations;
     //endregion
 
     //region > Fields
@@ -166,6 +170,16 @@ public class LeaveFormVM {
         window.doModal();
     }
 
+    public Validator getReliefValidator() {
+        return new AbstractValidator() {
+            public void validate(ValidationContext ctx) {
+                if (relief.getApprovePerson() == null) {
+                    addInvalidMessage(ctx,"You can't leave this empty.");
+                }
+            }
+        };
+    }
+
     @GlobalCommand
     public void selectReliefCallback(@BindingParam("employee") final Employee employee) {
         this.relief.setApprovePerson(employee);
@@ -180,6 +194,16 @@ public class LeaveFormVM {
         Window window = (Window) Executions.createComponents(
                 "/view/component/employee-selector.zul", null, map);
         window.doModal();
+    }
+
+    public Validator getSupervisorValidator() {
+        return new AbstractValidator() {
+            public void validate(ValidationContext ctx) {
+                if (supervisor.getApprovePerson() == null) {
+                    addInvalidMessage(ctx,"You can't leave this empty.");
+                }
+            }
+        };
     }
 
     @GlobalCommand
@@ -198,6 +222,16 @@ public class LeaveFormVM {
         window.doModal();
     }
 
+    public Validator getManagerValidator() {
+        return new AbstractValidator() {
+            public void validate(ValidationContext ctx) {
+                if (manager.getApprovePerson() == null) {
+                    addInvalidMessage(ctx,"You can't leave this empty.");
+                }
+            }
+        };
+    }
+
     @GlobalCommand
     public void selectManagerCallback(@BindingParam("employee") final Employee employee) {
         this.manager.setApprovePerson(employee);
@@ -207,13 +241,25 @@ public class LeaveFormVM {
     @Command
     @NotifyChange({"form", "relief", "supervisor", "manager"})
     public void submit() {
+
         Request request = form.getRequest();
+        request.getRequestFor().getId();
         relief.setId(null);
         supervisor.setId(null);
         manager.setId(null);
         request.setRequestDate(new Timestamp(new Date().getTime()));
         request.setRequestBy(userCredentialService.getCurrentEmployee());
         request.setStatus(RequestStatus.PENDING);
+        violations = validator.validate(form);
+        if(violations.size()>0){
+            for(ConstraintViolation<RequestForm> v: violations){
+                System.out.println("### " + v.getRootBeanClass().getSimpleName() +
+                        "." + v.getPropertyPath() +
+                        "- Invalid Value = " + v.getInvalidValue() +
+                        "- Error Msg = " + v.getMessage());
+            }
+            return;
+        }
         request.getApprovals().clear();
         request = requestService.create(request);
         form.setRequest(request);
@@ -233,4 +279,15 @@ public class LeaveFormVM {
     }
     //endregion
 
+    //region > Validator
+    public Validator getRequestForValidator() {
+        return new AbstractValidator() {
+            public void validate(ValidationContext ctx) {
+                if (form.getRequest().getRequestFor() == null) {
+                    addInvalidMessage(ctx, "requestFor","You can't leave this empty.");
+                }
+            }
+        };
+    }
+    //endregion
 }

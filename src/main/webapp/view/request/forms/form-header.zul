@@ -30,15 +30,13 @@
                         <n:label class="col-sm-4 control-label">Request For</n:label>
                         <n:div class="col-sm-8">
                             <n:div class="input-group input-group-sm">
-                                <combobox type="text" sclass="form-control" readonly="true" visible="false"
-                                          selectedItem="@save(vm.form.request.requestFor, before = 'submit') @validator('beanValidator', key = 'requestFor')"/>
-                                <textbox type="text" sclass="form-control" readonly="true" value="@load(vm.form.request.requestFor.fullName)"/>
+                                <textbox id="txtRequestFor" type="text" sclass="form-control" readonly="true"
+                                         value="@load(vm.form.request.requestFor.fullName)"/>
                                 <n:span class="input-group-btn">
                                     <a sclass="btn btn-info btn-flat" onClick="@command('selectRequestFor')">
                                         <n:i class="fa fa-user"></n:i></a>
                                 </n:span>
                             </n:div>
-                            <label zclass="none" sclass="text-red" value="@load(vmsgs['requestFor'])"/>
                         </n:div>
                         <n:div class="clearfix"></n:div>
                     </n:div>

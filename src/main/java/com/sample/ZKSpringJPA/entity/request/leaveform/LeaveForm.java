@@ -44,9 +44,9 @@ public class LeaveForm extends Form {
     private Timestamp toDate;
 
     @Getter @Setter
-    @Column(name = "total_days")
-    @DecimalMin(value = "0.50", message = "Value is less than allowable minimum of 0.5.")
-    private BigDecimal totalDays;
+    @Column(name = "total_days", nullable = false)
+    @NotNull(message = "You can't leave this empty.")
+    private Double totalDays;
 
     @Getter @Setter
     @Column(name = "reason", length = 2048)

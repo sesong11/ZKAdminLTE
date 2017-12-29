@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.SortedSet;
@@ -63,6 +64,7 @@ public class Request {
     @Getter @Setter
     @OneToMany(mappedBy = "request", fetch = FetchType.EAGER)
     @OrderBy("id")
+    @Valid
     private SortedSet<Approval> approvals;
     //endregion
 

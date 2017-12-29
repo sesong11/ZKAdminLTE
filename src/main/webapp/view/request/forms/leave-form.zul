@@ -71,7 +71,9 @@
                                     <n:div class="form-group">
                                         <n:label class="col-sm-4 control-label">From Date</n:label>
                                         <n:div class="col-sm-8">
-                                            <datebox width="100%" value="@save(vm.form.fromDate, before = 'submit') @validator('beanValidator', key = 'fromDate')"
+                                            <datebox width="100%" value=" @load(vm.form.fromDate)
+                                            @save(vm.form.fromDate, before = 'submit')
+                                            @validator('beanValidator', key = 'fromDate')"
                                                      format="@load(vm.standardDateTimeFormat)"/>
                                             <label zclass="none" sclass="text-red" value="@load(vmsgs['fromDate'])"/>
                                         </n:div>
@@ -80,9 +82,11 @@
                                     <n:div class="form-group">
                                         <n:label class="col-sm-4 control-label">Total No. of Days for leave</n:label>
                                         <n:div class="col-sm-8">
-                                            <doublebox value="@save(vm.form.totalDays, before='submit') @validator('beanValidator', key='totalDays')"
+                                            <doublebox value="@load(vm.form.totalDays)
+                                            @save(vm.form.totalDays, before='submit')
+                                            @validator('beanValidator', key='totalDays')"
                                                        sclass="form-control" placeholder="" width="100%"/>
-                                            <label sclass="text-red" value="@load(vmsgs['totalDays'])"/>
+                                            <label zclass="none" sclass="text-red" value="@load(vmsgs['totalDays'])"/>
                                         </n:div>
                                         <n:div class="clearfix"></n:div>
                                     </n:div>
@@ -92,7 +96,9 @@
                                         <n:label class="col-sm-4 control-label">To Date</n:label>
                                         <n:div class="col-sm-8">
                                             <datebox format="@load(vm.standardDateTimeFormat)"
-                                                     value="@save(vm.form.toDate, before = 'submit') @validator('beanValidator', key = 'toDate')"
+                                                     value="@load(vm.form.toDate)
+                                                     @save(vm.form.toDate, before = 'submit')
+                                                     @validator('beanValidator', key = 'toDate')"
                                                 width="100%"/>
                                             <label zclass="none" sclass="text-red" value="@load(vmsgs['toDate'])" />
                                         </n:div>
@@ -106,12 +112,16 @@
                                     </n:div>
                                     <n:div class="form-group">
                                         <n:label>* ADDRESS DURING LEAVE OF ABSENCE / TELEPHONE CONTACT</n:label>
-                                        <textbox value="@save(vm.form.address, before='submit') @validator('beanValidator', key='address')"
+                                        <textbox value="@load(vm.form.address)
+                                                @save(vm.form.address, before='submit')
+                                                @validator('beanValidator', key='address')"
                                                 multiline="true" rows="2" sclass="form-control" />
                                         <label zclass="none" sclass="text-red" value="@load(vmsgs['address'])"/>
                                     </n:div>
                                     <n:div class="checkbox" style="margin-left: 20px">
-                                        <checkbox checked="@save(vm.form.confirmPolicy, before='submit') @validator('beanValidator', key = 'confirmPolicy')"
+                                        <checkbox checked="@load(vm.form.confirmPolicy)
+                                            @save(vm.form.confirmPolicy, before='submit')
+                                            @validator('beanValidator', key = 'confirmPolicy')"
                                                 label="I understand that I may be recalled from my leave by Management to attend to any exigencies of duties "/>
                                     </n:div>
                                     <label zclass="none" sclass="text-red" value="@load(vmsgs['confirmPolicy'])" />
@@ -135,16 +145,13 @@
                                     <n:label class="col-sm-4 control-label">* Relief</n:label>
                                     <n:div class="col-sm-8">
                                         <n:div class="input-group input-group-sm">
-                                            <combobox type="text" sclass="form-control" readonly="true" visible="false"
-                                                      selectedItem="@save(vm.relief.approvePerson, before = 'submit') @validator('beanValidator', key = 'relief')"/>
                                             <textbox type="text" sclass="form-control" readonly="true"
-                                                      value="@load(vm.relief.approvePerson.fullName)"/>
+                                                     value="@load(vm.relief.approvePerson.fullName)" />
                                             <n:span class="input-group-btn">
                                                 <a onClick="@command('selectRelief')"
                                                         sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
                                             </n:span>
                                         </n:div>
-                                        <label zclass="none" sclass="text-red" value="@load(vmsgs['relief'])"/>
                                     </n:div>
                                     <n:div class="clearfix"></n:div>
                                 </n:div>
@@ -152,15 +159,12 @@
                                     <n:label class="col-sm-4 control-label">* Department Manager</n:label>
                                     <n:div class="col-sm-8">
                                         <n:div class="input-group input-group-sm">
-                                            <combobox type="text" sclass="form-control" readonly="true" visible="false"
-                                                      selectedItem="@save(vm.manager.approvePerson, before = 'submit') @validator('beanValidator', key = 'manager')"/>
                                             <textbox value="@load(vm.manager.approvePerson.fullName)"
-                                                    type="text" sclass="form-control" readonly="true"/>
+                                                     type="text" sclass="form-control" readonly="true"/>
                                             <n:span class="input-group-btn">
                                                 <a onClick="@command('selectManager')" sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
                                             </n:span>
                                         </n:div>
-                                        <label zclass="none" sclass="text-red" value="@load(vmsgs['manager'])"/>
                                     </n:div>
 
                                     <n:div class="clearfix"></n:div>
@@ -171,15 +175,12 @@
                                     <n:label class="col-sm-4 control-label">* Immediate Supervisor</n:label>
                                     <n:div class="col-sm-8">
                                         <n:div class="input-group input-group-sm">
-                                            <combobox type="text" sclass="form-control" readonly="true" visible="false"
-                                                      selectedItem="@save(vm.supervisor.approvePerson, before = 'submit') @validator('beanValidator', key = 'supervisor')"/>
                                             <textbox value="@load(vm.supervisor.approvePerson.fullName)"
-                                                    type="text" sclass="form-control" readonly="true"/>
+                                                     type="text" sclass="form-control" readonly="true"/>
                                             <n:span class="input-group-btn">
                                                 <a onClick="@command('selectSupervisor')" sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
                                             </n:span>
                                         </n:div>
-                                        <label zclass="none" sclass="text-red" value="@load(vmsgs['supervisor'])"/>
                                     </n:div>
 
                                     <n:div class="clearfix"></n:div>

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 @MappedSuperclass
 public class Form implements RequestForm {
@@ -13,5 +14,6 @@ public class Form implements RequestForm {
     @Setter
     @JoinColumn(name="request_id")
     @ManyToOne(fetch = FetchType.LAZY)
+    @Valid
     private Request request;
 }

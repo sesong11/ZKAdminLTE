@@ -8,7 +8,7 @@ import org.zkoss.zk.ui.select.annotation.VariableResolver;
         view = "/view/default.zul",
         uuid = "default",
         displayName = "Home",
-        menuOrder = "2.20"
+        menuOrder = "0.0"
 )
 public class DefaultVM {
 }
