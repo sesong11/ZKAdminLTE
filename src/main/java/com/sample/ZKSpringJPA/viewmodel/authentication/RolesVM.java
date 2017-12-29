@@ -25,7 +25,7 @@ import java.util.*;
         uuid = "roles-dashboard",
         menuName = "dashboard",
         menuOrder = "1.1",
-        displayName = "Roles Dashboard",
+        displayName = "Roles Application",
         menuIcon = "unlock"
 )
 public class RolesVM {

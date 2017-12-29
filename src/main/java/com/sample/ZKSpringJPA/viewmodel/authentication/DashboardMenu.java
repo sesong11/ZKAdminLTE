@@ -7,6 +7,6 @@ import com.sample.ZKSpringJPA.anotation.Feature;
         menuName = "dashboard",
         menuOrder = "1",
         menuIcon = "dashboard",
-        displayName = "Admin Dashboard"
+        displayName = "Admin Application"
 )
 public class DashboardMenu {}

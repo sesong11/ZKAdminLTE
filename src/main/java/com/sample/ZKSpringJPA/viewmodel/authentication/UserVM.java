@@ -28,7 +28,7 @@ import org.zkoss.zul.ListModelList;
         uuid = "users-dashboard",
         menuName = "dashboard",
         menuOrder = "1.2",
-        displayName = "Users Dashboard",
+        displayName = "Users Application",
         menuIcon = "user"
 )
 public class UserVM {

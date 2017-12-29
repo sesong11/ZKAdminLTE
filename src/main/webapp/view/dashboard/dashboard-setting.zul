@@ -1,0 +1,124 @@
+<zk xmlns:n="native">
+    <div zclass="none"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.dashboard.DashboardVM')"
+         validationMessages="@id('vmsgs')">
+        <!-- Content Header (Page header) -->
+        <n:section class="content-header">
+            <n:h1>
+                Setting Dashboard
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Admin Dashboard</n:li>
+                <n:li class="active">Setting Dashboard</n:li>
+            </n:ol>
+        </n:section>
+
+        <!-- Main content -->
+        <n:section class="content">
+            <!-- Main row -->
+            <n:div class="row">
+                <div sclass="col-md-12 col-lg-4 col-sm-12">
+                    <!-- TABLE: Links -->
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Manage Links</n:h3>
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body">
+                            <n:div class="form-group">
+                                <n:label>Title</n:label>
+                                <textbox value="@bind(vm.application.title)"
+                                         type="text" sclass="form-control" placeholder="Title" />
+                            </n:div>
+                            <n:div class="form-group">
+                                <n:label>Description</n:label>
+                                <textbox  type="text" value="@bind(vm.application.description)"
+                                         sclass="form-control" placeholder="Content" />
+                            </n:div>
+                            <div sclass="form-group">
+                                <n:label>Link</n:label>
+                                <textbox sclass="form-control" placeholder="Link" value="@bind(vm.application.link)" />
+                            </div>
+                            <n:div class="form-group">
+                                <n:label>Category</n:label>
+                                <combobox width="100%">
+                                </combobox>
+                            </n:div>
+                            <div sclass="form-group">
+                                <n:label>Sequence</n:label>
+                                <intbox sclass="form-control"/>
+                            </div>
+                            <div sclass="form-group">
+                                <n:label>Parent Id</n:label>
+                                <intbox sclass="form-control" value="@bind(vm.application.parentId)"/>
+                            </div>
+                            <div sclass="form-group">
+                                <checkbox label="Enable" value="@bind(vm.application.isEnabled)"/>
+                            </div>
+                            <div sclass="form-group">
+                                <n:label>Image</n:label>
+                                <button zclass="none" iconSclass="z-icon-sign-in" label="Upload Image" upload="true,maxsize=300"></button>
+                                <fileupload label="Upload" onUpload="img.setContent(event.media)" />
+                            </div>
+                            <a sclass="btn btn-info btn-flat pull-left margin" onClick="@command('onSave')">
+                                <n:i sclass="fa fa-save" aria-hidden="true"></n:i>
+                                <n:span>Save</n:span>
+                                <n:span class="pull-right-container"></n:span>
+                            </a>
+                            <a sclass="btn btn-danger btn-flat pull-left margin">
+                                <n:i sclass="fa fa-trash-o" aria-hidden="true"></n:i>
+                                <n:span>Clear</n:span>
+                                <n:span class="pull-right-container"></n:span>
+                            </a>
+                        </n:div>
+                    </n:div>
+                </div>
+                <n:div class="col-md-12 col-lg-8 col-sm-12">
+                    <!-- TABLE: Links -->
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">All Links</n:h3>
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <n:div>
+                            <listbox model="@load(vm.applicationList)" zclass="none" height="350px" sclass="table table-bordered table-responsive mailbox-messages table-hover table-stripe"
+                                  emptyMessage="Nothing in Inbox.">
+                                <listhead zclass="none">
+                                    <listheader label="Id" zclass="none" width="50px"/>
+                                    <listheader label="Title" zclass="none"/>
+                                    <listheader label="Content" zclass="none"/>
+                                    <listheader label="Link" zclass="none"/>
+                                    <listheader label="Category" zclass="none"/>
+                                    <listheader label="Sequence" zclass="none"/>
+                                    <listheader label="Enable" zclass="none"/>
+                                    <listheader label="Image" zclass="none"/>
+                                </listhead>
+                                <template name="model">
+                                    <listitem zclass="none">
+                                        <listcell zclass="none" label="@load(each.id)"></listcell>
+                                        <listcell zclass="none" label="@load(each.title)"></listcell>
+                                        <listcell zclass="none" label="@load(each.description)"></listcell>
+                                        <listcell zclass="none" label="@load(each.link)"></listcell>
+                                        <listcell zclass="none" label="@load('Category')"></listcell>
+                                        <listcell zclass="none" label="@load('Sequence')"></listcell>
+                                        <listcell zclass="none" label="@load(each.enabled)"></listcell>
+                                        <listcell zclass="none" label="@load('Image')"></listcell>
+                                    </listitem>
+                                </template>
+                            </listbox>
+                            <paging sclass="" pageSize="50"/>
+                        </n:div>
+                    </n:div>
+                </n:div>
+            </n:div>
+        </n:section>
+    </div>
+</zk>
