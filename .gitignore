@@ -49,4 +49,6 @@ rebel.xml
 webapp/logs/sql.log
 **/target
 *.idea/
-data/
+data/db.tmp
+data/db.lck
+data/db.log
