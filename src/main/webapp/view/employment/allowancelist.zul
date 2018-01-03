@@ -8,7 +8,7 @@
         <n:section class="content-header">
             <n:h1>
                 All Allowance
-                <n:small>preview</n:small>
+                <n:small></n:small>
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
@@ -150,7 +150,7 @@
                                     </combobox>
                                 </n:div>
                                 <n:div class="form-group">
-                                    <n:label>Accrual Balance</n:label>
+                                    <n:label>No Frequency Accrual</n:label>
                                     <intbox value="@bind(vm.allowance.noFrequencyAccrual)"
                                                sclass="form-control" id="txtNoFrequencyAccrual" placeholder="No Frequency Accrual" />
                                 </n:div>
@@ -190,7 +190,7 @@
                         <!-- /.tab-content -->
                         <n:div class="box-footer clearfix">
                             <a visible="@load(vm.allowance.id eq 0 || vm.allowance.id eq null)"
-                               onClick="@command('create')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Create Branch</a>
+                               onClick="@command('create')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Create</a>
                             <a visible="@load(vm.allowance.id eq 0 || vm.allowance.id eq null)" onClick="@command('cancel')" sclass="btn btn-sm btn-default btn-flat pull-left margin">Clear</a>
                             <a visible="@load(!(vm.allowance.id eq 0 || vm.allowance.id eq null))" onClick="@command('update')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update</a>
                             <a visible="@load(!(vm.allowance.id eq 0 || vm.allowance.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete</a>

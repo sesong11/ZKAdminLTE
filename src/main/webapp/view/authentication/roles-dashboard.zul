@@ -162,10 +162,10 @@
                                 <a visible="@load(vm.role.id eq 0 || vm.role.id eq null)"
                                    onClick="@command('create',
                                    name = txtName.value)"
-                                   sclass="btn btn-sm btn-info btn-flat pull-right margin">Create Create</a>
+                                   sclass="btn btn-sm btn-info btn-flat pull-right margin">Create</a>
                                 <a visible="@load(vm.role.id eq 0 || vm.role.id eq null)" onClick="@command('cancel')" sclass="btn btn-sm btn-default btn-flat pull-left margin">Clear</a>
-                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('update', name = txtName.value)" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update User</a>
-                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete User</a>
+                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('update', name = txtName.value)" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update</a>
+                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete</a>
                                 <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))"
                                    onClick="@command('cancel')"
                                    sclass="btn btn-sm btn-default btn-flat pull-left margin">Cancel</a>
