@@ -52,8 +52,8 @@ public class AwaitingApprovalVM {
     //region > Constructor
     @Init
     public void init() {
-        requests = new ListModelList<Request>(requestService.findMyRequest(0, pageSize, RequestStatus.OPEN));
-        totalSize = requestService.findMyRequestCounter(RequestStatus.OPEN);
+        requests = new ListModelList<Request>(requestService.findMyRequestAwaiting(0, pageSize));
+        totalSize = requestService.findMyRequestAwaitingCounter();
     }
     //endregion
 
@@ -67,7 +67,7 @@ public class AwaitingApprovalVM {
     @NotifyChange({"pageSize", "requests"})
     public void changePageSize(@BindingParam("size") final int pageSize){
         this.pageSize = pageSize;
-        requests = new ListModelList<Request>(requestService.findMyRequest(0, pageSize, RequestStatus.OPEN));
+        requests = new ListModelList<Request>(requestService.findMyRequestAwaiting(0, pageSize));
     }
 
     @Command
@@ -75,7 +75,7 @@ public class AwaitingApprovalVM {
     public void changeActivePage(@BindingParam("index") final int activePage){
         this.activePage = activePage;
         int offset = activePage* pageSize;
-        requests = new ListModelList<Request>(requestService.findMyRequest(offset, pageSize, RequestStatus.OPEN));
+        requests = new ListModelList<Request>(requestService.findMyRequestAwaiting(offset, pageSize));
     }
     //endregion
 }

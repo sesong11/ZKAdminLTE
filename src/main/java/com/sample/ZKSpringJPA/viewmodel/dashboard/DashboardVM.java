@@ -42,7 +42,7 @@ import java.util.Set;
         view = "/view/dashboard/dashboard-setting.zul",
         uuid = "dashboard-setting",
         menuOrder = "1.3",
-        displayName = "Setting Application",
+        displayName = "Setting Dashboard",
         menuIcon = "cog"
 )
 

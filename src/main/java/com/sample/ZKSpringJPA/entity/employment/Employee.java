@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -142,6 +143,7 @@ public class Employee implements Serializable, Cloneable{
         return employmentHistory!=null?employmentHistory.getActiveDate():null;
     }
 
+    @NotEmpty(message = "You can't leave this empty.")
     public String getFullName(){
         return getLastName() + " " + getFirstName();
     }

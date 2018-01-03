@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -22,27 +24,31 @@ public class Request {
 
     @Getter @Setter
     @Column(name = "request_date", nullable = false)
+    @NotNull(message = "You can't leave this empty.")
     private Timestamp requestDate;
 
     @Getter @Setter
     @JoinColumn(name = "request_by", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
-
+    @NotNull(message = "You can't leave this empty.")
     private Employee requestBy;
 
     @Getter @Setter
-    @JoinColumn(name = "request_for")
+    @JoinColumn(name = "request_for", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
+    @NotNull(message = "You can't leave this empty.")
     private Employee requestFor;
 
     @Getter @Setter
     @Enumerated(EnumType.STRING)
     @Column(name = "priority", nullable = false)
+    @NotNull(message = "Priority is required.")
     private RequestPriority priority;
 
     @Getter @Setter
     @Enumerated(EnumType.STRING)
     @Column(name = "state", nullable = false)
+    @NotNull(message = "Request Status is required.")
     private RequestStatus status;
 
     @Getter @Setter
@@ -58,6 +64,7 @@ public class Request {
     @Getter @Setter
     @OneToMany(mappedBy = "request", fetch = FetchType.EAGER)
     @OrderBy("id")
+    @Valid
     private SortedSet<Approval> approvals;
     //endregion
 
@@ -68,7 +75,6 @@ public class Request {
         }
         approval.setRequest(this);
         this.getApprovals().add(approval);
-        System.out.println(approval.getApprovalType().getName());
     }
     //endregion
 }

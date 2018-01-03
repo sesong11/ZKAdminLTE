@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.zkoss.bind.annotation.Command;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -23,13 +24,14 @@ public class Approval implements Serializable, Comparable<Approval>, Cloneable{
     private Long id;
 
     @Getter @Setter
-    @Column(name = "approval_type")
+    @Column(name = "approval_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private ApprovalType approvalType;
 
     @Getter @Setter
-    @JoinColumn(name = "approve_person_id")
+    @JoinColumn(name = "approve_person_id", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
+    @NotNull(message = "You can't leave this empty.")
     private Employee approvePerson;
 
     @Getter @Setter
@@ -42,7 +44,7 @@ public class Approval implements Serializable, Comparable<Approval>, Cloneable{
     private Timestamp approveDate;
 
     @Getter @Setter
-    @JoinColumn(name = "request_id")
+    @JoinColumn(name = "request_id", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Request request;
 

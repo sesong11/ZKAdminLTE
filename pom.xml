@@ -11,6 +11,7 @@
 		<bean.validation.api.version>2.0.0.Final</bean.validation.api.version>
 		<hibernate.validation.version>6.0.7.Final</hibernate.validation.version>
 		<postgresql.version>42.1.4</postgresql.version>
+		<log4j.version>1.7.25</log4j.version>
 		<commons-io>2.6</commons-io>
 		<commons-logging>1.1.1</commons-logging>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
@@ -164,6 +165,18 @@
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>2.9.9</version>
+		</dependency>
+
+		<!-- Validator -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${log4j.version}</version>
 		</dependency>
 
 

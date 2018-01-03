@@ -25,7 +25,8 @@ public class Application {
     private Long parentId;
 
     @Column(name = "title")
-    @NotNull
+    @NotNull(message = "You can't leave this empty.")
+
     @Setter @Getter
     private String title;
 
@@ -43,15 +44,17 @@ public class Application {
     @Setter @Getter
     private Boolean enabled;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at", insertable=false)
+    @Column(name = "created_at")
     @Setter @Getter
-    private Date createdAt;
+    private Timestamp createdAt;
 
+    @Column(name = "sequence")
+    @Setter @Getter
+    private Long sequence;
 
-//    @Column(name = "image_src")
-//    @Setter @Getter
-//    private String imageSrc;
+    @Column(name = "image_src")
+    @Setter @Getter
+    private String imageSrc;
 
 
 
