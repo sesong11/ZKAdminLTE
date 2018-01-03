@@ -39,4 +39,10 @@ public final class Calculator {
         int totalDay = (int)Calculator.daysBetween(currentYear, nextYear);
         return totalDay;
     }
+
+    public static double hourBetween(Calendar startDate, Calendar endDate) {
+        long end = endDate.getTimeInMillis();
+        long start = startDate.getTimeInMillis();
+        return TimeUnit.MILLISECONDS.toHours(Math.abs(end - start));
+    }
 }

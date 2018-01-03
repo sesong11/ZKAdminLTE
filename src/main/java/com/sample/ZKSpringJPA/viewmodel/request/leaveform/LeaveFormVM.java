@@ -11,6 +11,7 @@ import com.sample.ZKSpringJPA.services.employment.EmployeeService;
 import com.sample.ZKSpringJPA.services.request.ApprovalService;
 import com.sample.ZKSpringJPA.services.request.LeaveFormService;
 import com.sample.ZKSpringJPA.services.request.RequestService;
+import com.sample.ZKSpringJPA.utils.Calculator;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
 import lombok.Getter;
@@ -157,7 +158,7 @@ public class LeaveFormVM {
     @GlobalCommand
     public void selectRequestForCallback(@BindingParam("employee") final Employee employee) {
         this.form.getRequest().setRequestFor(employee);
-        postNotifyChange("form");
+        postNotifyChange("requestFor", form.getRequest());
     }
 
     @Command
@@ -183,7 +184,7 @@ public class LeaveFormVM {
     @GlobalCommand
     public void selectReliefCallback(@BindingParam("employee") final Employee employee) {
         this.relief.setApprovePerson(employee);
-        postNotifyChange("relief");
+        postNotifyChange("relief", this);
     }
 
     @Command
@@ -209,7 +210,7 @@ public class LeaveFormVM {
     @GlobalCommand
     public void selectSupervisorCallback(@BindingParam("employee") final Employee employee) {
         this.supervisor.setApprovePerson(employee);
-        postNotifyChange("supervisor");
+        postNotifyChange("supervisor", this);
     }
 
     @Command
@@ -235,7 +236,7 @@ public class LeaveFormVM {
     @GlobalCommand
     public void selectManagerCallback(@BindingParam("employee") final Employee employee) {
         this.manager.setApprovePerson(employee);
-        postNotifyChange("manager");
+        postNotifyChange("manager", this);
     }
 
     @Command
@@ -273,9 +274,23 @@ public class LeaveFormVM {
     }
     //endregion
 
+    //region > Command
+    @Command
+    public void countDays(){
+        if(form.getFromDate() == null
+                || form.getToDate() == null
+                || form.getLeaveType() == null) {
+            return;
+        }
+        double todayDays = form.getLeaveType().getCalculator().calculate(form);
+        form.setTotalDays(todayDays);
+        this.postNotifyChange("totalDays", form);
+    }
+    //endregion
+
     //region > Programmatic
-    private void postNotifyChange(final String property) {
-        BindUtils.postNotifyChange(null, null, this, property);
+    private void postNotifyChange(final String property, Object bean) {
+        BindUtils.postNotifyChange(null, null, bean, property);
     }
     //endregion
 
