@@ -1,8 +1,5 @@
 package com.sample.ZKSpringJPA.services.dashboard.dao;
-
-import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.dashboard.Application;
-import com.sample.ZKSpringJPA.entity.employment.Allowance;
 import com.sample.ZKSpringJPA.services.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,10 +22,10 @@ public class ApplicationDao extends CrudRepository {
         return result;
     }
 
-    @Transactional
-    public Application save(Application application) {
-        em.persist(application);
-        em.flush();
-        return application;
+    @Transactional(readOnly = true)
+    public List<Application> queryEnabled() {
+        Query query = em.createQuery("SELECT b FROM Application b WHERE is_enabled = true ORDER BY b.sequence ASC");
+        List<Application> result = query.getResultList();
+        return result;
     }
 }
