@@ -11,6 +11,7 @@ public interface RequestService {
     List<Request> findAll();
     List<Request> findPaging(int offset, int limit);
     List<Request> findMyRequest(int offset, int limit, RequestStatus requestStatus);
+    List<Request> findMyRequestAwaiting(int offset, int limit);
     TreeSet<Approval> findApproval(Long id);
     Long count();
     Request find(Long id);
@@ -19,4 +20,6 @@ public interface RequestService {
     void delete(Request request);
 
     Long findMyRequestCounter(RequestStatus pending);
+
+    Long findMyRequestAwaitingCounter();
 }

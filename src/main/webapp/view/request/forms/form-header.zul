@@ -27,7 +27,7 @@
                         <n:div class="clearfix"></n:div>
                     </n:div>
                     <n:div class="form-group">
-                        <n:label class="col-sm-4 control-label">Request For</n:label>
+                        <n:label class="col-sm-4 control-label">* Request For</n:label>
                         <n:div class="col-sm-8">
                             <n:div class="input-group input-group-sm">
                                 <textbox id="txtRequestFor" type="text" sclass="form-control" readonly="true"
@@ -59,7 +59,7 @@
                         <n:div class="clearfix"></n:div>
                     </n:div>
                     <n:div class="form-group">
-                        <n:label class="col-sm-4 control-label">Request Priority</n:label>
+                        <n:label class="col-sm-4 control-label">* Request Priority</n:label>
                         <n:div class="col-sm-8">
                             <combobox model="@load(vm.requestPriorities)" width="100%" id="cbLeaveType"
                                       selectedItem="@save(vm.form.request.priority, before = 'submit') @validator('beanValidator', key = 'priority')" value="@load(vm.form.request.priority.name)">

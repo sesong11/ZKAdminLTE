@@ -2,6 +2,7 @@ package com.sample.ZKSpringJPA.services.request.dao;
 
 import com.sample.ZKSpringJPA.entity.employment.Allowance;
 import com.sample.ZKSpringJPA.entity.employment.Employee;
+import com.sample.ZKSpringJPA.entity.request.DecisionStatus;
 import com.sample.ZKSpringJPA.entity.request.Request;
 import com.sample.ZKSpringJPA.entity.request.RequestStatus;
 import com.sample.ZKSpringJPA.entity.request.approval.Approval;
@@ -16,10 +17,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.metamodel.Metamodel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
@@ -86,6 +86,29 @@ public class RequestDao extends CrudRepository {
         return list;
     }
 
+    public List<Request> findMyRequestAwaiting(int offset, int limit) {
+        Employee currentEmployee = userCredentialService.getCurrentEmployee();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Request> cq = cb.createQuery(Request.class);
+        Metamodel m = em.getMetamodel();
+        EntityType<Request> req_ = m.entity(Request.class);
+        Root<Request> req = cq.from(Request.class);
+
+        Join<Request, Approval> approval = req.join(req_.getSet("approvals", Approval.class));
+
+        CriteriaQuery<Request> select = cq.select(req);
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(cb.equal(approval.get("approvePerson"), currentEmployee));
+        predicates.add(cb.equal(approval.get("decisionStatus"), DecisionStatus.AWAITING));
+        cq.where(predicates.toArray(new Predicate[]{}));
+        cq.select(req);
+        TypedQuery<Request> tq = em.createQuery(select);
+        tq.setFirstResult(offset);
+        tq.setMaxResults(limit);
+        List<Request> list = tq.getResultList();
+        return list;
+    }
+
     public Long findMyRequestCounter(RequestStatus requestStatus) {
         Employee currentEmployee = userCredentialService.getCurrentEmployee();
 
@@ -100,6 +123,27 @@ public class RequestDao extends CrudRepository {
         countQuery.where(predicates.toArray(new Predicate[]{}));
 
         Long count = em.createQuery(countQuery).getSingleResult();
+        return count;
+    }
+
+    public Long findMyRequestAwaitingCounter() {
+        Employee currentEmployee = userCredentialService.getCurrentEmployee();
+
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        Metamodel m = em.getMetamodel();
+        EntityType<Request> req_ = m.entity(Request.class);
+        Root<Request> req = cq.from(Request.class);
+        cq.select(cb.count(req));
+
+        Join<Request, Approval> approval = req.join(req_.getSet("approvals", Approval.class));
+
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(cb.equal(approval.get("decisionStatus"), DecisionStatus.AWAITING));
+        predicates.add(cb.equal(approval.get("approvePerson"), currentEmployee));
+        cq.where(predicates.toArray(new Predicate[]{}));
+
+        Long count = em.createQuery(cq).getSingleResult();
         return count;
     }
 }

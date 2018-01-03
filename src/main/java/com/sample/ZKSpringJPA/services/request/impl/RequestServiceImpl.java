@@ -34,6 +34,11 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
+    public List<Request> findMyRequestAwaiting(int offset, int limit) {
+        return requestDao.findMyRequestAwaiting(offset, limit);
+    }
+
+    @Override
     public TreeSet<Approval> findApproval(Long id) {
         return requestDao.findApproval(id);
     }
@@ -66,5 +71,10 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public Long findMyRequestCounter(RequestStatus requestStatus) {
         return requestDao.findMyRequestCounter(requestStatus);
+    }
+
+    @Override
+    public Long findMyRequestAwaitingCounter() {
+        return requestDao.findMyRequestAwaitingCounter();
     }
 }
