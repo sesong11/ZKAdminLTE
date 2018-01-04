@@ -105,7 +105,7 @@
                                     <!-- Menu Footer-->
                                     <n:li class="user-footer">
                                         <n:div class="pull-left">
-                                            <!--<n:a href="#" class="btn btn-default btn-flat">Profile</n:a>-->
+                                            <a href="#" sclass="btn btn-default btn-flat" onClick="@command('changePassword')">Change Passowrd</a>
                                         </n:div>
                                         <n:div class="pull-right">
                                             <a sclass="btn btn-default btn-flat" onClick="@command('logout')">Sign out</a>
