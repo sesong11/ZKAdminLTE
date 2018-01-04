@@ -15,6 +15,7 @@
 	<http pattern="/css/**" security="none"/>
 	<http pattern="/js/**" security="none"/>
 	<http pattern="/img/**" security="none"/>
+
 	<http auto-config="true">
 		<csrf disabled="true"/>
 		<!-- ZK AU reqeust -->
@@ -24,6 +25,9 @@
 		<form-login login-page="/login/"
 					authentication-failure-url="/login.zul?login_error=1" />
 		<logout logout-success-url="/login.zul"/>
+		<headers>
+			<frame-options policy="SAMEORIGIN" />
+		</headers>
 	</http>
 
 

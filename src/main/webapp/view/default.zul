@@ -1,44 +1,79 @@
 <zk xmlns:n="native">
-    <n:section class="content-header">
-        <n:h1>
-            Home
-            <n:small></n:small>
-        </n:h1>
-        <n:ol class="breadcrumb">
-            <n:li><n:i class="fa fa-dashboard"></n:i> Home</n:li>
-        </n:ol>
-    </n:section>
-    <n:section class="content">
-        <n:div class="row">
+    <div zclass="none"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.dashboard.DashboardVM')">
+        <n:section class="content-header">
+            <n:h1>
+                Home
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:i class="fa fa-dashboard"></n:i> Home</n:li>
+            </n:ol>
+        </n:section>
+        <n:section class="content">
+            <html>
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <zk forEach="${vm.tabList}">
+                            <zk if="${forEachStatus.index == 0}">
+                                <li class="active"><a href="#${each.id}" data-toggle="tab">${each.title}</a></li>
+                            </zk>
+                            <zk if="${forEachStatus.index != 0}">
+                                <li class=""><a href="#${each.id}" data-toggle="tab">${each.title}</a></li>
+                            </zk>
 
-            <n:div class="col-md-4">
-                <n:div class="box box-solid">
-                    <n:div class="box-body">
-                        <n:h4 style="background-color:#f7f7f7; font-size: 18px; text-align: center; padding: 7px 10px; margin-top: 0;">
-                            IT Support System (ITSS)
-                        </n:h4>
-                        <n:div class="media">
-                            <n:div class="media-left">
-                                <n:a href="http://itss.phillipbank.com.kh" class="ad-click-event">
-                                    <n:img src="/img/icon/itss-image.png" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
-                                </n:a>
-                            </n:div>
-                            <n:div class="media-body">
-                                <n:div class="clearfix">
-                                    <n:p class="pull-right">
-                                        <n:a href="http://itss.phillipbank.com.kh" class="btn btn-success btn-sm ad-click-event">
-                                            Visit
-                                        </n:a>
-                                    </n:p>
+                        </zk>
+                    </ul>
+                    <div class="tab-content">
+                        <zk forEach="${vm.tabList}">
+                            <zscript><![CDATA[
+                                    var=each;]]>
+                            </zscript>
+                            <div class="tab-pane active" id="${var.id}">
+                            <div class="row">
+                                <zk forEach="${vm.applications}">
+                                    <zk if="${each.parentId != 0}">
+                                        <zk if="${each.parentId == var.id}">
 
-                                    <n:p>IT Support System (ITSS) is a web portal application that allow users to manage
-                                        and request any support or services from IT department.</n:p>
-                                </n:div>
-                            </n:div>
-                        </n:div>
-                    </n:div>
-                </n:div>
-            </n:div>
-        </n:div>
-    </n:section>
+                                            <div class="tab-pane active" id="${each.id}">
+
+                                                    <div class="col-md-4">
+                                                        <div class="box box-solid">
+                                                            <div class="box-body">
+                                                                <h4 style="background-color:#f7f7f7; font-size: 18px; text-align: left; padding: 7px 10px; margin-top: 0;">
+                                                                    ${each.title}
+                                                                </h4>
+                                                                <div class="media">
+                                                                    <div class="media-left">
+                                                                        <a href="${each.link}" class="ad-click-event">
+                                                                            <img src="${each.imageSrc}" style="width: 80px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
+                                                                        </a>
+                                                                    </div>
+                                                                     <div class="media-body">
+                                                                         <div class="clearfix">
+                                                                            <p>${each.description}</p>
+                                                                         </div>
+                                                                         <p class="pull-left">
+                                                                             <a href="${each.link}" class="btn btn-success btn-sm ad-click-event">
+                                                                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                                                                Visit
+                                                                             </a>
+                                                                         </p>
+                                                                     </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </zk>
+                                        </zk>
+                                    </zk>
+                                </div>
+                            </div>
+                        </zk>
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+            </html>
+        </n:section>
+    </div>
 </zk>
