@@ -9,5 +9,6 @@ public interface ApplicationService {
     Application find(Long id);
     Application create(Application application);
     Application update(Application application);
+    List<Application> queryEnabled();
     void delete(Application application);
 }

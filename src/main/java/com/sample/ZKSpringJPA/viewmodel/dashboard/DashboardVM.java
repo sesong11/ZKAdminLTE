@@ -58,18 +58,14 @@ public class DashboardVM {
     private List<Application> tabList;
     @WireVariable
     private ApplicationService applicationService;
-
-    ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
-    private javax.validation.Validator validator = vf.getValidator();
-    private Set<ConstraintViolation<Application>> violations;
-
-
+    @Getter @Setter
+    private Media media;
 
     @Init
     public void init(){
         application = new Application();
         tabList = new ArrayList<Application>();
-        applicationList = applicationService.findAll();
+        applicationList = applicationService.queryEnabled();
         applications = applicationService.findAll();
         for(Application application : applicationList) {
             if(application.getParentId() == 0) {
@@ -78,43 +74,47 @@ public class DashboardVM {
         }
 
     }
-    @NotifyChange({"application", "applicationList"})
+    @NotifyChange({"application", "applications"})
     @Command
-    public void onSave() {
+    public void onSave() throws IOException {
         java.util.Date date= new java.util.Date();
         application.setCreatedAt(new Timestamp(date.getTime()));
-
-//        if(application != null && application.getId() !=0) {
-//            applicationService.update(application);
-//        } else {
-//            applicationService.create(application);
-//        }
-        applicationService.create(application);
-        applicationList = applicationService.findAll();
+        if(media != null) {
+            String path = saveFile(media);
+            application.setImageSrc(path);
+        }
+        if(null == application.getId()) {
+            applicationService.create(application);
+        } else {
+            applicationService.update(application);
+        }
+        applications = applicationService.findAll();
         application = new Application();
     }
 
+    @NotifyChange("media")
     @Command
     public void upload(BindContext ctx) {
         UploadEvent event = (UploadEvent)ctx.getTriggerEvent();
-        Media media = event.getMedia();
-        byte[] bytes = media.getByteData();
-        String name, type, path = "/img/dashboard/";
-        name = application.getTitle()+"." + media.getFormat();
-        path += name;
-        try {
-            FileOutputStream out = new FileOutputStream(Executions.getCurrent().getDesktop().getWebApp().getRealPath(path));
-            out.write(bytes);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        media = event.getMedia();
     }
 
     @NotifyChange("application")
     @Command
     public void clear(){
         application = new Application();
+    }
+
+    private String saveFile(Media media) throws IOException {
+        byte[] bytes = media.getByteData();
+        String name, type, path = "img/dashboard/";
+        name = application.getTitle()+"." + media.getFormat();
+        path += name;
+
+        FileOutputStream out = new FileOutputStream(Executions.getCurrent().getDesktop().getWebApp().getRealPath(path));
+        out.write(bytes);
+
+        return path;
+
     }
 }

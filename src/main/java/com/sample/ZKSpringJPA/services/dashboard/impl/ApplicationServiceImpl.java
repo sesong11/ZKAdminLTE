@@ -22,7 +22,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public Application find(Long id) {
-        return (Application) applicationDao.find(id, Allowance.class);
+        return (Application) applicationDao.find(id, Application.class);
     }
 
     @Override
@@ -33,6 +33,11 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public Application update(Application application) {
         return (Application) applicationDao.update(application);
+    }
+
+    @Override
+    public List<Application> queryEnabled() {
+        return applicationDao.queryEnabled();
     }
 
     @Override

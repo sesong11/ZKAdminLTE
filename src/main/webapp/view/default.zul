@@ -14,7 +14,13 @@
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <zk forEach="${vm.tabList}">
-                            <li class=""><a href="#${each.id}" data-toggle="tab">${each.title}</a></li>
+                            <zk if="${forEachStatus.index == 0}">
+                                <li class="active"><a href="#${each.id}" data-toggle="tab">${each.title}</a></li>
+                            </zk>
+                            <zk if="${forEachStatus.index != 0}">
+                                <li class=""><a href="#${each.id}" data-toggle="tab">${each.title}</a></li>
+                            </zk>
+
                         </zk>
                     </ul>
                     <div class="tab-content">
@@ -39,7 +45,7 @@
                                                                 <div class="media">
                                                                     <div class="media-left">
                                                                         <a href="${each.link}" class="ad-click-event">
-                                                                        <img src="${each.imageSrc}" style="width: 100px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
+                                                                            <img src="${each.imageSrc}" style="width: 80px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
                                                                         </a>
                                                                     </div>
                                                                      <div class="media-body">

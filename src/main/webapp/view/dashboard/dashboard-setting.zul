@@ -37,12 +37,13 @@
                             </n:div>
                             <n:div class="form-group">
                                 <n:label>Title</n:label>
-                                <textbox value="@bind(vm.application.title)"
+                                <textbox value="@save(vm.application.title, before = 'onSave') @load(vm.application.title) @validator('beanValidator', key = 'title')"
                                          type="text" sclass="form-control" placeholder="Title" />
+                                <label zclass="none" sclass="text-red" value="@load(vmsgs['title'])" />
                             </n:div>
                             <n:div class="form-group">
                                 <n:label>Description</n:label>
-                                <textbox  type="text" value="@bind(vm.application.description)"
+                                <textbox  multiline="true" height="80px" type="text" value="@bind(vm.application.description)"
                                          sclass="form-control" placeholder="Content" />
                             </n:div>
                             <div sclass="form-group">
@@ -51,19 +52,24 @@
                             </div>
                             <div sclass="form-group">
                                 <n:label>Sequence</n:label>
-                                <intbox sclass="form-control" value="@bind(vm.application.sequence)"/>
+                                <intbox sclass="form-control" placeholder="Sequence" value="@save(vm.application.sequence, before='onSave') @load(vm.application.sequence) @validator('beanValidator', key = 'sequence')"/>
+                                <label zclass="none" sclass="text-red" value="@load(vmsgs['sequence'])" />
                             </div>
                             <div sclass="form-group">
                                 <n:label>Parent Id</n:label>
-                                <intbox sclass="form-control" value="@bind(vm.application.parentId)"/>
+                                <intbox sclass="form-control" placeholder="Parent Id" value="@save(vm.application.parentId, before='onSave') @load(vm.application.parentId) @validator('beanValidator', key = 'parentId')"/>
+                                <label zclass="none" sclass="text-red" value="@load(vmsgs['parentId'])" />
                             </div>
                             <div sclass="form-group">
                                 <checkbox label="Enable" checked="@bind(vm.application.enabled)"/>
                             </div>
                             <div sclass="form-group">
                                 <n:label>Image</n:label>
-                                <button disabled="@bind((vm.application.title eq null) || (vm.application.title eq ''))" zclass="none" iconSclass="z-icon-upload" label="Upload" upload="true" onUpload="@command('upload')" />
-
+                                <button zclass="none" iconSclass="z-icon-upload" label="Upload" upload="true" onUpload="@command('upload')" />
+                                <separator />
+                                <vlayout height="150px" style="overflow:auto;border">
+                                    <image src="@bind(vm.application.imageSrc)" content="@bind(vm.media)"></image>
+                                </vlayout>
                             </div>
                             <a sclass="btn btn-info btn-flat pull-left margin" onClick="@command('onSave')">
                                 <n:i sclass="fa fa-save" aria-hidden="true"></n:i>
@@ -89,7 +95,7 @@
                             </n:div>
                         </n:div>
                         <n:div>
-                            <listbox model="@load(vm.applicationList)"
+                            <listbox model="@load(vm.applications)"
                                      selectedItem="@bind(vm.application)"
                                      zclass="none" height="350px"
                                      sclass="table table-bordered table-responsive mailbox-messages table-hover table-stripe"
@@ -114,12 +120,12 @@
                                         <listcell zclass="none" label="@load(each.link)"></listcell>
                                         <listcell zclass="none" label="@load(each.sequence)"></listcell>
                                         <listcell zclass="none" label="@load(each.enabled)"></listcell>
-                                        <listcell zclass="none" label="@load('Image')"></listcell>
+                                        <listcell zclass="none" label="@load(each.imageSrc)"></listcell>
                                         <listcell zclass="none" label="@load(each.createdAt)"></listcell>
                                     </listitem>
                                 </template>
                             </listbox>
-                            <paging sclass="" pageSize="50"/>
+
                         </n:div>
                     </n:div>
                 </n:div>

@@ -3,13 +3,11 @@ package com.sample.ZKSpringJPA.entity.dashboard;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.zkoss.bind.annotation.Command;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
-import java.util.Date;
-
 @Entity
 @Table(name = "application", schema = "dashboard")
 public class Application {
@@ -20,23 +18,21 @@ public class Application {
     @Setter @Getter
     private Long id;
 
+    @NotNull(message = "You can't leave this empty.")
     @Column(name = "parent_id")
     @Setter @Getter
     private Long parentId;
 
     @Column(name = "title")
-    @NotNull(message = "You can't leave this empty.")
-
+    @NotEmpty(message = "You can't leave this empty.")
     @Setter @Getter
     private String title;
 
     @Column(name = "link")
-    @NotNull
     @Setter @Getter
     private String link;
 
     @Column(name = "description")
-    @NotNull
     @Setter @Getter
     private String description;
 
@@ -48,6 +44,7 @@ public class Application {
     @Setter @Getter
     private Timestamp createdAt;
 
+    @NotNull(message = "You can't leave this empty.")
     @Column(name = "sequence")
     @Setter @Getter
     private Long sequence;
