@@ -22,6 +22,8 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zul.Messagebox;
+import org.zkoss.zul.Window;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
@@ -109,4 +111,16 @@ public class MainVM {
 		Executions.sendRedirect(response.encodeRedirectURL("/logout"));
 		Executions.getCurrent().setVoided(true);
 	}
+
+	@Command
+    public void changePassword() {
+        Window window = (Window)Executions.createComponents(
+                "/view/authentication/change-password.zul", null, null);
+        window.doModal();
+    }
+
+    @Command
+    public void cancel() {
+
+    }
 }
