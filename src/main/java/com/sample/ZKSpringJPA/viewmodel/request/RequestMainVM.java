@@ -18,7 +18,7 @@ import java.util.List;
         view = "/view/request/dashboard.zul",
         uuid = "1-request-dashboard",
         menuOrder = "3.1",
-        displayName = "Application",
+        displayName = "Form Dashboard",
         menuIcon = "bar-chart text-blue"
 )
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)

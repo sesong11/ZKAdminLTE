@@ -17,10 +17,14 @@ public class LeaveCalculatorOverall implements LeaveCalculator {
             return 0;
         }
         double totalDays = 0;
+        totalDays += start.get(Calendar.HOUR_OF_DAY) >= 12 ? 0.5 : 1;
+
+        if(to.get(Calendar.HOUR_OF_DAY)<=12)
+            totalDays -= to.get(Calendar.HOUR_OF_DAY) < 8 ? 1 : 0.5;
 
         double totalHours = Calculator.hourBetween(start, to);
         totalDays += (int)totalHours/24;
-        totalDays += totalHours%24 > 4? 1: 0.5;
+        //totalDays += totalHours%24 > 4? 1: 0.5;
 
         return totalDays;
     }

@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
- 
+
  	<context:component-scan base-package="com.sample.ZKSpringJPA" />
  	<!-- <context:component-scan base-package="org.zkoss.reference.developer.spring.security.model"/> -->
 
@@ -21,7 +21,9 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-	
+	<bean id="dayOffService" class="com.sample.ZKSpringJPA.services.employment.impl.DayOffServiceImpl">
+
+	</bean>
  	<tx:annotation-driven />
  	<import resource="/config/security-config.xml"/>
 </beans>
