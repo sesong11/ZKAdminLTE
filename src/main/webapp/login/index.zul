@@ -45,7 +45,9 @@
                     <n:div class="form-group has-feedback">
                         <textbox onOK="@command('login')" type="password" sclass="form-control" placeholder="Password" value="@bind(vm.password)"/>
                         <n:span class="glyphicon glyphicon-lock form-control-feedback"></n:span>
+                        <label zclass="none" sclass="text-red" value="@load(vm.message)" />
                     </n:div>
+
                     <n:div class="row">
                         <n:div class="col-xs-8">
                             <n:div class="checkbox icheck">
