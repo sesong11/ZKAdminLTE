@@ -2,9 +2,11 @@ package com.sample.ZKSpringJPA.viewmodel.employment;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.employment.DayOff;
+import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.services.employment.DayOffService;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
 
+import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
@@ -24,7 +26,7 @@ import lombok.Setter;
         displayName = "Holidays",
         menuIcon = "id-card"
 )
-public class DayoffListVM {
+public class DayoffListVM extends ListPagingVM {
 
     //region > Inject Service
     @WireVariable
@@ -48,8 +50,9 @@ public class DayoffListVM {
     //region > Constructor
     @Init
     public void init(){
-        dayOffs = new ListModelList<>(dayOffService.findAll());
+        dayOffs = new ListModelList<>(dayOffService.findPaging(0, getPageSize()));
         dayOff = new DayOff();
+        setTotalSize(dayOffService.count());
     }
     //endregion
 
@@ -85,6 +88,12 @@ public class DayoffListVM {
     @NotifyChange({"dayOff"})
     public void select(@BindingParam("dayOff") final DayOff dayOff){
         this.dayOff = dayOff;
+    }
+
+    @Override
+    public void research(int offset, int limit) {
+        dayOffs = new ListModelList<DayOff>(dayOffService.findPaging(offset, limit));
+        postNotifyChange(this,"dayOffs");
     }
     //endregion
 }

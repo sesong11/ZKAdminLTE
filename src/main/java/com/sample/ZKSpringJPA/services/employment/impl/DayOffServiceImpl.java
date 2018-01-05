@@ -42,4 +42,14 @@ public class DayOffServiceImpl implements DayOffService {
     public int countDayOff(Date from, Date to) {
         return dayOffDao.countDayOff(from, to);
     }
+
+    @Override
+    public int count() {
+        return dayOffDao.count(DayOff.class);
+    }
+
+    @Override
+    public List<DayOff> findPaging(int offset, int limit) {
+        return dayOffDao.findPaging(offset, limit, DayOff.class);
+    }
 }

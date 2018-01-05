@@ -25,7 +25,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public class DayOffDao extends CrudRepository {
+public class DayOffDao extends CrudRepository<DayOff> {
     @PersistenceContext
     private EntityManager em;
 

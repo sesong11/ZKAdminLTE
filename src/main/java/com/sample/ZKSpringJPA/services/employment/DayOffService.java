@@ -11,6 +11,7 @@ public interface DayOffService {
     DayOff create(DayOff dayOff);
     DayOff update(DayOff dayOff);
     void delete(DayOff dayOff);
-
     int countDayOff(Date from, Date to);
+    int count();
+    List<DayOff> findPaging(int offset, int limit);
 }

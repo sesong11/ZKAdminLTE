@@ -10,4 +10,6 @@ public interface DepartmentService {
     Department create(Department department);
     Department update(Department department);
     void delete(Department department);
+    int count();
+    List<Department> findPaging(int offset, int limit);
 }

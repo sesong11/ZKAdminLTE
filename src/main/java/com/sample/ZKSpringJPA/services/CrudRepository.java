@@ -13,12 +13,12 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-public class CrudRepository {
+public class CrudRepository<T> {
     @PersistenceContext
     private EntityManager em;
 
     @Transactional
-    public <T> Object find(Long id, Class<T> cls) {
+    public Object find(Long id, Class<T> cls) {
         Object object = em.find(cls, id);
         return object;
     }
@@ -51,7 +51,7 @@ public class CrudRepository {
     }
 
     @Transactional(readOnly = true)
-    public <T> int count(Class<T> cls) {
+    public int count(Class<T> cls) {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery<Long> countQuery = criteriaBuilder.createQuery(Long.class);
         countQuery.select(criteriaBuilder.count(countQuery.from(cls)));
@@ -61,7 +61,7 @@ public class CrudRepository {
     }
 
     @Transactional(readOnly = true)
-    public <T> List<T> findPaging(final int offset, final int limit, final Class<T> cls) {
+    public List<T> findPaging(final int offset, final int limit, final Class cls) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(cls);
         Root<T> from = cq.from(cls);

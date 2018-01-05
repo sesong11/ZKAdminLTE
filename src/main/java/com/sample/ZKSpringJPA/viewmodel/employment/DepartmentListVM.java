@@ -4,8 +4,10 @@ import com.sample.ZKSpringJPA.anotation.Feature;
 
 import com.sample.ZKSpringJPA.entity.employment.Branch;
 import com.sample.ZKSpringJPA.entity.employment.Department;
+import com.sample.ZKSpringJPA.entity.employment.Designation;
 import com.sample.ZKSpringJPA.services.employment.BranchService;
 import com.sample.ZKSpringJPA.services.employment.DepartmentService;
+import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
@@ -26,7 +28,7 @@ import org.zkoss.zul.Window;
         displayName = "Department List",
         menuIcon = "building-o"
 )
-public class DepartmentListVM {
+public class DepartmentListVM extends ListPagingVM {
 
     //region > Inject Service
     @WireVariable
@@ -48,8 +50,9 @@ public class DepartmentListVM {
     //region > Constructor
     @Init
     public void init(){
-        departments = new ListModelList<>(departmentService.findAll());
+        departments = new ListModelList<>(departmentService.findPaging(0, getPageSize()));
         department = new Department();
+        setTotalSize(departmentService.count());
     }
     //endregion
 
@@ -85,6 +88,12 @@ public class DepartmentListVM {
     @NotifyChange({"department"})
     public void select(@BindingParam("department") final Department department){
         this.department = department;
+    }
+
+    @Override
+    public void research(int offset, int limit) {
+        departments = new ListModelList<>(departmentService.findPaging(offset, limit));
+        postNotifyChange(this,"departments");
     }
 
     //endregion

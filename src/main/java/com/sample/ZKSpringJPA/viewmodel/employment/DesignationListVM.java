@@ -8,6 +8,7 @@ import com.sample.ZKSpringJPA.services.employment.BranchService;
 import com.sample.ZKSpringJPA.services.employment.DesignationService;
 
 import com.sample.ZKSpringJPA.utils.StandardFormat;
+import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
 import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
@@ -29,13 +30,11 @@ import sun.security.krb5.internal.crypto.Des;
         displayName = "Designation List",
         menuIcon = "id-card"
 )
-public class DesignationListVM {
+public class DesignationListVM extends ListPagingVM {
 
     //region > Inject Service
     @WireVariable
     private DesignationService designationService;
-
-
     //endregion
 
     //region > Fields
@@ -44,23 +43,13 @@ public class DesignationListVM {
 
     @Getter @Setter
     private Designation designation;
-
-    @Getter @Setter
-    private int pageSize = StandardFormat.getDefaultPageSize();
-
-    @Getter @Setter
-    private int totalSize;
-
-    @Getter @Setter
-    private int activePage;
-
     //endregion
 
     //region > Constructor
     @Init
     public void init(){
         research(0, getPageSize());
-        totalSize = designationService.count();
+        setTotalSize(designationService.count());
         designation = new Designation();
     }
     //endregion
@@ -98,27 +87,14 @@ public class DesignationListVM {
     public void select(@BindingParam("designation") final Designation designation){
         this.designation = designation;
     }
-    @Command
-    public void changeActivePage(@BindingParam("index") final int activePage){
-        this.activePage = activePage;
-        int offset = activePage* pageSize;
-        research(offset, pageSize);
-    }
-    @Command
-    @NotifyChange({"pageSize"})
-    public void changePageSize(@BindingParam("size") final int pageSize){
-        this.pageSize = pageSize;
-        research(0, pageSize);
-    }
+
     //endregion
 
     //region > Programmatic
-    private void research(final int offset, final int limit){
+    @Override
+    public void research(final int offset, final int limit){
         designations = new ListModelList<Designation>(designationService.findPaging(offset, limit));
-        postNotifyChange("designations", this);
-    }
-    private void postNotifyChange(final String property, Object bean) {
-        BindUtils.postNotifyChange(null, null, bean, property);
+        postNotifyChange(this,"designations");
     }
     //endregion
 }
