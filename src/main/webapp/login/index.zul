@@ -27,43 +27,44 @@
 <zk xmlns:n="native">
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
          viewModel="@id('vm') @init('com.sample.ZKSpringJPA.LoginVM')"
-         validationMessages="@id('vmsgs')">
-    <n:div class="login-box">
-        <n:div class="login-logo">
-            <n:a href="../../index2.html"><n:b>Phillip</n:b>Bank</n:a>
-        </n:div>
-        <!-- /.login-logo -->
-        <n:div class="login-box-body">
-            <n:p class="login-box-msg">Sign in to start your session</n:p>
+         validationMessages="@id('vmsgs')" visible="@bind(!vm.authenticated)">
+
+        <n:div class="login-box">
+            <n:div class="login-logo">
+                <n:a href="../../index2.html"><n:b>Phillip</n:b>Bank</n:a>
+            </n:div>
+            <!-- /.login-logo -->
+            <n:div class="login-box-body">
+                <n:p class="login-box-msg">Sign in to start your session</n:p>
 
 
-                <n:div class="form-group has-feedback">
-                    <textbox type="text" sclass="form-control" placeholder="Username" value="@bind(vm.username)" />
-                    <n:span class="glyphicon glyphicon-user form-control-feedback"></n:span>
-                </n:div>
-                <n:div class="form-group has-feedback">
-                    <textbox onOK="@command('login')" type="password" sclass="form-control" placeholder="Password" value="@bind(vm.password)"/>
-                    <n:span class="glyphicon glyphicon-lock form-control-feedback"></n:span>
-                </n:div>
-                <n:div class="row">
-                    <n:div class="col-xs-8">
-                        <n:div class="checkbox icheck">
-                            <n:label>
-                                <n:input type="checkbox" /> Remember Me
-                            </n:label>
+                    <n:div class="form-group has-feedback">
+                        <textbox type="text" sclass="form-control" placeholder="Username" value="@bind(vm.username)" />
+                        <n:span class="glyphicon glyphicon-user form-control-feedback"></n:span>
+                    </n:div>
+                    <n:div class="form-group has-feedback">
+                        <textbox onOK="@command('login')" type="password" sclass="form-control" placeholder="Password" value="@bind(vm.password)"/>
+                        <n:span class="glyphicon glyphicon-lock form-control-feedback"></n:span>
+                    </n:div>
+                    <n:div class="row">
+                        <n:div class="col-xs-8">
+                            <n:div class="checkbox icheck">
+                                <n:label>
+                                    <n:input type="checkbox" /> Remember Me
+                                </n:label>
+                            </n:div>
                         </n:div>
+                        <!-- /.col -->
+                        <n:div class="col-xs-4">
+                            <button type="submit" sclass="btn btn-primary btn-block btn-flat" onClick="@command('login')">Sign In</button>
+                        </n:div>
+                        <!-- /.col -->
                     </n:div>
-                    <!-- /.col -->
-                    <n:div class="col-xs-4">
-                        <button type="submit" sclass="btn btn-primary btn-block btn-flat" onClick="@command('login')">Sign In</button>
-                    </n:div>
-                    <!-- /.col -->
-                </n:div>
-            <!--<n:a href="#">I forgot my password</n:a><n:br />-->
-            <!--<n:a href="../register" class="text-center">Register a new membership</n:a>-->
+                <!--<n:a href="#">I forgot my password</n:a><n:br />-->
+                <!--<n:a href="../register" class="text-center">Register a new membership</n:a>-->
+            </n:div>
+            <!-- /.login-box-body -->
         </n:div>
-        <!-- /.login-box-body -->
-    </n:div>
     </div>
     <!-- jQuery 3 -->
     <script src="../adminlte/bower_components/jquery/dist/jquery.min.js"></script>
