@@ -37,4 +37,14 @@ public class AllowanceServiceImpl implements AllowanceService {
     public void delete(Allowance allowance) {
         allowanceDao.delete(allowance);
     }
+
+    @Override
+    public int count() {
+        return allowanceDao.count(Allowance.class);
+    }
+
+    @Override
+    public List<Allowance> findPaging(int offset, int limit) {
+        return allowanceDao.findPaging(offset, limit, Allowance.class);
+    }
 }

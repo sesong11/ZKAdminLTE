@@ -4,6 +4,7 @@ import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.employment.Branch;
 import com.sample.ZKSpringJPA.services.employment.BranchService;
 
+import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
@@ -17,13 +18,13 @@ import lombok.Setter;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
-        view = "/view/employment/branchlist.zul",
-        uuid = "branchlist",
+        view = "/view/employment/branch-list.zul",
+        uuid = "branch-list",
         menuOrder = "2.2",
         displayName = "Branch List",
         menuIcon = "building"
 )
-public class BranchListVM {
+public class BranchListVM extends ListPagingVM {
 
     //region > Inject Service
     @WireVariable
@@ -44,8 +45,9 @@ public class BranchListVM {
     //region > Constructor
     @Init
     public void init(){
-        branches = new ListModelList<>(branchService.findAll());
+        branches = new ListModelList<>(branchService.findPaging(0, getPageSize()));
         branch = new Branch();
+        setTotalSize(branchService.count());
     }
     //endregion
 
@@ -81,6 +83,12 @@ public class BranchListVM {
     @NotifyChange({"branch"})
     public void select(@BindingParam("branch") final Branch branch){
         this.branch = branch;
+    }
+
+    @Override
+    public void research(int offset, int limit) {
+        branches = new ListModelList<>(branchService.findPaging(offset, limit));
+        postNotifyChange(this,"branches");
     }
     //endregion
 }

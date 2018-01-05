@@ -33,9 +33,14 @@
                             </n:div>
                         </n:div>
                         <!-- /.box-header -->
-                        <n:div class="box-body">
-
-                            <grid zclass="none" height="350px" model="@load(vm.allowances)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
+                        <n:div class="box-body no-padding">
+                            <n:div class="mailbox-controls">
+                                <n:span>Page Size: </n:span>
+                                <spinner id="quantitySpinner" width="100px" value="@load(vm.pageSize)"
+                                         onChange="@command('changePageSize', size = self.value)"
+                                         format=",###" constraint="no empty,min 1, max 100" />
+                            </n:div>
+                            <grid zclass="none" model="@load(vm.allowances)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                   emptyMessage="Nothing in Inbox.">
                                 <columns zclass="none">
                                     <column label="Id" zclass="none" width="50px"/>
@@ -53,25 +58,25 @@
                                     <column label="Max Renewal" zclass="none"/>
                                 </columns>
                                 <template name="model">
-                                    <row onClick="@command('select', allowance=each)">
-                                        <label value="@load(each.id)" />
-                                        <label value="@load(each.name)" />
-                                        <label value="@load(each.allowanceType.name)" />
-                                        <label value="@load(each.endBalance)" />
-                                        <label value="@load(each.unit.name)" />
-                                        <label value="@load(each.startBalance)" />
-                                        <label value="@load(each.accrualBalance)" />
-                                        <label value="@load(each.frequencyAccrual.name)" />
-                                        <label value="@load(each.noFrequencyAccrual)" />
-                                        <label value="@load(each.accrualOn)" />
-                                        <label value="@load(each.frequencyRenew.name)" />
-                                        <label value="@load(each.noFrequencyRenew)" />
-                                        <label value="@load(each.maxRenewal)" />
+                                    <row zclass="none" onClick="@command('select', allowance=each)">
+                                        <label zclass="none" value="@load(each.id)" />
+                                        <label zclass="none" value="@load(each.name)" />
+                                        <label zclass="none" value="@load(each.allowanceType.name)" />
+                                        <label zclass="none" value="@load(each.endBalance)" />
+                                        <label zclass="none" value="@load(each.unit.name)" />
+                                        <label zclass="none" value="@load(each.startBalance)" />
+                                        <label zclass="none" value="@load(each.accrualBalance)" />
+                                        <label zclass="none" value="@load(each.frequencyAccrual.name)" />
+                                        <label zclass="none" value="@load(each.noFrequencyAccrual)" />
+                                        <label zclass="none" value="@load(each.accrualOn)" />
+                                        <label zclass="none" value="@load(each.frequencyRenew.name)" />
+                                        <label zclass="none" value="@load(each.noFrequencyRenew)" />
+                                        <label zclass="none" value="@load(each.maxRenewal)" />
                                     </row>
                                 </template>
                             </grid>
-
-
+                            <paging pageSize="@load(vm.pageSize)" onClick="@command('changeActivePage', index=self.activePage)"
+                                    mold="os" totalSize="@load(vm.totalSize)" activePage="@load(vm.activePage)" />
                             <!-- /.col -->
                         </n:div>
                         <!-- /.table-responsive -->

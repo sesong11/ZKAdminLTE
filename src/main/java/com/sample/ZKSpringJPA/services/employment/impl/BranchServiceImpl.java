@@ -37,4 +37,14 @@ public class BranchServiceImpl implements BranchService {
     public void delete(Branch branch) {
         branchDao.delete(branch);
     }
+
+    @Override
+    public int count() {
+        return branchDao.count(Branch.class);
+    }
+
+    @Override
+    public List<Branch> findPaging(int offset, int limit) {
+        return branchDao.findPaging(offset, limit, Branch.class);
+    }
 }

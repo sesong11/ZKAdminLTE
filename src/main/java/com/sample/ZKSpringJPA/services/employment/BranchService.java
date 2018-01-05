@@ -10,4 +10,6 @@ public interface BranchService {
     Branch create(Branch branch);
     Branch update(Branch branch);
     void delete(Branch branch);
+    int count();
+    List<Branch> findPaging(int offset, int limit);
 }
