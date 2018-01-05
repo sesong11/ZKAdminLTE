@@ -31,10 +31,16 @@
                             </n:div>
                         </n:div>
                         <!-- /.box-header -->
-                        <n:div class="box-body">
-                            <listbox height="450px" model="@load(vm.employees)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
+                        <n:div class="box-body no-padding">
+                            <n:div class="mailbox-controls">
+                                <n:span>Page Size: </n:span>
+                                <spinner id="quantitySpinner" width="100px" value="@load(vm.pageSize)"
+                                         onChange="@command('changePageSize', size = self.value)"
+                                         format=",###" constraint="no empty,min 1, max 100" />
+                            </n:div>
+                            <listbox model="@load(vm.employees)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                   emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" zclass="none">
-                                <listhead>
+                                <listhead zclass="none">
                                     <listheader zclass="none" label="Code" width="80px"/>
                                     <listheader zclass="none" label="Full Name" width="150px"/>
                                     <listheader zclass="none" label="Date of Birth" width="120px"/>
@@ -61,7 +67,8 @@
                                     </listitem>
                                 </template>
                             </listbox>
-
+                            <paging pageSize="@load(vm.pageSize)" onClick="@command('changeActivePage', index=self.activePage)"
+                                    mold="os" totalSize="@load(vm.totalSize)" activePage="@load(vm.activePage)" />
 
                             <!-- /.col -->
                         </n:div>

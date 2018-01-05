@@ -11,4 +11,6 @@ public class StandardFormat {
     private final static String standardDateTimeFormat = "dd-MM-yyyy HH:mm";
 
     @Getter final static String standardDoubleFormat = "#,##0.00";
+
+    @Getter final static int defaultPageSize = 10;
 }

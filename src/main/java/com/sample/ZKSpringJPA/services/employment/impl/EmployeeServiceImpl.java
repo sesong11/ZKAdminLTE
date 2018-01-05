@@ -43,4 +43,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee findByUser(User user){
         return employeeDao.findByUser(user);
     }
+
+    @Override
+    public int count() {
+        return employeeDao.count();
+    }
+
+    @Override
+    public List<Employee> findPaging(final int offset, final int limit) {
+        return employeeDao.findPaging(offset, limit);
+    }
 }

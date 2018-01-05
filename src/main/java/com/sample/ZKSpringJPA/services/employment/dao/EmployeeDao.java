@@ -9,6 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
@@ -27,5 +31,26 @@ public class EmployeeDao extends CrudRepository {
         Query query = em.createQuery("SELECT e FROM Employee e WHERE e.user.id = :userId").setParameter("userId", user.getId());
         Employee result = (Employee) query.getSingleResult();
         return result;
+    }
+
+    public int count() {
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Long> countQuery = criteriaBuilder.createQuery(Long.class);
+        countQuery.select(criteriaBuilder.count(countQuery.from(Employee.class)));
+        int count = em.createQuery(countQuery).getSingleResult().intValue();
+        return count;
+    }
+
+    public List<Employee> findPaging(final int offset, final int limit) {
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Employee> criteriaQuery = criteriaBuilder
+                .createQuery(Employee.class);
+        Root<Employee> from = criteriaQuery.from(Employee.class);
+        CriteriaQuery<Employee> select = criteriaQuery.select(from);
+        TypedQuery<Employee> typedQuery = em.createQuery(select);
+        typedQuery.setFirstResult(offset);
+        typedQuery.setMaxResults(limit);
+        List<Employee> list = typedQuery.getResultList();
+        return list;
     }
 }

@@ -36,7 +36,7 @@ public class AllRequestVM {
     private List<Request> requests;
 
     @Getter @Setter
-    private int pageSize = 10;
+    private int pageSize = StandardFormat.getDefaultPageSize();
 
     @Getter
     private Long totalSize;

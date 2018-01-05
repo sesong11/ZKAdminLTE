@@ -13,4 +13,6 @@ public interface EmployeeService {
     Employee update(Employee employee);
     void delete(Employee employee);
     Employee findByUser(User user);
+    int count();
+    List<Employee> findPaging(int offset, int limit);
 }
