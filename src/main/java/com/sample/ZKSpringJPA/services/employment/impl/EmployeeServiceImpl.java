@@ -46,11 +46,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public int count() {
-        return employeeDao.count();
+        return employeeDao.count(Employee.class);
     }
 
     @Override
     public List<Employee> findPaging(final int offset, final int limit) {
-        return employeeDao.findPaging(offset, limit);
+        return employeeDao.findPaging(offset, limit, Employee.class);
     }
 }

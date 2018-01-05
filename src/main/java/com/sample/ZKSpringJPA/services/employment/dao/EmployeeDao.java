@@ -27,20 +27,14 @@ public class EmployeeDao extends CrudRepository {
         return result;
     }
 
+    @Transactional(readOnly = true)
     public Employee findByUser(final User user) {
         Query query = em.createQuery("SELECT e FROM Employee e WHERE e.user.id = :userId").setParameter("userId", user.getId());
         Employee result = (Employee) query.getSingleResult();
         return result;
     }
 
-    public int count() {
-        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-        CriteriaQuery<Long> countQuery = criteriaBuilder.createQuery(Long.class);
-        countQuery.select(criteriaBuilder.count(countQuery.from(Employee.class)));
-        int count = em.createQuery(countQuery).getSingleResult().intValue();
-        return count;
-    }
-
+    @Transactional(readOnly = true)
     public List<Employee> findPaging(final int offset, final int limit) {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery<Employee> criteriaQuery = criteriaBuilder

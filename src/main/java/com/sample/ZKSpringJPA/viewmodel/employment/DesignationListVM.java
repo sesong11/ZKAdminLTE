@@ -3,9 +3,12 @@ package com.sample.ZKSpringJPA.viewmodel.employment;
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.employment.Branch;
 import com.sample.ZKSpringJPA.entity.employment.Designation;
+import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.services.employment.BranchService;
 import com.sample.ZKSpringJPA.services.employment.DesignationService;
 
+import com.sample.ZKSpringJPA.utils.StandardFormat;
+import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
@@ -42,12 +45,22 @@ public class DesignationListVM {
     @Getter @Setter
     private Designation designation;
 
+    @Getter @Setter
+    private int pageSize = StandardFormat.getDefaultPageSize();
+
+    @Getter @Setter
+    private int totalSize;
+
+    @Getter @Setter
+    private int activePage;
+
     //endregion
 
     //region > Constructor
     @Init
     public void init(){
-        designations = new ListModelList<>(designationService.findAll());
+        research(0, getPageSize());
+        totalSize = designationService.count();
         designation = new Designation();
     }
     //endregion
@@ -84,6 +97,28 @@ public class DesignationListVM {
     @NotifyChange({"designation"})
     public void select(@BindingParam("designation") final Designation designation){
         this.designation = designation;
+    }
+    @Command
+    public void changeActivePage(@BindingParam("index") final int activePage){
+        this.activePage = activePage;
+        int offset = activePage* pageSize;
+        research(offset, pageSize);
+    }
+    @Command
+    @NotifyChange({"pageSize"})
+    public void changePageSize(@BindingParam("size") final int pageSize){
+        this.pageSize = pageSize;
+        research(0, pageSize);
+    }
+    //endregion
+
+    //region > Programmatic
+    private void research(final int offset, final int limit){
+        designations = new ListModelList<Designation>(designationService.findPaging(offset, limit));
+        postNotifyChange("designations", this);
+    }
+    private void postNotifyChange(final String property, Object bean) {
+        BindUtils.postNotifyChange(null, null, bean, property);
     }
     //endregion
 }

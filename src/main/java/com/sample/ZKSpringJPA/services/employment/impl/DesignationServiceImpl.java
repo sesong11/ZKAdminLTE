@@ -36,4 +36,14 @@ public class DesignationServiceImpl implements DesignationService {
     public void delete(Designation designation) {
         designationDao.delete(designation);
     }
+
+    @Override
+    public int count() {
+        return designationDao.count(Designation.class);
+    }
+
+    @Override
+    public List<Designation> findPaging(int offset, int limit) {
+        return designationDao.findPaging(offset, limit, Designation.class);
+    }
 }
