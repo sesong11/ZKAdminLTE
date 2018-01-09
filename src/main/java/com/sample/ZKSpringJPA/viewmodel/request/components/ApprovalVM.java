@@ -2,10 +2,11 @@ package com.sample.ZKSpringJPA.viewmodel.request.components;
 
 import com.sample.ZKSpringJPA.entity.request.DecisionStatus;
 import com.sample.ZKSpringJPA.entity.request.approval.Approval;
+import com.sample.ZKSpringJPA.viewmodel.utils.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 
-public abstract class ApprovalVM {
+public abstract class ApprovalVM extends ViewModel {
     @Getter @Setter
     private Approval approval;
 

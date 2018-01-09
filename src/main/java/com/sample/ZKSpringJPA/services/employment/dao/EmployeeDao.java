@@ -16,7 +16,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-public class EmployeeDao extends CrudRepository {
+public class EmployeeDao extends CrudRepository<Employee> {
     @PersistenceContext
     private EntityManager em;
 
@@ -32,19 +32,5 @@ public class EmployeeDao extends CrudRepository {
         Query query = em.createQuery("SELECT e FROM Employee e WHERE e.user.id = :userId").setParameter("userId", user.getId());
         Employee result = (Employee) query.getSingleResult();
         return result;
-    }
-
-    @Transactional(readOnly = true)
-    public List<Employee> findPaging(final int offset, final int limit) {
-        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-        CriteriaQuery<Employee> criteriaQuery = criteriaBuilder
-                .createQuery(Employee.class);
-        Root<Employee> from = criteriaQuery.from(Employee.class);
-        CriteriaQuery<Employee> select = criteriaQuery.select(from);
-        TypedQuery<Employee> typedQuery = em.createQuery(select);
-        typedQuery.setFirstResult(offset);
-        typedQuery.setMaxResults(limit);
-        List<Employee> list = typedQuery.getResultList();
-        return list;
     }
 }

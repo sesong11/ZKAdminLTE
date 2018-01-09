@@ -77,6 +77,7 @@ public class ReliefVM extends ApprovalVM {
             }
         }
         requestService.update(request);
+        this.postNotifyChange(request, "status");
     }
     //endregion
 

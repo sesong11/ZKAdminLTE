@@ -14,6 +14,8 @@ import com.sample.ZKSpringJPA.services.request.RequestService;
 import com.sample.ZKSpringJPA.utils.Calculator;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
+import com.sample.ZKSpringJPA.viewmodel.DefaultVM;
+import com.sample.ZKSpringJPA.viewmodel.utils.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.BindUtils;
@@ -24,6 +26,7 @@ import org.zkoss.bind.validator.AbstractValidator;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
 
@@ -41,7 +44,7 @@ import java.util.*;
         displayName = "Leave Request",
         menuIcon = "tag"
 )
-public class LeaveFormVM {
+public class LeaveFormVM extends ViewModel {
     //region > Inject Services
     @WireVariable
     private EmployeeService employeeService;
@@ -149,6 +152,7 @@ public class LeaveFormVM {
     public void selectRequestFor() {
         final HashMap<String, Object> map = new HashMap<>();
         map.put("employees", employeeService.findAll());
+        map.put("totalSize", employeeService.count());
         map.put("receiver", "selectRequestForCallback");
         Window window = (Window) Executions.createComponents(
                 "/view/component/employee-selector.zul", null, map);
@@ -158,13 +162,28 @@ public class LeaveFormVM {
     @GlobalCommand
     public void selectRequestForCallback(@BindingParam("employee") final Employee employee) {
         this.form.getRequest().setRequestFor(employee);
-        postNotifyChange("requestFor", form.getRequest());
+        postNotifyChange(form.getRequest(), "requestFor");
+    }
+
+    @GlobalCommand
+    public void selectRequestForCallbackFilter(
+            @BindingParam("windows") Object window,
+            @BindingParam("employees")ListModelList<Employee> employees,
+            @BindingParam("pageSize") final int pageSize,
+            @BindingParam("activePage") final int activePage) {
+
+        int offset = activePage * pageSize;
+        employeeService.findPaging(offset, pageSize);
+        employees.clear();
+        employees.addAll(employeeService.findPaging(offset, pageSize));
+        postNotifyChange(window, "employees");
     }
 
     @Command
     public void selectRelief() {
         final HashMap<String, Object> map = new HashMap<>();
-        map.put("employees", employeeService.findAll());
+        map.put("employees", employeeService.findPaging(0, StandardFormat.getDefaultPageSize()));
+        map.put("totalSize", employeeService.count());
         map.put("receiver", "selectReliefCallback");
         Window window = (Window) Executions.createComponents(
                 "/view/component/employee-selector.zul", null, map);
@@ -184,13 +203,28 @@ public class LeaveFormVM {
     @GlobalCommand
     public void selectReliefCallback(@BindingParam("employee") final Employee employee) {
         this.relief.setApprovePerson(employee);
-        postNotifyChange("relief", this);
+        postNotifyChange(this,"relief");
+    }
+
+    @GlobalCommand
+    public void selectReliefCallbackFilter(
+            @BindingParam("windows") Object window,
+            @BindingParam("employees")ListModelList<Employee> employees,
+            @BindingParam("pageSize") final int pageSize,
+            @BindingParam("activePage") final int activePage) {
+
+        int offset = activePage * pageSize;
+        employeeService.findPaging(offset, pageSize);
+        employees.clear();
+        employees.addAll(employeeService.findPaging(offset, pageSize));
+        postNotifyChange(window, "employees");
     }
 
     @Command
     public void selectSupervisor() {
         final HashMap<String, Object> map = new HashMap<>();
         map.put("employees", employeeService.findAll());
+        map.put("totalSize", employeeService.count());
         map.put("receiver", "selectSupervisorCallback");
         Window window = (Window) Executions.createComponents(
                 "/view/component/employee-selector.zul", null, map);
@@ -210,13 +244,28 @@ public class LeaveFormVM {
     @GlobalCommand
     public void selectSupervisorCallback(@BindingParam("employee") final Employee employee) {
         this.supervisor.setApprovePerson(employee);
-        postNotifyChange("supervisor", this);
+        postNotifyChange(this,"supervisor" );
+    }
+
+    @GlobalCommand
+    public void selectSupervisorCallbackFilter(
+            @BindingParam("windows") Object window,
+            @BindingParam("employees")ListModelList<Employee> employees,
+            @BindingParam("pageSize") final int pageSize,
+            @BindingParam("activePage") final int activePage) {
+
+        int offset = activePage * pageSize;
+        employeeService.findPaging(offset, pageSize);
+        employees.clear();
+        employees.addAll(employeeService.findPaging(offset, pageSize));
+        postNotifyChange(window, "employees");
     }
 
     @Command
     public void selectManager() {
         final HashMap<String, Object> map = new HashMap<>();
         map.put("employees", employeeService.findAll());
+        map.put("totalSize", employeeService.count());
         map.put("receiver", "selectManagerCallback");
         Window window = (Window) Executions.createComponents(
                 "/view/component/employee-selector.zul", null, map);
@@ -236,7 +285,21 @@ public class LeaveFormVM {
     @GlobalCommand
     public void selectManagerCallback(@BindingParam("employee") final Employee employee) {
         this.manager.setApprovePerson(employee);
-        postNotifyChange("manager", this);
+        postNotifyChange(this, "manager" );
+    }
+
+    @GlobalCommand
+    public void selectManagerCallbackFilter(
+            @BindingParam("windows") Object window,
+            @BindingParam("employees")ListModelList<Employee> employees,
+            @BindingParam("pageSize") final int pageSize,
+            @BindingParam("activePage") final int activePage) {
+
+        int offset = activePage * pageSize;
+        employeeService.findPaging(offset, pageSize);
+        employees.clear();
+        employees.addAll(employeeService.findPaging(offset, pageSize));
+        postNotifyChange(window, "employees");
     }
 
     @Command
@@ -284,15 +347,10 @@ public class LeaveFormVM {
         }
         double todayDays = form.getLeaveType().getCalculator().calculate(form);
         form.setTotalDays(todayDays);
-        this.postNotifyChange("totalDays", form);
+        postNotifyChange(form, "totalDays");
     }
     //endregion
 
-    //region > Programmatic
-    private void postNotifyChange(final String property, Object bean) {
-        BindUtils.postNotifyChange(null, null, bean, property);
-    }
-    //endregion
 
     //region > Validator
     public Validator getRequestForValidator() {

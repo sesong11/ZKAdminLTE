@@ -65,7 +65,7 @@ public class AuthorizeVM extends ApproveVM{
     @NotifyChange({"approval", "approveAble", "approved"})
     public void approve(){
         getApproval().setDecisionStatus(DecisionStatus.APPROVED);
-        getApproval().getRequest().setStatus(RequestStatus.OPEN);
+        getApproval().getRequest().setStatus(RequestStatus.CLOSED);
         getApproval().setApproveDate(new Timestamp(System.currentTimeMillis()));
         setApproval(approvalService.update(getApproval()));
         Request request = getApproval().getRequest();
@@ -77,6 +77,7 @@ public class AuthorizeVM extends ApproveVM{
             }
         }
         requestService.update(request);
+        postNotifyChange(request, "status");
     }
     @Command
     @NotifyChange({"approval", "approveAble", "approved"})

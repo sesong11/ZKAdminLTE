@@ -37,7 +37,8 @@
                         ${rvm.approval.approvePerson.designation.name}
                     </n:code></n:span>
                     <n:span sclass="direct-chat-timestamp pull-right">
-                        <label value="@load(rvm.approval.approveDate)" />
+                        <n:i class="fa fa-clock-o"></n:i>
+                        <label zclass="none" value="@load(rvm.approval.approveDate)" />
                     </n:span>
                 </n:div>
                 <!-- /.direct-chat-info -->
@@ -48,7 +49,7 @@
                              sclass="form-control" placeholder="Comment" readonly="@load(!rvm.approveAble)"/>
                 </div>
                 <div visible="@load(rvm.approved)" zclass="none">
-                    <n:div style="min-height: 35px" sclass="direct-chat-text bg-red">
+                    <n:div style="min-height: 35px" sclass="direct-chat-text bg-${rvm.badgeColor}">
                         <label zclass="none" value="@load(rvm.approval.comment)" />
                     </n:div>
                 </div>

@@ -33,7 +33,8 @@
                         ${rvm.approval.approvePerson.designation.name}
                     </n:code></n:span>
                     <n:span sclass="direct-chat-timestamp pull-right">
-                        <label value="@load(rvm.approval.approveDate)" />
+                        <n:i class="fa fa-clock-o"></n:i>
+                        <label zclass="none" value="@load(rvm.approval.approveDate)" />
                     </n:span>
                 </n:div>
                 <!-- /.direct-chat-info -->

@@ -1,8 +1,14 @@
 <zk xmlns:n="native">
-    <window id="modalDialog" title="Employees" border="normal" width="920px" height="480px"
+    <window id="modalDialog" title="Employees" border="normal" width="920px"
             position="center,center" closable="true"
             viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.component.EmployeeSelectorVM')"
             onCancel="@command('closeThis')">
+        <n:div class="mailbox-controls">
+            <n:span>Page Size: </n:span>
+            <spinner id="quantitySpinner" width="100px" value="@load(vm.pageSize)"
+                     onChange="@command('changePageSize', size = self.value)"
+                     format=",###" constraint="no empty,min 1, max 100" />
+        </n:div>
         <listbox model="@load(vm.employees)" sclass="table table-bordered table-responsive table-hover mailbox-messages"
               emptyMessage="Nothing in Inbox." mold="paging" pageSize="10" zclass="none">
             <listhead sizable="true" zclass="none">
@@ -24,5 +30,7 @@
                 </listitem>
             </template>
         </listbox>
+        <paging pageSize="@load(vm.pageSize)" onClick="@command('changeActivePage', index=self.activePage)"
+                mold="os" totalSize="@load(vm.totalSize)" activePage="@load(vm.activePage)" />
     </window>
 </zk>
