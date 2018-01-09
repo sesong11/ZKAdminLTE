@@ -16,6 +16,7 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zsoup.helper.StringUtil;
 import org.zkoss.zul.ListModelList;
 
 import lombok.Getter;
@@ -93,8 +94,16 @@ public class DesignationListVM extends ListPagingVM {
     //region > Programmatic
     @Override
     public void research(final int offset, final int limit){
-        designations = new ListModelList<Designation>(designationService.findPaging(offset, limit));
+        if(StringUtil.isBlank(getFilter())) {
+            designations = new ListModelList<>(designationService.findPaging(offset, limit));
+            setTotalSize(designationService.count());
+        }
+        else {
+            designations = new ListModelList<>(designationService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
+            setTotalSize(designationService.count(getFilter().toLowerCase(), "name"));
+        }
         postNotifyChange(this,"designations");
+        postNotifyChange(this,"totalSize");
     }
     //endregion
 }

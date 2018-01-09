@@ -13,6 +13,7 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zsoup.helper.StringUtil;
 import org.zkoss.zul.ListModelList;
 
 import lombok.Getter;
@@ -92,8 +93,16 @@ public class DayoffListVM extends ListPagingVM {
 
     @Override
     public void research(int offset, int limit) {
-        dayOffs = new ListModelList<DayOff>(dayOffService.findPaging(offset, limit));
+        if(StringUtil.isBlank(getFilter())) {
+            dayOffs = new ListModelList<>(dayOffService.findPaging(offset, limit));
+            setTotalSize(dayOffService.count());
+        }
+        else {
+            dayOffs = new ListModelList<>(dayOffService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
+            setTotalSize(dayOffService.count(getFilter().toLowerCase(), "name"));
+        }
         postNotifyChange(this,"dayOffs");
+        postNotifyChange(this,"totalSize");
     }
     //endregion
 }

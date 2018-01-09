@@ -46,4 +46,14 @@ public class DesignationServiceImpl implements DesignationService {
     public List<Designation> findPaging(int offset, int limit) {
         return designationDao.findPaging(offset, limit, Designation.class);
     }
+
+    @Override
+    public int count(String filter, String filterBy) {
+        return designationDao.count(Designation.class, filter, filterBy);
+    }
+
+    @Override
+    public List<Designation> findPaging(int offset, int limit, String filter, String filterBy) {
+        return designationDao.findPaging(offset, limit, Designation.class, filter, filterBy);
+    }
 }

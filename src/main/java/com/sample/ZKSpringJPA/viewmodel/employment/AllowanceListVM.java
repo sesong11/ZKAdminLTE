@@ -18,6 +18,7 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zsoup.helper.StringUtil;
 import org.zkoss.zul.ListModelList;
 
 import java.util.List;
@@ -109,8 +110,16 @@ public class AllowanceListVM extends ListPagingVM {
 
     @Override
     public void research(int offset, int limit) {
-        allowances = new ListModelList<>(allowanceService.findPaging(offset, limit));
+        if(StringUtil.isBlank(getFilter())) {
+            allowances = new ListModelList<>(allowanceService.findPaging(offset, limit));
+            setTotalSize(allowanceService.count());
+        }
+        else {
+            allowances = new ListModelList<>(allowanceService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
+            setTotalSize(allowanceService.count(getFilter().toLowerCase(), "name"));
+        }
         postNotifyChange(this,"allowances");
+        postNotifyChange(this,"totalSize");
     }
     //endregion
 }

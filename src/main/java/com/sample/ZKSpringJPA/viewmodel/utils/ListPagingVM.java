@@ -20,6 +20,9 @@ public abstract class ListPagingVM extends ViewModel {
     @Setter
     private int activePage;
 
+    @Getter @Setter
+    private String filter;
+
     @Command
     public void changeActivePage(@BindingParam("index") final int activePage) {
         this.activePage = activePage;
@@ -32,6 +35,12 @@ public abstract class ListPagingVM extends ViewModel {
         this.pageSize = pageSize;
         research(0, pageSize);
         postNotifyChange(this,"pageSize");
+    }
+
+    @Command
+    public void filter(@BindingParam("filter") final String filter){
+        this.filter = filter;
+        research(0, getPageSize());
     }
 
     public abstract void research(final int offset, final int limit);

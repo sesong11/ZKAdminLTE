@@ -47,4 +47,14 @@ public class BranchServiceImpl implements BranchService {
     public List<Branch> findPaging(int offset, int limit) {
         return branchDao.findPaging(offset, limit, Branch.class);
     }
+
+    @Override
+    public int count(String filter, String filterBy) {
+        return branchDao.count(Branch.class, filter, filterBy);
+    }
+
+    @Override
+    public List<Branch> findPaging(int offset, int limit, String filter, String filterBy) {
+        return branchDao.findPaging(offset, limit, Branch.class, filter, filterBy);
+    }
 }

@@ -17,6 +17,7 @@ import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zsoup.helper.StringUtil;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
 
@@ -92,8 +93,16 @@ public class DepartmentListVM extends ListPagingVM {
 
     @Override
     public void research(int offset, int limit) {
-        departments = new ListModelList<>(departmentService.findPaging(offset, limit));
+        if(StringUtil.isBlank(getFilter())) {
+            departments = new ListModelList<>(departmentService.findPaging(offset, limit));
+            setTotalSize(departmentService.count());
+        }
+        else {
+            departments = new ListModelList<>(departmentService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
+            setTotalSize(departmentService.count(getFilter().toLowerCase(), "name"));
+        }
         postNotifyChange(this,"departments");
+        postNotifyChange(this,"totalSize");
     }
 
     //endregion

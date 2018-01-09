@@ -11,6 +11,7 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zsoup.helper.StringUtil;
 import org.zkoss.zul.ListModelList;
 
 import lombok.Getter;
@@ -87,7 +88,15 @@ public class BranchListVM extends ListPagingVM {
 
     @Override
     public void research(int offset, int limit) {
-        branches = new ListModelList<>(branchService.findPaging(offset, limit));
+        if(StringUtil.isBlank(getFilter())) {
+            branches = new ListModelList<>(branchService.findPaging(offset, limit));
+            setTotalSize(branchService.count());
+        }
+        else {
+            branches = new ListModelList<>(branchService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
+            setTotalSize(branchService.count(getFilter().toLowerCase(), "name"));
+        }
+        postNotifyChange(this,"totalSize");
         postNotifyChange(this,"branches");
     }
     //endregion

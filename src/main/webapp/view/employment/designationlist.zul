@@ -34,10 +34,25 @@
                         <!-- /.box-header -->
                         <n:div class="box-body no-padding">
                             <n:div class="mailbox-controls">
-                                <n:span>Page Size: </n:span>
-                                <spinner id="quantitySpinner" width="100px" value="@load(vm.pageSize)"
-                                         onChange="@command('changePageSize', size = self.value)"
-                                         format=",###" constraint="no empty,min 1, max 100" />
+                                <n:div class="row">
+                                    <n:div class="col-md-4" >
+                                        <n:span>Page Size </n:span>
+                                        <spinner id="quantitySpinner" width="100px" value="@load(vm.pageSize)"
+                                                 onChange="@command('changePageSize', size = self.value)"
+                                                 format=",###" constraint="no empty,min 1, max 100" />
+                                    </n:div>
+
+                                    <n:div class="col-md-4" >
+                                        <n:div class="input-group input-group-sm">
+                                            <n:span>Filter </n:span>
+                                            <textbox id="txtFilter" type="text" onOK="@command('filter', filter = txtFilter.value)"
+                                                     value="@load(vm.filter)"/>
+                                            <n:span>
+                                                <a sclass="btn btn-info btn-flat" onClick="@command('filter', filter = txtFilter.value)">
+                                                    <n:i class="fa fa-filter"></n:i></a></n:span>
+                                        </n:div>
+                                    </n:div>
+                                </n:div>
                             </n:div>
                             <grid zclass="none" model="@load(vm.designations)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                   emptyMessage="Nothing in Inbox.">

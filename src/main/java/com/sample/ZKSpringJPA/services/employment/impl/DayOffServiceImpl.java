@@ -52,4 +52,14 @@ public class DayOffServiceImpl implements DayOffService {
     public List<DayOff> findPaging(int offset, int limit) {
         return dayOffDao.findPaging(offset, limit, DayOff.class);
     }
+
+    @Override
+    public int count(String filter, String filterBy) {
+        return dayOffDao.count(DayOff.class, filter, filterBy);
+    }
+
+    @Override
+    public List<DayOff> findPaging(int offset, int limit, String filter, String filterBy) {
+        return dayOffDao.findPaging(offset, limit, DayOff.class, filter, filterBy);
+    }
 }

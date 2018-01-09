@@ -46,4 +46,14 @@ public class DepartmentServiceImpl implements DepartmentService {
     public List<Department> findPaging(int offset, int limit) {
         return departmentDao.findPaging(offset, limit, Department.class);
     }
+
+    @Override
+    public int count(String filter, String filterBy) {
+        return departmentDao.count(Department.class, filter, filterBy);
+    }
+
+    @Override
+    public List<Department> findPaging(int offset, int limit, String filter, String filterBy) {
+        return departmentDao.findPaging(offset, limit, Department.class, filter, filterBy);
+    }
 }
