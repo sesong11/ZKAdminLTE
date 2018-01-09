@@ -87,9 +87,9 @@ public class ChangePasswordDialogVM {
        String encodedPassword = passwordEncoder.encode(newPassword);
        currentUser.setPassword(encodedPassword);
        userService.updateUser(currentUser);
-       if(isForce()) {
+       //if(isForce()) {
            Executions.sendRedirect("/");
-       }
+       //}
        dialog.detach();
     }
 

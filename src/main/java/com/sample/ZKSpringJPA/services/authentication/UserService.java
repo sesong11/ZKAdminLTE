@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.User;
+import com.sample.ZKSpringJPA.entity.authentication.UserRole;
 
 public interface UserService {
 	List<User> allUser();
