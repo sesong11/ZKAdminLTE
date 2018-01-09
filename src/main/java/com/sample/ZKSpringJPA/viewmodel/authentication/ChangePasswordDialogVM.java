@@ -3,6 +3,7 @@ package com.sample.ZKSpringJPA.viewmodel.authentication;
 import com.sample.ZKSpringJPA.entity.authentication.User;
 import com.sample.ZKSpringJPA.entity.request.RequestForm;
 import com.sample.ZKSpringJPA.services.authentication.UserService;
+import com.sample.ZKSpringJPA.utils.FeaturesScanner;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,17 @@ import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
-
+import java.text.SimpleDateFormat;
 
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
@@ -59,8 +63,13 @@ public class ChangePasswordDialogVM {
         currentUser = userCredentialService.getCurrentEmployee().getUser();
     }
     @Command
-    public void close(@BindingParam("window") Window dialog) {
-        dialog.detach();
+    public void close(@BindingParam("window") Window dialog) throws ServletException {
+
+       if(isForce()) {
+           logout();
+       }
+       dialog.detach();
+
     }
 
     @NotifyChange({"oldPasswordNotMatch", "newPasswordNotMatch"})
@@ -78,23 +87,37 @@ public class ChangePasswordDialogVM {
        String encodedPassword = passwordEncoder.encode(newPassword);
        currentUser.setPassword(encodedPassword);
        userService.updateUser(currentUser);
-
-        dialog.detach();
-
+       if(isForce()) {
+           Executions.sendRedirect("/");
+       }
+       dialog.detach();
     }
 
 
     @NotifyChange({"oldPasswordNotMatch"})
     @Command
     public boolean isValidOldPassword() {
-        System.out.println(oldPassword);
-        System.out.println("Pass :" + BCrypt.checkpw(oldPassword.trim(),currentUser.getPassword()));
         if(!BCrypt.checkpw(oldPassword,currentUser.getPassword())) {
             oldPasswordNotMatch = "Old Password is not correct.";
             return false;
         }
         oldPasswordNotMatch = "";
         return true;
+    }
+
+    public void logout() throws ServletException {
+        FeaturesScanner.getFeatures().clear();
+        HttpServletResponse response = (HttpServletResponse) Executions.getCurrent().getNativeResponse();
+        Executions.sendRedirect(response.encodeRedirectURL("/logout"));
+        Executions.getCurrent().setVoided(true);
+    }
+
+    public boolean isForce() {
+        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy");
+        String password = formatter.format(userCredentialService.getCurrentEmployee().getDob());
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+        return BCrypt.checkpw(password,currentUser.getPassword());
     }
 
 
