@@ -100,7 +100,7 @@ public class EmployeeDao extends CrudRepository<Employee> {
         Metamodel m = em.getMetamodel();
         EntityType<Employee> employee_ = m.entity(Employee.class);
 
-        Join<Employee, EmploymentHistory> his.tories = employee.join(employee_.getSet("employmentHistories", EmploymentHistory.class), JoinType.LEFT);
+        Join<Employee, EmploymentHistory> histories = employee.join(employee_.getSet("employmentHistories", EmploymentHistory.class), JoinType.LEFT);
 
         List<Predicate> predicates = new ArrayList<>();
         if("fullName".equals(filterBy))
