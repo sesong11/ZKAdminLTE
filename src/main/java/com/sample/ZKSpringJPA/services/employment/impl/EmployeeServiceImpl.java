@@ -7,6 +7,7 @@ import com.sample.ZKSpringJPA.services.employment.dao.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service("employeeService")
@@ -62,5 +63,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<Employee> findPaging(int offset, int limit, String filter, String filterBy) {
         return employeeDao.findPaging(offset, limit, Employee.class, filter, filterBy);
+    }
+
+    @Override
+    public int count(final String filter, final String filterBy, final HashMap<String, Object> filters) {
+        return employeeDao.count(Employee.class, filter, filterBy, filters);
+    }
+
+    @Override
+    public List<Employee> findPaging(final int offset, final int limit, final String filter, final String filterBy, final HashMap<String, Object> filters) {
+        return employeeDao.findPaging(offset, limit, Employee.class, filter, filterBy, filters);
     }
 }

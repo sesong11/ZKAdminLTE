@@ -98,8 +98,8 @@ public class DayoffListVM extends ListPagingVM {
             setTotalSize(dayOffService.count());
         }
         else {
-            dayOffs = new ListModelList<>(dayOffService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
-            setTotalSize(dayOffService.count(getFilter().toLowerCase(), "name"));
+            dayOffs = new ListModelList<>(dayOffService.findPaging(offset, limit, getFilter().toLowerCase(), getFilterBy()));
+            setTotalSize(dayOffService.count(getFilter().toLowerCase(), getFilterBy()));
         }
         postNotifyChange(this,"dayOffs");
         postNotifyChange(this,"totalSize");

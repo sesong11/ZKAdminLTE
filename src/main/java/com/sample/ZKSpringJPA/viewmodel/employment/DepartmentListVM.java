@@ -98,8 +98,8 @@ public class DepartmentListVM extends ListPagingVM {
             setTotalSize(departmentService.count());
         }
         else {
-            departments = new ListModelList<>(departmentService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
-            setTotalSize(departmentService.count(getFilter().toLowerCase(), "name"));
+            departments = new ListModelList<>(departmentService.findPaging(offset, limit, getFilter().toLowerCase(), getFilterBy()));
+            setTotalSize(departmentService.count(getFilter().toLowerCase(), getFilterBy()));
         }
         postNotifyChange(this,"departments");
         postNotifyChange(this,"totalSize");
