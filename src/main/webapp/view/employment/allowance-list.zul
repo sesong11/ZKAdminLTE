@@ -43,10 +43,13 @@
 
                                     <n:span class="padding margin">Filter: </n:span>
                                     <textbox id="txtFilter" type="text" onOK="@command('filter', filter = txtFilter.value, filterBy = 'name')"
-                                        value="@load(vm.filter)"/>
+                                        value="@load(vm.filter)" placeholder="filter"/>
                                         <n:span>
                                     <a sclass="btn btn-info btn-flat" onClick="@command('filter', filter = txtFilter.value, filterBy = 'name')">
                                         <n:i class="fa fa-filter"></n:i></a></n:span>
+                                    <n:span>
+                                        <a sclass="btn btn-danger btn-flat" onClick="@command('clearFilter')">
+                                            <n:i class="fa fa-remove"> Clear</n:i></a></n:span>
                                 </n:div>
                             </n:div>
                             <grid zclass="none" model="@load(vm.allowances)" sclass="table table-bordered table-responsive mailbox-messages table-hover"

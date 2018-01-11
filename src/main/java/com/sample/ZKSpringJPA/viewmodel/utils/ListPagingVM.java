@@ -49,5 +49,12 @@ public abstract class ListPagingVM extends ViewModel {
         research(0, getPageSize());
     }
 
+    @Command
+    @NotifyChange({"filter"})
+    public void clearFilter(){
+        setFilter(null);
+        research(0, getPageSize());
+    }
+
     public abstract void research(final int offset, final int limit);
 }
