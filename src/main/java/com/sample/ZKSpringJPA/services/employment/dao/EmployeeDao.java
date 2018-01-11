@@ -16,10 +16,9 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import javax.persistence.metamodel.EntityType;
 import javax.persistence.metamodel.Metamodel;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.TreeMap;
+import java.awt.print.Book;
+import java.sql.Date;
+import java.util.*;
 
 @Repository
 public class EmployeeDao extends CrudRepository<Employee> {
@@ -100,7 +99,11 @@ public class EmployeeDao extends CrudRepository<Employee> {
         Metamodel m = em.getMetamodel();
         EntityType<Employee> employee_ = m.entity(Employee.class);
 
-        Join<Employee, EmploymentHistory> histories = employee.join(employee_.getSet("employmentHistories", EmploymentHistory.class), JoinType.LEFT);
+        Subquery sub = cq.subquery(Date.class);
+        Root subRoot = sub.from(EmploymentHistory.class);
+        Join<Employee, EmploymentHistory> histories = employee.join(employee_.getSet("employmentHistories", EmploymentHistory.class));
+        Subquery max = sub.select(cb.max(subRoot.get("activeDate")));
+        sub.where(cb.equal(employee.get("id"), subRoot.get("employee")));
 
         List<Predicate> predicates = new ArrayList<>();
         if("fullName".equals(filterBy))
@@ -115,6 +118,7 @@ public class EmployeeDao extends CrudRepository<Employee> {
                 predicates.add(cb.equal(histories.get(key), filters.get(key)));
             }
         }
+        predicates.add(cb.equal(histories.get("activeDate"), max));
         cq.where(predicates.toArray(new Predicate[]{}));
         cq.select(cb.count(employee));
         int count = em.createQuery(cq).getSingleResult().intValue();
@@ -131,8 +135,11 @@ public class EmployeeDao extends CrudRepository<Employee> {
         CriteriaQuery<Employee> select = cq.select(employee);
         EntityType<Employee> employee_ = m.entity(Employee.class);
 
-        Join<Employee, EmploymentHistory> histories = employee.join(employee_.getSet("employmentHistories", EmploymentHistory.class), JoinType.LEFT);
-
+        Subquery sub = cq.subquery(Date.class);
+        Root subRoot = sub.from(EmploymentHistory.class);
+        Join<Employee, EmploymentHistory> histories = employee.join(employee_.getSet("employmentHistories", EmploymentHistory.class));
+        Subquery max = sub.select(cb.max(subRoot.get("activeDate")));
+        sub.where(cb.equal(employee.get("id"), subRoot.get("employee")));
         List<Predicate> predicates = new ArrayList<>();
         if("fullName".equals(filterBy))
             predicates.add(cb.like(cb.concat(cb.concat(cb.lower(employee.get("firstName")), " "), cb.lower(employee.get("lastName"))), "%"+filter.toLowerCase()+"%"));
@@ -146,6 +153,7 @@ public class EmployeeDao extends CrudRepository<Employee> {
                 predicates.add(cb.equal(histories.get(key), filters.get(key)));
             }
         }
+        predicates.add(cb.equal(histories.get("activeDate"), max));
         cq.where(predicates.toArray(new Predicate[]{}));
         TypedQuery<Employee> typedQuery = em.createQuery(select);
         typedQuery.setFirstResult(offset);
