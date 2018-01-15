@@ -115,8 +115,8 @@ public class AllowanceListVM extends ListPagingVM {
             setTotalSize(allowanceService.count());
         }
         else {
-            allowances = new ListModelList<>(allowanceService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
-            setTotalSize(allowanceService.count(getFilter().toLowerCase(), "name"));
+            allowances = new ListModelList<>(allowanceService.findPaging(offset, limit, getFilter().toLowerCase(), getFilterBy()));
+            setTotalSize(allowanceService.count(getFilter().toLowerCase(), getFilterBy()));
         }
         postNotifyChange(this,"allowances");
         postNotifyChange(this,"totalSize");

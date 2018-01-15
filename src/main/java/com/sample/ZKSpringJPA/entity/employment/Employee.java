@@ -99,7 +99,6 @@ public class Employee implements Serializable, Cloneable{
         return employmentHistories!=null?
                 employmentHistories.stream()
                         .filter(h -> h.getActiveDate().compareTo(new java.util.Date())<=0)
-                        //.sorted((h1, h2) -> h1.getFromDate().compareTo(h2.getFromDate()))
                         .sorted(Comparator.comparing(EmploymentHistory::getActiveDate).reversed())
                         .findFirst().orElse(null)
                 :null;

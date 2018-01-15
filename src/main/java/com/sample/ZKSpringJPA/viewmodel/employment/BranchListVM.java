@@ -93,8 +93,8 @@ public class BranchListVM extends ListPagingVM {
             setTotalSize(branchService.count());
         }
         else {
-            branches = new ListModelList<>(branchService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
-            setTotalSize(branchService.count(getFilter().toLowerCase(), "name"));
+            branches = new ListModelList<>(branchService.findPaging(offset, limit, getFilter().toLowerCase(), getFilterBy()));
+            setTotalSize(branchService.count(getFilter().toLowerCase(), getFilterBy()));
         }
         postNotifyChange(this,"totalSize");
         postNotifyChange(this,"branches");

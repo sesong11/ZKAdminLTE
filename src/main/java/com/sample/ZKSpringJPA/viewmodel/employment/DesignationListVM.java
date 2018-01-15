@@ -99,8 +99,8 @@ public class DesignationListVM extends ListPagingVM {
             setTotalSize(designationService.count());
         }
         else {
-            designations = new ListModelList<>(designationService.findPaging(offset, limit, getFilter().toLowerCase(), "name"));
-            setTotalSize(designationService.count(getFilter().toLowerCase(), "name"));
+            designations = new ListModelList<>(designationService.findPaging(offset, limit, getFilter().toLowerCase(), getFilterBy()));
+            setTotalSize(designationService.count(getFilter().toLowerCase(), getFilterBy()));
         }
         postNotifyChange(this,"designations");
         postNotifyChange(this,"totalSize");

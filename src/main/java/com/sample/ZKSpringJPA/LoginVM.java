@@ -65,14 +65,16 @@ public class LoginVM {
                 Executions.getCurrent().setVoided(true);
             }
             Employee employee = userCredentialService.getCurrentEmployee();
-            SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy");
-            String password = formatter.format(userCredentialService.getCurrentEmployee().getDob());
+            if(employee!=null) {
+                SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy");
+                String password = formatter.format(employee.getDob());
 
-            if(BCrypt.checkpw(password, employee.getUser().getPassword())) {
-                Window window = (Window)Executions.createComponents(
-                        "/view/authentication/change-password.zul", null, null);
-                window.doModal();
-                return;
+                if (BCrypt.checkpw(password, employee.getUser().getPassword())) {
+                    Window window = (Window) Executions.createComponents(
+                            "/view/authentication/change-password.zul", null, null);
+                    window.doModal();
+                    return;
+                }
             }
             Executions.sendRedirect("/");
 

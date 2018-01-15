@@ -51,7 +51,6 @@ public class FeaturesScanner {
                 }
             }
         }
-        System.out.println("Feature count: "+features.size());
     }
 
     public static void scanFeatures() throws ClassNotFoundException {

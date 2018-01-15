@@ -1,6 +1,9 @@
 package com.sample.ZKSpringJPA.viewmodel.component;
 
-import com.sample.ZKSpringJPA.entity.employment.Employee;
+import com.sample.ZKSpringJPA.entity.employment.*;
+import com.sample.ZKSpringJPA.services.employment.BranchService;
+import com.sample.ZKSpringJPA.services.employment.DepartmentService;
+import com.sample.ZKSpringJPA.services.employment.DesignationService;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
 import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
 import lombok.Getter;
@@ -11,6 +14,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.Selectors;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
@@ -24,20 +28,53 @@ public class EmployeeSelectorVM extends ListPagingVM {
     //region > Inject Service
     @Wire("#modalDialog")
     private Window win;
+
+    @WireVariable
+    private BranchService branchService;
+
+    @WireVariable
+    private DepartmentService departmentService;
+
+    @WireVariable
+    private DesignationService designationService;
     //endregion
 
     //region > Fields
-    @Getter
-    private final String standardDateFormat = StandardFormat.getStandardDateFormat();
-
-    @Getter @Setter
-    private ListModel<Employee> employees;
 
     @Getter @Setter
     private String receiver;
 
     @Getter @Setter
     private Employee employee;
+    @Getter @Setter
+    private List<Employee> employees;
+
+    @Getter
+    private List<Gender> genders;
+
+    @Getter @Setter
+    private List<Branch> branches;
+
+    @Getter @Setter
+    private Branch branch;
+
+    @Getter @Setter
+    private List<Department> departments;
+
+    @Getter @Setter
+    private Department department;
+
+    @Getter @Setter
+    private List<Designation> designations;
+
+    @Getter @Setter
+    private Designation designation;
+
+    @Getter @Setter
+    private Gender gender;
+
+    @Getter
+    private final String standardDateFormat = StandardFormat.getStandardDateFormat();
     //endregion
 
     //region > Constructor
@@ -50,6 +87,10 @@ public class EmployeeSelectorVM extends ListPagingVM {
         this.setTotalSize(totalSize);
         this.employees = employees;
         this.receiver = receiver;
+        branches = new ListModelList<>(branchService.findAll());
+        departments = new ListModelList<>(departmentService.findAll());
+        designations = new ListModelList<>(designationService.findAll());
+        this.genders = new ListModelList<>(Gender.values());
     }
     //endregion
 

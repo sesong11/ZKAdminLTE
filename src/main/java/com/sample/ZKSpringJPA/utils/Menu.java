@@ -68,7 +68,6 @@ public class Menu {
 
     public boolean addMenu(final Feature feature, String menuOrder, final String activeOrder) {
         String[] orders = menuOrder.split("\\.");
-        System.out.println("menu order: "+menuOrder);
         if (orders.length == 1) {
             Menu menu = new Menu(feature);
             if (subMenu == null) {
@@ -86,7 +85,6 @@ public class Menu {
         for (Menu menu: subMenu) {
             String parentMenu = menu.feature.menuOrder()+"\\.";
             String newMenuOrder = feature.menuOrder().replaceFirst(parentMenu, "");
-            System.out.println(menu.feature.menuOrder()+":"+newMenuOrder);
             if(feature.menuOrder().startsWith(menu.feature.menuOrder())){
                 if(menu.addMenu(feature, newMenuOrder, activeOrder)){
                     return true;
