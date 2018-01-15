@@ -11,11 +11,13 @@ import com.sample.ZKSpringJPA.services.employment.EmployeeService;
 import com.sample.ZKSpringJPA.services.request.ApprovalService;
 import com.sample.ZKSpringJPA.services.request.LeaveFormService;
 import com.sample.ZKSpringJPA.services.request.RequestService;
-import com.sample.ZKSpringJPA.utils.Calculator;
+import com.sample.ZKSpringJPA.utils.EmailHelper;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
+import javafx.util.Pair;
 import lombok.Getter;
 import lombok.Setter;
+import microsoft.exchange.webservices.data.core.service.item.EmailMessage;
 import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.ValidationContext;
 import org.zkoss.bind.Validator;
@@ -30,8 +32,12 @@ import org.zkoss.zul.Window;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.ValidatorFactory;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.*;
+import java.util.stream.Stream;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
@@ -41,6 +47,7 @@ import java.util.*;
         displayName = "Leave Request",
         menuIcon = "tag"
 )
+
 public class LeaveFormVM {
     //region > Inject Services
     @WireVariable
@@ -62,6 +69,7 @@ public class LeaveFormVM {
     private javax.validation.Validator validator = vf.getValidator();
 
     private Set<ConstraintViolation<RequestForm>> violations;
+
     //endregion
 
     //region > Fields
@@ -95,6 +103,8 @@ public class LeaveFormVM {
 
     @Getter
     private final String standardDateTimeFormat = StandardFormat.getStandardDateTimeFormat();
+    @Getter
+    private final String email_path = "/view/request/email-template/leave-form.html";
     //endregion
 
     //region > Constructor
@@ -241,7 +251,7 @@ public class LeaveFormVM {
 
     @Command
     @NotifyChange({"form", "relief", "supervisor", "manager"})
-    public void submit() {
+    public void submit() throws Exception {
 
         Request request = form.getRequest();
         request.getRequestFor().getId();
@@ -271,6 +281,7 @@ public class LeaveFormVM {
         relief = approvalService.create(relief);
         supervisor = approvalService.create(supervisor);
         manager = approvalService.create(manager);
+        notifyRelief();
     }
     //endregion
 
@@ -304,5 +315,121 @@ public class LeaveFormVM {
             }
         };
     }
+    //endregion
+
+    //region > Notify
+    public String getEmailTemplate() throws IOException {
+        HashMap<String, String>  keyValues = new HashMap<String,String>();
+        //Request Header
+        keyValues.put("{Request-Title}", getForm().getRequest().getRequestBy().getFullName());
+
+        keyValues.put("{Request-Id}", getForm().getRequest().getId().toString());
+        keyValues.put("{Request-Type}", getForm().getRequest().getRequestBy().getFullName());
+        keyValues.put("{Request-By}", getForm().getRequest().getRequestDate().toString());
+
+        keyValues.put("{Request-Status}", getForm().getRequest().getRequestDate().toString());
+        keyValues.put("{Request-Priority}", getForm().getRequest().getRequestDate().toString());
+        keyValues.put("{Request-Date}", getForm().getRequest().getRequestDate().toString());
+
+        return EmailHelper.replaceContent(EmailHelper.getEmailTemplate(), keyValues);
+    }
+    @GlobalCommand
+    public void notifyRelief() throws Exception {
+
+        HashMap<String, String>  keyValues = new HashMap<String,String>();
+
+        //Request Header
+        keyValues.put("{Request-Title}", getForm().getRequest().getRequestBy().getFullName());
+
+        keyValues.put("{Request-Id}", getForm().getRequest().getId().toString());
+        keyValues.put("{Request-Type}", getForm().getRequest().getRequestBy().getFullName());
+        keyValues.put("{Request-By}", getForm().getRequest().getRequestDate().toString());
+
+        keyValues.put("{Request-Status}", getForm().getRequest().getRequestDate().toString());
+        keyValues.put("{Request-Priority}", getForm().getRequest().getRequestDate().toString());
+        keyValues.put("{Request-Date}", getForm().getRequest().getRequestDate().toString());
+
+        //Detail
+        keyValues.put("{Relief}", getRelief().getApprovePerson().getFullName());
+        keyValues.put("{Requester-Name}", getForm().getRequest().getRequestBy().getFullName());
+        keyValues.put("{Reason}",getForm().getReason());
+        keyValues.put("{Kind-of-Leave}", getForm().getLeaveType().getName());
+        keyValues.put("{Number-Days}", getForm().getTotalDays().toString());
+        keyValues.put("{Start-Date}", getForm().getFromDate().toString());
+        keyValues.put("{End-Date}", getForm().getToDate().toString());
+        keyValues.put("{Attachment}", "");
+        keyValues.put("{System-Name}", "");
+
+        // Relief
+        keyValues.put("{Relief}", getRelief().getApprovePerson().getFullName());
+        keyValues.put("{Confirmed-Date}", getForm().getToDate().toString());
+
+        // Superior
+        keyValues.put("{Recommender}", getForm().getToDate().toString());
+        keyValues.put("{Recommend-Date}", getForm().getToDate().toString());
+
+        // Manager
+        keyValues.put("{Authorizer}", getForm().getToDate().toString());
+        keyValues.put("{Authorizer-Date}", getForm().getToDate().toString());
+
+        String temp = EmailHelper.replaceContent(email_path, keyValues);
+        getEmailTemplate();
+        List<String> toList = new ArrayList<String>();
+        toList.add("rmonyta@phillipbank.com.kh");
+        EmailHelper.sendMail("Leave Request",temp,toList,null);
+
+    }
+    @GlobalCommand
+    public void notifyRequester() throws Exception {
+
+        HashMap<String, String>  keyValues = new HashMap<String,String>();
+
+        //Request Header
+        keyValues.put("{Request-Title}", getForm().getRequest().getRequestBy().getFullName());
+
+        keyValues.put("{Request-Id}", getForm().getRequest().getId().toString());
+        keyValues.put("{Request-Type}", getForm().getRequest().getRequestBy().getFullName());
+        keyValues.put("{Request-By}", getForm().getRequest().getRequestDate().toString());
+
+        keyValues.put("{Request-Status}", getForm().getRequest().getRequestDate().toString());
+        keyValues.put("{Request-Priority}", getForm().getRequest().getRequestDate().toString());
+        keyValues.put("{Request-Date}", getForm().getRequest().getRequestDate().toString());
+
+        //Detail
+        keyValues.put("{Relief}", getRelief().getApprovePerson().getFullName());
+        keyValues.put("{Requester-Name}", getForm().getRequest().getRequestBy().getFullName());
+        keyValues.put("{Reason}",getForm().getReason());
+        keyValues.put("{Kind-of-Leave}", getForm().getLeaveType().getName());
+        keyValues.put("{Number-Days}", getForm().getTotalDays().toString());
+        keyValues.put("{Start-Date}", getForm().getFromDate().toString());
+        keyValues.put("{End-Date}", getForm().getToDate().toString());
+        keyValues.put("{Attachment}", "");
+        keyValues.put("{System-Name}", "");
+
+        // Relief
+        keyValues.put("{Relief}", getRelief().getApprovePerson().getFullName());
+        keyValues.put("{Confirmed-Date}", getForm().getToDate().toString());
+
+        // Superior
+        keyValues.put("{Recommender}", getForm().getToDate().toString());
+        keyValues.put("{Recommend-Date}", getForm().getToDate().toString());
+
+        // Manager
+        keyValues.put("{Authorizer}", getForm().getToDate().toString());
+        keyValues.put("{Authorizer-Date}", getForm().getToDate().toString());
+
+        String temp = EmailHelper.replaceContent(EmailHelper.getEmailTemplate(), keyValues);
+        List<String> toList = new ArrayList<String>();
+        toList.add("rmonyta@phillipbank.com.kh");
+        EmailHelper.sendMail("Leave Request",temp,toList,null);
+    }
+    @GlobalCommand
+    public void notifySuperior () {
+
+
+    }
+    @GlobalCommand
+    public void notifyManager() {}
+
     //endregion
 }

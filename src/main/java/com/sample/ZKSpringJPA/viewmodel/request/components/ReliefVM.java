@@ -9,6 +9,7 @@ import com.sample.ZKSpringJPA.services.request.RequestService;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
 import lombok.Getter;
 import lombok.Setter;
+import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.*;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.Selectors;
@@ -77,6 +78,7 @@ public class ReliefVM extends ApprovalVM {
             }
         }
         requestService.update(request);
+        BindUtils.postGlobalCommand(null, null, "notifyRelief", null);
     }
     //endregion
 
