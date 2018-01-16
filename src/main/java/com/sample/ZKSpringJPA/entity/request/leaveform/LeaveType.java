@@ -8,9 +8,9 @@ public enum LeaveType {
     ANNUAL_LEAVE(1, "Annual Leave", new LeaveCalculatorExcludeDayOff()),
     MATERNITY_LEAVE(2, "Maternity Leave", new LeaveCalculatorOverall()),
     Emergency_LEAVE(3, "Emergency Leave", new LeaveCalculatorExcludeDayOff()),
-    SICK_LEAVE(4, "Sick Leave", new LeaveCalculatorOverall()),
-    COMPASSIONATE_LEAVE(5,"Compassionate Leave", new LeaveCalculatorOverall()),
-    HOSPITALIZATION_LEAVE(6, "Hospitalization Leave", new LeaveCalculatorOverall()),
+    SICK_LEAVE(4, "Sick Leave", new LeaveCalculatorExcludeDayOff()),
+    COMPASSIONATE_LEAVE(5,"Compassionate Leave", new LeaveCalculatorExcludeDayOff()),
+    HOSPITALIZATION_LEAVE(6, "Hospitalization Leave", new LeaveCalculatorExcludeDayOff()),
     MARRIAGE_LEAVE(7, "Marriage Leave", new LeaveCalculatorExcludeDayOff()),
     PATERNITY_LEAVE(8, "Paternity Leave", new LeaveCalculatorExcludeDayOff()),
     UNPAID_LEAVE(9, "Unpaid Leave", new LeaveCalculatorExcludeDayOff()),
@@ -31,5 +31,4 @@ public enum LeaveType {
         this.name = name;
         this.calculator = calculator;
     }
-
 }

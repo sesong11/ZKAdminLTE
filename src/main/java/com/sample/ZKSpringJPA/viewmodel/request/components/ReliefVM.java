@@ -14,6 +14,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.Selectors;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zk.ui.util.Clients;
 
 import java.sql.Timestamp;
 
@@ -63,12 +64,13 @@ public class ReliefVM extends ApprovalVM {
     //region > Command
     @Command
     @NotifyChange({"approval", "approveAble", "approved"})
-    public void approve(){
+    public void approve(@BindingParam("request") final Request request){
         getApproval().setDecisionStatus(DecisionStatus.APPROVED);
         getApproval().getRequest().setStatus(RequestStatus.OPEN);
+        getApproval().getRequest().setDecisionStatus(DecisionStatus.AWAITING);
         getApproval().setApproveDate(new Timestamp(System.currentTimeMillis()));
         setApproval(approvalService.update(getApproval()));
-        Request request = getApproval().getRequest();
+        //Request request = getApproval().getRequest();
         for (Approval a: request.getApprovals()) {
             if(a.getSortedIndex() == getApproval().getSortedIndex()+1){
                 a.setDecisionStatus(DecisionStatus.AWAITING);
@@ -77,7 +79,10 @@ public class ReliefVM extends ApprovalVM {
             }
         }
         requestService.update(request);
-        this.postNotifyChange(request, "status");
+        postNotifyChange(request, "status");
+        String str = "Request successfully confirm";
+        Clients.showNotification(str, Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 0, false);
+
     }
     //endregion
 

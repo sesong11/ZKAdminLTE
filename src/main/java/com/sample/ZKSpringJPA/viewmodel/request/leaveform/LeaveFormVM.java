@@ -11,23 +11,21 @@ import com.sample.ZKSpringJPA.services.employment.EmployeeService;
 import com.sample.ZKSpringJPA.services.request.ApprovalService;
 import com.sample.ZKSpringJPA.services.request.LeaveFormService;
 import com.sample.ZKSpringJPA.services.request.RequestService;
-import com.sample.ZKSpringJPA.utils.Calculator;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
-import com.sample.ZKSpringJPA.viewmodel.DefaultVM;
 import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
 import com.sample.ZKSpringJPA.viewmodel.utils.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
-import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.ValidationContext;
 import org.zkoss.bind.Validator;
 import org.zkoss.bind.annotation.*;
 import org.zkoss.bind.validator.AbstractValidator;
+import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
-import org.zkoss.zul.ListModel;
+import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
 
@@ -328,23 +326,19 @@ public class LeaveFormVM extends ViewModel {
     public void submit() {
 
         Request request = form.getRequest();
-        request.getRequestFor().getId();
-        relief.setId(null);
-        supervisor.setId(null);
-        manager.setId(null);
         request.setRequestDate(new Timestamp(new Date().getTime()));
         request.setRequestBy(userCredentialService.getCurrentEmployee());
         request.setStatus(RequestStatus.PENDING);
+        request.setDecisionStatus(DecisionStatus.AWAITING);
         violations = validator.validate(form);
         if(violations.size()>0){
-            for(ConstraintViolation<RequestForm> v: violations){
-                System.out.println("### " + v.getRootBeanClass().getSimpleName() +
-                        "." + v.getPropertyPath() +
-                        "- Invalid Value = " + v.getInvalidValue() +
-                        "- Error Msg = " + v.getMessage());
-            }
+            String str = "Information you provide is invalid. Please make sure you input all mandatory (*) fields and try again.";
+            Clients.showNotification(str, Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 0, false);
             return;
         }
+        relief.setId(null);
+        supervisor.setId(null);
+        manager.setId(null);
         request.getApprovals().clear();
         request = requestService.create(request);
         form.setRequest(request);
@@ -355,6 +349,8 @@ public class LeaveFormVM extends ViewModel {
         relief = approvalService.create(relief);
         supervisor = approvalService.create(supervisor);
         manager = approvalService.create(manager);
+        String str = "Form submitted successfully and waiting for relief to confirm.";
+        Clients.showNotification(str, Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 0, false);
     }
     //endregion
 
