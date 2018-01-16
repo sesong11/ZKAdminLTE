@@ -50,3 +50,6 @@ html, body{
         .input-group-sm>.input-group-btn>.btn{
             border-radius: 0 0 0 0 !important;
         }
+        .z-messagebox-success{
+            background-image: url('img/icon/check.png');
+        }

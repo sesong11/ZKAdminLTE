@@ -6,18 +6,22 @@
             <n:div class="box-header with-border">
                 <n:h3 class="box-title">Superior</n:h3>
                 <n:div class="box-tools pull-right">
-                    <a onClick="@command('reject')" visible="@load(rvm.approveAble)">
+                    <a onClick="@command('reject', request = vm.form.request)" visible="@load(rvm.approveAble)">
                         <n:span data-toggle="tooltip" title="" class="badge bg-red" data-original-title="Approve">
                             <n:i class="fa fa-close"></n:i> Reject</n:span>
                     </a>
-                    <a onClick="@command('approve')" visible="@load(rvm.approveAble)">
+                    <a onClick="@command('approve', request = vm.form.request)" visible="@load(rvm.approveAble)">
                         <n:span data-toggle="tooltip" title="" class="badge bg-blue" data-original-title="Approve">
                             <n:i class="fa fa-check"></n:i> Approve</n:span>
                     </a>
 
-                    <div visible="@load(rvm.approved)">
-                        <n:span data-toggle="tooltip" title="" class="badge bg-${rvm.badgeColor}" data-original-title="Approve">
-                            Approved</n:span>
+                    <div visible="@load(rvm.approved and rvm.approval.decisionStatus.name eq 'Approved')">
+                        <n:span data-toggle="tooltip" title="" class="badge bg-green" data-original-title="Approve">
+                            Authorized</n:span>
+                    </div>
+                    <div visible="@load(rvm.approved and rvm.approval.decisionStatus.name eq 'Rejected')">
+                        <n:span data-toggle="tooltip" title="" class="badge bg-red" data-original-title="Approve">
+                            Rejected</n:span>
                     </div>
                 </n:div>
             </n:div>

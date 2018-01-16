@@ -6,7 +6,7 @@
             <n:div class="box-header with-border">
                 <n:h3 class="box-title">Relief</n:h3>
                 <n:div class="box-tools pull-right">
-                    <a onClick="@command('approve')" visible="@load(rvm.approveAble)">
+                    <a onClick="@command('approve', request = vm.form.request)" visible="@load(rvm.approveAble)">
                         <n:span data-toggle="tooltip" title="" class="badge bg-blue" data-original-title="Approve">
                             <n:i class="fa fa-check"></n:i> Confirm</n:span>
                     </a>

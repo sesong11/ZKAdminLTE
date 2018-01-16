@@ -31,5 +31,4 @@ public enum LeaveType {
         this.name = name;
         this.calculator = calculator;
     }
-
 }
