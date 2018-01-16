@@ -28,10 +28,10 @@
                     <n:span class="direct-chat-name pull-left text-muted"><n:code>
                         ${rvm.approval.approvePerson.designation.name}
                     </n:code></n:span>
-                    <n:span sclass="direct-chat-timestamp pull-right">
+                    <span zclass="none" sclass="direct-chat-timestamp pull-right" visible="@load(rvm.approval.approveDate ne null)">
                         <n:i class="fa fa-clock-o"></n:i>
                         <label zclass="none" value="@load(rvm.approval.approveDate)" />
-                    </n:span>
+                    </span>
                 </n:div>
                 <!-- /.direct-chat-info -->
                 <n:img class="direct-chat-img" src="img/profile-pictures.png" alt="message user image" />

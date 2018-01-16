@@ -152,7 +152,7 @@ public class LeaveFormVM extends ViewModel {
     @Command
     public void selectRequestFor() {
         final HashMap<String, Object> map = new HashMap<>();
-        map.put("employees", employeeService.findAll());
+        map.put("employees", employeeService.findPaging(0, StandardFormat.getDefaultPageSize()));
         map.put("totalSize", employeeService.count());
         map.put("receiver", "selectRequestForCallback");
         Window window = (Window) Executions.createComponents(
@@ -234,7 +234,7 @@ public class LeaveFormVM extends ViewModel {
     @Command
     public void selectSupervisor() {
         final HashMap<String, Object> map = new HashMap<>();
-        map.put("employees", employeeService.findAll());
+        map.put("employees", employeeService.findPaging(0, StandardFormat.getDefaultPageSize()));
         map.put("totalSize", employeeService.count());
         map.put("receiver", "selectSupervisorCallback");
         Window window = (Window) Executions.createComponents(
@@ -280,7 +280,7 @@ public class LeaveFormVM extends ViewModel {
     @Command
     public void selectManager() {
         final HashMap<String, Object> map = new HashMap<>();
-        map.put("employees", employeeService.findAll());
+        map.put("employees", employeeService.findPaging(0, StandardFormat.getDefaultPageSize()));
         map.put("totalSize", employeeService.count());
         map.put("receiver", "selectManagerCallback");
         Window window = (Window) Executions.createComponents(
