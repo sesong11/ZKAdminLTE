@@ -1,7 +1,7 @@
 package com.sample.ZKSpringJPA.viewmodel.request.leaveform;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
-import com.sample.ZKSpringJPA.entity.employment.Employee;
+import com.sample.ZKSpringJPA.entity.employment.*;
 import com.sample.ZKSpringJPA.entity.request.*;
 import com.sample.ZKSpringJPA.entity.request.approval.Approval;
 import com.sample.ZKSpringJPA.entity.request.approval.ApprovalType;
@@ -15,6 +15,7 @@ import com.sample.ZKSpringJPA.utils.Calculator;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
 import com.sample.ZKSpringJPA.viewmodel.DefaultVM;
+import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
 import com.sample.ZKSpringJPA.viewmodel.utils.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
@@ -170,13 +171,18 @@ public class LeaveFormVM extends ViewModel {
             @BindingParam("windows") Object window,
             @BindingParam("employees")ListModelList<Employee> employees,
             @BindingParam("pageSize") final int pageSize,
-            @BindingParam("activePage") final int activePage) {
+            @BindingParam("activePage") final int activePage,
+            @BindingParam("filter") final String filter,
+            @BindingParam("filterBy") final String filterBy,
+            @BindingParam("filters") final HashMap<String, Object> filters) {
 
         int offset = activePage * pageSize;
-        employeeService.findPaging(offset, pageSize);
         employees.clear();
-        employees.addAll(employeeService.findPaging(offset, pageSize));
+        employees.addAll(employeeService.findPaging(offset, pageSize, filter, filterBy, filters));
         postNotifyChange(window, "employees");
+        ListPagingVM win = (ListPagingVM) window;
+        win.setTotalSize(employeeService.count(filter, filterBy, filters));
+        postNotifyChange(window, "totalSize");
     }
 
     @Command
@@ -211,13 +217,18 @@ public class LeaveFormVM extends ViewModel {
             @BindingParam("windows") Object window,
             @BindingParam("employees")ListModelList<Employee> employees,
             @BindingParam("pageSize") final int pageSize,
-            @BindingParam("activePage") final int activePage) {
+            @BindingParam("activePage") final int activePage,
+            @BindingParam("filter") final String filter,
+            @BindingParam("filterBy") final String filterBy,
+            @BindingParam("filters") final HashMap<String, Object> filters) {
 
         int offset = activePage * pageSize;
-        employeeService.findPaging(offset, pageSize);
         employees.clear();
-        employees.addAll(employeeService.findPaging(offset, pageSize));
+        employees.addAll(employeeService.findPaging(offset, pageSize, filter, filterBy, filters));
         postNotifyChange(window, "employees");
+        ListPagingVM win = (ListPagingVM) window;
+        win.setTotalSize(employeeService.count(filter, filterBy, filters));
+        postNotifyChange(window, "totalSize");
     }
 
     @Command
@@ -252,13 +263,18 @@ public class LeaveFormVM extends ViewModel {
             @BindingParam("windows") Object window,
             @BindingParam("employees")ListModelList<Employee> employees,
             @BindingParam("pageSize") final int pageSize,
-            @BindingParam("activePage") final int activePage) {
+            @BindingParam("activePage") final int activePage,
+            @BindingParam("filter") final String filter,
+            @BindingParam("filterBy") final String filterBy,
+            @BindingParam("filters") final HashMap<String, Object> filters) {
 
         int offset = activePage * pageSize;
-        employeeService.findPaging(offset, pageSize);
         employees.clear();
-        employees.addAll(employeeService.findPaging(offset, pageSize));
+        employees.addAll(employeeService.findPaging(offset, pageSize, filter, filterBy, filters));
         postNotifyChange(window, "employees");
+        ListPagingVM win = (ListPagingVM) window;
+        win.setTotalSize(employeeService.count(filter, filterBy, filters));
+        postNotifyChange(window, "totalSize");
     }
 
     @Command
@@ -293,13 +309,18 @@ public class LeaveFormVM extends ViewModel {
             @BindingParam("windows") Object window,
             @BindingParam("employees")ListModelList<Employee> employees,
             @BindingParam("pageSize") final int pageSize,
-            @BindingParam("activePage") final int activePage) {
+            @BindingParam("activePage") final int activePage,
+            @BindingParam("filter") final String filter,
+            @BindingParam("filterBy") final String filterBy,
+            @BindingParam("filters") final HashMap<String, Object> filters) {
 
         int offset = activePage * pageSize;
-        employeeService.findPaging(offset, pageSize);
         employees.clear();
-        employees.addAll(employeeService.findPaging(offset, pageSize));
+        employees.addAll(employeeService.findPaging(offset, pageSize, filter, filterBy, filters));
         postNotifyChange(window, "employees");
+        ListPagingVM win = (ListPagingVM) window;
+        win.setTotalSize(employeeService.count(filter, filterBy, filters));
+        postNotifyChange(window, "totalSize");
     }
 
     @Command
