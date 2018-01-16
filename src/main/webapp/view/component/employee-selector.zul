@@ -4,7 +4,7 @@
             viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.component.EmployeeSelectorVM')"
             onCancel="@command('closeThis')">
                 <n:div class="mailbox-controls">
-                    <n:div class="row">
+                    <n:div class="row" style="margin-bottom: 8px">
                         <n:div class="input-group-sm col-sm-2 text-right">
                             <n:span class="">Gender: </n:span>
                         </n:div>

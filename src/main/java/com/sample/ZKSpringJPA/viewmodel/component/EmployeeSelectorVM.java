@@ -114,7 +114,26 @@ public class EmployeeSelectorVM extends ListPagingVM {
         map.put("employees", employees);
         map.put("pageSize", getPageSize());
         map.put("activePage", getActivePage());
+        map.put("filter", getFilter());
+        map.put("filterBy", getFilterBy());
+        HashMap<String, Object> filters = new HashMap<>();
+        if(getGender() != null) filters.put("gender", getGender());
+        if(getBranch() != null) filters.put("branch", getBranch());
+        if(getDepartment() != null) filters.put("department", getDepartment());
+        if(getDesignation() != null) filters.put("designation", getDesignation());
+        map.put("filters", filters);
         BindUtils.postGlobalCommand(null, null, receiver+"Filter", map);
+    }
+
+    @Command
+    @NotifyChange({"branch", "gender", "department", "designation", "filter"})
+    public void clearFilter(){
+        gender = null;
+        branch = null;
+        department = null;
+        designation = null;
+        setFilter(null);
+        research(0, getPageSize());
     }
     //endregion
 }
