@@ -179,7 +179,6 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
-
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

@@ -6,7 +6,7 @@
         <n:section class="content-header">
             <n:h1>
                 Employees
-                <n:small>create new</n:small>
+                <n:small></n:small>
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
@@ -142,24 +142,24 @@
                                       emptyMessage="Nothing in Inbox.">
                                     <columns zclass="none">
                                         <column label="Id" zclass="none" width="50px"/>
-                                        <column label="Type" zclass="none" width="150px"/>
-                                        <column label="Active Date" zclass="none" width="120px"/>
-                                        <column label="Branch" zclass="none" width="120px"/>
-                                        <column label="Department" zclass="none" width="120px"/>
+                                        <column label="Type" zclass="none" width="120px"/>
+                                        <column label="Active Date" zclass="none" width="100px"/>
+                                        <column label="Branch" zclass="none" width="150px"/>
+                                        <column label="Department" zclass="none" width="150px"/>
                                         <column label="Designation" zclass="none" />
-                                        <column label="" width="50" zclass="none"/>
+                                        <column label="" width="100px" zclass="none"/>
                                     </columns>
                                     <template name="model">
                                         <row zclass="none" onClick="@command('selectHistory', item=each)">
-                                            <label value="@load(each.id)" />
-                                            <label value="@load(each.historyType.name)" />
-                                            <label value="@load(each.activeDate) @converter('formatedDate', format=vm.standardDateFormat)" />
-                                            <label value="@load(each.branch.name)" />
-                                            <label value="@load(each.department.name)" />
-                                            <label value="@load(each.designation.name)" />
-                                            <div>
-                                                <a onClick="@command('selectHistory', item = each)" sclass="pull-right text-blue margin"><n:i class="fa fa-edit"/></a>
-                                                <a onClick="@command('deleteHistory', item = each)" sclass="pull-right text-red margin"><n:i class="fa fa-trash"/></a>
+                                            <label zclass="none" value="@load(each.id)" />
+                                            <label zclass="none" value="@load(each.historyType.name)" />
+                                            <label zclass="none" value="@load(each.activeDate) @converter('formatedDate', format=vm.standardDateFormat)" />
+                                            <label zclass="none" value="@load(each.branch.name)" />
+                                            <label zclass="none" value="@load(each.department.name)" />
+                                            <label zclass="none" value="@load(each.designation.name)" />
+                                            <div zclass="none">
+                                                <a onClick="@command('selectHistory', item = each)" sclass="pull-right text-blue" style="padding: 0 8px 0 8px"><n:i class="fa fa-edit"/></a>
+                                                <a onClick="@command('deleteHistory', item = each)" sclass="pull-right text-red" style="padding: 0 8px 0 8px"><n:i class="fa fa-trash"/></a>
                                             </div>
                                         </row>
                                     </template>
@@ -176,12 +176,12 @@
                                     <columns sizable="true" zclass="none">
                                         <column zclass="none" label="Id" width="50px" />
                                         <column zclass="none" label="Active Date" width="100px"/>
-                                        <column zclass="none" label="Allowance Type" />
+                                        <column zclass="none" label="Allowance Type"/>
                                         <column zclass="none" label="Allowance Balance" width="100px"/>
                                         <column zclass="none" label="Accrual Balance" width="100px"/>
                                         <column zclass="none" label="Existing Balance" width="100px"/>
                                         <column zclass="none" label="Used Balance" width="100px"/>
-                                        <column zclass="none" label="" width="80px" />
+                                        <column zclass="none" label="" width="100px" />
                                     </columns>
                                     <template name="model">
                                         <row onClick="@command('selectAllowance', item=each)" zclass="none">
@@ -193,8 +193,8 @@
                                             <label zclass="none" value="@load(each.existingBalance)" />
                                             <label zclass="none" value="@load(each.usedBalance)" />
                                             <div zclass="none">
-                                                <a onClick="@command('selectAllowance', item = each)" sclass="pull-right text-blue margin"><n:i class="fa fa-edit"/></a>
-                                                <a onClick="@command('deleteAllowance', item = each)" sclass="pull-right text-red margin"><n:i class="fa fa-trash"/></a>
+                                                <a onClick="@command('selectAllowance', item = each)" sclass="pull-right text-blue" style="padding: 0 8px 0 8px"><n:i class="fa fa-edit"/></a>
+                                                <a onClick="@command('deleteAllowance', item = each)" sclass="pull-right text-red" style="padding: 0 8px 0 8px"><n:i class="fa fa-trash"/></a>
                                             </div>
                                         </row>
                                     </template>

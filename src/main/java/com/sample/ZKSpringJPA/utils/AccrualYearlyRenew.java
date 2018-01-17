@@ -17,8 +17,9 @@ public @Data class AccrualYearlyRenew implements AccrualFormula {
     @Override
     public double accrual() {
         double balance = 0;
-        if(!startDate.isBefore(endDate) ||
-                (startDate.getMonthOfYear() == endDate.getMonthOfYear() && startDate.getYear() == endDate.getYear())){
+        if(!startDate.isBefore(endDate)
+                //|| (startDate.getMonthOfYear() == endDate.getMonthOfYear() && startDate.getYear() == endDate.getYear())
+         ){
             return 0;
         }
         switch (allowance.getFrequencyAccrual()) {
@@ -53,6 +54,7 @@ public @Data class AccrualYearlyRenew implements AccrualFormula {
             int dayBetween = (int)Calculator.daysBetween(start, end)+1;
             int accrualCount = (int)(dayBetween/Frequency.MONTHLY.getValue()+0.5);
             balance = balance + allowance.getAccrualBalance() * accrualCount;
+            System.out.println("balance: "+ balance);
             break;
         case NEVER:
             balance = allowance.getEndBalance();
@@ -82,7 +84,7 @@ public @Data class AccrualYearlyRenew implements AccrualFormula {
             start.set(Calendar.YEAR, start.get(Calendar.YEAR)-allowance.getNoFrequencyRenew()+1);
             break;
         case MONTHLY:
-            start.set(Calendar.DAY_OF_MONTH, 1);
+            start.set(Calendar.DAY_OF_MONTH, 2);
             start.set(Calendar.MONTH, start.get(Calendar.MONTH)-allowance.getNoFrequencyRenew()+1);
             break;
         }
@@ -91,8 +93,12 @@ public @Data class AccrualYearlyRenew implements AccrualFormula {
             start.setTime(fromDate.toDate());
         }
         startDate = LocalDate.fromCalendarFields(start);
-        endDate = LocalDate.now();
-        return accrual();
+        Calendar end = Calendar.getInstance();
+        end.set(Calendar.DAY_OF_YEAR, 17);
+        endDate = LocalDate.fromCalendarFields(end);
+        double balance = accrual();
+        System.out.println("startDate: " + startDate.toString() + ", to" + endDate.toString() + ", balance: "+ balance);
+        return balance;
     }
     @Override
     public double accrualEnd() {
