@@ -17,6 +17,7 @@ import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class ReliefVM extends ApprovalVM {
@@ -78,7 +79,8 @@ public class ReliefVM extends ApprovalVM {
             }
         }
         requestService.update(request);
-        BindUtils.postGlobalCommand(null, null, "notifyRelief", null);
+        final HashMap<String, Object> map = new HashMap<>();
+        BindUtils.postGlobalCommand(null, null, "notifySuperior",null);
     }
     //endregion
 

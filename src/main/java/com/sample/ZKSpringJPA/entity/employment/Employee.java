@@ -51,6 +51,10 @@ public class Employee implements Serializable, Cloneable{
     private String note;
 
     @Getter @Setter
+    @Column(name = "email", length = 2055)
+    private String email;
+
+    @Getter @Setter
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
     @OrderBy("id")
     private SortedSet<EmploymentHistory> employmentHistories;
@@ -157,6 +161,10 @@ public class Employee implements Serializable, Cloneable{
 
     public void removeAllowance(final EmployeeAllowance employeeAllowance){
         employeeAllowances.remove(employeeAllowance);
+    }
+
+    public String getFullNameWithTitle() {
+        return (getGender() == Gender.MALE ? "Mr. " : "Ms. ") + getFullName();
     }
     //endregion
 }

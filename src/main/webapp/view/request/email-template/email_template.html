@@ -1,112 +1,245 @@
-
 <html>
-	<head>
-		<style>
-			body {
-				font-family: "Segoe UI", sans-serif;
-				font-size: 9pt;
-			}
-			td{
-				font-weight: normal;
-				font-size: 9pt;
-				height: 25px;
-				vertical-align: top;
-			}
-			.first {
-				width: 120px;
-			}
-			.second {
-				width: 30px;
-			}
-			.b {
-				font-weight: bold;
-			}
-			.border {
-				border: 1px solid gray;
-			}
-			.header{
-				padding: 5px;
-				background-color: rgb(236, 240, 245);
-				border-bottom: 1px solid gray;
-			}
-			.body {
-				padding: 10px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="border">
-			<div class="b header">{Request-Title}</div>
-			<div class="body">
-				<table width="100%" cellspacing="0" cellpadding="0">
-					<tr>
-						<td class="first">Request For</td>
-						<td class="second">:<td>
-						<td>{Request-Type}</td>
-					</tr>
-					<tr>
-						<td class="first">Request By</td>
-						<td class="second">:<td>
-						<td>{Request-By}</td>
-					</tr>
-					<tr>
-						<td class="first">Request Date</td>
-						<td class="second">:<td>
-						<td>{Request-Date}</td>
-					</tr>
-					<tr>
-						<td class="first">Detail</td>
-						<td class="second">:<td>
-						<td><p>Dear {Relief},</p>
-							<p>{Requester-Name} would like to request for relief when he is on {Kind-of-Leave} leave with {Number-Days} days from {Start-Date} to {End-Date}.</p>
-							<p>{Reason}</p>
-							<p>{Attachment}<p>
 
-							<p>For kindly acknowledge and submit to direct supervisor.</p>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    <title>DiskSpace Monitor</title>
+    <style type="text/css">
+        html,
+        body,
+        div,
+        span,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        pre,
+        a,
+        ol,
+        ul,
+        li,
+        table,
+        tr,
+        th,
+        td {
+            font-family: Segoe UI, Tahoma, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            margin: 0px;
+            padding: 0px;
+            color: #444;
+            -webkit-text-size-adjust: none;
+        }
+        .first {
+            width: 120px;
+            height: 25px;
+        }
 
-							<p>Best regards</p>
-							<p>{System-Name}</p>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="4"><hr/></td>
-					</tr>
-					<tr>
-						<td class="first">Relif By</td>
-						<td class="second">:<td>
-						<td>{Relief}</td>
-					</tr>
-					<tr>
-						<td class="first">Confirmed Date</td>
-						<td class="second">:<td>
-						<td>{Confirmed-Date}</td>
-					</tr>
-					<tr>
-						<td colspan="4"><hr/></td>
-					</tr>
-					<tr>
-						<td class="first">Recommend By</td>
-						<td class="second">:<td>
-						<td>{Recommender}</td>
-					</tr>
-					<tr>
-						<td class="first">Recommend Date</td>
-						<td class="second">:<td>
-						<td>{Recommend-Date}</td>
-					</tr>
-					<tr>
-						<td colspan="4"><hr/></td>
-					</tr>
-					<tr>
-						<td class="first">Authorizer By</td>
-						<td class="second">:<td>
-						<td>{Authorizer}</td>
-					</tr>
-					<tr>
-						<td class="first">Authorizer Date</td>
-						<td class="second">:<td>
-						<td>{Authorizer-Date}</td>
-					</tr>
-				</table>
-			</div>
-		</div>
+        .second {
+            width: 30px;
+            height: 25px;
+        }
+        .red {
+            color: red;
+        }
+
+        td {
+            text-align: left;
+            vertical-align: top;
+        }
+
+        a:link,
+        a:active,
+        a:visited {
+            color: #0060B6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        @media screen and (max-device-width: 480px) {
+            html,
+            body,
+            div,
+            span,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            pre,
+            a,
+            ol,
+            ul,
+            li,
+            table,
+            tr,
+            th,
+            td {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body style="padding:0px;margin:0px;">
+<br>
+<table class="main" cellspacing="0" cellpadding="0" border="0" width="100%" style="border:0px solid #aaa;">
+    <tbody>
+    <tr>
+        <td colspan="3">
+            <table width="100%" style="border:1px solid #ecf0f5;" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5" bgcolor="#ecf0f5" style="padding:0px;font-size:0;" colspan="3">&nbsp;</td>
+                </tr>
+                <tr bgcolor="#ecf0f5">
+                    <td bgcolor="#ecf0f5">&nbsp;</td>
+                    <td>
+                        <h1>
+                            <a href="{Link}">{Request-Title}</a>
+                        </h1>
+                    </td>
+                    <td bgcolor="#ecf0f5">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td height="5" bgcolor="#ecf0f5" style="padding:0px;font-size:0;" colspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td height="5" bgcolor="#ecf0f5" style="padding:0px;font-size:0;" colspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td height="15" bgcolor="#ffffff" style="padding:0px;font-size:0;" colspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                                <td class="first">Request For</td>
+                                <td class="second">:</td>
+                                <td>{Request-For}, {For-Position}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Request By</td>
+                                <td class="second">:</td>
+                                <td>{Request-By}, {By-Position}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Status</td>
+                                <td class="second">:</td>
+                                <td>{Request-Status}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Priority</td>
+                                <td class="second">:</td>
+                                <td>{Request-Priority}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Reason</td>
+                                <td class="second">:</td>
+                                <td>{Reason}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Andress / Contact</td>
+                                <td class="second">:</td>
+                                <td>{Address}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Request Date</td>
+                                <td class="second">:</td>
+                                <td>{Request-Date}</td>
+                            </tr>
+                            {Detail}
+                            <tr>
+                                <td colspan="4">
+                                    <hr/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Relief By</td>
+                                <td class="second">:</td>
+                                <td>{Relief}, {Relief-Designation}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Decision</td>
+                                <td class="second">:</td>
+                                <td>{Relief-Decision}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Comment</td>
+                                <td class="second">:</td>
+                                <td>{Relief-Comment}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Confirmed Date</td>
+                                <td class="second">:</td>
+                                <td>{Confirmed-Date}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <hr/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Recommend By</td>
+                                <td class="second">:</td>
+                                <td>{Superior}, {Superior-Designation}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Decision</td>
+                                <td class="second">:</td>
+                                <td>{Superior-Decision}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Comment</td>
+                                <td class="second">:</td>
+                                <td>{Superior-Comment}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Recommend Date</td>
+                                <td class="second">:</td>
+                                <td>{Approve-Date}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <hr/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Authorize By</td>
+                                <td class="second">:</td>
+                                <td>{Authorizer}, {Authorizer-Designation}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Decision</td>
+                                <td class="second">:</td>
+                                <td>{Authorizer-Decision}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Comment</td>
+                                <td class="second">:</td>
+                                <td>{Authorizer-Comment}</td>
+                            </tr>
+                            <tr>
+                                <td class="first">Authorize Date</td>
+                                <td class="second">:</td>
+                                <td>{Authorize-Date}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>

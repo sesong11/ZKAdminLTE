@@ -10,6 +10,7 @@ import com.sample.ZKSpringJPA.services.request.RequestService;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
 import lombok.Getter;
 import lombok.Setter;
+import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.*;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.Selectors;
@@ -17,6 +18,7 @@ import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class AuthorizeVM extends ApproveVM{
@@ -76,6 +78,10 @@ public class AuthorizeVM extends ApproveVM{
                 break;
             }
         }
+        HashMap<String,Object> map = new HashMap<String,Object>();
+        map.put("decision",getApproval().getDecisionStatus());
+        map.put("approvalType",getApproval().getApprovalType());
+        BindUtils.postGlobalCommand(null, null, "notifyRequester",map);
         requestService.update(request);
     }
     @Command
@@ -86,6 +92,10 @@ public class AuthorizeVM extends ApproveVM{
         getApproval().setApproveDate(new Timestamp(System.currentTimeMillis()));
         setApproval(approvalService.update(getApproval()));
         requestService.update(getApproval().getRequest());
+        HashMap<String,Object> map = new HashMap<String,Object>();
+        map.put("decision",getApproval().getDecisionStatus());
+        map.put("approvalType",getApproval().getApprovalType());
+        BindUtils.postGlobalCommand(null, null, "notifyRequester",map);
     }
     //endregion
 }

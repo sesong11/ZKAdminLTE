@@ -36,18 +36,17 @@ public class EmailHelper {
 
     private static ExchangeService service;
     private static String webservice = "https://mail.phillipbank.com.kh/ews/exchange.asmx";
-    private static String username = "paperless@phillipbank.com.kh";
+    @Getter
+    public static String username = "paperless@phillipbank.com.kh";
     private static String password = "Abc123";
     private static ExchangeCredentials credentials = new WebCredentials(username, password);
     @Getter @Setter
-    private static String emailTemplate = Executions.getCurrent().getDesktop().getWebApp().getRealPath("/view/request/email-template/email_template.html");
+    private static String emailTemplate ="/view/request/email-template/email_template.html";
 
     private static ExchangeService getService() throws URISyntaxException {
-        if(service == null) {
             service = new ExchangeService(ExchangeVersion.Exchange2010_SP1);
             service.setCredentials(credentials);
             service.setUrl(new URI(webservice));
-        }
         return service;
     }
 
@@ -79,9 +78,9 @@ public class EmailHelper {
         message.send();
     }
 
-    public static String replaceContent(String source, HashMap<String,String> keyValues) throws IOException {
-        String path =  Executions.getCurrent().getDesktop().getWebApp().getRealPath(source);
-        Stream stream = Files.lines(Paths.get(path));
+    public static String replaceContentByPath(String path, HashMap<String,String> keyValues) throws IOException {
+        String src =  Executions.getCurrent().getDesktop().getWebApp().getRealPath(path);
+        Stream stream = Files.lines(Paths.get(src));
         String temp = "";
         Set set = keyValues.entrySet();
 
@@ -92,5 +91,12 @@ public class EmailHelper {
             temp = temp.replace(key , keyValues.get(key));
         }
         return temp;
+    }
+
+    public static String replaceContentBySource(String source, HashMap<String,String> keyValues) {
+        for(String key : keyValues.keySet()){
+            source = source.replace(key , keyValues.get(key));
+        }
+        return source;
     }
 }
