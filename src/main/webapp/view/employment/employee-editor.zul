@@ -44,6 +44,11 @@
                                              value="@bind(vm.employee.lastName)"/>
                                 </n:div>
                                 <n:div class="form-group">
+                                    <n:label>* Email</n:label>
+                                    <textbox sclass="form-control" placeholder="Email"
+                                             value="@bind(vm.employee.email)"/>
+                                </n:div>
+                                <n:div class="form-group">
                                     <n:label>* Gender</n:label> <n:br />
                                     <combobox model="@bind(vm.genders)" width="100%" selectedItem="@bind(vm.employee.gender)">
                                         <template name="item">

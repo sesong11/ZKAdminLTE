@@ -9,6 +9,7 @@ import com.sample.ZKSpringJPA.services.request.RequestService;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
 import lombok.Getter;
 import lombok.Setter;
+import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.*;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.Selectors;
@@ -17,6 +18,7 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zk.ui.util.Clients;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class ReliefVM extends ApprovalVM {
@@ -79,10 +81,13 @@ public class ReliefVM extends ApprovalVM {
             }
         }
         requestService.update(request);
+
         postNotifyChange(request, "status");
         String str = "Request successfully confirm";
         Clients.showNotification(str, Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 0, false);
 
+        final HashMap<String, Object> map = new HashMap<>();
+        BindUtils.postGlobalCommand(null, null, "notifySuperior",null);
     }
     //endregion
 
