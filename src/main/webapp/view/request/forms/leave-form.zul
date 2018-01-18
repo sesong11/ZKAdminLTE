@@ -30,7 +30,9 @@
                             <n:div class="col-sm-4 col-xs-6">
                                 <n:div class="description-block border-right">
                                     <n:span class="description-text">TOTAL BALANCE</n:span>
-                                    <n:h5 class="description-header">18.00 Days</n:h5>
+                                    <n:h5 class="description-header">
+                                        <label value="@load(vm.totalBalance)" />
+                                        Days</n:h5>
                                 </n:div>
                                 <!-- /.description-block -->
                             </n:div>
@@ -38,7 +40,9 @@
                             <n:div class="col-sm-4 col-xs-6">
                                 <n:div class="description-block border-right">
                                     <n:span class="description-text">USED BALANCE</n:span>
-                                    <n:h5 class="description-header">2.00 Days</n:h5>
+                                    <n:h5 class="description-header">
+                                        <label value="@load(vm.usedBalance)" />
+                                        Days</n:h5>
                                 </n:div>
                                 <!-- /.description-block -->
                             </n:div>
@@ -46,7 +50,9 @@
                             <n:div class="col-sm-4 col-xs-6">
                                 <n:div class="description-block">
                                     <n:span class="description-text">EXISTING BALANCE</n:span>
-                                    <n:h5 class="description-header">16.00 Days</n:h5>
+                                    <n:h5 class="description-header">
+                                        <label value="@load(vm.existingBalance)" />
+                                        Days</n:h5>
                                 </n:div>
                                 <!-- /.description-block -->
                             </n:div>

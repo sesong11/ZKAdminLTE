@@ -17,7 +17,7 @@
 
                     <div visible="@load(rvm.approved and rvm.approval.decisionStatus.name eq 'Approved')">
                         <n:span data-toggle="tooltip" title="" class="badge bg-green" data-original-title="Approve">
-                            Authorized</n:span>
+                            Approved</n:span>
                     </div>
                     <div visible="@load(rvm.approved and rvm.approval.decisionStatus.name eq 'Rejected')">
                         <n:span data-toggle="tooltip" title="" class="badge bg-red" data-original-title="Approve">

@@ -1,6 +1,5 @@
 package com.sample.ZKSpringJPA.entity.request;
 
-import com.sample.ZKSpringJPA.entity.employment.Branch;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -5,6 +5,7 @@ import com.sample.ZKSpringJPA.entity.request.Request;
 import com.sample.ZKSpringJPA.entity.request.approval.Approval;
 import lombok.Getter;
 import lombok.Setter;
+import org.zkoss.bind.annotation.Command;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -62,5 +63,17 @@ public class LeaveForm extends Form {
     @Column(name = "confirm_policy")
     @AssertTrue(message = "You can't leave this empty.")
     private boolean confirmPolicy;
+
+    @Getter @Setter
+    @Column(name = "total_balance")
+    private Double totalBalance;
+
+    @Getter @Setter
+    @Column(name = "used_balance")
+    private Double usedBalance;
+
+    @Getter @Setter
+    @Column(name = "existing_balance")
+    private Double existingBalance;
     //endregion
 }

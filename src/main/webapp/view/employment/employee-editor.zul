@@ -177,10 +177,8 @@
                                         <column zclass="none" label="Id" width="50px" />
                                         <column zclass="none" label="Active Date" width="100px"/>
                                         <column zclass="none" label="Allowance Type"/>
-                                        <column zclass="none" label="Allowance Balance" width="100px"/>
-                                        <column zclass="none" label="Accrual Balance" width="100px"/>
-                                        <column zclass="none" label="Existing Balance" width="100px"/>
-                                        <column zclass="none" label="Used Balance" width="100px"/>
+                                        <column zclass="none" label="Allowance Balance" width="150px"/>
+                                        <column zclass="none" label="Accrual Balance" width="150px"/>
                                         <column zclass="none" label="" width="100px" />
                                     </columns>
                                     <template name="model">
@@ -190,8 +188,6 @@
                                             <label zclass="none" value="@load(each.allowance.name)" />
                                             <label zclass="none" value="@load(each.allowanceBalance)" />
                                             <label zclass="none" value="@load(each.accrualBalance)" />
-                                            <label zclass="none" value="@load(each.existingBalance)" />
-                                            <label zclass="none" value="@load(each.usedBalance)" />
                                             <div zclass="none">
                                                 <a onClick="@command('selectAllowance', item = each)" sclass="pull-right text-blue" style="padding: 0 8px 0 8px"><n:i class="fa fa-edit"/></a>
                                                 <a onClick="@command('deleteAllowance', item = each)" sclass="pull-right text-red" style="padding: 0 8px 0 8px"><n:i class="fa fa-trash"/></a>

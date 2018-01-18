@@ -28,7 +28,6 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Window;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.ValidatorFactory;
@@ -70,6 +69,15 @@ public class LeaveFormVM extends ViewModel {
     @Setter
     @Getter
     private LeaveForm form;
+
+    @Getter @Setter
+    private double totalBalance;
+
+    @Getter @Setter
+    private double existingBalance;
+
+    @Getter @Setter
+    private double usedBalance;
 
     @Getter
     @Setter
@@ -130,6 +138,10 @@ public class LeaveFormVM extends ViewModel {
         } else {
             Long id = Long.parseLong(sid);
             form = leaveFormService.findByRequestId(id);
+            totalBalance = form.getTotalBalance();
+            existingBalance = form.getExistingBalance();
+            usedBalance = form.getUsedBalance();
+
             TreeSet<Approval> approvals = requestService.findApproval(form.getRequest().getId());
             for (Approval approval : form.getRequest().getApprovals()) {
                 if (approval.getApprovalType() == ApprovalType.RELIEF) {
@@ -342,6 +354,9 @@ public class LeaveFormVM extends ViewModel {
         request.getApprovals().clear();
         request = requestService.create(request);
         form.setRequest(request);
+        form.setExistingBalance(existingBalance);
+        form.setTotalBalance(totalBalance);
+        form.setUsedBalance(usedBalance);
         leaveFormService.create(form);
         request.addApproval(relief);
         request.addApproval(supervisor);
@@ -357,6 +372,26 @@ public class LeaveFormVM extends ViewModel {
     //region > Command
     @Command
     public void countDays(){
+        Employee employee = form.getRequest().getRequestFor();
+        if(employee!=null) {
+            totalBalance = 0;
+            existingBalance = 0;
+            usedBalance = 0;
+            for(EmployeeAllowance e: employee.getEmployeeAllowances()) {
+                if(e.getAllowance().getAllowanceType() == form.getLeaveType().getAllowanceType()) {
+                    totalBalance += e.getAllowanceBalance();
+                }
+            }
+            Calendar nowCalendar = Calendar.getInstance();
+            usedBalance = leaveFormService.countUsed(employee,
+										form.getLeaveType().getAllowanceType(),
+										nowCalendar.get(Calendar.YEAR));
+            existingBalance = totalBalance - usedBalance;
+            postNotifyChange(this, "totalBalance");
+            postNotifyChange(this, "existingBalance");
+            postNotifyChange(this, "usedBalance");
+        }
+
         if(form.getFromDate() == null
                 || form.getToDate() == null
                 || form.getLeaveType() == null) {
