@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 public enum DecisionStatus {
-    AWAITING(1, "awaiting", "default"),
+    AWAITING(1, "Awaiting", "default"),
     APPROVED(2, "Approved", "success"),
     REJECTED(3, "Rejected", "danger");
 

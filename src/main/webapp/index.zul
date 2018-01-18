@@ -150,7 +150,7 @@
 
             <n:footer class="main-footer">
                 <n:div class="pull-right hidden-xs">
-                    <n:b>Version</n:b> 1.0.0-SNAPSHOT
+                    <n:b>Version</n:b> 1.0.0
                 </n:div>
                 <n:strong>Copyright 2017 <n:a target="_blank" href="http://phillipbankplc.com.kh">Phillip Bank PLC</n:a>.</n:strong> All rights reserved.
                 reserved.

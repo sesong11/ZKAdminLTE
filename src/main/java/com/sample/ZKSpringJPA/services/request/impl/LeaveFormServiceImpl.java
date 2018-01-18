@@ -1,5 +1,7 @@
 package com.sample.ZKSpringJPA.services.request.impl;
 
+import com.sample.ZKSpringJPA.entity.employment.AllowanceType;
+import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.entity.request.leaveform.LeaveForm;
 import com.sample.ZKSpringJPA.services.request.LeaveFormService;
 import com.sample.ZKSpringJPA.services.request.dao.LeaveFormDao;
@@ -37,5 +39,12 @@ public class LeaveFormServiceImpl implements LeaveFormService {
     @Override
     public void delete(LeaveForm leaveForm) {
         leaveFormDao.delete(leaveForm);
+    }
+
+    @Override
+    public double countUsed(final Employee employee,
+            final AllowanceType allowanceType,
+            final int year) {
+        return leaveFormDao.countUsed(employee, allowanceType, year);
     }
 }
