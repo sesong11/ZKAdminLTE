@@ -448,7 +448,7 @@ public class LeaveFormVM extends ViewModel {
     public void notifyRelief() throws Exception {
         DateFormat df = new SimpleDateFormat(standardDateTimeFormat);
         HashMap<String, String> keyValues = new HashMap<String, String>();
-        String content = " <p><b>{Requester-Name}</b> would like to request for relief when he is on <b>{Kind-of-Leave}</b> with <b>{Number-Days}</b> days from <b>{Start-Date}</b>" +
+        String content = " <p><b>{Requester-Name}</b> would like to request for relief when he/she is on <b>{Kind-of-Leave}</b> with <b>{Number-Days}</b> days from <b>{Start-Date}</b>" +
                 " to <b>{End-Date}</b>.</p>";
 
         //Detail
@@ -520,10 +520,10 @@ public class LeaveFormVM extends ViewModel {
         email = EmailHelper.replaceContentBySource(email, keyValues);
 
         List<String> toList = new ArrayList<String>();
-        toList.add(getRequestFor().getEmail());
+        toList.add(getForm().getRequest().getRequestBy().getEmail());
 
         List<String> ccList = new ArrayList<String>();
-        toList.add(getRequestFor().getEmail());
+        ccList.add(EmailHelper.getUsername());
         EmailHelper.sendMail(getSubject(),email, toList, ccList);
 
     }
@@ -532,31 +532,18 @@ public class LeaveFormVM extends ViewModel {
     public void notifySuperior (@BindingParam("decision")DecisionStatus decisionStatus) throws Exception {
         DateFormat df = new SimpleDateFormat(standardDateTimeFormat);
         HashMap<String, String> keyValues = new HashMap<String, String>();
-        String content = " <p><b>{Relief}</b> has been acknowledged for the leave request below: </p>" +
+        String content = " <p><b>{Superior}</b> has been acknowledged for the leave request below: </p>" +
                 "<p><b>{Requester-Name}</b> would like to request for <b>{Kind-of-Leave}</b> with <b>{Number-Days}</b> days from <b>{Start-Date}</b>" +
                 " to <b>{End-Date}</b>.</p>";
 
         //Detail
-        keyValues.put("{Relief}", getRelief().getApprovePerson().getFullName());
+        keyValues.put("{Superior}", getSupervisor().getApprovePerson().getFullNameWithTitle());
         keyValues.put("{Requester-Name}", getForm().getRequest().getRequestBy().getFullName());
         keyValues.put("{Reason}", getForm().getReason());
         keyValues.put("{Kind-of-Leave}", getForm().getLeaveType().getName());
         keyValues.put("{Number-Days}", getForm().getTotalDays().toString());
         keyValues.put("{Start-Date}", df.format(getForm().getFromDate()));
         keyValues.put("{End-Date}",  df.format(getForm().getToDate()));
-
-//        // Relief
-//        keyValues.put("{Relief}", getRelief().getApprovePerson().getFullName());
-//        keyValues.put("{Confirmed-Date}", df.format(getForm().getToDate()));
-//
-//        // Superior
-//        keyValues.put("{Recommender}", getForm().getToDate().toString());
-//        keyValues.put("{Recommend-Date}", getForm().getToDate().toString());
-//
-//        // Manager
-//        keyValues.put("{Authorizer}", getForm().getToDate().toString());
-//        keyValues.put("{Authorizer-Date}", getForm().getToDate().toString());
-
 
         // Content
         keyValues.put("{Content}", content);
@@ -574,24 +561,23 @@ public class LeaveFormVM extends ViewModel {
         toList.add(getSupervisor().getApprovePerson().getEmail());
 
         List<String> ccList = new ArrayList<String>();
-        toList.add(EmailHelper.getUsername());
+        ccList.add(EmailHelper.getUsername());
         EmailHelper.sendMail(getSubject(), email, toList, ccList);
     }
     @GlobalCommand
     public void notifyManager (@BindingParam("decision") DecisionStatus decisionStatus) throws Exception {
+        DateFormat df = new SimpleDateFormat(standardDateTimeFormat);
         HashMap<String, String> keyValues = new HashMap<String, String>();
         String content = " <p><b>{Recommender}</b> has been recommended to the leave request below:</p>" +
                 " <p><b>{Requester-Name}</b> would like to request for <b>{Kind-of-Leave}</b> with <b>{Number-Days}</b> days from <b>{Start-Date}</b>" +
-                " to <b>{End-Date}</b>.</p>" +
-                " <p>{Reason}</p>";
+                " to <b>{End-Date}</b>.</p>";
         //Detail
         keyValues.put("{Relief}", getRelief().getApprovePerson().getFullNameWithTitle());
-        keyValues.put("{Requester-Name}", getForm().getRequest().getRequestBy().getFullName());
-        keyValues.put("{Reason}", getForm().getReason());
+        keyValues.put("{Requester-Name}", getForm().getRequest().getRequestBy().getFullNameWithTitle());
         keyValues.put("{Kind-of-Leave}", getForm().getLeaveType().getName());
         keyValues.put("{Number-Days}", getForm().getTotalDays().toString());
-        keyValues.put("{Start-Date}", getForm().getFromDate().toString());
-        keyValues.put("{End-Date}", getForm().getToDate().toString());
+        keyValues.put("{Start-Date}", df.format(getForm().getFromDate()));
+        keyValues.put("{End-Date}", df.format(getForm().getToDate()));
 
         // Relief
         keyValues.put("{Relief}", getRelief().getApprovePerson().getFullNameWithTitle());
@@ -609,7 +595,7 @@ public class LeaveFormVM extends ViewModel {
         keyValues.put("{Content}", content);
 
         // Recipient
-        keyValues.put("{Recipient}", getRelief().getApprovePerson().getFullName());
+        keyValues.put("{Recipient}", getRelief().getApprovePerson().getFullNameWithTitle());
         //Link
         keyValues.put("{Link}", AppHelper.APPLICATION_PATH+
                 "?m=leave-form&id="+getForm().getRequest().getId());
@@ -620,8 +606,8 @@ public class LeaveFormVM extends ViewModel {
         toList.add(getManager().getApprovePerson().getEmail());
 
         List<String> ccList = new ArrayList<String>();
-        toList.add(EmailHelper.getUsername());
-        EmailHelper.sendMail("Leave Request #"+getForm().getRequest().getId(), email, toList, null);
+        ccList.add(EmailHelper.getUsername());
+        EmailHelper.sendMail(getSubject(), email, toList, null);
     }
     //endregion
 }
