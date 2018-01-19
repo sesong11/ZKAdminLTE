@@ -128,7 +128,18 @@ public class LeaveFormVM extends ViewModel {
             form = new LeaveForm();
             Request request = new Request();
             request.setFormType(FormType.LEAVE_REQUEST);
+            request.setPriority(RequestPriority.NORMAL);
             form.setRequest(request);
+            Calendar from = Calendar.getInstance();
+            from.set(Calendar.HOUR_OF_DAY, 8);
+            from.set(Calendar.MINUTE, 0);
+            from.set(Calendar.SECOND, 0);
+            Calendar to = Calendar.getInstance();
+            to.set(Calendar.HOUR_OF_DAY, 17);
+            to.set(Calendar.MINUTE, 0);
+            to.set(Calendar.SECOND, 0);
+            form.setFromDate(new Timestamp(from.getTime().getTime()));
+            form.setToDate(new Timestamp(to.getTime().getTime()));
             //person who relief requester job during his/her leave.
             relief = new Approval();
             relief.setSortedIndex(1);
@@ -350,7 +361,7 @@ public class LeaveFormVM extends ViewModel {
     @Command
     @NotifyChange({"form", "relief", "supervisor", "manager"})
     public void submit() throws Exception {
-        if(form.getTotalDays()>getExistingBalance()){
+        if(form.getLeaveType() != LeaveType.Emergency_LEAVE && form.getTotalDays()>getExistingBalance()){
             String str = "You do not have enough allowance balance to request this type of leave.";
             Clients.showNotification(str, Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 0, false);
             return;
@@ -583,7 +594,6 @@ public class LeaveFormVM extends ViewModel {
         //Detail
         keyValues.put("{Superior}", getSupervisor().getApprovePerson().getFullNameWithTitle());
         keyValues.put("{Requester-Name}", getForm().getRequest().getRequestBy().getFullName());
-        keyValues.put("{Reason}", getForm().getReason());
         keyValues.put("{Kind-of-Leave}", getForm().getLeaveType().getName());
         keyValues.put("{Number-Days}", getForm().getTotalDays().toString());
         keyValues.put("{Start-Date}", df.format(getForm().getFromDate()));

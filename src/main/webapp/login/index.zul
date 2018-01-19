@@ -32,7 +32,8 @@
 
         <n:div class="login-box">
             <n:div class="login-logo">
-                <n:a href="../../index2.html"><n:b>Phillip</n:b>Bank</n:a>
+                <n:img src="phillip-logo.png" style="width:50px" />
+                <n:a href="."><n:b>Phillip</n:b>Bank</n:a>
             </n:div>
             <!-- /.login-logo -->
             <n:div class="login-box-body">
