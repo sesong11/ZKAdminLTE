@@ -16,11 +16,12 @@
         </n:section>
 
         <n:section class="content">
-            <n:div class="mailbox-controls">
-                <n:div class="btn-group">
-                    <button onClick="@command('submit')" visible="@load(vm.form.request.id eq null)"
-                            type="button" sclass="btn btn-info btn-sm fa fa-save" autodisable="self"> Submit Request</button>
-                </n:div>
+            <n:div class="mailbox-controls" style="background: #f2f2f2;">
+
+                    <a onClick="@command('submit')" visible="@load(vm.form.request.id eq null)"
+                            sclass="btn btn-info btn-flat" autodisable="self"><n:i class="fa fa-save"> Submit Request</n:i></a>
+
+
             </n:div>
             <n:div class="row">
                 <n:div class="col-md-8">
@@ -232,6 +233,13 @@
                 <n:div class="col-md-4">
                     <include src="/view/request/component/request-approval.zul" />
                 </n:div>
+            </n:div>
+            <n:div class="mailbox-controls" style="background: #f2f2f2;">
+
+                <a onClick="@command('submit')" visible="@load(vm.form.request.id eq null)"
+                   sclass="btn btn-info btn-flat" autodisable="self"><n:i class="fa fa-save"> Submit Request</n:i></a>
+
+
             </n:div>
         </n:section>
     </div>

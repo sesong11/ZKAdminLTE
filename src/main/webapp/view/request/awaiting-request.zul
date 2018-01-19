@@ -45,20 +45,20 @@
                                     <listheader zclass="none" label=""/>
                                 </listhead>
                                 <template name="model">
-                                    <listitem>
+                                    <listitem zclass="none" onDoubleClick="@command('openForm', request=each)">
                                         <listcell zclass="none" label="@load(each.id)" />
                                         <listcell zclass="none" label="@load(each.formType.name)" />
-                                        <listcell zclass="none">
+                                        <listcell zclass="none" sclass="hidden-xs hidden-sm">
                                             <n:span class="label label-${each.priority.sclass}">${each.priority.name}</n:span>
                                         </listcell>
-                                        <listcell zclass="none">
+                                        <listcell zclass="none" sclass="hidden-xs hidden-sm">
                                             <n:span class="label label-${each.decisionStatus.sclass}">${each.decisionStatus.name}</n:span>
                                         </listcell>
                                         <listcell zclass="none" label="@load(each.status.name)" />
-                                        <listcell zclass="none" label="@load(each.requestBy.fullName)" />
+                                        <listcell zclass="none" label="@load(each.requestBy.fullName)" sclass="hidden-xs hidden-sm"/>
                                         <listcell zclass="none" label="@load(each.requestFor.fullName)" />
-                                        <listcell zclass="none" label="@load(each.requestDate) @converter('formattedDate', format = vm.standardDateTimeFormat)" />
-                                        <listcell zclass="none">
+                                        <listcell zclass="none" sclass="hidden-xs hidden-sm" label="@load(each.requestDate) @converter('formattedDate', format = vm.standardDateTimeFormat)" />
+                                        <listcell zclass="none" sclass="hidden-xs hidden-sm">
                                             <n:a href="?m=${each.formType.menuUuid}&amp;id=${each.id}" class="pull-right"><n:i class="fa fa-edit"></n:i></n:a>
                                         </listcell>
                                     </listitem>

@@ -11,6 +11,7 @@ import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.ListModelList;
@@ -76,6 +77,10 @@ public class ClosedRequestVM {
         this.activePage = activePage;
         int offset = activePage* pageSize;
         requests = new ListModelList<Request>(requestService.findMyRequest(offset, pageSize, RequestStatus.CLOSED));
+    }
+    @Command
+    public void openForm(@BindingParam("request") final Request request) throws ClassNotFoundException {
+        Executions.sendRedirect("?m="+request.getFormType().getUuid()+"&id="+request.getId());
     }
     //endregion
 }

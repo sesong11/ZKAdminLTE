@@ -187,6 +187,7 @@ public class LeaveFormVM extends ViewModel {
     public void selectRequestForCallback(@BindingParam("employee") final Employee employee) {
         this.form.getRequest().setRequestFor(employee);
         postNotifyChange(form.getRequest(), "requestFor");
+        countDays();
     }
 
     @GlobalCommand
@@ -349,7 +350,11 @@ public class LeaveFormVM extends ViewModel {
     @Command
     @NotifyChange({"form", "relief", "supervisor", "manager"})
     public void submit() throws Exception {
-
+        if(form.getTotalDays()>getExistingBalance()){
+            String str = "You do not have enough allowance balance to request this type of leave.";
+            Clients.showNotification(str, Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 0, false);
+            return;
+        }
         Request request = form.getRequest();
         request.setRequestDate(new Timestamp(new Date().getTime()));
         request.setRequestBy(userCredentialService.getCurrentEmployee());
@@ -389,7 +394,7 @@ public class LeaveFormVM extends ViewModel {
     @Command
     public void countDays(){
         Employee employee = form.getRequest().getRequestFor();
-        if(employee!=null) {
+        if(employee!=null && form.getLeaveType() != null) {
             totalBalance = 0.0;
             existingBalance = 0.0;
             usedBalance = 0.0;

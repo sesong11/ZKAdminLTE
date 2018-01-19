@@ -32,33 +32,33 @@
                                          format=",###" constraint="no empty,min 1, max 100" />
                             </n:div>
                             <listbox model="@load(vm.requests)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
-                                  emptyMessage="Nothing in Inbox." zclass="none" >
+                                  emptyMessage="Nothing in Inbox." zclass="none" vflex="true" style="overflow:none">
                                 <listhead zclass="none">
                                     <listheader zclass="none" label="Id" width="80px"/>
-                                    <listheader zclass="none" label="Request Form" width="150px"/>
-                                    <listheader zclass="none" label="Priority" width="120px"/>
-                                    <listheader zclass="none" label="Decision Status" width="120px"/>
+                                    <listheader zclass="none" label="Request Form" width="120px"/>
+                                    <listheader zclass="none" label="Priority" width="120px" sclass="hidden-xs hidden-sm"/>
+                                    <listheader zclass="none" label="Decision Status" width="120px" sclass="hidden-xs hidden-sm"/>
                                     <listheader zclass="none" label="Status" width="120px"/>
-                                    <listheader zclass="none" label="Request By" width="120px"/>
-                                    <listheader zclass="none" label="Request For" width="120px"/>
-                                    <listheader zclass="none" label="Request Date" width="120px"/>
-                                    <listheader zclass="none" label=""/>
+                                    <listheader zclass="none" label="Request By" width="120px" sclass="hidden-xs hidden-sm"/>
+                                    <listheader zclass="none" label="Request For" width="120px" />
+                                    <listheader zclass="none" label="Request Date" sclass="hidden-xs hidden-sm"/>
+                                    <listheader zclass="none" label="" width="80px" sclass="hidden-xs hidden-sm"/>
                                 </listhead>
                                 <template name="model">
-                                    <listitem>
+                                    <listitem zclass="none" onDoubleClick="@command('openForm', request=each)">
                                         <listcell zclass="none" label="@load(each.id)" />
                                         <listcell zclass="none" label="@load(each.formType.name)" />
-                                        <listcell zclass="none">
+                                        <listcell zclass="none" sclass="hidden-xs hidden-sm">
                                             <n:span class="label label-${each.priority.sclass}">${each.priority.name}</n:span>
                                         </listcell>
-                                        <listcell zclass="none">
+                                        <listcell zclass="none" sclass="hidden-xs hidden-sm">
                                             <n:span class="label label-${each.decisionStatus.sclass}">${each.decisionStatus.name}</n:span>
                                         </listcell>
                                         <listcell zclass="none" label="@load(each.status.name)" />
-                                        <listcell zclass="none" label="@load(each.requestBy.fullName)" />
+                                        <listcell zclass="none" label="@load(each.requestBy.fullName)" sclass="hidden-xs hidden-sm"/>
                                         <listcell zclass="none" label="@load(each.requestFor.fullName)" />
-                                        <listcell zclass="none" label="@load(each.requestDate) @converter('formattedDate', format = vm.standardDateTimeFormat)" />
-                                        <listcell zclass="none">
+                                        <listcell zclass="none" sclass="hidden-xs hidden-sm" label="@load(each.requestDate) @converter('formattedDate', format = vm.standardDateTimeFormat)" />
+                                        <listcell zclass="none" sclass="hidden-xs hidden-sm">
                                             <n:a href="?m=${each.formType.menuUuid}&amp;id=${each.id}" class="pull-right"><n:i class="fa fa-edit"></n:i></n:a>
                                         </listcell>
                                     </listitem>

@@ -22,7 +22,7 @@
             <n:div class="row">
                 <div children="@load(vm.requestForms)">
                     <template name="children">
-                        <n:div class="col-lg-3 col-xs-6">
+                        <n:div class="col-lg-3 col-xs-12">
                             <!-- small box -->
                             <n:div class="small-box bg-aqua">
                                 <n:div class="inner">

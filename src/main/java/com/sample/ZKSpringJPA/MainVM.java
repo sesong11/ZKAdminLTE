@@ -65,7 +65,7 @@ public class MainVM {
 		menu = new Menu();
 		Feature feature = menu.scanMenu(user);
 		if(param==null && isAuthenticated("default")){
-			urlParam = "/view/default.zul";
+			urlParam = "/view/request/dashboard.zul";
 		}else {
 			if (feature == null) {
 				urlParam = "/view/error/404.zul";
