@@ -503,7 +503,7 @@ public class LeaveFormVM extends ViewModel {
         keyValues.put("{Content}", content);
 
         // Recipient
-        keyValues.put("{Recipient}", getRelief().getApprovePerson().getFullName());
+        keyValues.put("{Recipient}", getRelief().getApprovePerson().getFullNameWithTitle());
 
         String email = getEmailTemplate().replace("{Detail}", EmailHelper.replaceContentByPath(email_path, keyValues));
         //Link
@@ -512,7 +512,9 @@ public class LeaveFormVM extends ViewModel {
         email = EmailHelper.replaceContentBySource(email, keyValues);
 
         List<String> toList = new ArrayList<String>();
-        toList.add(getRelief().getApprovePerson().getEmail());
+        if(!(getRelief().getApprovePerson().getEmail().isEmpty() && getRelief().getApprovePerson().getEmail() == null)) {
+            toList.add(getRelief().getApprovePerson().getEmail());
+        }
 
         List<String> ccList = new ArrayList<String>();
         toList.add(EmailHelper.getUsername());
@@ -551,7 +553,7 @@ public class LeaveFormVM extends ViewModel {
         keyValues.put("{Content}", content);
 
         // Recipient
-        keyValues.put("{Recipient}", getRelief().getApprovePerson().getFullName());
+        keyValues.put("{Recipient}", getRelief().getApprovePerson().getFullNameWithTitle());
 
         String email = getEmailTemplate().replace("{Detail}", EmailHelper.replaceContentByPath(email_path, keyValues));
         //Link
@@ -560,7 +562,9 @@ public class LeaveFormVM extends ViewModel {
         email = EmailHelper.replaceContentBySource(email, keyValues);
 
         List<String> toList = new ArrayList<String>();
-        toList.add(getForm().getRequest().getRequestBy().getEmail());
+        if(!(getForm().getRequest().getRequestFor().getEmail().isEmpty() && getForm().getRequest().getRequestFor().getEmail() == null)) {
+            toList.add(getForm().getRequest().getRequestFor().getEmail());
+        }
 
         List<String> ccList = new ArrayList<String>();
         ccList.add(EmailHelper.getUsername());
@@ -598,7 +602,9 @@ public class LeaveFormVM extends ViewModel {
         email = EmailHelper.replaceContentBySource(email, keyValues);
 
         List<String> toList = new ArrayList<String>();
-        toList.add(getSupervisor().getApprovePerson().getEmail());
+        if(!(getSupervisor().getApprovePerson().getEmail().isEmpty() && getSupervisor().getApprovePerson().getEmail() == null)) {
+            toList.add(getSupervisor().getApprovePerson().getEmail());
+        }
 
         List<String> ccList = new ArrayList<String>();
         ccList.add(EmailHelper.getUsername());
@@ -643,11 +649,14 @@ public class LeaveFormVM extends ViewModel {
         email = EmailHelper.replaceContentBySource(email, keyValues);
 
         List<String> toList = new ArrayList<String>();
-        toList.add(getManager().getApprovePerson().getEmail());
+
+        if(!(getManager().getApprovePerson().getEmail().isEmpty() && getManager().getApprovePerson().getEmail() == null)) {
+            toList.add(getManager().getApprovePerson().getEmail());
+        }
 
         List<String> ccList = new ArrayList<String>();
         ccList.add(EmailHelper.getUsername());
-        EmailHelper.sendMail(getSubject(), email, toList, null);
+        EmailHelper.sendMail(getSubject(), email, toList, ccList);
     }
     //endregion
 }
