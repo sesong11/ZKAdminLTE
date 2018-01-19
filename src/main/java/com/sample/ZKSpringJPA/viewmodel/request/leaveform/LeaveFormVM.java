@@ -390,9 +390,9 @@ public class LeaveFormVM extends ViewModel {
     public void countDays(){
         Employee employee = form.getRequest().getRequestFor();
         if(employee!=null) {
-            totalBalance = 0;
-            existingBalance = 0;
-            usedBalance = 0;
+            totalBalance = 0.0;
+            existingBalance = 0.0;
+            usedBalance = 0.0;
             for(EmployeeAllowance e: employee.getEmployeeAllowances()) {
                 if(e.getAllowance().getAllowanceType() == form.getLeaveType().getAllowanceType()) {
                     totalBalance += e.getAllowanceBalance();
