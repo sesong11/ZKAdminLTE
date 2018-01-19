@@ -78,13 +78,13 @@ public class LeaveFormVM extends ViewModel {
     private LeaveForm form;
 
     @Getter @Setter
-    private double totalBalance;
+    private Double totalBalance;
 
     @Getter @Setter
-    private double existingBalance;
+    private Double existingBalance;
 
     @Getter @Setter
-    private double usedBalance;
+    private Double usedBalance;
 
     @Getter
     @Setter
