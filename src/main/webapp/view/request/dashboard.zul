@@ -31,7 +31,7 @@
                                     <n:p>${each.category}</n:p>
                                 </n:div>
                                 <n:div class="icon">
-                                    <n:i class="ion ion-${each.icon}"></n:i>
+                                    <n:i class="${each.icon}"></n:i>
                                 </n:div>
                                 <n:a href="?m=${each.uuid}"
                                         zclass="none" sclass="small-box-footer">New Request
