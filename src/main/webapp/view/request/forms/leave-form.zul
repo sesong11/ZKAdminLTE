@@ -49,7 +49,7 @@
                             <!-- /.col -->
                             <n:div class="col-sm-4 col-xs-6">
                                 <n:div class="description-block">
-                                    <n:span class="description-text">EXISTING BALANCE</n:span>
+                                    <n:span class="description-text">REMAIN BALANCE</n:span>
                                     <n:h5 class="description-header">
                                         <label value="@load(vm.existingBalance)" />
                                         Days</n:h5>
