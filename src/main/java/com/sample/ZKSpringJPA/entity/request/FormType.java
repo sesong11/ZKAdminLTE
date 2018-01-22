@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 public enum FormType {
-    LEAVE_REQUEST(1, "Leave Request", "HR Form", "plane", "leave-form", LeaveFormVM.class);
+    LEAVE_REQUEST(1, "Leave Form", "HR Form", " fa fa-file-text-o", "leave-form", LeaveFormVM.class);
 
     @Getter @Setter
     private int value;

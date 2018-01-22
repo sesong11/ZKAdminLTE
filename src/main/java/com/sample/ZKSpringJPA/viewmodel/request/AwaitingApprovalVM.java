@@ -23,7 +23,7 @@ import java.util.List;
         view = "/view/request/awaiting-request.zul",
         uuid = "4-awaiting-approval",
         menuOrder = "3.2",
-        displayName = "Awaiting Approve",
+        displayName = "Awaiting Approval",
         menuIcon = "spinner"
 )
 public class AwaitingApprovalVM {
