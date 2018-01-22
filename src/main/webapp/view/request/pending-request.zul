@@ -7,7 +7,7 @@
                 <n:small></n:small>
             </n:h1>
             <n:ol class="breadcrumb">
-                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li><n:a href="."><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
                 <n:li class="active">Pending Requests</n:li>
             </n:ol>
         </n:section>
