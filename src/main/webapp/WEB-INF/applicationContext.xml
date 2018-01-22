@@ -15,7 +15,7 @@
 
 	<!-- jpa(hibernate) configuration -->
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="uat"/>
+		<property name="persistenceUnitName" value="pro_env"/>
 	</bean>
 	
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
