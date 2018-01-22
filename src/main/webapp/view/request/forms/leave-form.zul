@@ -5,13 +5,12 @@
 
         <n:section class="content-header">
             <n:h1>
-                Leave Request
-                <n:small>New Request</n:small>
+                Leave Form
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="."><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
                 <n:li class="active">Request</n:li>
-                <n:li class="active">Leave Request</n:li>
+                <n:li class="active">Leave Form</n:li>
             </n:ol>
         </n:section>
 
@@ -230,7 +229,7 @@
                     </n:div>
                     </n:div>
                 </n:div>
-                <n:div class="col-md-4">
+                <n:div class="col-md-4 col-xs-12">
                     <include src="/view/request/component/request-approval.zul" />
                 </n:div>
             </n:div>

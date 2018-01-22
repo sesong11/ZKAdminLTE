@@ -26,9 +26,9 @@
                             <!-- small box -->
                             <n:div class="small-box bg-aqua">
                                 <n:div class="inner">
-                                    <n:h3>${each.category}</n:h3>
+                                    <n:h3>${each.name}</n:h3>
 
-                                    <n:p>${each.name}</n:p>
+                                    <n:p>${each.category}</n:p>
                                 </n:div>
                                 <n:div class="icon">
                                     <n:i class="ion ion-${each.icon}"></n:i>

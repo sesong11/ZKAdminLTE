@@ -2,6 +2,9 @@ html, body{
     margin: 0 !important;
     padding: 0 !important;
 }
+table {
+	width: 100%;
+}
 .padding{
     padding: 10px;
 }
