@@ -19,6 +19,7 @@ import org.apache.tools.ant.Project;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.util.StringUtils;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Executions;
@@ -62,9 +63,10 @@ public class MainVM {
 			FeaturesScanner.scanFeatures();
 		}
 		String param = Executions.getCurrent().getParameter("m");
+		if(StringUtils.isEmpty(param)) param = "1-request-dashboard";
 		menu = new Menu();
-		Feature feature = menu.scanMenu(user);
-		if(param==null && isAuthenticated("default")){
+		Feature feature = menu.scanMenu(user, param);
+		if(param==null && isAuthenticated("1-request-dashboard")){
 			urlParam = "/view/request/dashboard.zul";
 		}else {
 			if (feature == null) {

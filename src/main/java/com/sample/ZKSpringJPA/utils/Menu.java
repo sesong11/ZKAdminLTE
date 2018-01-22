@@ -94,7 +94,7 @@ public class Menu {
         return false;
     }
 
-    public Feature scanMenu(final User user) throws ClassNotFoundException {
+    public Feature scanMenu(final User user, final String param) throws ClassNotFoundException {
         ClassPathScanningCandidateComponentProvider scanner =
                 new ClassPathScanningCandidateComponentProvider(false);
 
@@ -102,7 +102,6 @@ public class Menu {
         String activeOrder = "";
 
         Map<String, Feature> featureMap = FeaturesScanner.getFeatures();
-        String param = Executions.getCurrent().getParameter("m");
         if (param != null){
             Feature feature = featureMap.get(param);
             if(feature != null) {
