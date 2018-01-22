@@ -1,0 +1,78 @@
+<zk xmlns:n="native">
+    <n:div class="box box-default">
+        <n:div class="box-header with-border">
+            <n:h3 class="box-title">Request Information</n:h3>
+
+            <n:div class="box-tools pull-right">
+                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i></n:button>
+            </n:div>
+        </n:div>
+        <!-- /.box-header -->
+        <n:div class="box-body" style="">
+            <n:div class="row">
+                <n:div class="col-md-6">
+                    <n:div class="form-group">
+                        <n:label class="col-sm-4 control-label">Request Id</n:label>
+                        <n:div class="col-sm-8">
+                            <longbox value="@load(vm.form.request.id)"
+                                    sclass="form-control" placeholder="" width="100%" readonly="true"/>
+                        </n:div>
+                        <n:div class="clearfix"></n:div>
+                    </n:div>
+                    <n:div class="form-group">
+                        <n:label class="col-sm-4 control-label">Request By</n:label>
+                        <n:div class="col-sm-8">
+                            <textbox type="text" sclass="form-control" readonly="true" value="@load(vm.form.request.requestBy.fullName)"/>
+                        </n:div>
+                        <n:div class="clearfix"></n:div>
+                    </n:div>
+                    <n:div class="form-group">
+                        <n:label class="col-sm-4 control-label">* Request For</n:label>
+                        <n:div class="col-sm-8">
+                            <n:div class="input-group input-group-sm">
+                                <textbox id="txtRequestFor" type="text" sclass="form-control" readonly="true"
+                                         value="@load(vm.form.request.requestFor.fullName)"/>
+                                <n:span class="input-group-btn">
+                                    <a sclass="btn btn-info btn-flat" onClick="@command('selectRequestFor')">
+                                        <n:i class="fa fa-user"></n:i></a>
+                                </n:span>
+                            </n:div>
+                        </n:div>
+                        <n:div class="clearfix"></n:div>
+                    </n:div>
+                </n:div>
+                <n:div class="col-md-6">
+                    <n:div class="form-group">
+                        <n:label class="col-sm-4 control-label">Request Date</n:label>
+                        <n:div class="col-sm-8">
+                            <datebox value="@load(vm.form.request.requestDate)" format="@load(vm.standardDateTimeFormat)"
+                                     placeholder="" readonly="true" width="100%" disabled="true"/>
+                        </n:div>
+                        <n:div class="clearfix"></n:div>
+                    </n:div>
+                    <n:div class="form-group">
+                        <n:label class="col-sm-4 control-label">Request Status</n:label>
+                        <n:div class="col-sm-8">
+                            <textbox value="@load(vm.form.request.status.name)"
+                                    sclass="form-control" placeholder="" readonly="true"/>
+                        </n:div>
+                        <n:div class="clearfix"></n:div>
+                    </n:div>
+                    <n:div class="form-group">
+                        <n:label class="col-sm-4 control-label">* Request Priority</n:label>
+                        <n:div class="col-sm-8">
+                            <combobox model="@load(vm.requestPriorities)" width="100%" id="cbLeaveType"
+                                      selectedItem="@save(vm.form.request.priority, before = 'submit') @validator('beanValidator', key = 'priority')" value="@load(vm.form.request.priority.name)">
+                                <template name="model">
+                                    <comboitem label="@load(each.name)"/>
+                                </template>
+                            </combobox>
+                            <label zclass="none" sclass="text-red" value="@load(vmsgs['priority'])"/>
+                        </n:div>
+                        <n:div class="clearfix"></n:div>
+                    </n:div>
+                </n:div>
+            </n:div>
+        </n:div>
+    </n:div>
+</zk>

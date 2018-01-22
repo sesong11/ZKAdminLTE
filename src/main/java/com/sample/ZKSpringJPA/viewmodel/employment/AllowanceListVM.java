@@ -9,6 +9,7 @@ import com.sample.ZKSpringJPA.services.employment.BranchService;
 import com.sample.ZKSpringJPA.utils.Frequency;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
 import com.sample.ZKSpringJPA.utils.Unit;
+import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
@@ -17,19 +18,20 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zsoup.helper.StringUtil;
 import org.zkoss.zul.ListModelList;
 
 import java.util.List;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 @Feature(
-        view = "/view/employment/allowancelist.zul",
-        uuid = "allowancelist",
+        view = "/view/employment/allowance-list.zul",
+        uuid = "allowance-list",
         menuOrder = "2.6",
         displayName = "Allowance List",
         menuIcon = "money"
 )
-public class AllowanceListVM {
+public class AllowanceListVM extends ListPagingVM {
 
     //region > Inject Service
     @WireVariable
@@ -66,8 +68,9 @@ public class AllowanceListVM {
     //region > Constructor
     @Init
     public void init(){
-        allowances = new ListModelList<>(allowanceService.findAll());
+        allowances = new ListModelList<>(allowanceService.findPaging(0, getPageSize()));
         allowance = new Allowance();
+        setTotalSize(allowanceService.count());
     }
     //endregion
 
@@ -103,6 +106,20 @@ public class AllowanceListVM {
     @NotifyChange({"allowance"})
     public void select(@BindingParam("allowance") final Allowance allowance){
         this.allowance = allowance;
+    }
+
+    @Override
+    public void research(int offset, int limit) {
+        if(StringUtil.isBlank(getFilter())) {
+            allowances = new ListModelList<>(allowanceService.findPaging(offset, limit));
+            setTotalSize(allowanceService.count());
+        }
+        else {
+            allowances = new ListModelList<>(allowanceService.findPaging(offset, limit, getFilter().toLowerCase(), getFilterBy()));
+            setTotalSize(allowanceService.count(getFilter().toLowerCase(), getFilterBy()));
+        }
+        postNotifyChange(this,"allowances");
+        postNotifyChange(this,"totalSize");
     }
     //endregion
 }

@@ -6,7 +6,7 @@
         <n:section class="content-header">
             <n:h1>
                 Employees
-                <n:small>create new</n:small>
+                <n:small></n:small>
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
@@ -29,22 +29,27 @@
                         <n:div class="tab-content">
                             <n:div class="tab-pane active" id="info">
                                 <n:div class="form-group">
-                                    <n:label>Text</n:label>
+                                    <n:label>* Code</n:label>
                                     <textbox sclass="form-control" placeholder="Code"
-                                    value="@bind(vm.employee.code)"/>
+                                             value="@bind(vm.employee.code)"/>
                                 </n:div>
                                 <n:div class="form-group">
-                                    <n:label>First Name</n:label>
+                                    <n:label>* First Name</n:label>
                                     <textbox sclass="form-control" placeholder="First Name"
-                                    value="@bind(vm.employee.firstName)"/>
+                                             value="@bind(vm.employee.firstName)"/>
                                 </n:div>
                                 <n:div class="form-group">
-                                    <n:label>Last Name</n:label>
+                                    <n:label>* Last Name</n:label>
                                     <textbox sclass="form-control" placeholder="Last Name"
-                                    value="@bind(vm.employee.lastName)"/>
+                                             value="@bind(vm.employee.lastName)"/>
                                 </n:div>
                                 <n:div class="form-group">
-                                    <n:label>Gender</n:label> <n:br />
+                                    <n:label>* Email</n:label>
+                                    <textbox sclass="form-control" placeholder="Email"
+                                             value="@bind(vm.employee.email)"/>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>* Gender</n:label> <n:br />
                                     <combobox model="@bind(vm.genders)" width="100%" selectedItem="@bind(vm.employee.gender)">
                                         <template name="item">
                                             <listitem label="${each}" />
@@ -52,9 +57,9 @@
                                     </combobox>
                                 </n:div>
                                 <n:div class="form-group">
-                                    <n:label>Date of Birth</n:label><n:br/>
+                                    <n:label>* Date of Birth</n:label><n:br/>
                                     <datebox width="100%" format="dd-MM-yyyy"
-                                    value="@bind(vm.employee.dob)"/>
+                                             value="@bind(vm.employee.dob)"/>
                                 </n:div>
                                 <n:div class="form-group">
                                     <n:label>Note</n:label><n:br/>
@@ -114,6 +119,9 @@
                                 <div visible="@load(vm.employee.user eq null)">
                                     <button onClick="@command('createUser')" label="Create User" />
                                 </div>
+                                <div visible="@load(vm.employee.user ne null)">
+                                    <button onClick="@command('resetPassword')" label="Reset Password"/>
+                                </div>
                             </n:div>
                             <!-- /.tab-pane -->
                         </n:div>
@@ -135,28 +143,28 @@
                         </n:ul>
                         <n:div class="tab-content">
                             <n:div class="tab-pane active" id="history">
-                                <grid zclass="none" height="auto" model="@load(vm.employee.employmentHistories)" sclass="table table-bordered table-responsive mailbox-messages"
+                                <grid zclass="none" height="auto" model="@load(vm.employee.employmentHistories)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                       emptyMessage="Nothing in Inbox.">
                                     <columns zclass="none">
                                         <column label="Id" zclass="none" width="50px"/>
-                                        <column label="Type" zclass="none" width="150px"/>
-                                        <column label="Active Date" zclass="none" width="120px"/>
-                                        <column label="Branch" zclass="none" width="120px"/>
-                                        <column label="Department" zclass="none" width="120px"/>
+                                        <column label="Type" zclass="none" width="120px"/>
+                                        <column label="Active Date" zclass="none" width="100px"/>
+                                        <column label="Branch" zclass="none" width="150px"/>
+                                        <column label="Department" zclass="none" width="150px"/>
                                         <column label="Designation" zclass="none" />
-                                        <column label="" width="50" zclass="none"/>
+                                        <column label="" width="100px" zclass="none"/>
                                     </columns>
                                     <template name="model">
                                         <row zclass="none" onClick="@command('selectHistory', item=each)">
-                                            <label value="@load(each.id)" />
-                                            <label value="@load(each.historyType.name)" />
-                                            <label value="@load(each.activeDate) @converter('formatedDate', format=vm.standardDateFormat)" />
-                                            <label value="@load(each.branch.name)" />
-                                            <label value="@load(each.department.name)" />
-                                            <label value="@load(each.designation.name)" />
-                                            <div>
-                                                <a onClick="@command('selectHistory', item = each)" sclass="pull-right text-blue margin"><n:i class="fa fa-edit"/></a>
-                                                <a onClick="@command('deleteHistory', item = each)" sclass="pull-right text-red margin"><n:i class="fa fa-trash"/></a>
+                                            <label zclass="none" value="@load(each.id)" />
+                                            <label zclass="none" value="@load(each.historyType.name)" />
+                                            <label zclass="none" value="@load(each.activeDate) @converter('formatedDate', format=vm.standardDateFormat)" />
+                                            <label zclass="none" value="@load(each.branch.name)" />
+                                            <label zclass="none" value="@load(each.department.name)" />
+                                            <label zclass="none" value="@load(each.designation.name)" />
+                                            <div zclass="none">
+                                                <a onClick="@command('selectHistory', item = each)" sclass="pull-right text-blue" style="padding: 0 8px 0 8px"><n:i class="fa fa-edit"/></a>
+                                                <a onClick="@command('deleteHistory', item = each)" sclass="pull-right text-red" style="padding: 0 8px 0 8px"><n:i class="fa fa-trash"/></a>
                                             </div>
                                         </row>
                                     </template>
@@ -168,17 +176,15 @@
                             </n:div>
                             <!-- /.tab-pane -->
                             <n:div class="tab-pane" id="allowance">
-                                <grid zclass="none" height="auto" model="@load(vm.employee.employeeAllowances)" sclass="table table-bordered table-responsive mailbox-messages"
+                                <grid zclass="none" height="auto" model="@load(vm.employee.employeeAllowances)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                       emptyMessage="Nothing in Inbox.">
                                     <columns sizable="true" zclass="none">
                                         <column zclass="none" label="Id" width="50px" />
                                         <column zclass="none" label="Active Date" width="100px"/>
-                                        <column zclass="none" label="Allowance Type" />
-                                        <column zclass="none" label="Allowance Balance" width="100px"/>
-                                        <column zclass="none" label="Accrual Balance" width="100px"/>
-                                        <column zclass="none" label="Existing Balance" width="100px"/>
-                                        <column zclass="none" label="Used Balance" width="100px"/>
-                                        <column zclass="none" label="" width="80px" />
+                                        <column zclass="none" label="Allowance Type"/>
+                                        <column zclass="none" label="Allowance Balance" width="150px"/>
+                                        <column zclass="none" label="Accrual Balance" width="150px"/>
+                                        <column zclass="none" label="" width="100px" />
                                     </columns>
                                     <template name="model">
                                         <row onClick="@command('selectAllowance', item=each)" zclass="none">
@@ -187,11 +193,9 @@
                                             <label zclass="none" value="@load(each.allowance.name)" />
                                             <label zclass="none" value="@load(each.allowanceBalance)" />
                                             <label zclass="none" value="@load(each.accrualBalance)" />
-                                            <label zclass="none" value="@load(each.existingBalance)" />
-                                            <label zclass="none" value="@load(each.usedBalance)" />
                                             <div zclass="none">
-                                                <a onClick="@command('selectAllowance', item = each)" sclass="pull-right text-blue margin"><n:i class="fa fa-edit"/></a>
-                                                <a onClick="@command('deleteAllowance', item = each)" sclass="pull-right text-red margin"><n:i class="fa fa-trash"/></a>
+                                                <a onClick="@command('selectAllowance', item = each)" sclass="pull-right text-blue" style="padding: 0 8px 0 8px"><n:i class="fa fa-edit"/></a>
+                                                <a onClick="@command('deleteAllowance', item = each)" sclass="pull-right text-red" style="padding: 0 8px 0 8px"><n:i class="fa fa-trash"/></a>
                                             </div>
                                         </row>
                                     </template>

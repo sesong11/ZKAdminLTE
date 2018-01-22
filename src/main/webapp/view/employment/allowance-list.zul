@@ -1,0 +1,225 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.AllowanceListVM')"
+         validationMessages="@id('vmsgs')">
+
+
+        <!-- Content Header (Page header) -->
+        <n:section class="content-header">
+            <n:h1>
+                All Allowance
+                <n:small></n:small>
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Employment</n:li>
+                <n:li class="active">Allowance List</n:li>
+            </n:ol>
+        </n:section>
+        <!-- Main content -->
+        <n:section class="content">
+            <!-- Main row -->
+            <n:div class="row">
+                <!-- Left col -->
+                <n:div class="col-md-9">
+                    <!-- TABLE: Users -->
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">All Allowances</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body no-padding">
+                            <n:div class="mailbox-controls">
+                                <n:div class="input-group input-group-sm">
+                                    <n:span class="padding">Page Size: </n:span>
+                                    <spinner sclass="padding" id="quantitySpinner" width="100px" value="@load(vm.pageSize)"
+                                             onChange="@command('changePageSize', size = self.value)"
+                                             format=",###" constraint="no empty,min 1, max 100" />
+
+                                    <n:span class="padding margin">Filter: </n:span>
+                                    <textbox id="txtFilter" type="text" onOK="@command('filter', filter = txtFilter.value, filterBy = 'name')"
+                                        value="@load(vm.filter)" placeholder="filter"/>
+                                        <n:span>
+                                    <a sclass="btn btn-info btn-flat" onClick="@command('filter', filter = txtFilter.value, filterBy = 'name')">
+                                        <n:i class="fa fa-filter"></n:i></a></n:span>
+                                    <n:span>
+                                        <a sclass="btn btn-danger btn-flat" onClick="@command('clearFilter')">
+                                            <n:i class="fa fa-remove"> Clear</n:i></a></n:span>
+                                </n:div>
+                            </n:div>
+                            <grid zclass="none" model="@load(vm.allowances)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
+                                  emptyMessage="Nothing in Inbox.">
+                                <columns zclass="none">
+                                    <column label="Id" zclass="none" width="50px"/>
+                                    <column label="Name" zclass="none"/>
+                                    <column label="Type" zclass="none"/>
+                                    <column label="End Balance" zclass="none"/>
+                                    <column label="Unit" zclass="none"/>
+                                    <column label="Start Balance" zclass="none"/>
+                                    <column label="Accrual Balance" zclass="none"/>
+                                    <column label="Frequency Accrual" zclass="none"/>
+                                    <column label="No Frequency Accrual" zclass="none"/>
+                                    <column label="Accrual On" zclass="none"/>
+                                    <column label="Frequency Renew" zclass="none"/>
+                                    <column label="No Frequency Renew" zclass="none"/>
+                                    <column label="Max Renewal" zclass="none"/>
+                                </columns>
+                                <template name="model">
+                                    <row zclass="none" onClick="@command('select', allowance=each)">
+                                        <label zclass="none" value="@load(each.id)" />
+                                        <label zclass="none" value="@load(each.name)" />
+                                        <label zclass="none" value="@load(each.allowanceType.name)" />
+                                        <label zclass="none" value="@load(each.endBalance)" />
+                                        <label zclass="none" value="@load(each.unit.name)" />
+                                        <label zclass="none" value="@load(each.startBalance)" />
+                                        <label zclass="none" value="@load(each.accrualBalance)" />
+                                        <label zclass="none" value="@load(each.frequencyAccrual.name)" />
+                                        <label zclass="none" value="@load(each.noFrequencyAccrual)" />
+                                        <label zclass="none" value="@load(each.accrualOn)" />
+                                        <label zclass="none" value="@load(each.frequencyRenew.name)" />
+                                        <label zclass="none" value="@load(each.noFrequencyRenew)" />
+                                        <label zclass="none" value="@load(each.maxRenewal)" />
+                                    </row>
+                                </template>
+                            </grid>
+                            <paging pageSize="@load(vm.pageSize)" onClick="@command('changeActivePage', index=self.activePage)"
+                                    mold="os" totalSize="@load(vm.totalSize)" activePage="@load(vm.activePage)" />
+                            <!-- /.col -->
+                        </n:div>
+                        <!-- /.table-responsive -->
+                        <n:div class="box-footer clearfix">
+
+                        </n:div>
+                        <!-- /.box-footer -->
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <n:div class="col-md-3">
+                    <n:div class="nav-tabs-custom">
+                        <n:ul class="nav nav-tabs">
+                            <n:li class="active"><n:a href="#general" data-toggle="tab" aria-expanded="true">General</n:a></n:li>
+                            <n:li class=""><n:a href="#accrual" data-toggle="tab" aria-expanded="false">Accrual</n:a></n:li>
+                            <n:li class=""><n:a href="#renewal" data-toggle="tab" aria-expanded="false">Renewal</n:a></n:li>
+                        </n:ul>
+                        <n:div class="tab-content">
+                            <n:div class="tab-pane active" id="general">
+                                <n:div class="form-group">
+                                    <n:label>Id</n:label>
+                                    <textbox value="@load(vm.allowance.id)" disabled="true"
+                                             type="text" sclass="form-control" id="txtUserId" placeholder="Id" />
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>Name</n:label>
+                                    <textbox value="@bind(vm.allowance.name)" type="text"
+                                             sclass="form-control" id="txtName" placeholder="Name" />
+                                </n:div>
+
+                                <n:div class="form-group">
+                                    <n:label>Allowance Type</n:label>
+                                    <combobox model="@load(vm.allowanceTypes)" width="100%" selectedItem="@bind(vm.allowance.allowanceType)"
+                                    value="@load(vm.allowance.allowanceType.name)">
+                                        <template name="model">
+                                            <comboitem label="${each.name}" value="${each}"/>
+                                        </template>
+                                    </combobox>
+                                </n:div>
+
+                                <n:div class="form-group">
+                                    <n:label>End Balance</n:label>
+                                    <doublebox value="@bind(vm.allowance.endBalance)" format="@load(vm.standardDoubleFormat)"
+                                             sclass="form-control" id="txtEndBalance" placeholder="End Balance" />
+                                </n:div>
+
+                                <n:div class="form-group">
+                                    <n:label>Allowance Type</n:label>
+                                    <combobox model="@load(vm.units)" width="100%" selectedItem="@bind(vm.allowance.unit)"
+                                              value="@load(vm.allowance.unit.name)">
+                                        <template name="model">
+                                            <comboitem label="${each.name}" value="${each}"/>
+                                        </template>
+                                    </combobox>
+                                </n:div>
+                            </n:div>
+                            <!-- /.tab-pane -->
+                            <n:div class="tab-pane" id="accrual">
+                                <n:div class="form-group">
+                                    <n:label>Start Balance</n:label>
+                                    <doublebox value="@bind(vm.allowance.startBalance)" format="@load(vm.standardDoubleFormat)"
+                                            sclass="form-control" id="txtStartBalance" placeholder="Start Balance" />
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>Accrual Balance</n:label>
+                                    <doublebox value="@bind(vm.allowance.accrualBalance)" format="@load(vm.standardDoubleFormat)"
+                                            sclass="form-control" id="txtAccrualBalance" placeholder="Accrual Balance" />
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>Frequency Accrual</n:label>
+                                    <combobox model="@load(vm.frequencyAccruals)" selectedItem="@bind(vm.allowance.frequencyAccrual)"
+                                              value="@load(vm.allowance.frequencyAccrual.name)">
+                                        <template name="model">
+                                            <comboitem label="${each.name}" value="${each}"/>
+                                        </template>
+                                    </combobox>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label>No Frequency Accrual</n:label>
+                                    <intbox value="@bind(vm.allowance.noFrequencyAccrual)"
+                                               sclass="form-control" id="txtNoFrequencyAccrual" placeholder="No Frequency Accrual" />
+                                </n:div>
+
+                                <n:div class="form-group">
+                                    <n:label>Accrual On</n:label>
+                                    <doublebox value="@bind(vm.allowance.accrualOn)"
+                                               sclass="form-control" id="txtAccrualOn" placeholder="Accrual On" />
+                                </n:div>
+                            </n:div>
+                            <!-- /.tab-pane -->
+                            <n:div class="tab-pane" id="renewal">
+                                <n:div class="form-group">
+                                    <n:label>Frequency Renewal</n:label>
+                                    <combobox model="@load(vm.frequencyRenewals)" selectedItem="@bind(vm.allowance.frequencyRenew)"
+                                              value="@load(vm.allowance.frequencyRenew.name)">
+                                        <template name="model">
+                                            <comboitem label="${each.name}" value="${each}"/>
+                                        </template>
+                                    </combobox>
+                                </n:div>
+
+                                <n:div class="form-group">
+                                    <n:label>No Frequency Renewal</n:label>
+                                    <intbox value="@bind(vm.allowance.noFrequencyRenew)"
+                                            sclass="form-control" id="txtNoFrequencyRenewal" placeholder="No Frequency Renewal" />
+                                </n:div>
+
+                                <n:div class="form-group">
+                                    <n:label>Max Renewal</n:label>
+                                    <intbox value="@bind(vm.allowance.maxRenewal)"
+                                            sclass="form-control" id="txtMaxRenewal" placeholder="Max Renewal" />
+                                </n:div>
+                            </n:div>
+                            <!-- /.tab-pane -->
+                        </n:div>
+                        <!-- /.tab-content -->
+                        <n:div class="box-footer clearfix">
+                            <a visible="@load(vm.allowance.id eq 0 || vm.allowance.id eq null)"
+                               onClick="@command('create')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Create</a>
+                            <a visible="@load(vm.allowance.id eq 0 || vm.allowance.id eq null)" onClick="@command('cancel')" sclass="btn btn-sm btn-default btn-flat pull-left margin">Clear</a>
+                            <a visible="@load(!(vm.allowance.id eq 0 || vm.allowance.id eq null))" onClick="@command('update')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update</a>
+                            <a visible="@load(!(vm.allowance.id eq 0 || vm.allowance.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete</a>
+                            <a visible="@load(!(vm.allowance.id eq 0 || vm.allowance.id eq null))"
+                               onClick="@command('cancel')"
+                               sclass="btn btn-sm btn-default btn-flat pull-left margin">Cancel</a>
+                        </n:div>
+                    </n:div>
+                </n:div>
+                <!-- /.box -->
+            </n:div>
+        </n:section>
+        <!-- /.content -->
+    </div>
+</zk>

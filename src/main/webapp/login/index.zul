@@ -1,6 +1,7 @@
 <?meta charset="utf-8"?>
 <?meta http-equiv="X-UA-Compatible" content="IE=edge"?>
-<?page title="AdminLTE 2 | Log in" ?>
+<?page title="Phillip Centre | Log in" ?>
+<?link rel="icon" href="../favicon.ico" type="image/x-icon" ?>
 <!-- Tell the browser to be responsive to screen width -->
 <?meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"?>
 <!-- Bootstrap 3.3.7 -->
@@ -22,59 +23,45 @@
 <![endif]-->
 
 <!-- Google Font -->
-<?link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"?>
+<?link rel="stylesheet" href="../adminlte/googlefont/googlefont.css"?>
 
 <zk xmlns:n="native">
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
          viewModel="@id('vm') @init('com.sample.ZKSpringJPA.LoginVM')"
-         validationMessages="@id('vmsgs')">
-    <n:div class="login-box">
-        <n:div class="login-logo">
-            <n:a href="../../index2.html"><n:b>Admin</n:b>LTE</n:a>
-        </n:div>
-        <!-- /.login-logo -->
-        <n:div class="login-box-body">
-            <n:p class="login-box-msg">Sign in to start your session</n:p>
+         validationMessages="@id('vmsgs')" visible="@bind(!vm.authenticated)">
 
-
-                <n:div class="form-group has-feedback">
-                    <textbox type="text" sclass="form-control" placeholder="Username" value="@bind(vm.username)" />
-                    <n:span class="glyphicon glyphicon-user form-control-feedback"></n:span>
-                </n:div>
-                <n:div class="form-group has-feedback">
-                    <textbox type="password" sclass="form-control" placeholder="Password" value="@bind(vm.password)"/>
-                    <n:span class="glyphicon glyphicon-lock form-control-feedback"></n:span>
-                </n:div>
-                <n:div class="row">
-                    <n:div class="col-xs-8">
-                        <n:div class="checkbox icheck">
-                            <n:label>
-                                <n:input type="checkbox" /> Remember Me
-                            </n:label>
-                        </n:div>
-                    </n:div>
-                    <!-- /.col -->
-                    <n:div class="col-xs-4">
-                        <button type="submit" sclass="btn btn-primary btn-block btn-flat" onClick="@command('login')">Sign In</button>
-                    </n:div>
-                    <!-- /.col -->
-                </n:div>
-
-
-            <n:div class="social-auth-links text-center">
-                <n:p>- OR -</n:p>
-                <n:a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><n:i class="fa fa-facebook"></n:i> Sign in using
-                    Facebook</n:a>
-                <n:a href="#" class="btn btn-block btn-social btn-google btn-flat"><n:i class="fa fa-google-plus"></n:i> Sign in using
-                    Google+</n:a>
+        <n:div class="login-box">
+            <n:div class="login-logo">
+                <n:img src="phillip-logo.png" />
+                <!--<n:a href="."><n:b>Phillip</n:b>Bank</n:a>-->
             </n:div>
-            <!-- /.social-auth-links -->
+            <!-- /.login-logo -->
+            <n:div class="login-box-body">
+                <n:p class="login-box-msg">Sign in to start your session</n:p>
 
-            <n:a href="#">I forgot my password</n:a><n:br />
-            <n:a href="../register" class="text-center">Register a new membership</n:a>
+
+                    <n:div class="form-group has-feedback">
+                        <textbox type="text" sclass="form-control" placeholder="Username" value="@bind(vm.username)" />
+                        <n:span class="glyphicon glyphicon-user form-control-feedback"></n:span>
+                    </n:div>
+                    <n:div class="form-group has-feedback">
+                        <textbox onOK="@command('login')" type="password" sclass="form-control" placeholder="Password" value="@bind(vm.password)"/>
+                        <n:span class="glyphicon glyphicon-lock form-control-feedback"></n:span>
+                        <label zclass="none" sclass="text-red" value="@load(vm.message)" />
+                    </n:div>
+
+                    <n:div class="row">
+                        <!-- /.col -->
+                        <n:div class="col-xs-4">
+                            <button type="submit" sclass="btn btn-primary btn-block btn-flat" onClick="@command('login')">Sign In</button>
+                        </n:div>
+                        <!-- /.col -->
+                    </n:div>
+                <!--<n:a href="#">I forgot my password</n:a><n:br />-->
+                <!--<n:a href="../register" class="text-center">Register a new membership</n:a>-->
+            </n:div>
+            <!-- /.login-box-body -->
         </n:div>
-        <!-- /.login-box-body -->
-    </n:div>
     </div>
     <!-- jQuery 3 -->
     <script src="../adminlte/bower_components/jquery/dist/jquery.min.js"></script>

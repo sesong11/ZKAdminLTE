@@ -10,4 +10,8 @@ public interface AllowanceService {
     Allowance create(Allowance allowance);
     Allowance update(Allowance allowance);
     void delete(Allowance allowance);
+    int count();
+    List<Allowance> findPaging(int offset, int limit);
+    int count(final String filter, final String filterBy);
+    List<Allowance> findPaging(int offset, int limit, final String filter, final String filterBy);
 }

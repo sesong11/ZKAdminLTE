@@ -1,0 +1,109 @@
+<zk xmlns:n="native">
+    <window id="modalDialog" title="Employees" border="normal" width="920px" height="90%" maximizable="true"
+            position="center,center" closable="true" sizable="true" contentStyle="overflow-y: auto;padding: 0"
+            viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.component.EmployeeSelectorVM')"
+            onCancel="@command('closeThis')">
+                <n:div class="mailbox-controls">
+                    <n:div class="row" style="margin-bottom: 8px">
+                        <n:div class="input-group-sm col-sm-2 text-right">
+                            <n:span class="">Gender: </n:span>
+                        </n:div>
+                        <n:div class="input-group-sm col-sm-4">
+                            <combobox model="@load(vm.genders)" selectedItem="@bind(vm.gender)" value="@load(vm.gender.name)"
+                                      onChange="@command('filter', filter = txtFilter.value, filterBy = optFilterBy.selectedItem.value)">
+                                <template name="item">
+                                    <listitem label="${each.name}" />
+                                </template>
+                            </combobox>
+                        </n:div>
+                        <n:div class="input-group-sm col-sm-2 text-right">
+                            <n:span>Branch: </n:span>
+                        </n:div>
+                        <n:div class="input-group-sm col-sm-4">
+                            <combobox model="@load(vm.branches)" selectedItem="@bind(vm.branch)"
+                                      value="@load(vm.branch.name)"
+                                      onChange="@command('filter', filter = txtFilter.value, filterBy = optFilterBy.selectedItem.value)">
+                                <template name="model">
+                                    <comboitem label="@load(each.name)"/>
+                                </template>
+                            </combobox>
+                        </n:div>
+                    </n:div>
+                    <n:div class="row">
+                        <n:div class="input-group-sm col-md-2 text-right">
+                            <n:span>Department: </n:span>
+                        </n:div>
+                        <n:div class="input-group-sm col-md-4">
+                            <combobox model="@load(vm.departments)" selectedItem="@bind(vm.department)"
+                                      value="@load(vm.department.name)"
+                                      onChange="@command('filter', filter = txtFilter.value, filterBy = optFilterBy.selectedItem.value)">
+                                <template name="model">
+                                    <comboitem label="@load(each.name)"/>
+                                </template>
+                            </combobox>
+                        </n:div>
+                        <n:div class="input-group-sm col-md-2 text-right">
+                            <n:span>Designation: </n:span>
+                        </n:div>
+                        <n:div class="input-group-sm col-md-4">
+                            <combobox model="@load(vm.designations)" selectedItem="@bind(vm.designation)"
+                                      value="@load(vm.designation.name)"
+                                      onChange="@command('filter', filter = txtFilter.value, filterBy = optFilterBy.selectedItem.value)">
+                                <template name="model">
+                                    <comboitem label="@load(each.name)"/>
+                                </template>
+                            </combobox>
+                        </n:div>
+                    </n:div>
+                </n:div>
+                <n:div class="mailbox-controls" style="background: #f2f2f2;">
+
+                    <n:div class="input-group input-group-sm">
+                        <n:span class="padding">Page Size: </n:span>
+                        <spinner id="quantitySpinner" width="100px" value="@load(vm.pageSize)"
+                                 onChange="@command('changePageSize', size = self.value)"
+                                 format=",###" constraint="no empty,min 1, max 100" />
+
+                        <n:span class="padding margin">Filter: </n:span>
+                        <textbox id="txtFilter" type="text" onOK="@command('filter', filter = self.value, filterBy = optFilterBy.selectedItem.value)"
+                                 value="@load(vm.filter)" placeholder="filter"/>
+                        <n:span>
+                            <a sclass="btn btn-info btn-flat" onClick="@command('filter', filter = txtFilter.value, filterBy = optFilterBy.selectedItem.value)">
+                                <n:i class="fa fa-filter"></n:i></a></n:span>
+
+                        <n:span class="padding margin">Filter By: </n:span>
+                        <radiogroup zclass="none" id="optFilterBy" onCheck="@command('filter', filter = txtFilter.value, filterBy = self.selectedItem.value)">
+                            <radio zclass="none" sclass="margin" id="optFilterCode" label="Code" radiogroup="optFilterBy" value="code" checked="true"/>
+                            <radio zclass="none" sclass="margin " id="optFilterByName" label="Full Name" radiogroup="optFilterBy" value="fullName" />
+                        </radiogroup>
+                        <n:span>
+                            <a sclass="btn btn-danger btn-flat" onClick="@command('clearFilter')">
+                                <n:i class="fa fa-remove"> Clear</n:i></a></n:span>
+                    </n:div>
+
+                </n:div>
+                <listbox model="@load(vm.employees)" sclass="table table-bordered table-responsive table-hover mailbox-messages"
+                         emptyMessage="Nothing in Inbox." zclass="none">
+                    <listhead sizable="true" zclass="none">
+                        <listheader zclass="none" label="Code" width="80px"/>
+                        <listheader zclass="none" label="Full Name" width="120px"/>
+                        <listheader zclass="none" label="Gender" width="60px"/>
+                        <listheader zclass="none" label="Branch" width="200px"/>
+                        <listheader zclass="none" label="Department" width="150px"/>
+                        <listheader zclass="none" label="Designation" />
+                    </listhead>
+                    <template name="model">
+                        <listitem onClick="@command('select', item = each)" zclass="none">
+                            <listcell zclass="none" label="@load(each.code)" />
+                            <listcell zclass="none" label="@load(each.fullName)" />
+                            <listcell zclass="none" label="@load(each.gender.name)" />
+                            <listcell zclass="none" label="@load(each.branch.name)" />
+                            <listcell zclass="none" label="@load(each.department.name)" />
+                            <listcell zclass="none" label="@load(each.designation.name)" />
+                        </listitem>
+                    </template>
+                </listbox>
+            <paging pageSize="@load(vm.pageSize)" onClick="@command('changeActivePage', index=self.activePage)"
+                mold="os" totalSize="@load(vm.totalSize)" activePage="@load(vm.activePage)" />
+    </window>
+</zk>

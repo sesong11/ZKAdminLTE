@@ -1,0 +1,122 @@
+<zk xmlns:n="native">
+    <div zclass="none" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.BranchListVM')"
+         validationMessages="@id('vmsgs')">
+
+
+        <!-- Content Header (Page header) -->
+        <n:section class="content-header">
+            <n:h1>
+                All Branch
+                <n:small>preview</n:small>
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Employment</n:li>
+                <n:li class="active">Branch List</n:li>
+            </n:ol>
+        </n:section>
+        <!-- Main content -->
+        <n:section class="content">
+            <!-- Main row -->
+            <n:div class="row">
+                <!-- Left col -->
+                <n:div class="col-md-8">
+                    <!-- TABLE: Users -->
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">All Branches</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body no-padding">
+                            <n:div class="mailbox-controls">
+                                <n:div class="input-group input-group-sm">
+                                    <n:span class="padding">Page Size: </n:span>
+                                    <spinner sclass="padding" id="quantitySpinner" width="100px" value="@load(vm.pageSize)"
+                                             onChange="@command('changePageSize', size = self.value)"
+                                             format=",###" constraint="no empty,min 1, max 100" />
+
+                                    <n:span class="padding margin">Filter: </n:span>
+                                    <textbox id="txtFilter" type="text" onOK="@command('filter', filter = txtFilter.value, filterBy = 'name')"
+                                             value="@load(vm.filter)" placeholder="filter"/>
+                                    <n:span>
+                                        <a sclass="btn btn-info btn-flat" onClick="@command('filter', filter = txtFilter.value, filterBy = 'name')">
+                                            <n:i class="fa fa-filter"></n:i></a></n:span>
+                                    <n:span>
+                                        <a sclass="btn btn-danger btn-flat" onClick="@command('clearFilter')">
+                                            <n:i class="fa fa-remove"> Clear</n:i></a></n:span>
+                                </n:div>
+                            </n:div>
+                            <grid zclass="none" model="@load(vm.branches)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
+                                  emptyMessage="Nothing in Inbox.">
+                                <columns zclass="none">
+                                    <column label="Id" zclass="none" width="50px"/>
+                                    <column label="Name" zclass="none"/>
+                                </columns>
+                                <template name="model">
+                                    <row zclass="none" onClick="@command('select', branch=each)">
+                                        <label value="@load(each.id)" />
+                                        <label value="@load(each.name)" />
+                                    </row>
+                                </template>
+                            </grid>
+                            <paging pageSize="@load(vm.pageSize)" onClick="@command('changeActivePage', index=self.activePage)"
+                                    mold="os" totalSize="@load(vm.totalSize)" activePage="@load(vm.activePage)" />
+
+                            <!-- /.col -->
+                        </n:div>
+                        <!-- /.table-responsive -->
+                        <n:div class="box-footer clearfix">
+
+                        </n:div>
+                        <!-- /.box-footer -->
+                    </n:div>
+                    <!-- /.box-body -->
+                </n:div>
+                <!-- /.box -->
+                <n:div class="col-md-4">
+                    <!-- TABLE: Users -->
+                    <n:div class="box box-info">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Editor</n:h3>
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
+                                </n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body">
+                            <n:div class="form-group">
+                                <n:label>Id</n:label>
+                                <textbox value="@load(vm.branch.id)" disabled="true"
+                                         type="text" sclass="form-control" id="txtUserId" placeholder="Id" />
+                            </n:div>
+                            <n:div class="form-group">
+                                <n:label>Name</n:label>
+                                <textbox value="@bind(vm.branch.name)" type="text"
+                                         sclass="form-control" id="txtUsername" placeholder="Name" />
+                            </n:div>
+
+                            <n:div class="form-group">
+                                <a visible="@load(vm.branch.id eq 0 || vm.branch.id eq null)"
+                                   onClick="@command('create')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Create Branch</a>
+                                <a visible="@load(vm.branch.id eq 0 || vm.branch.id eq null)" onClick="@command('cancel')" sclass="btn btn-sm btn-default btn-flat pull-left margin">Clear</a>
+                                <a visible="@load(!(vm.branch.id eq 0 || vm.branch.id eq null))" onClick="@command('update')" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update</a>
+                                <a visible="@load(!(vm.branch.id eq 0 || vm.branch.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete</a>
+                                <a visible="@load(!(vm.branch.id eq 0 || vm.branch.id eq null))"
+                                   onClick="@command('cancel')"
+                                   sclass="btn btn-sm btn-default btn-flat pull-left margin">Cancel</a>
+                            </n:div>
+                        </n:div>
+                    </n:div>
+                </n:div>
+            </n:div>
+        </n:section>
+        <!-- /.content -->
+    </div>
+</zk>

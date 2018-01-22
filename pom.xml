@@ -2,20 +2,24 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sample.ZKSpringJPA</groupId>
-	<artifactId>ZKSpringJPA</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<artifactId>PhillipCentre</artifactId>
+	<version>1.0.1</version>
 	<properties>
 		<zk.version>8.5.0</zk.version>
 		<spring.version>5.0.0.RELEASE</spring.version>
 		<hibernate.version>5.0.0.Final</hibernate.version>
+		<bean.validation.api.version>2.0.0.Final</bean.validation.api.version>
+		<hibernate.validation.version>6.0.7.Final</hibernate.validation.version>
+		<postgresql.version>42.1.4</postgresql.version>
+		<log4j.version>1.7.25</log4j.version>
 		<commons-io>2.6</commons-io>
 		<commons-logging>1.1.1</commons-logging>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-${project.version}-FL-${maven.build.timestamp}</packname>
 	</properties>
 	<packaging>war</packaging>
-	<name>The ZKSpringJPA Project</name>
-	<description>The ZKSpringJPA Project</description>
+	<name>PhillipCentre-${project.version}</name>
+	<description>Phillip Bank Application</description>
 	<licenses>
 		<license>
 			<name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3</name>
@@ -101,6 +105,7 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
@@ -123,6 +128,22 @@
 	  		<artifactId>hibernate-entitymanager</artifactId>
 	  		<version>${hibernate.version}</version>
 	  	</dependency>
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate.validation.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>${bean.validation.api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
@@ -147,7 +168,22 @@
 			<version>2.9.9</version>
 		</dependency>
 
-
+		<!-- Validator -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.microsoft.ews-java-api</groupId>
+			<artifactId>ews-java-api</artifactId>
+			<version>2.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

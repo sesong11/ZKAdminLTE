@@ -12,7 +12,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Repository
-public class AllowanceDao extends CrudRepository {
+public class AllowanceDao extends CrudRepository<Allowance> {
     @PersistenceContext
     private EntityManager em;
 

@@ -2,15 +2,18 @@ package com.sample.ZKSpringJPA.viewmodel.employment;
 
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.employment.DayOff;
+import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.services.employment.DayOffService;
 import com.sample.ZKSpringJPA.utils.StandardFormat;
 
+import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zsoup.helper.StringUtil;
 import org.zkoss.zul.ListModelList;
 
 import lombok.Getter;
@@ -21,10 +24,10 @@ import lombok.Setter;
         view = "/view/employment/dayofflist.zul",
         uuid = "dayofflist",
         menuOrder = "2.5",
-        displayName = "Days Off List",
+        displayName = "Holidays",
         menuIcon = "id-card"
 )
-public class DayoffListVM {
+public class DayoffListVM extends ListPagingVM {
 
     //region > Inject Service
     @WireVariable
@@ -48,8 +51,9 @@ public class DayoffListVM {
     //region > Constructor
     @Init
     public void init(){
-        dayOffs = new ListModelList<>(dayOffService.findAll());
+        dayOffs = new ListModelList<>(dayOffService.findPaging(0, getPageSize()));
         dayOff = new DayOff();
+        setTotalSize(dayOffService.count());
     }
     //endregion
 
@@ -85,6 +89,20 @@ public class DayoffListVM {
     @NotifyChange({"dayOff"})
     public void select(@BindingParam("dayOff") final DayOff dayOff){
         this.dayOff = dayOff;
+    }
+
+    @Override
+    public void research(int offset, int limit) {
+        if(StringUtil.isBlank(getFilter())) {
+            dayOffs = new ListModelList<>(dayOffService.findPaging(offset, limit));
+            setTotalSize(dayOffService.count());
+        }
+        else {
+            dayOffs = new ListModelList<>(dayOffService.findPaging(offset, limit, getFilter().toLowerCase(), getFilterBy()));
+            setTotalSize(dayOffService.count(getFilter().toLowerCase(), getFilterBy()));
+        }
+        postNotifyChange(this,"dayOffs");
+        postNotifyChange(this,"totalSize");
     }
     //endregion
 }

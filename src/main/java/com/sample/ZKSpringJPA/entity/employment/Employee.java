@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -14,7 +15,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 @Entity
-@Table(name="employee")
+@Table(name="employee", schema = "employment")
 public class Employee implements Serializable, Cloneable{
 
     //region > Fields
@@ -50,6 +51,10 @@ public class Employee implements Serializable, Cloneable{
     private String note;
 
     @Getter @Setter
+    @Column(name = "email", length = 2055)
+    private String email;
+
+    @Getter @Setter
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
     @OrderBy("id")
     private SortedSet<EmploymentHistory> employmentHistories;
@@ -78,8 +83,9 @@ public class Employee implements Serializable, Cloneable{
         if(id == null) {
             if(other.id != null)
                 return false;
-        } else if(!id.equals(other.id))
+        } else if(!id.equals(other.id)) {
             return false;
+        }
         return true;
     }
 
@@ -97,7 +103,6 @@ public class Employee implements Serializable, Cloneable{
         return employmentHistories!=null?
                 employmentHistories.stream()
                         .filter(h -> h.getActiveDate().compareTo(new java.util.Date())<=0)
-                        //.sorted((h1, h2) -> h1.getFromDate().compareTo(h2.getFromDate()))
                         .sorted(Comparator.comparing(EmploymentHistory::getActiveDate).reversed())
                         .findFirst().orElse(null)
                 :null;
@@ -141,6 +146,7 @@ public class Employee implements Serializable, Cloneable{
         return employmentHistory!=null?employmentHistory.getActiveDate():null;
     }
 
+    @NotEmpty(message = "You can't leave this empty.")
     public String getFullName(){
         return getLastName() + " " + getFirstName();
     }
@@ -154,6 +160,10 @@ public class Employee implements Serializable, Cloneable{
 
     public void removeAllowance(final EmployeeAllowance employeeAllowance){
         employeeAllowances.remove(employeeAllowance);
+    }
+
+    public String getFullNameWithTitle() {
+        return (getGender() == Gender.MALE ? "Mr. " : "Ms. ") + getFullName();
     }
     //endregion
 }

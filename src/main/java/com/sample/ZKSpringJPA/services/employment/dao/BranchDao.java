@@ -11,7 +11,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Repository
-public class BranchDao extends CrudRepository {
+public class BranchDao extends CrudRepository<Branch> {
     @PersistenceContext
     private EntityManager em;
 

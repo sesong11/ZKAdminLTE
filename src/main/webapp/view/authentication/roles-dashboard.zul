@@ -12,7 +12,7 @@
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
-                <n:li class="active">Dashboard</n:li>
+                <n:li class="active">Admin Dashboard</n:li>
                 <n:li class="active">Roles Dashboard</n:li>
             </n:ol>
         </n:section>
@@ -37,7 +37,7 @@
                                 <!-- /.box-header -->
                                 <n:div class="box-body">
 
-                                    <grid zclass="none" height="350px" model="@load(vm.roles)" sclass="table table-bordered"
+                                    <grid zclass="none" height="350px" model="@load(vm.roles)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                           emptyMessage="Nothing in Inbox.">
                                         <columns zclass="none">
                                             <column label="Id" zclass="none" width="50px"/>
@@ -77,7 +77,7 @@
                                         </n:div>
                                         <!-- /.box-header -->
                                         <n:div class="box-body">
-                                            <grid id="gridPermission" zclass="none" height="350px" model="@load(vm.permissions)" sclass="table table-bordered"
+                                            <grid id="gridPermission" zclass="none" height="350px" model="@load(vm.permissions)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                                   emptyMessage="Nothing in Inbox.">
                                                 <columns zclass="none">
                                                     <column label="" zclass="none" width="50px"/>
@@ -109,7 +109,7 @@
                                         </n:div>
                                         <!-- /.box-header -->
                                         <n:div class="box-body">
-                                            <grid id="gridRolePermission" zclass="none" height="350px" model="@load(vm.role.permissions)" sclass="table table-bordered"
+                                            <grid id="gridRolePermission" zclass="none" height="350px" model="@load(vm.role.permissions)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                                   emptyMessage="Nothing in Inbox.">
                                                 <columns zclass="none">
                                                     <column width="50px" label="" zclass="none"/>
@@ -162,10 +162,10 @@
                                 <a visible="@load(vm.role.id eq 0 || vm.role.id eq null)"
                                    onClick="@command('create',
                                    name = txtName.value)"
-                                   sclass="btn btn-sm btn-info btn-flat pull-right margin">Create Create</a>
+                                   sclass="btn btn-sm btn-info btn-flat pull-right margin">Create</a>
                                 <a visible="@load(vm.role.id eq 0 || vm.role.id eq null)" onClick="@command('cancel')" sclass="btn btn-sm btn-default btn-flat pull-left margin">Clear</a>
-                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('update', name = txtName.value)" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update User</a>
-                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete User</a>
+                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('update', name = txtName.value)" sclass="btn btn-sm btn-info btn-flat pull-right margin">Update</a>
+                                <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))" onClick="@command('delete')" sclass="btn btn-sm btn-danger btn-flat pull-right margin">Delete</a>
                                 <a visible="@load(!(vm.role.id eq 0 || vm.role.id eq null))"
                                    onClick="@command('cancel')"
                                    sclass="btn btn-sm btn-default btn-flat pull-left margin">Cancel</a>
@@ -187,12 +187,12 @@
                                 </n:div>
                                 <!-- /.box-header -->
                                 <n:div class="box-body">
-                                    <grid zclass="none" height="350px" model="@load(vm.role.users)" sclass="table table-bordered"
+                                    <grid zclass="none" height="350px" model="@load(vm.role.users)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                           emptyMessage="Nothing in Inbox.">
                                         <columns zclass="none">
                                             <column label="Id" zclass="none" width="50px"/>
                                             <column label="Username" width="120px" zclass="none"/>
-                                            <column label="Enabled" width="80px" zclass="none"/>
+                                            <column label="Enabled" zclass="none"/>
                                         </columns>
                                         <template name="model">
                                             <row zclass="none">

@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "dayoff")
+@Table(name = "dayoff", schema = "employment")
 public class DayOff {
     //region > Field
     @Id

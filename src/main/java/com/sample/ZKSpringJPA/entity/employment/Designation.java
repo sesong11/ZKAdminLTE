@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "designation")
+@Table(name = "designation", schema = "employment")
 public class Designation implements Serializable, Cloneable{
 
     //region > Fields

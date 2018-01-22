@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name="employee_history")
+@Table(name="employee_history", schema = "employment")
 public class EmploymentHistory implements Serializable, Cloneable, Comparable<EmploymentHistory> {
 
     //region > Field

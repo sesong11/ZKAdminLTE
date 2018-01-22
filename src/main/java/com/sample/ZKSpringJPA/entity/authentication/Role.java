@@ -1,6 +1,5 @@
 package com.sample.ZKSpringJPA.entity.authentication;
 
-import com.sample.ZKSpringJPA.utils.TableSchemas;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="roles")
+@Table(schema = "sec", name="roles")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

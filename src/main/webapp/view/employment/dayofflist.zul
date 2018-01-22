@@ -7,13 +7,13 @@
         <!-- Content Header (Page header) -->
         <n:section class="content-header">
             <n:h1>
-                All Days Off
-                <n:small>preview</n:small>
+                Holidays
+                <n:small></n:small>
             </n:h1>
             <n:ol class="breadcrumb">
                 <n:li><n:a href="#"><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
                 <n:li class="active">Employment</n:li>
-                <n:li class="active">Days Off List</n:li>
+                <n:li class="active">Holidays</n:li>
             </n:ol>
         </n:section>
         <!-- Main content -->
@@ -25,7 +25,7 @@
                     <!-- TABLE: Users -->
                     <n:div class="box box-info">
                         <n:div class="box-header with-border">
-                            <n:h3 class="box-title">All Days Off</n:h3>
+                            <n:h3 class="box-title">Holidays</n:h3>
 
                             <n:div class="box-tools pull-right">
                                 <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i>
@@ -33,9 +33,26 @@
                             </n:div>
                         </n:div>
                         <!-- /.box-header -->
-                        <n:div class="box-body">
+                        <n:div class="box-body no-padding">
+                            <n:div class="mailbox-controls">
+                                <n:div class="input-group input-group-sm">
+                                    <n:span class="padding">Page Size: </n:span>
+                                    <spinner sclass="padding" id="quantitySpinner" width="100px" value="@load(vm.pageSize)"
+                                             onChange="@command('changePageSize', size = self.value)"
+                                             format=",###" constraint="no empty,min 1, max 100" />
 
-                            <grid zclass="none" height="350px" model="@load(vm.dayOffs)" sclass="table table-bordered"
+                                    <n:span class="padding margin">Filter: </n:span>
+                                    <textbox id="txtFilter" type="text" onOK="@command('filter', filter = txtFilter.value, filterBy = 'name')"
+                                             value="@load(vm.filter)" placeholder="filter"/>
+                                    <n:span>
+                                        <a sclass="btn btn-info btn-flat" onClick="@command('filter', filter = txtFilter.value, filterBy = 'name')">
+                                            <n:i class="fa fa-filter"></n:i></a></n:span>
+                                    <n:span>
+                                        <a sclass="btn btn-danger btn-flat" onClick="@command('clearFilter')">
+                                            <n:i class="fa fa-remove"> Clear</n:i></a></n:span>
+                                </n:div>
+                            </n:div>
+                            <grid zclass="none" model="@load(vm.dayOffs)" sclass="table table-bordered table-responsive mailbox-messages table-hover"
                                   emptyMessage="Nothing in Inbox.">
                                 <columns zclass="none">
                                     <column label="Id" zclass="none" width="50px"/>
@@ -44,13 +61,14 @@
                                 </columns>
                                 <template name="model">
                                     <row zclass="none" onClick="@command('select', dayOff=each)">
-                                        <label value="@load(each.id)" />
-                                        <label value="@load(each.date) @converter('formattedDate', format=vm.standardDateFormat)" />
-                                        <label value="@load(each.name)" />
+                                        <label zclass="none" value="@load(each.id)" />
+                                        <label zclass="none" value="@load(each.date) @converter('formattedDate', format=vm.standardDateFormat)" />
+                                        <label zclass="none" value="@load(each.name)" />
                                     </row>
                                 </template>
                             </grid>
-
+                            <paging pageSize="@load(vm.pageSize)" onClick="@command('changeActivePage', index=self.activePage)"
+                                    mold="os" totalSize="@load(vm.totalSize)" activePage="@load(vm.activePage)" />
 
                             <!-- /.col -->
                         </n:div>

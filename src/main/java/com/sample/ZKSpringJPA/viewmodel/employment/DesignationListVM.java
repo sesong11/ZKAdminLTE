@@ -3,15 +3,20 @@ package com.sample.ZKSpringJPA.viewmodel.employment;
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.employment.Branch;
 import com.sample.ZKSpringJPA.entity.employment.Designation;
+import com.sample.ZKSpringJPA.entity.employment.Employee;
 import com.sample.ZKSpringJPA.services.employment.BranchService;
 import com.sample.ZKSpringJPA.services.employment.DesignationService;
 
+import com.sample.ZKSpringJPA.utils.StandardFormat;
+import com.sample.ZKSpringJPA.viewmodel.utils.ListPagingVM;
+import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zsoup.helper.StringUtil;
 import org.zkoss.zul.ListModelList;
 
 import lombok.Getter;
@@ -26,13 +31,11 @@ import sun.security.krb5.internal.crypto.Des;
         displayName = "Designation List",
         menuIcon = "id-card"
 )
-public class DesignationListVM {
+public class DesignationListVM extends ListPagingVM {
 
     //region > Inject Service
     @WireVariable
     private DesignationService designationService;
-
-
     //endregion
 
     //region > Fields
@@ -41,13 +44,13 @@ public class DesignationListVM {
 
     @Getter @Setter
     private Designation designation;
-
     //endregion
 
     //region > Constructor
     @Init
     public void init(){
-        designations = new ListModelList<>(designationService.findAll());
+        research(0, getPageSize());
+        setTotalSize(designationService.count());
         designation = new Designation();
     }
     //endregion
@@ -84,6 +87,23 @@ public class DesignationListVM {
     @NotifyChange({"designation"})
     public void select(@BindingParam("designation") final Designation designation){
         this.designation = designation;
+    }
+
+    //endregion
+
+    //region > Programmatic
+    @Override
+    public void research(final int offset, final int limit){
+        if(StringUtil.isBlank(getFilter())) {
+            designations = new ListModelList<>(designationService.findPaging(offset, limit));
+            setTotalSize(designationService.count());
+        }
+        else {
+            designations = new ListModelList<>(designationService.findPaging(offset, limit, getFilter().toLowerCase(), getFilterBy()));
+            setTotalSize(designationService.count(getFilter().toLowerCase(), getFilterBy()));
+        }
+        postNotifyChange(this,"designations");
+        postNotifyChange(this,"totalSize");
     }
     //endregion
 }

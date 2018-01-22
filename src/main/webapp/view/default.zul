@@ -1,0 +1,79 @@
+<zk xmlns:n="native">
+    <div zclass="none"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.dashboard.DashboardVM')">
+        <n:section class="content-header">
+            <n:h1>
+                Home
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:i class="fa fa-dashboard"></n:i> Home</n:li>
+            </n:ol>
+        </n:section>
+        <n:section class="content">
+            <html>
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <zk forEach="${vm.tabList}">
+                            <zk if="${forEachStatus.index == 0}">
+                                <li class="active"><a href="#${each.id}" data-toggle="tab">${each.title}</a></li>
+                            </zk>
+                            <zk if="${forEachStatus.index != 0}">
+                                <li class=""><a href="#${each.id}" data-toggle="tab">${each.title}</a></li>
+                            </zk>
+
+                        </zk>
+                    </ul>
+                    <div class="tab-content">
+                        <zk forEach="${vm.tabList}">
+                            <zscript><![CDATA[
+                                    var=each;]]>
+                            </zscript>
+                            <div class="tab-pane active" id="${var.id}">
+                            <div class="row">
+                                <zk forEach="${vm.applications}">
+                                    <zk if="${each.parentId != 0}">
+                                        <zk if="${each.parentId == var.id}">
+
+                                            <div class="tab-pane active" id="${each.id}">
+
+                                                    <div class="col-md-4">
+                                                        <div class="box box-solid">
+                                                            <div class="box-body">
+                                                                <h4 style="background-color:#f7f7f7; font-size: 18px; text-align: left; padding: 7px 10px; margin-top: 0;">
+                                                                    ${each.title}
+                                                                </h4>
+                                                                <div class="media">
+                                                                    <div class="media-left">
+                                                                        <a href="${each.link}" class="ad-click-event">
+                                                                            <img src="${each.imageSrc}" style="width: 80px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
+                                                                        </a>
+                                                                    </div>
+                                                                     <div class="media-body">
+                                                                         <div class="clearfix">
+                                                                            <p>${each.description}</p>
+                                                                         </div>
+                                                                         <p class="pull-left">
+                                                                             <a href="${each.link}" class="btn btn-success btn-sm ad-click-event">
+                                                                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                                                                Visit
+                                                                             </a>
+                                                                         </p>
+                                                                     </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </zk>
+                                        </zk>
+                                    </zk>
+                                </div>
+                            </div>
+                        </zk>
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+            </html>
+        </n:section>
+    </div>
+</zk>

@@ -7,9 +7,11 @@ import java.util.Set;
 import com.sample.ZKSpringJPA.anotation.Feature;
 import com.sample.ZKSpringJPA.entity.authentication.Role;
 import com.sample.ZKSpringJPA.entity.authentication.User;
+import com.sample.ZKSpringJPA.entity.authentication.UserRole;
 import com.sample.ZKSpringJPA.services.authentication.UserService;
 import com.sample.ZKSpringJPA.services.authentication.RoleService;
 
+import com.sample.ZKSpringJPA.viewmodel.utils.ViewModel;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.zkoss.bind.annotation.BindingParam;
@@ -31,7 +33,7 @@ import org.zkoss.zul.ListModelList;
         displayName = "Users Dashboard",
         menuIcon = "user"
 )
-public class UserVM {
+public class UserVM extends ViewModel {
 
     //region > Inject Service
     @WireVariable
@@ -130,6 +132,12 @@ public class UserVM {
         }
         currentUser.getRoles().add(role);
         userService.updateUser(currentUser);
+    }
+    @Command
+    public void deleteRole(@BindingParam("role") final Role role){
+        currentUser.getRoles().remove(role);
+        userService.updateUser(currentUser);
+        postNotifyChange(this, "currentUser");
     }
     //endregion
 }

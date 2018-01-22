@@ -1,0 +1,245 @@
+<zk xmlns:n="native">
+    <div zclass="none"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.request.leaveform.LeaveFormVM')"
+         validationMessages="@id('vmsgs')">
+
+        <n:section class="content-header">
+            <n:h1>
+                Leave Form
+            </n:h1>
+            <n:ol class="breadcrumb">
+                <n:li><n:a href="."><n:i class="fa fa-dashboard"></n:i> Home</n:a></n:li>
+                <n:li class="active">Request</n:li>
+                <n:li class="active">Leave Form</n:li>
+            </n:ol>
+        </n:section>
+
+        <n:section class="content">
+            <n:div class="mailbox-controls" style="background: #f2f2f2;">
+
+                    <a onClick="@command('submit')" visible="@load(vm.form.request.id eq null)"
+                            sclass="btn btn-info btn-flat" autodisable="self"><n:i class="fa fa-save"> Submit Request</n:i></a>
+
+
+            </n:div>
+            <n:div class="row">
+                <n:div class="col-md-8">
+                    <include src="/view/request/forms/form-header.zul"/>
+                    <n:div class="box-footer">
+                        <n:div class="row">
+                            <n:div class="col-sm-4 col-xs-6">
+                                <n:div class="description-block border-right">
+                                    <n:span class="description-text">TOTAL BALANCE</n:span>
+                                    <n:h5 class="description-header">
+                                        <label value="@load(vm.totalBalance)" />
+                                        Days</n:h5>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-4 col-xs-6">
+                                <n:div class="description-block border-right">
+                                    <n:span class="description-text">USED BALANCE</n:span>
+                                    <n:h5 class="description-header">
+                                        <label value="@load(vm.usedBalance)" />
+                                        Days</n:h5>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                            <!-- /.col -->
+                            <n:div class="col-sm-4 col-xs-6">
+                                <n:div class="description-block">
+                                    <n:span class="description-text">REMAIN BALANCE</n:span>
+                                    <n:h5 class="description-header">
+                                        <label value="@load(vm.existingBalance)" />
+                                        Days</n:h5>
+                                </n:div>
+                                <!-- /.description-block -->
+                            </n:div>
+                        </n:div>
+                        <!-- /.row -->
+                    </n:div>
+                    <n:div class="box box-default">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Request Detail</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i></n:button>
+                            </n:div>
+                        </n:div>
+                        <!-- /.box-header -->
+                        <n:div class="box-body" style="">
+
+                            <n:div class="row">
+                                <n:div class="col-md-12">
+                                    <n:div class="row">
+                                        <n:div class="col-md-6">
+                                            <n:div class="form-group">
+                                                <n:label class="col-sm-4 control-label">* Type of leave</n:label>
+                                                <n:div class="col-sm-8">
+                                                    <combobox selectedItem="@bind(vm.form.leaveType) @save(vm.form.leaveType, before='submit') @validator('beanValidator', key = 'leaveType')"
+                                                              value="@load(vm.form.leaveType.name)"
+                                                              onChange="@command('countDays')"
+                                                            model="@load(vm.leaveTypes)" width="100%" id="cbLeaveType">
+                                                        <template name="model">
+                                                            <comboitem label="@load(each.name)"/>
+                                                        </template>
+                                                    </combobox>
+                                                    <label zclass="none" sclass="text-red" value="@load(vmsgs['leaveType'])" />
+                                                </n:div>
+                                                <n:div class="clearfix"></n:div>
+                                            </n:div>
+                                        </n:div>
+                                        <n:div class="col-md-6">
+                                            <div class="form-group" visible="@load(vm.form.leaveType.name eq 'Other Special Paid Leave')">
+                                                <n:label class="control-label">Please specify</n:label>
+                                                <n:div>
+                                                   <textbox value="@bind(vm.form.specify)" multiline="true" rows="1" style="resize: vertical;" sclass="form-control" />
+                                                </n:div>
+                                                <n:div class="clearfix"></n:div>
+                                            </div>
+                                        </n:div>
+                                    </n:div>
+                                </n:div>
+                                <n:div class="col-md-6">
+                                    <n:div class="form-group">
+                                        <n:label class="col-sm-4 control-label">* From Date</n:label>
+                                        <n:div class="col-sm-8">
+                                            <datebox width="100%" value="@bind(vm.form.fromDate)
+                                            @save(vm.form.fromDate, before = 'submit')
+                                            @validator('beanValidator', key = 'fromDate')"
+                                                     format="@load(vm.standardDateTimeFormat)"
+                                            onChange="@command('countDays')"/>
+                                            <label zclass="none" sclass="text-red" value="@load(vmsgs['fromDate'])"/>
+                                        </n:div>
+                                        <n:div class="clearfix"></n:div>
+                                    </n:div>
+                                    <n:div class="form-group">
+                                        <n:label class="col-sm-4 control-label">* Total No. of Days for leave</n:label>
+                                        <n:div class="col-sm-8">
+                                            <doublebox value="@load(vm.form.totalDays)
+                                            @save(vm.form.totalDays, before='submit')
+                                            @validator('beanValidator', key='totalDays')"
+                                                       sclass="form-control" placeholder="" width="100%"/>
+                                            <label zclass="none" sclass="text-red" value="@load(vmsgs['totalDays'])"/>
+                                        </n:div>
+                                        <n:div class="clearfix"></n:div>
+                                    </n:div>
+                                </n:div>
+                                <n:div class="col-md-6">
+                                    <n:div class="form-group">
+                                        <n:label class="col-sm-4 control-label">* To Date</n:label>
+                                        <n:div class="col-sm-8">
+                                            <datebox format="@load(vm.standardDateTimeFormat)"
+                                                     value="@bind(vm.form.toDate)
+                                                     @save(vm.form.toDate, before = 'submit')
+                                                     @validator('beanValidator', key = 'toDate')"
+                                                     onChange="@command('countDays')"
+                                                width="100%"/>
+                                            <label zclass="none" sclass="text-red" value="@load(vmsgs['toDate'])" />
+                                        </n:div>
+                                    </n:div>
+                                </n:div>
+                                <n:div class="col-md-12">
+                                    <n:div class="form-group">
+                                        <n:label>REASON FOR APPLICATION ( Attach supporting documents where necessary)</n:label>
+                                        <textbox value="@bind(vm.form.reason)"
+                                                multiline="true" rows="2" sclass="form-control" placeholder="" />
+                                    </n:div>
+                                    <n:div class="form-group">
+                                        <n:label>* ADDRESS DURING LEAVE OF ABSENCE / TELEPHONE CONTACT</n:label>
+                                        <textbox value="@load(vm.form.address)
+                                                @save(vm.form.address, before='submit')
+                                                @validator('beanValidator', key='address')"
+                                                multiline="true" rows="2" sclass="form-control" />
+                                        <label zclass="none" sclass="text-red" value="@load(vmsgs['address'])"/>
+                                    </n:div>
+                                    <n:div class="checkbox" style="margin-left: 20px">
+                                        <checkbox checked="@load(vm.form.confirmPolicy)
+                                            @save(vm.form.confirmPolicy, before='submit')
+                                            @validator('beanValidator', key = 'confirmPolicy')"
+                                                label="I understand that I may be recalled from my leave by Management to attend to any exigencies of duties "/>
+                                    </n:div>
+                                    <label zclass="none" sclass="text-red" value="@load(vmsgs['confirmPolicy'])" />
+                                </n:div>
+                            </n:div>
+                        </n:div>
+                    </n:div>
+
+                    <n:div class="box box-default">
+                        <n:div class="box-header with-border">
+                            <n:h3 class="box-title">Request Approval</n:h3>
+
+                            <n:div class="box-tools pull-right">
+                                <n:button type="button" class="btn btn-box-tool" data-widget="collapse"><n:i class="fa fa-minus"></n:i></n:button>
+                            </n:div>
+                        </n:div>
+
+                        <n:div class="box-body" style="">
+                            <n:div class="col-md-6">
+                                <n:div class="form-group">
+                                    <n:label class="col-sm-4 control-label">* Relief</n:label>
+                                    <n:div class="col-sm-8">
+                                        <n:div class="input-group input-group-sm">
+                                            <textbox type="text" sclass="form-control" readonly="true"
+                                                     value="@load(vm.relief.approvePerson.fullName)" />
+                                            <n:span class="input-group-btn">
+                                                <a onClick="@command('selectRelief')"
+                                                        sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
+                                            </n:span>
+                                        </n:div>
+                                    </n:div>
+                                    <n:div class="clearfix"></n:div>
+                                </n:div>
+                                <n:div class="form-group">
+                                    <n:label class="col-sm-4 control-label">* Department Manager</n:label>
+                                    <n:div class="col-sm-8">
+                                        <n:div class="input-group input-group-sm">
+                                            <textbox value="@load(vm.manager.approvePerson.fullName)"
+                                                     type="text" sclass="form-control" readonly="true"/>
+                                            <n:span class="input-group-btn">
+                                                <a onClick="@command('selectManager')" sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
+                                            </n:span>
+                                        </n:div>
+                                    </n:div>
+
+                                    <n:div class="clearfix"></n:div>
+                                </n:div>
+                            </n:div>
+                            <n:div class="col-md-6">
+                                <n:div class="form-group">
+                                    <n:label class="col-sm-4 control-label">* Immediate Superior</n:label>
+                                    <n:div class="col-sm-8">
+                                        <n:div class="input-group input-group-sm">
+                                            <textbox value="@load(vm.supervisor.approvePerson.fullName)"
+                                                     type="text" sclass="form-control" readonly="true"/>
+                                            <n:span class="input-group-btn">
+                                                <a onClick="@command('selectSupervisor')" sclass="btn btn-info btn-flat"><n:i class="fa fa-user"></n:i></a>
+                                            </n:span>
+                                        </n:div>
+                                    </n:div>
+
+                                    <n:div class="clearfix"></n:div>
+                                </n:div>
+                            </n:div>
+                        <n:div class="row">
+                            <n:div class="col-md-6">
+                            </n:div>
+                        </n:div>
+                    </n:div>
+                    </n:div>
+                </n:div>
+                <n:div class="col-md-4 col-xs-12">
+                    <include src="/view/request/component/request-approval.zul" />
+                </n:div>
+            </n:div>
+            <n:div class="mailbox-controls" style="background: #f2f2f2;">
+
+                <a onClick="@command('submit')" visible="@load(vm.form.request.id eq null)"
+                   sclass="btn btn-info btn-flat" autodisable="self"><n:i class="fa fa-save"> Submit Request</n:i></a>
+
+
+            </n:div>
+        </n:section>
+    </div>
+</zk>

@@ -19,30 +19,31 @@ import java.util.List;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-	@Autowired
+    @Autowired
     private UserService userService;
 
-	@Autowired
+    @Autowired
     private FeaturesScanner featuresScanner;
 
     static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
- 
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userService.getUserByUsername(s);
- 
+
         //check if this user with this username exist, if not, throw an exception
         // and stop the login process
         if (user == null) {
             throw new UsernameNotFoundException("User details not found with this username: " + s);
         }
- 
+
         String username = user.getUsername();
         String password = user.getPassword();
         List<Role> roles = new ArrayList<>(user.getRoles());
 
         try {
-            featuresScanner.scanFeatures(user);
+            if(FeaturesScanner.getFeatures().size()==0)
+                featuresScanner.scanFeatures();
         }catch (ClassNotFoundException ex){
             ex.printStackTrace();
         }
@@ -50,10 +51,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         List<SimpleGrantedAuthority> authList = getAuthorities(roles);
 
         org.springframework.security.core.userdetails.User u = new org.springframework.security.core.userdetails.User(username, password, authList);
- 
+
         return u;
     }
- 
+
     private List<SimpleGrantedAuthority> getAuthorities(List<Role> roles) {
         List<SimpleGrantedAuthority> authList = new ArrayList<>();
         authList.add(new SimpleGrantedAuthority("ROLE_USER"));

@@ -1,320 +1,123 @@
 <zk xmlns:n="native">
-<?meta charset="utf-8"?>
-<?meta http-equiv="X-UA-Compatible" content="IE=edge"?>
-<!-- Tell the browser to be responsive to screen width -->
-<?meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"?>
-<?page title="AdminLTE 2 | Dashboard" ?>
-<!-- Bootstrap 3.3.7 -->
-<?link rel="stylesheet" href="/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css"?>
-<!-- Font Awesome -->
-<?link rel="stylesheet" href="/adminlte/bower_components/font-awesome/css/font-awesome.min.css"?>
-<!-- Ionicons -->
-<?link rel="stylesheet" href="/adminlte/bower_components/Ionicons/css/ionicons.min.css"?>
-<!-- Theme style -->
-<?link rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css"?>
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-folder instead of downloading all of them to reduce the load. -->
-<?link rel="stylesheet" href="/adminlte/dist/css/skins/_all-skins.min.css"?>
-<!-- Morris chart -->
-<?link rel="stylesheet" href="/adminlte/bower_components/morris.js/morris.css"?>
-<!-- jvectormap -->
-<?link rel="stylesheet" href="/adminlte/bower_components/jvectormap/jquery-jvectormap.css"?>
-<!-- Date Picker -->
-<?link rel="stylesheet" href="/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"?>
-<!-- Daterange picker -->
-<?link rel="stylesheet" href="/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.css"?>
-<!-- bootstrap wysihtml5 - text editor -->
-<?link rel="stylesheet" href="/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"?>
-<!-- fullCalendar -->
-<?link rel="stylesheet" href="adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css"?>
-<?link rel="stylesheet" href="adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print"?>
-<!-- DataTables -->
-<?link rel="stylesheet" href="adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"?>
+    <?meta charset="utf-8"?>
+    <?meta http-equiv="X-UA-Compatible" content="IE=edge"?>
+    <!-- Tell the browser to be responsive to screen width -->
+    <?meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"?>
+    <?page title="PhillipBank | Phillip Centre" ?>
+    <?link rel="icon" href="favicon.ico" type="image/x-icon" ?>
+    <!-- Bootstrap 3.3.7 -->
+    <?link rel="stylesheet" href="/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css"?>
+    <!-- Font Awesome -->
+    <?link rel="stylesheet" href="/adminlte/bower_components/font-awesome/css/font-awesome.min.css"?>
+    <!-- Ionicons -->
+    <?link rel="stylesheet" href="/adminlte/bower_components/Ionicons/css/ionicons.min.css"?>
+    <!-- Theme style -->
+    <?link rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css"?>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+    folder instead of downloading all of them to reduce the load. -->
+    <?link rel="stylesheet" href="/adminlte/dist/css/skins/_all-skins.min.css"?>
+    <!-- Morris chart -->
+    <?link rel="stylesheet" href="/adminlte/bower_components/morris.js/morris.css"?>
+    <!-- jvectormap -->
+    <?link rel="stylesheet" href="/adminlte/bower_components/jvectormap/jquery-jvectormap.css"?>
+    <!-- Date Picker -->
+    <?link rel="stylesheet" href="/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"?>
+    <!-- Daterange picker -->
+    <?link rel="stylesheet" href="/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.css"?>
+    <!-- bootstrap wysihtml5 - text editor -->
+    <?link rel="stylesheet" href="/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"?>
+    <!-- fullCalendar -->
+    <?link rel="stylesheet" href="adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css"?>
+    <?link rel="stylesheet" href="adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print"?>
+    <!-- DataTables -->
+    <?link rel="stylesheet" href="adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"?>
 
-<!-- iCheck -->
-<?link rel="stylesheet" href="adminlte/plugins/iCheck/flat/blue.css"?>
-<!-- bootstrap slider -->
-<?link rel="stylesheet" href="adminlte/plugins/bootstrap-slider/slider.css"?>
+    <!-- iCheck -->
+    <?link rel="stylesheet" href="adminlte/plugins/iCheck/flat/blue.css"?>
+    <!-- bootstrap slider -->
+    <?link rel="stylesheet" href="adminlte/plugins/bootstrap-slider/slider.css"?>
+    <!-- Google Font -->
+    <?link rel="stylesheet" href="adminlte/googlefont/googlefont.css"?>
 
-<?link rel="stylesheet" href="/css/application.css"?>
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<!-- Google Font -->
-<?link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"?>
+    <?link rel="stylesheet" href="/css/application.css"?>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
-         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.MyViewModel')"
+         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.MainVM')"
          validationMessages="@id('vmsgs')">
         <n:div class="wrapper">
-                <n:header class="main-header">
-                    <!-- Logo -->
-                    <n:a href="?p=dashboard/dashboard-v1" class="logo">
-                        <!-- mini logo for sidebar mini 50x50 pixels -->
-                        <n:span class="logo-mini"><n:b>A</n:b>LT</n:span>
-                        <!-- logo for regular state and mobile devices -->
-                        <n:span class="logo-lg"><n:b>Admin</n:b>LTE</n:span>
+            <n:header class="main-header">
+                <!-- Logo -->
+                <n:a href="." class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <n:span class="logo-mini">
+                        <n:img src="img/icon/phillip-logo.png" style="width: 50px; height: 50px" />
+                    </n:span>
+                    <!-- logo for regular state and mobile devices -->
+                    <n:span class="logo-lg">
+                        <n:img src="img/icon/phillip-logo.png" style="width: 50px; height: 50px" />
+                        <n:b>Phillip</n:b>Bank</n:span>
+                </n:a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <n:nav class="navbar navbar-static-top">
+                    <!-- Sidebar toggle button-->
+                    <n:a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                        <span class="sr-only">Toggle navigation</span>
                     </n:a>
-                    <!-- Header Navbar: style can be found in header.less -->
-                    <n:nav class="navbar navbar-static-top">
-                        <!-- Sidebar toggle button-->
-                        <n:a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                            <span class="sr-only">Toggle navigation</span>
-                        </n:a>
 
-                        <n:div class="navbar-custom-menu">
-                            <n:ul class="nav navbar-nav">
-                                <!-- Messages: style can be found in dropdown.less-->
-                                <n:li class="dropdown messages-menu">
-                                    <n:a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <n:i class="fa fa-envelope-o"></n:i>
-                                        <n:span class="label label-success">4</n:span>
-                                    </n:a>
-                                    <n:ul class="dropdown-menu">
-                                        <n:li class="header">You have 4 messages</n:li>
-                                        <n:li>
-                                            <!-- inner menu: contains the actual data -->
-                                            <n:ul class="menu">
-                                                <n:li><!-- start message -->
-                                                    <n:a href="#">
-                                                        <n:div class="pull-left">
-                                                            <n:img src="img/profile-pictures.png" class="img-circle" alt="User Image" />
-                                                        </n:div>
-                                                        <n:h4>
-                                                            Support Team
-                                                            <n:small><n:i class="fa fa-clock-o"></n:i> 5 mins</n:small>
-                                                        </n:h4>
-                                                        <n:p>Why not buy a new awesome theme?</n:p>
-                                                    </n:a>
-                                                </n:li>
-                                                <!-- end message -->
-                                                <n:li>
-                                                    <n:a href="#">
-                                                        <n:div class="pull-left">
-                                                            <n:img src="adminlte/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image" />
-                                                        </n:div>
-                                                        <n:h4>
-                                                            AdminLTE Design Team
-                                                            <n:small><n:i class="fa fa-clock-o"></n:i> 2 hours</n:small>
-                                                        </n:h4>
-                                                        <n:p>Why not buy a new awesome theme?</n:p>
-                                                    </n:a>
-                                                </n:li>
-                                                <n:li>
-                                                    <n:a href="#">
-                                                        <n:div class="pull-left">
-                                                            <n:img src="adminlte/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image" />
-                                                        </n:div>
-                                                        <n:h4>
-                                                            Developers
-                                                            <n:small><n:i class="fa fa-clock-o"></n:i> Today</n:small>
-                                                        </n:h4>
-                                                        <n:p>Why not buy a new awesome theme?</n:p>
-                                                    </n:a>
-                                                </n:li>
-                                                <n:li>
-                                                    <n:a href="#">
-                                                        <n:div class="pull-left">
-                                                            <n:img src="adminlte/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image" />
-                                                        </n:div>
-                                                        <n:h4>
-                                                            Sales Department
-                                                            <n:small><n:i class="fa fa-clock-o"></n:i> Yesterday</n:small>
-                                                        </n:h4>
-                                                        <n:p>Why not buy a new awesome theme?</n:p>
-                                                    </n:a>
-                                                </n:li>
-                                                <n:li>
-                                                    <n:a href="#">
-                                                        <n:div class="pull-left">
-                                                            <n:img src="adminlte/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image" />
-                                                        </n:div>
-                                                        <n:h4>
-                                                            Reviewers
-                                                            <n:small><n:i class="fa fa-clock-o"></n:i> 2 days</n:small>
-                                                        </n:h4>
-                                                        <n:p>Why not buy a new awesome theme?</n:p>
-                                                    </n:a>
-                                                </n:li>
-                                            </n:ul>
-                                        </n:li>
-                                        <n:li class="footer"><n:a href="#">See All Messages</n:a></n:li>
-                                    </n:ul>
-                                </n:li>
-                                <!-- Notifications: style can be found in dropdown.less -->
-                                <n:li class="dropdown notifications-menu">
-                                    <n:a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <n:i class="fa fa-bell-o"></n:i>
-                                        <n:span class="label label-warning">10</n:span>
-                                    </n:a>
-                                    <n:ul class="dropdown-menu">
-                                        <n:li class="header">You have 10 notifications</n:li>
-                                        <n:li>
-                                            <!-- inner menu: contains the actual data -->
-                                            <n:ul class="menu">
-                                                <n:li>
-                                                    <n:a href="#">
-                                                        <n:i class="fa fa-users text-aqua"></n:i> 5 new members joined today
-                                                    </n:a>
-                                                </n:li>
-                                                <n:li>
-                                                    <n:a href="#">
-                                                        <n:i class="fa fa-warning text-yellow"></n:i> Very long description here that may not fit into the
-                                                        page and may cause design problems
-                                                    </n:a>
-                                                </n:li>
-                                                <n:li>
-                                                    <n:a href="#">
-                                                        <n:i class="fa fa-users text-red"></n:i> 5 new members joined
-                                                    </n:a>
-                                                </n:li>
-                                                <n:li>
-                                                    <n:a href="#">
-                                                        <n:i class="fa fa-shopping-cart text-green"></n:i> 25 sales made
-                                                    </n:a>
-                                                </n:li>
-                                                <n:li>
-                                                    <n:a href="#">
-                                                        <n:i class="fa fa-user text-red"></n:i> You changed your username
-                                                    </n:a>
-                                                </n:li>
-                                            </n:ul>
-                                        </n:li>
-                                        <n:li class="footer"><a href="#">View all</a></n:li>
-                                    </n:ul>
-                                </n:li>
-                                <!-- Tasks: style can be found in dropdown.less -->
-                                <n:li class="dropdown tasks-menu">
-                                    <n:a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <n:i class="fa fa-flag-o"></n:i>
-                                        <n:span class="label label-danger">9</n:span>
-                                    </n:a>
-                                    <n:ul class="dropdown-menu">
-                                        <n:li class="header">You have 9 tasks</n:li>
-                                        <n:li>
-                                            <!-- inner menu: contains the actual data -->
-                                            <n:ul class="menu">
-                                                <n:li><!-- Task item -->
-                                                    <n:a href="#">
-                                                        <n:h3>
-                                                            Design some buttons
-                                                            <n:small class="pull-right">20%</n:small>
-                                                        </n:h3>
-                                                        <n:div class="progress xs">
-                                                            <n:div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                                <n:span class="sr-only">20% Complete</n:span>
-                                                            </n:div>
-                                                        </n:div>
-                                                    </n:a>
-                                                </n:li>
-                                                <!-- end task item -->
-                                                <n:li><!-- Task item -->
-                                                    <n:a href="#">
-                                                        <n:h3>
-                                                            Create a nice theme
-                                                            <n:small class="pull-right">40%</n:small>
-                                                        </n:h3>
-                                                        <n:div class="progress xs">
-                                                            <n:div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
-                                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                                <n:span class="sr-only">40% Complete</n:span>
-                                                            </n:div>
-                                                        </n:div>
-                                                    </n:a>
-                                                </n:li>
-                                                <!-- end task item -->
-                                                <n:li><!-- Task item -->
-                                                    <n:a href="#">
-                                                        <n:h3>
-                                                            Some task I need to do
-                                                            <n:small class="pull-right">60%</n:small>
-                                                        </n:h3>
-                                                        <n:div class="progress xs">
-                                                            <n:div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
-                                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                                <n:span class="sr-only">60% Complete</n:span>
-                                                            </n:div>
-                                                        </n:div>
-                                                    </n:a>
-                                                </n:li>
-                                                <!-- end task item -->
-                                                <n:li><!-- Task item -->
-                                                    <n:a href="#">
-                                                        <n:h3>
-                                                            Make beautiful transitions
-                                                            <n:small class="pull-right">80%</n:small>
-                                                        </n:h3>
-                                                        <n:div class="progress xs">
-                                                            <n:div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
-                                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                                <n:span class="sr-only">80% Complete</n:span>
-                                                            </n:div>
-                                                        </n:div>
-                                                    </n:a>
-                                                </n:li>
-                                                <!-- end task item -->
-                                            </n:ul>
-                                        </n:li>
-                                        <n:li class="footer">
-                                            <n:a href="#">View all tasks</n:a>
-                                        </n:li>
-                                    </n:ul>
-                                </n:li>
-                                <!-- User Account: style can be found in dropdown.less -->
-                                <n:li class="dropdown user user-menu">
-                                    <n:a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <n:img src="img/profile-pictures.png" class="user-image" alt="User Image"/>
-                                        <n:span class="hidden-xs">Alexander Pierce</n:span>
-                                    </n:a>
-                                    <n:ul class="dropdown-menu">
-                                        <!-- User image -->
-                                        <n:li class="user-header">
-                                            <n:img src="img/profile-pictures.png" class="img-circle" alt="User Image"/>
+                    <n:div class="navbar-custom-menu">
+                        <n:ul class="nav navbar-nav">
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <n:li class="dropdown user user-menu">
+                                <n:a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <n:img src="img/profile-pictures.png" class="user-image" alt="User Image"/>
+                                    <n:span class="hidden-xs">${vm.currentEmployee.fullName}</n:span>
+                                </n:a>
+                                <n:ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <n:li class="user-header">
+                                        <n:img src="img/profile-pictures.png" class="img-circle" alt="User Image"/>
 
-                                            <n:p>
-                                                Alexander Pierce - Web Developer
-                                                <n:small>Member since Nov. 2012</n:small>
-                                            </n:p>
-                                        </n:li>
-                                        <!-- Menu Body -->
-                                        <n:li class="user-body">
-                                            <n:div class="row">
-                                                <n:div class="col-xs-4 text-center">
-                                                    <n:a href="#">Followers</n:a>
-                                                </n:div>
-                                                <n:div class="col-xs-4 text-center">
-                                                    <n:a href="#">Sales</n:a>
-                                                </n:div>
-                                                <n:div class="col-xs-4 text-center">
-                                                    <n:a href="#">Friends</n:a>
-                                                </n:div>
-                                            </n:div>
-                                            <!-- /.row -->
-                                        </n:li>
-                                        <!-- Menu Footer-->
-                                        <n:li class="user-footer">
-                                            <n:div class="pull-left">
-                                                <n:a href="#" class="btn btn-default btn-flat">Profile</n:a>
-                                            </n:div>
-                                            <n:div class="pull-right">
-                                                <a sclass="btn btn-default btn-flat" onClick="@command('logout')">Sign out</a>
-                                            </n:div>
-                                        </n:li>
-                                    </n:ul>
-                                </n:li>
-                                <!-- Control Sidebar Toggle Button -->
-                                <n:li>
-                                    <n:a href="#" data-toggle="control-sidebar"><n:i class="fa fa-gears"></n:i></n:a>
-                                </n:li>
-                            </n:ul>
-                        </n:div>
-                    </n:nav>
-                </n:header>
+                                        <n:p>
+                                            ${vm.currentEmployee.fullName} - ${vm.currentEmployee.designation.name}
+                                            <n:small>Member since ${vm.currentEmployee.dateOfHire}</n:small>
+                                        </n:p>
+                                    </n:li>
+                                    <!-- Menu Body -->
+                                    <!--<n:li class="user-body">-->
+                                    <!--<n:div class="row">-->
+                                    <!--<n:div class="col-xs-4 text-center">-->
+                                    <!--<n:a href="#">Followers</n:a>-->
+                                    <!--</n:div>-->
+                                    <!--<n:div class="col-xs-4 text-center">-->
+                                    <!--<n:a href="#">Sales</n:a>-->
+                                    <!--</n:div>-->
+                                    <!--<n:div class="col-xs-4 text-center">-->
+                                    <!--<n:a href="#">Friends</n:a>-->
+                                    <!--</n:div>-->
+                                    <!--</n:div>-->
+                                    <!--&lt;!&ndash; /.row &ndash;&gt;-->
+                                    <!--</n:li>-->
+                                    <!-- Menu Footer-->
+                                    <n:li class="user-footer">
+                                        <n:div class="pull-left">
+                                            <a href="#" sclass="btn btn-default btn-flat" onClick="@command('changePassword')">Change Passowrd</a>
+                                        </n:div>
+                                        <n:div class="pull-right">
+                                            <a sclass="btn btn-default btn-flat" onClick="@command('logout')">Sign out</a>
+                                        </n:div>
+                                    </n:li>
+                                </n:ul>
+                            </n:li>
+                        </n:ul>
+                    </n:div>
+                </n:nav>
+            </n:header>
 
             <!-- Left side column. contains the logo and sidebar -->
             <n:aside class="main-sidebar">
@@ -326,7 +129,7 @@ folder instead of downloading all of them to reduce the load. -->
                             <n:img src="img/profile-pictures.png" class="img-circle" alt="User Image" />
                         </n:div>
                         <n:div class="pull-left info">
-                            <n:p>Alexander Pierce</n:p>
+                            <n:p>${vm.currentEmployee.fullName}</n:p>
                             <n:a href="#"><n:i class="fa fa-circle text-success"></n:i> Online</n:a>
                         </n:div>
                     </n:div>
@@ -347,205 +150,10 @@ folder instead of downloading all of them to reduce the load. -->
 
             <n:footer class="main-footer">
                 <n:div class="pull-right hidden-xs">
-                    <n:b>Version</n:b> 2.4.0
+                    <n:b>Version</n:b> 1.0.0
                 </n:div>
-                <n:strong>Copyright 2014-2016 <n:a href="https://adminlte.io">Almsaeed Studio</n:a>.</n:strong> All rights
-                reserved.
+                <n:strong>Copyright 2018 <n:a target="_blank" href="http://phillipbankplc.com.kh">Phillip Bank PLC</n:a>.</n:strong> All rights reserved.
             </n:footer>
-
-            <!-- Control Sidebar -->
-            <n:aside class="control-sidebar control-sidebar-dark">
-                <!-- Create the tabs -->
-                <n:ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                    <n:li><n:a href="#control-sidebar-home-tab" data-toggle="tab"><n:i class="fa fa-home"></n:i></n:a></n:li>
-                    <n:li><n:a href="#control-sidebar-settings-tab" data-toggle="tab"><n:i class="fa fa-gears"></n:i></n:a></n:li>
-                </n:ul>
-                <!-- Tab panes -->
-                <n:div class="tab-content">
-                    <!-- Home tab content -->
-                    <n:div class="tab-pane" id="control-sidebar-home-tab">
-                        <n:h3 class="control-sidebar-heading">Recent Activity</n:h3>
-                        <n:ul class="control-sidebar-menu">
-                            <n:li>
-                                <n:a href="javascript:void(0)">
-                                    <n:i class="menu-icon fa fa-birthday-cake bg-red"></n:i>
-
-                                    <n:div class="menu-info">
-                                        <n:h4 class="control-sidebar-subheading">Langdon's Birthday</n:h4>
-
-                                        <n:p>Will be 23 on April 24th</n:p>
-                                    </n:div>
-                                </n:a>
-                            </n:li>
-                            <n:li>
-                                <n:a href="javascript:void(0)">
-                                    <n:i class="menu-icon fa fa-user bg-yellow"></n:i>
-
-                                    <n:div class="menu-info">
-                                        <n:h4 class="control-sidebar-subheading">Frodo Updated His Profile</n:h4>
-
-                                        <n:p>New phone +1(800)555-1234</n:p>
-                                    </n:div>
-                                </n:a>
-                            </n:li>
-                            <n:li>
-                                <n:a href="javascript:void(0)">
-                                    <n:i class="menu-icon fa fa-envelope-o bg-light-blue"></n:i>
-
-                                    <n:div class="menu-info">
-                                        <n:h4 class="control-sidebar-subheading">Nora Joined Mailing List</n:h4>
-
-                                        <n:p>nora@example.com</n:p>
-                                    </n:div>
-                                </n:a>
-                            </n:li>
-                            <n:li>
-                                <n:a href="javascript:void(0)">
-                                    <n:i class="menu-icon fa fa-file-code-o bg-green"></n:i>
-
-                                    <n:div class="menu-info">
-                                        <n:h4 class="control-sidebar-subheading">Cron Job 254 Executed</n:h4>
-
-                                        <n:p>Execution time 5 seconds</n:p>
-                                    </n:div>
-                                </n:a>
-                            </n:li>
-                        </n:ul>
-                        <!-- /.control-sidebar-menu -->
-
-                        <n:h3 class="control-sidebar-heading">Tasks Progress</n:h3>
-                        <n:ul class="control-sidebar-menu">
-                            <n:li>
-                                <n:a href="javascript:void(0)">
-                                    <n:h4 class="control-sidebar-subheading">
-                                        Custom Template Design
-                                        <span class="label label-danger pull-right">70%</span>
-                                    </n:h4>
-
-                                    <n:div class="progress progress-xxs">
-                                        <n:div class="progress-bar progress-bar-danger" style="width: 70%"></n:div>
-                                    </n:div>
-                                </n:a>
-                            </n:li>
-                            <n:li>
-                                <n:a href="javascript:void(0)">
-                                    <n:h4 class="control-sidebar-subheading">
-                                        Update Resume
-                                        <n:span class="label label-success pull-right">95%</n:span>
-                                    </n:h4>
-
-                                    <n:div class="progress progress-xxs">
-                                        <n:div class="progress-bar progress-bar-success" style="width: 95%"></n:div>
-                                    </n:div>
-                                </n:a>
-                            </n:li>
-                            <n:li>
-                                <n:a href="javascript:void(0)">
-                                    <n:h4 class="control-sidebar-subheading">
-                                        Laravel Integration
-                                        <n:span class="label label-warning pull-right">50%</n:span>
-                                    </n:h4>
-
-                                    <n:div class="progress progress-xxs">
-                                        <n:div class="progress-bar progress-bar-warning" style="width: 50%"></n:div>
-                                    </n:div>
-                                </n:a>
-                            </n:li>
-                            <n:li>
-                                <n:a href="javascript:void(0)">
-                                    <n:h4 class="control-sidebar-subheading">
-                                        Back End Framework
-                                        <span class="label label-primary pull-right">68%</span>
-                                    </n:h4>
-
-                                    <n:div class="progress progress-xxs">
-                                        <n:div class="progress-bar progress-bar-primary" style="width: 68%"></n:div>
-                                    </n:div>
-                                </n:a>
-                            </n:li>
-                        </n:ul>
-                        <!-- /.control-sidebar-menu -->
-
-                    </n:div>
-                    <!-- /.tab-pane -->
-                    <!-- Stats tab content -->
-                    <n:div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</n:div>
-                    <!-- /.tab-pane -->
-                    <!-- Settings tab content -->
-                    <n:div class="tab-pane" id="control-sidebar-settings-tab">
-                        <n:form method="post">
-                            <n:h3 class="control-sidebar-heading">General Settings</n:h3>
-
-                            <n:div class="form-group">
-                                <n:label class="control-sidebar-subheading">
-                                    Report panel usage
-                                    <n:input type="checkbox" class="pull-right" checked="checked" />
-                                </n:label>
-
-                                <n:p>
-                                    Some information about this general settings option
-                                </n:p>
-                            </n:div>
-                            <!-- /.form-group -->
-
-                            <n:div class="form-group">
-                                <n:label class="control-sidebar-subheading">
-                                    Allow mail redirect
-                                    <n:input type="checkbox" class="pull-right" checked="checked" />
-                                </n:label>
-
-                                <n:p>
-                                    Other sets of options are available
-                                </n:p>
-                            </n:div>
-                            <!-- /.form-group -->
-
-                            <n:div class="form-group">
-                                <n:label class="control-sidebar-subheading">
-                                    Expose author name in posts
-                                    <n:input type="checkbox" class="pull-right" checked="checked" />
-                                </n:label>
-
-                                <n:p>
-                                    Allow the user to show his name in blog posts
-                                </n:p>
-                            </n:div>
-                            <!-- /.form-group -->
-
-                            <n:h3 class="control-sidebar-heading">Chat Settings</n:h3>
-
-                            <n:div class="form-group">
-                                <n:label class="control-sidebar-subheading">
-                                    Show me as online
-                                    <n:input type="checkbox" class="pull-right" checked="checked" />
-                                </n:label>
-                            </n:div>
-                            <!-- /.form-group -->
-
-                            <n:div class="form-group">
-                                <n:label class="control-sidebar-subheading">
-                                    Turn off notifications
-                                    <n:input type="checkbox" class="pull-right" />
-                                </n:label>
-                            </n:div>
-                            <!-- /.form-group -->
-
-                            <n:div class="form-group">
-                                <n:label class="control-sidebar-subheading">
-                                    Delete chat history
-                                    <n:a href="javascript:void(0)" class="text-red pull-right"><n:i class="fa fa-trash-o"></n:i></n:a>
-                                </n:label>
-                            </n:div>
-                            <!-- /.form-group -->
-                        </n:form>
-                    </n:div>
-                    <!-- /.tab-pane -->
-                </n:div>
-            </n:aside>
-            <!-- /.control-sidebar -->
-            <!-- Add the sidebar's background. This div must be placed
-                 immediately after the control sidebar -->
-            <n:div class="control-sidebar-bg"></n:div>
         </n:div>
     </div>
     <!-- jQuery 3 -->
