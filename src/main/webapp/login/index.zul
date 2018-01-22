@@ -32,8 +32,8 @@
 
         <n:div class="login-box">
             <n:div class="login-logo">
-                <n:img src="phillip-logo.png" style="width:50px" />
-                <n:a href="."><n:b>Phillip</n:b>Bank</n:a>
+                <n:img src="phillip-logo.png" />
+                <!--<n:a href="."><n:b>Phillip</n:b>Bank</n:a>-->
             </n:div>
             <!-- /.login-logo -->
             <n:div class="login-box-body">
@@ -51,13 +51,6 @@
                     </n:div>
 
                     <n:div class="row">
-                        <n:div class="col-xs-8">
-                            <n:div class="checkbox icheck">
-                                <n:label>
-                                    <n:input type="checkbox" /> Remember Me
-                                </n:label>
-                            </n:div>
-                        </n:div>
                         <!-- /.col -->
                         <n:div class="col-xs-4">
                             <button type="submit" sclass="btn btn-primary btn-block btn-flat" onClick="@command('login')">Sign In</button>
