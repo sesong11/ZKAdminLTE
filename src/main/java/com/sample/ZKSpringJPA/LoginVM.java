@@ -67,8 +67,7 @@ public class LoginVM {
             }
             Employee employee = userCredentialService.getCurrentEmployee();
             if(employee!=null) {
-                SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy");
-                String password = formatter.format(employee.getDob());
+                String password = employee.getCode();
 
                 if (BCrypt.checkpw(password, employee.getUser().getPassword())) {
                     Window window = (Window) Executions.createComponents(

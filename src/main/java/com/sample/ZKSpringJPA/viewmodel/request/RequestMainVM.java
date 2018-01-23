@@ -17,7 +17,7 @@ import java.util.List;
 @Feature(
         view = "/view/request/dashboard.zul",
         uuid = "1-request-dashboard",
-        menuOrder = "3.1",
+        menuOrder = "3.0.1",
         displayName = "Form Dashboard",
         menuIcon = "bar-chart text-blue"
 )
