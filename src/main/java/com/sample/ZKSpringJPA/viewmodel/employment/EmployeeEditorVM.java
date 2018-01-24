@@ -131,8 +131,7 @@ public class EmployeeEditorVM {
         User user = new User();
         user.setEnabled(true);
         user.setUsername(employee.getLastName().toLowerCase()+"_"+employee.getFirstName().toLowerCase());
-        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy");
-        String password = formatter.format(employee.getDob());
+        String password = employee.getCode();
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(password);
         user.setPassword(encodedPassword);
@@ -143,13 +142,11 @@ public class EmployeeEditorVM {
 
     @Command
     public void resetPassword(){
-        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy");
-        String password = formatter.format(employee.getDob());
+        String password = employee.getCode();
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(password);
         User user = employee.getUser();
         user.setPassword(encodedPassword);
-        System.out.println(password + ": "+  encodedPassword);
         userService.updateUser(user);
     }
 

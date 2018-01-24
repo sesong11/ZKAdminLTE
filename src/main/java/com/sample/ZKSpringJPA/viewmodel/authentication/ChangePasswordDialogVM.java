@@ -113,10 +113,9 @@ public class ChangePasswordDialogVM {
     }
 
     public boolean isForce() {
-        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyy");
-        String password = formatter.format(userCredentialService.getCurrentEmployee().getDob());
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
+        
+        String password = userCredentialService.getCurrentEmployee().getCode();
+        
         return BCrypt.checkpw(password,currentUser.getPassword());
     }
 

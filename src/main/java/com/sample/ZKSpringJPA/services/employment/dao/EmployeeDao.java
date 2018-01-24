@@ -46,6 +46,7 @@ public class EmployeeDao extends CrudRepository<Employee> {
         CriteriaQuery<Employee> cq = cb.createQuery(cls);
         Root<Employee> from = cq.from(cls);
         CriteriaQuery<Employee> select = cq.select(from);
+        cq.orderBy(cb.asc(from.get("code")));
         TypedQuery<Employee> typedQuery = em.createQuery(select);
         typedQuery.setFirstResult(offset);
         typedQuery.setMaxResults(limit);
@@ -84,6 +85,7 @@ public class EmployeeDao extends CrudRepository<Employee> {
         else if(filterBy != null)
             predicates.add(cb.like(cb.lower(from.get(filterBy)), "%"+filter+"%"));
         cq.where(predicates.toArray(new Predicate[]{}));
+        cq.orderBy(cb.asc(from.get("code")));
         TypedQuery<Employee> typedQuery = em.createQuery(select);
         typedQuery.setFirstResult(offset);
         typedQuery.setMaxResults(limit);
@@ -155,6 +157,7 @@ public class EmployeeDao extends CrudRepository<Employee> {
         }
         predicates.add(cb.equal(histories.get("activeDate"), max));
         cq.where(predicates.toArray(new Predicate[]{}));
+        cq.orderBy(cb.asc(employee.get("code")));
         TypedQuery<Employee> typedQuery = em.createQuery(select);
         typedQuery.setFirstResult(offset);
         typedQuery.setMaxResults(limit);

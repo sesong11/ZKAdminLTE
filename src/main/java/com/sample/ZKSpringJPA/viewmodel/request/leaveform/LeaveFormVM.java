@@ -361,7 +361,7 @@ public class LeaveFormVM extends ViewModel {
     @Command
     @NotifyChange({"form", "relief", "supervisor", "manager"})
     public void submit() throws Exception {
-        if(form.getLeaveType() != LeaveType.Emergency_LEAVE && form.getTotalDays()>getExistingBalance()){
+        if(form.getLeaveType() != LeaveType.UNPAID_LEAVE && form.getTotalDays()>getExistingBalance()){
             String str = "You do not have enough allowance balance to request this type of leave.";
             Clients.showNotification(str, Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 0, false);
             return;
