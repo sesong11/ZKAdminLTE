@@ -10,12 +10,10 @@ import com.sample.ZKSpringJPA.services.authentication.UserService;
 import com.sample.ZKSpringJPA.utils.FeaturesScanner;
 import com.sample.ZKSpringJPA.utils.Menu;
 import com.sample.ZKSpringJPA.utils.UserCredentialService;
-
-import com.sun.org.apache.xalan.internal.Version;
+import com.sample.ZKSpringJPA.viewmodel.utils.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.apache.tools.ant.Project;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,14 +23,12 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
-import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
-public class MainVM {
+public class MainVM extends ViewModel {
 
 	@WireVariable
 	private UserCredentialService userCredentialService;
@@ -79,7 +75,7 @@ public class MainVM {
 		}
 	}
 
-	private boolean isAuthenticated(final String feature) throws ClassNotFoundException{
+	private boolean isAuthenticated(final String feature) {
 		if(isAdmin()) return true;
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
@@ -92,8 +88,8 @@ public class MainVM {
 					}
 				}
 			}
-		}catch (Exception ex){
-			ex.printStackTrace();
+		}catch (Exception ex) {
+			logger.error(ex);
 		}
 		return false;
 	}
@@ -109,8 +105,7 @@ public class MainVM {
 	}
 
 	@Command
-	public void logout() throws ServletException {
-		FeaturesScanner.getFeatures().clear();
+	public void logout() {
 		HttpServletResponse response = (HttpServletResponse) Executions.getCurrent().getNativeResponse();
 		Executions.sendRedirect(response.encodeRedirectURL("/logout"));
 		Executions.getCurrent().setVoided(true);
@@ -121,10 +116,5 @@ public class MainVM {
         Window window = (Window)Executions.createComponents(
                 "/view/authentication/change-password.zul", null, null);
         window.doModal();
-    }
-
-    @Command
-    public void cancel() {
-
     }
 }

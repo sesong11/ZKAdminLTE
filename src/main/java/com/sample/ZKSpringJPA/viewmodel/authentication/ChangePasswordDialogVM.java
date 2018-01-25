@@ -105,8 +105,7 @@ public class ChangePasswordDialogVM {
         return true;
     }
 
-    public void logout() throws ServletException {
-        FeaturesScanner.getFeatures().clear();
+    public void logout() {
         HttpServletResponse response = (HttpServletResponse) Executions.getCurrent().getNativeResponse();
         Executions.sendRedirect(response.encodeRedirectURL("/logout"));
         Executions.getCurrent().setVoided(true);
