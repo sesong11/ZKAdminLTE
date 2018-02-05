@@ -159,6 +159,14 @@
 			<version>${quartz.version}</version>
 		</dependency>
 
+		<!--Apache Derby-->
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.14.1.0</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

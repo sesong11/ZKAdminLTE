@@ -3,6 +3,7 @@
 
 	<persistence-unit name="myapp" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.sample.ZKSpringJPA.Main</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
 			<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
@@ -10,13 +11,26 @@
 			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.show_sql" value="true" />
 			<!-- data store in data/db under project folder-->
-			<property name="hibernate.connection.url" value="jdbc:hsqldb:file:data/db" />
+			<!--<property name="hibernate.connection.url" value="jdbc:hsqldb:file:data/db" />-->
 			<!-- db is not persistent to disk -->
-			<!--<property name="hibernate.connection.url" value="jdbc:hsqldb:mem:store" />-->
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:mem:store" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<!-- drop table every time
 			<property name="hibernate.hbm2ddl.auto" value="create" /> -->
 			<property name="hibernate.enable_lazy_load_no_trans" value="true" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="samplePU" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>org.agoncal.sample.loadScriptSource.Book</class>
+		<properties>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+			<property name="javax.persistence.schema-generation.scripts.create-target" value="sampleCreate.ddl"/>
+			<property name="javax.persistence.schema-generation.scripts.drop-target" value="sampleDrop.ddl"/>
+			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:sampleDB;create=true"/>
+			<property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
 		</properties>
 	</persistence-unit>
 </persistence>
