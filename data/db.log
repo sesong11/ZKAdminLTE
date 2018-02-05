@@ -1,0 +1,66 @@
+/*C4*/SET SCHEMA PUBLIC
+drop table employment.allowance if exists
+drop table employment.branch if exists
+drop table employment.day_off if exists
+drop table employment.department if exists
+drop table employment.designation if exists
+drop table employment.employee if exists
+drop table employment.employee_allowance if exists
+drop table employment.employee_history if exists
+drop table security.role_permission if exists
+drop table security.roles if exists
+drop table security.user_roles if exists
+drop table security.users if exists
+drop table Log if exists
+drop table users_roles if exists
+create table employment.allowance (id bigint not null, accrual_balance double, accrual_on double, type integer, end_balance double, frequency_accrual integer, frequency_renew integer, max_renewal double, name varchar(255), no_frequency_accrual integer, no_frequency_renew integer, start_balance double, unit varchar(255), primary key (id))
+create table employment.branch (id bigint not null, name varchar(255), primary key (id))
+create table employment.day_off (id bigint not null, date date, name varchar(255), primary key (id))
+create table employment.department (id bigint not null, name varchar(255), primary key (id))
+create table employment.designation (id bigint not null, name varchar(255), primary key (id))
+create table employment.employee (id bigint not null, code varchar(255), dob date, first_name varchar(255), gender varchar(255), last_name varchar(255), note varchar(2055), user_id bigint, primary key (id))
+create table employment.employee_allowance (id bigint not null, active_date date, allowance_id bigint, employee_id bigint, primary key (id))
+create table employment.employee_history (id bigint not null, active_date date, history_type varchar(255), note varchar(255), branch_id bigint, department_id bigint, designation_id bigint, employee_id bigint, supervisor_id bigint, primary key (id))
+alter table employment.employee_allowance add constraint FK7ibp9hrsy2fv3fhuvubddrsyh foreign key (allowance_id) references employment.allowance
+alter table employment.employee_allowance add constraint FK293uxh1jv018u13m3f2juwfea foreign key (employee_id) references employment.employee
+alter table employment.employee_history add constraint FKn1j3diwj3m8jvvv2ajo81tpi4 foreign key (branch_id) references employment.branch
+alter table employment.employee_history add constraint FK8iy6hflcfybacf9o5ixv3beqk foreign key (department_id) references employment.department
+alter table employment.employee_history add constraint FK59pkx258wgkfkfr30pibhhwb4 foreign key (designation_id) references employment.designation
+alter table employment.employee_history add constraint FK8rv9s5a7ts4dwrmv59p8c8xlw foreign key (employee_id) references employment.employee
+alter table employment.employee_history add constraint FKmuvg8n6lixcb9flht3eojy1kn foreign key (supervisor_id) references employment.employee
+create table security.role_permission (id bigint not null, feature varchar(255) not null, role_id bigint, primary key (id))
+create table security.roles (id bigint not null, name varchar(255), primary key (id))
+create table security.user_roles (user_role_id bigint not null, role varchar(255), user_id bigint, primary key (user_role_id))
+create table security.users (id bigint not null, enabled boolean, password varchar(255), username varchar(255), primary key (id))
+alter table security.role_permission add constraint FKtfgq8q9blrp0pt1pvggyli3v9 foreign key (role_id) references security.roles
+alter table security.roles add constraint UK_ofx66keruapi6vyqpv6f2or37 unique (name)
+alter table security.users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username)
+create sequence hibernate_sequence start with 1 increment by 1
+create table Log (id integer not null, date timestamp, message varchar(255) not null, primary key (id))
+create table users_roles (users_id bigint not null, roles_id bigint not null, primary key (users_id, roles_id))
+alter table users_roles add constraint FKa62j07k5mhgifpp955h37ponj foreign key (roles_id) references security.roles
+alter table users_roles add constraint FKml90kef4w2jy7oxyqv742tsfc foreign key (users_id) references security.users
+alter table employment.employee_allowance drop constraint FK7ibp9hrsy2fv3fhuvubddrsyh
+alter table employment.employee_allowance drop constraint FK293uxh1jv018u13m3f2juwfea
+alter table employment.employee_history drop constraint FKn1j3diwj3m8jvvv2ajo81tpi4
+alter table employment.employee_history drop constraint FK8iy6hflcfybacf9o5ixv3beqk
+alter table employment.employee_history drop constraint FK59pkx258wgkfkfr30pibhhwb4
+alter table employment.employee_history drop constraint FK8rv9s5a7ts4dwrmv59p8c8xlw
+alter table employment.employee_history drop constraint FKmuvg8n6lixcb9flht3eojy1kn
+drop table employment.allowance if exists
+drop table employment.branch if exists
+drop table employment.day_off if exists
+drop table employment.department if exists
+drop table employment.designation if exists
+drop table employment.employee if exists
+drop table employment.employee_allowance if exists
+drop table employment.employee_history if exists
+alter table security.role_permission drop constraint FKtfgq8q9blrp0pt1pvggyli3v9
+drop table security.role_permission if exists
+drop table security.user_roles if exists
+alter table users_roles drop constraint FKa62j07k5mhgifpp955h37ponj
+alter table users_roles drop constraint FKml90kef4w2jy7oxyqv742tsfc
+drop table Log if exists
+drop table users_roles if exists
+drop sequence hibernate_sequence
+DISCONNECT

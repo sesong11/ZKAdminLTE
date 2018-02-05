@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="roles", schema = "SECURITY")
+@Table(name="roles", schema = "security")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
