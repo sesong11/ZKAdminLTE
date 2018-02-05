@@ -1,7 +1,7 @@
 <zk xmlns:n="native">
     <window id="modalDialog" title="Employee History" border="normal" width="460px"
             position="center,center" closable="true"
-            viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.EmploymentHistoryVM')"
+            viewModel="@id('vm') @init('com.sample.zkspring.viewmodel.employment.EmploymentHistoryVM')"
             action="show: slideDown;hide: slideUp"
             onCancel="@command('closeThis')">
         <n:div class="form-group">

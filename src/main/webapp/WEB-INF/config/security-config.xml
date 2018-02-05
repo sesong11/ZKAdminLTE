@@ -43,5 +43,5 @@
 	</authentication-manager>
 
 	<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-	<beans:bean id="customUserDetailsService" class="com.sample.ZKSpringJPA.services.CustomUserDetailsService" />
+	<beans:bean id="customUserDetailsService" class="com.sample.zkspring.services.CustomUserDetailsService" />
 </beans:beans>

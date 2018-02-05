@@ -1,6 +1,6 @@
 <zk xmlns:n="native">
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
-         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.employment.EmployeeListVM')">
+         viewModel="@id('vm') @init('com.sample.zkspring.viewmodel.employment.EmployeeListVM')">
 
         <!-- Content Header (Page header) -->
         <n:section class="content-header">

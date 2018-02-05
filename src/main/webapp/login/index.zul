@@ -26,7 +26,7 @@
 
 <zk xmlns:n="native">
     <div zclass="none" apply="org.zkoss.bind.BindComposer"
-         viewModel="@id('vm') @init('com.sample.ZKSpringJPA.LoginVM')"
+         viewModel="@id('vm') @init('com.sample.zkspring.LoginVM')"
          validationMessages="@id('vmsgs')">
     <n:div class="login-box">
         <n:div class="login-logo">

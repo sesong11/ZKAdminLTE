@@ -1,7 +1,7 @@
 <zk xmlns:n="native">
     <window id="modalDialog" title="Employee History" border="normal" width="460px"
             position="center,center" closable="true"
-            viewModel="@id('vm') @init('com.sample.ZKSpringJPA.viewmodel.SimpleTask.SecondScheduleBuilderVM')"
+            viewModel="@id('vm') @init('com.sample.zkspring.viewmodel.simpletask.SecondScheduleBuilderVM')"
             onCancel="@command('closeThis')">
         <intbox value="@bind(vm.secondScheduleBuilder.second)" />
         <button onClick="@command('submit')" label="Submit" />
